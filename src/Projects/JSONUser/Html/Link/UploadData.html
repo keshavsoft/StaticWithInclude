@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+	<meta name="generator" content="Hugo 0.88.1">
+	<title>Dashboard Template · Bootstrap v5.1</title>
+
+	<link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/dashboard/">
+
+	<include src="src/components/Projects/JSONUser/HtmlInclude/ToHead.html"></include>
+
+	<style>
+		.bd-placeholder-img {
+			font-size: 1.125rem;
+			text-anchor: middle;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			user-select: none;
+		}
+
+		@media (min-width: 768px) {
+			.bd-placeholder-img-lg {
+				font-size: 3.5rem;
+			}
+		}
+	</style>
+
+	<!-- Custom styles for this template -->
+	<link href="../../css/dashboard.css" rel="stylesheet">
+</head>
+
+<body>
+	<include src="src/components/Projects/JSONUser/header.html"></include>
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+		integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+		crossorigin="anonymous"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
+
+
+	<div class="container-fluid">
+		<div class="row">
+
+			<include src="src/components/Projects/JSONUser/Link/sidebarMenu.html"></include>
+
+			<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+				<div id="KCont1">
+					<div id="BookingInsertSuccessId" class="alert alert-success alert-dismissible fade show mt-2"
+						role="alert">
+						<strong id="std">Holy guacamole!</strong> Uploaded Sucessfully.
+						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>
+
+					<div id="AlertForFromInsertNewId" class="alert alert-success alert-dismissible fade show mt-2"
+						role="alert">
+						<strong>From InsertNew!</strong> Inserted Sucessfully.
+						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>
+
+					<div class="card mt-2">
+						<div class="card-header text-bg-success">
+							<div class="row">
+								<div class="col-4 w-75">
+									<h4>Show all customers</h4>
+								</div>
+								<div class="col-3">
+									<input type="text" name="" id="" placeholder="Search" class="form-control"
+										onkeyup="jFTableSearch(event)">
+								</div>
+
+							</div>
+
+						</div>
+						<div class="card-body">
+
+							<table class="table">
+								<thead>
+									<tr>
+										<th>#</th>
+										<th>DataKey</th>
+										<th>UserName</th>
+										<th>Password</th>
+										<th>Setup</th>
+									</tr>
+								</thead>
+								<tbody id="KTableBodyId">
+
+								</tbody>
+							</table>
+						</div>
+
+					</div>
+
+				</div>
+				<div id="KDomId">
+				</div>
+
+
+
+				<div id="result_block" class="hidden">
+					<h3>Content :</h3>
+
+				</div>
+
+				<h4 id="FileNameId"></h4>
+
+				<table class="table">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>File Name</th>
+							<th>Date</th>
+							<th>Dir</th>
+							<th class="text-end">Size</th>
+						</tr>
+					</thead>
+					<tbody id="result"> </tbody>
+				</table>
+
+
+				<div class="modal fade" id="SetupModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+					aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal"
+									aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+								Setup successfull.
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+		</div>
+	</div>
+
+	<div class="modal fade" id="LoginModalId" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Enter client user credentials</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form id="LoginFormPopUpId" class="" onsubmit="return false" novalidate="">
+						<div class="mb-3 form-floating is-valid">
+							<input type="text" class="form-control" id="KUserNameInput" required="">
+							<label for="KUserNameInput">User Name</label>
+							<div class="invalid-feedback">
+								User Name cannot be empty.
+							</div>
+						</div>
+						<div class="mb-3 form-floating">
+							<input type="password" class="form-control" id="KPasswordInput" required="">
+							<label for="KPasswordInput">Password</label>
+							<div class="invalid-feedback">
+								Password cannot be empty.
+							</div>
+						</div>
+						<input id="LoginButtonOnModalId" type="submit" class=" btn btn-primary">
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script id="HbsTemplateForFoldersOnly" type="text/x-handlebars">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Vouchers Name</th>
+                    <th></th>
+                    <th>Upload Report</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each JsonReports}}
+                <tr class="{{RowClass}}">
+                    <td class="text-center">
+                        {{ForSNo @index}}
+                    </td>
+                    <td>
+                        {{@key}}
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-outline-info UploadButtonClass" data-report="{{@key}}">
+                            Upload
+                        </button>
+                    </td>
+                    
+                </tr>
+                {{/each}}
+            </tbody>
+       
+        </table>
+      </script>
+
+	<script id="HbsTemplateForBody" type="text/x-handlebars">
+		{{#each this}}
+		<tr class="{{RowClass}}" data-pk="{{@key}}">
+			<td class="text-center">
+				{{ForSNo @index}}
+			</td>
+			<td>{{@key}}</td>
+			<td>{{UserName}}</td>
+			<td>{{PassWord}}</td>
+			{{#if FolderPresent}}
+			<td>
+			</td>
+			<td>
+		</td>
+			{{else}}
+			<td>
+				<input class="form-control SelectFileClass" type="file" id="SelectFileId">
+			</td>
+			<td>
+				<button type="button" class="btn btn-outline-info UploadButtonClass" data-DataPk="{{@key}}">
+					Upload
+			</button>
+		</td>
+{{/if}}
+
+		
+			{{#if ShowInsertNew}}
+			<td class="text-right">
+				<a class="btn btn-outline-primary btn-sm" href="InsertNew.html?UserPK={{@key}}">Insert UserName</a>
+			</td>
+			{{/if}}
+		</tr>
+		{{/each}}
+</script>
+
+
+	<script>
+		Handlebars.registerHelper('ForSNo', function (item) {
+			return item + 1;
+		});
+
+		feather.replace({ 'aria-hidden': 'true' });
+	</script>
+
+	<script src="/JSONUser/Js/HeaderElementColourChange.js" type="module"></script>
+
+	<!-- <script src="../../Js/AdminData/StartFunc.js" type="module"></script> -->
+	<script src="../../Js/ForUI/MenuActive.js" type="module"></script>
+	<script src="../../Js/Link/UploadData/zipjs.js" type="module"></script>
+	<script src="../../Js/Link/UploadData/UploaData.js" type="module"></script>
+</body>
+
+</html>
