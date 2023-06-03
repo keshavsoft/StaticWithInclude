@@ -7,6 +7,9 @@ let jFCreateFoldersToDom = async ({ inProjectName }) => {
 
     if (dataFromApi !== null) {
         jVarGlobalPresentViewData = dataFromApi;
+
+        jVarGlobalPresentViewData.Folders.Masters.MenuClass = "active";
+
         let jVarLocalRawTemplate = document.getElementById("HbsTemplateForFoldersOnly").innerHTML;
         document.getElementById("KCont1").innerHTML = Handlebars.compile(jVarLocalRawTemplate)(dataFromApi);
     };
