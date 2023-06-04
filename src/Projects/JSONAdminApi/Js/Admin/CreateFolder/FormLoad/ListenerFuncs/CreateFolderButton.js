@@ -37,7 +37,6 @@ let jFLocalPostFetch = ({ inFromFetch, inNewFolderName }) => {
 };
 
 let jFLocalPostFetchAsArray = ({ inFromFetch, inNewFolderName }) => {
-    //const myUrlWithParams = new URL(window.location.href);
     const myUrlWithParams = new URL(`${window.location.origin}${window.location.pathname}`);
 
     let jVarLocalFromConfig = inFromFetch.find(element => {

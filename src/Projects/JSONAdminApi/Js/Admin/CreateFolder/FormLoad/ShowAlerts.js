@@ -1,15 +1,6 @@
 const StartFunc = () => {
-    // let jVarLocalForConfig = getUrlQueryParams({ inGetKey: "ConfigFolderCreated" });
-
-    // if (jVarLocalForConfig === null) {
-    //     const alert = bootstrap.Alert.getOrCreateInstance('#ConfigFolderInsertSuccessId');
-    //     alert.close();
-    // } else {
-
-    // };
     jFLocalForConfig();
     jFLocalForData();
-
 };
 
 const jFLocalForConfig = () => {
@@ -39,7 +30,6 @@ const jFLocalForData = () => {
     };
 
 };
-
 
 let getUrlQueryParams = ({ inGetKey }) => {
     const queryString = window.location.search;

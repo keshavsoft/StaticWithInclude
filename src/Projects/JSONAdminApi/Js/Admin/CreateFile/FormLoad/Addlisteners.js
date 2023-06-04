@@ -1,4 +1,5 @@
 import { StartFunc as StartFuncCreateFolderButton } from "./ListenerFuncs/CreateFolderButton.js";
+import { StartFunc as StartFuncShowButtonClass } from "./ShowButtonClass.js";
 
 let StartFunc = ({ inProjectName }) => {
     let jVarLocalFileCreateClassName = document.getElementsByClassName("CreateFileButtonClass");
@@ -13,14 +14,17 @@ let StartFunc = ({ inProjectName }) => {
         });
     };
 
-    for (let i = 0; i < jVarLocalShowButtonClass.length; i++) {
-        jVarLocalShowButtonClass[i].addEventListener("click", async (event) => {
-            await jFLocalButtonClickFunc({
-                inEvent: event,
-                inProjectName
-            });
-        });
-    };
+    StartFuncShowButtonClass({ inProjectName });
+
+    // for (let i = 0; i < jVarLocalShowButtonClass.length; i++) {
+    //     jVarLocalShowButtonClass[i].addEventListener("click", async (event) => {
+    //         await jFLocalButtonClickFunc({
+    //             inEvent: event,
+    //             inProjectName
+    //         });
+    //     });
+    // };
+
 };
 
 export { StartFunc };

@@ -1,3 +1,4 @@
+import { StartFunc as StartFuncShowButtonClass } from "./ShowButtonClass.js";
 import { StartFunc as StartFuncListenerFuncs } from "./ListenerFuncs/StartFunc.js";
 
 let StartFunc = ({ inProjectName }) => {
@@ -8,9 +9,11 @@ let StartFunc = ({ inProjectName }) => {
             await StartFuncListenerFuncs({
                 inEvent: event,
                 inProjectName
-            });
+            }); k
         });
     };
+
+    StartFuncShowButtonClass({ inProjectName });
 };
 
 export { StartFunc };
