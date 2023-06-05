@@ -11,6 +11,8 @@ let StartFunc = ({ inProjectName }) => {
     };
 };
 
+// DeleteButtonClass
+
 let jFLocalButtonClickFunc = async ({ inEvent }) => {
     let jVarLocalCurrentTarget = inEvent.currentTarget;
     let jVarLocalFolderName = jVarLocalCurrentTarget.dataset.foldername;

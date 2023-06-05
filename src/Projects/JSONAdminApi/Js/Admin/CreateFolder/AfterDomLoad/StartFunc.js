@@ -1,6 +1,8 @@
+import { StartFunc as StartFuncAddlisteners } from "./Addlisteners.js";
+
 const StartFunc = () => {
     let jVarLocalFolderCreated = getUrlQueryParams({ inGetKey: "NewFolderName" });
-    
+
     let jVarLocalHtmlId = "KCont1";
     let jVarLocalKCont1 = document.getElementById(jVarLocalHtmlId);
     let jVarLocalFindRow = jVarLocalKCont1.querySelector(`tr[data-foldername='${jVarLocalFolderCreated}']`);
@@ -8,6 +10,8 @@ const StartFunc = () => {
     if (jVarLocalFindRow === null === false) {
         jVarLocalFindRow.classList.add("table-success");
     };
+
+    StartFuncAddlisteners();
 };
 
 let getUrlQueryParams = ({ inGetKey }) => {
