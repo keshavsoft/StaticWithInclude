@@ -38,11 +38,23 @@ let jFLocalCheckBeforeFetch = ({ inEvent }) => {
 
 let jFLocalPostFetch = ({ inFromFetch, inBodyData }) => {
     if (Array.isArray(inFromFetch)) {
-      //  jFLocalPostFetchAsArray({ inFromFetch, inBodyData });
+        jFLocalPostFetchAsArray({ inFromFetch, inBodyData });
     };
 };
 
-let jFLocalPostFetchAsArray = ({ inFromFetch, inBodyData}) => {
+let jFLocalPostFetchAsArray = ({ inFromFetch, inBodyData }) => {
+    if (jFLocalPostFetchCheckTF({ inFromFetch })) {
+        if ("inFolderName" in inBodyData) {
+
+        };
+
+        console.log("inBodyData : ", inBodyData);
+        // myUrlWithParams.searchParams.append("NewFileName", inNewFileName);
+        // window.location.href = myUrlWithParams.href;
+    };
+};
+
+let jFLocalPostFetchCheckTF = ({ inFromFetch }) => {
     const myUrlWithParams = new URL(window.location.href);
 
     let jVarLocalFromConfig = inFromFetch.find(element => {
@@ -51,8 +63,6 @@ let jFLocalPostFetchAsArray = ({ inFromFetch, inBodyData}) => {
 
     if (jVarLocalFromConfig === undefined === false) {
         myUrlWithParams.searchParams.append("ConfigFolderCreated", true);
-        // const alert = bootstrap.Alert.getOrCreateInstance('#ConfigFolderInsertSuccessId');
-        // alert.close();
     };
 
     let jVarLocalFromData = inFromFetch.find(element => {
@@ -61,21 +71,19 @@ let jFLocalPostFetchAsArray = ({ inFromFetch, inBodyData}) => {
 
     if (jVarLocalFromData === undefined === false) {
         myUrlWithParams.searchParams.append("DataFolderCreated", true);
-        // const alert = bootstrap.Alert.getOrCreateInstance('#DataFolderInsertSuccessId');
-        // alert.close();
     };
 
     let jVarLocalAnyCreated = inFromFetch.filter(element => {
         return element.KTF
     });
 
-    // FolderCreated
-
     if (jVarLocalAnyCreated.length > 0) {
-        myUrlWithParams.searchParams.append("NewFileName", inNewFileName);
-        window.location.href = myUrlWithParams.href;
+        return true;
     };
+
+    return false;
 };
+
 
 let jFLocalCallFetch = async ({ inBodyData, inProjectName }) => {
     let jFetchUrl = `/${inProjectName}/AdminApi/AsTree/Json/UserFolders/ConfigAndDataFolders/UserFile/ItemName/CreateNew/CreateItem`;

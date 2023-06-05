@@ -69,7 +69,7 @@ let jFLocalPreparePostData = () => {
     let jVarLocalHtmlId = "CreateFolderInputId";
     let jVarCreateFolderInputId = document.getElementById(jVarLocalHtmlId);
 
-    let jVarLocalFolderName = jVarCreateFolderInputId.value;
+    let jVarLocalFolderName = jVarCreateFolderInputId.value.trim();
 
     return {
         NewFolderName: jVarLocalFolderName

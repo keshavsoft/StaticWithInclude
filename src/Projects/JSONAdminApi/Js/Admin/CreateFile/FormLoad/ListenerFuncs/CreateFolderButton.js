@@ -87,7 +87,8 @@ let jFLocalPreparePostData = ({inEvent}) => {
     let jVarLocalCurrentTarget = inEvent.currentTarget;
     let jVarLocalColsestTr = jVarLocalCurrentTarget.closest("tr");
     let jVarLocalFileName = jVarLocalColsestTr.querySelector('[name="FileName"]');
-    let jVarLocalFileNameValue = jVarLocalFileName.value;
+
+    let jVarLocalFileNameValue = jVarLocalFileName.value.trim();
 
     return {
         NewFileName: jVarLocalFileNameValue

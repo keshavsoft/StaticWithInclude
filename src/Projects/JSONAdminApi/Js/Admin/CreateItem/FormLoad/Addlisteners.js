@@ -9,7 +9,7 @@ let StartFunc = ({ inProjectName }) => {
             await StartFuncListenerFuncs({
                 inEvent: event,
                 inProjectName
-            }); k
+            });
         });
     };
 

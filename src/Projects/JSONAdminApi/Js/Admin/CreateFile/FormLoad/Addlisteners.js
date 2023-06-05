@@ -14,7 +14,7 @@ let StartFunc = ({ inProjectName }) => {
         });
     };
 
-    StartFuncShowButtonClass({ inProjectName });
+    // StartFuncShowButtonClass({ inProjectName });
 
     // for (let i = 0; i < jVarLocalShowButtonClass.length; i++) {
     //     jVarLocalShowButtonClass[i].addEventListener("click", async (event) => {
