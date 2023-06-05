@@ -8,7 +8,7 @@
 
     <include src="src/components/Projects/JSONAdminApi/HtmlInclude/ToHead.html"></include>
 
-    <title>Create Screen</title>
+    <title>Create Column</title>
     <!-- Custom styles for this template -->
     <link href="/JSONProject/css/headers.css" rel="stylesheet">
 
@@ -44,7 +44,7 @@
                 <strong id="DataFolderInsertSuccessStrongId">Holy guacamole!</strong> Data folder creasted Sucessfully.
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-            
+
             <div id="KCont1">
             </div>
         </div>
@@ -52,12 +52,12 @@
 
     <script src="/JSONApi/Js/lodash.js"></script>
 
-        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
 
 
-    <script id="HbsTemplateForScreensOnly" type="text/x-handlebars">
+    <!-- <script id="HbsTemplateForScreensOnly" type="text/x-handlebars">
         <div class="card">
             <div class="card-header text-bg-dark">
                 Create New Screen
@@ -100,12 +100,6 @@
                         <td>
                             {{this.ScreenName}}
                         </td>
-                        <td>
-                            <button type="button" class="btn btn-outline-dark ShowButtonClass"
-                             data-foldername="{{@../../key}}" data-filename="{{@../key}}" data-itemname="{{@./key}}">
-                                Show Column
-                            </button>
-                        </td>
                     </tr>
                     {{/each}}
                 </tbody>
@@ -115,8 +109,88 @@
             </table>
         </div>
     </div>
-      </script>
+      </script> -->
 
+    <script id="HbsTemplateForColumnsForTogglesOnly" type="text/x-handlebars">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="text-center">#</th>
+                    <th>DataAttribute</th>
+                    <th>DisplayName</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each TableColumnsObject}}
+    <tr class="{{RowClass}}">
+        <td class="text-center">
+            {{ForSNo @index}}
+        </td>
+         <td>
+            {{DataAttribute}}
+         </td>
+        <td>
+            {{DisplayName}}
+        </td>
+    </tr>
+                {{/each}}
+            </tbody>
+            <tfoot>
+                <tr>
+                <td></td>
+                <td>
+                    <input name="ColumnName" type="text" class="form-control" placeholder="Enter Column Name" autocomplete="off">
+                </td>
+                <td>
+                    <button data-foldername="{{@../../../key}}" data-filename="{{@../../key}}" data-itemname="{{@../key}}" data-screenname="{{@key}}" class="btn btn-success CreateColumnButtonClass">Insert New Column</button>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+    
+        </script>
+
+    <script id="HbsTemplateForScreensOnly" type="text/x-handlebars">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>ScreenName</th>
+                    <th>ScreenNameForHtmlId</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each this.Screens}}
+                <tr>
+                    <td class="text-center">
+                        {{ForSNo @index}}
+                    </td>
+                    <td>
+                        {{this.ScreenName}}
+                    </td>
+                    <td>
+                        {{this.ScreenNameForHtmlId}}
+                    </td>
+                    <td>
+                        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#{{../FolderName}}-{{../FileNameWithOutExtension}}-{{../ItemName}}-{{ScreenName}}"
+                        aria-expanded="false" aria-controls="{{../FolderName}}-{{../FileNameWithOutExtension}}-{{../ItemName}}-{{ScreenName}}">
+                        Toggle Columns
+                    </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan=5 >
+                        <div class="collapse {{CollapseClass}}" id="{{../FolderName}}-{{../FileNameWithOutExtension}}-{{../ItemName}}-{{ScreenName}}">
+                            {{> HbsTemplateForColumnsForTogglesOnly FolderName=../FolderName FileNameWithOutExtension=../FileNameWithOutExtension ItemName=../ItemName ScreenName=ScreenName}}
+                        </div>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+       
+        </table>
+      </script>
 
     <script id="HbsTemplateForFoldersOnly" type="text/x-handlebars">
 
@@ -288,11 +362,11 @@
     </script>
 
 
-<script>
-    let jVarGlobalPresentViewData;
-</script>
+    <script>
+        let jVarGlobalPresentViewData;
+    </script>
 
-    <script src="../../../Js/Admin/CreateScreen/CreateScreen.js" type="module"></script>
+    <script src="../../../Js/Admin/CreateColumn/CreateColumn.js" type="module"></script>
 
 </body>
 
