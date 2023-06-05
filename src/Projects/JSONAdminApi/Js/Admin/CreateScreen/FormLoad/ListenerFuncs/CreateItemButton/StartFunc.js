@@ -36,42 +36,7 @@ let jFLocalCheckBeforeFetch = ({ inEvent }) => {
 
 let jFLocalPostFetch = ({ inFromFetch, inBodyData }) => {
     if (Array.isArray(inFromFetch)) {
-      //  jFLocalPostFetchAsArray({ inFromFetch, inBodyData });
-    };
-};
-
-let jFLocalPostFetchAsArray = ({ inFromFetch, inBodyData}) => {
-    const myUrlWithParams = new URL(window.location.href);
-
-    let jVarLocalFromConfig = inFromFetch.find(element => {
-        return element.ConfigFolderCreated
-    });
-
-    if (jVarLocalFromConfig === undefined === false) {
-        myUrlWithParams.searchParams.append("ConfigFolderCreated", true);
-        // const alert = bootstrap.Alert.getOrCreateInstance('#ConfigFolderInsertSuccessId');
-        // alert.close();
-    };
-
-    let jVarLocalFromData = inFromFetch.find(element => {
-        return element.DataFolderCreated
-    });
-
-    if (jVarLocalFromData === undefined === false) {
-        myUrlWithParams.searchParams.append("DataFolderCreated", true);
-        // const alert = bootstrap.Alert.getOrCreateInstance('#DataFolderInsertSuccessId');
-        // alert.close();
-    };
-
-    let jVarLocalAnyCreated = inFromFetch.filter(element => {
-        return element.KTF
-    });
-
-    // FolderCreated
-
-    if (jVarLocalAnyCreated.length > 0) {
-        myUrlWithParams.searchParams.append("NewFileName", inNewFileName);
-        window.location.href = myUrlWithParams.href;
+        jFLocalPostFetchAsArray({ inFromFetch, inBodyData });
     };
 };
 
@@ -91,6 +56,56 @@ let jFLocalCallFetch = async ({ inBodyData, inProjectName }) => {
 
     if (response.status === 200) {
         return await response.json();
+    };
+};
+
+let jFLocalPostFetchCheckTF = ({ inFromFetch }) => {
+    const myUrlWithParams = new URL(window.location.href);
+
+    let jVarLocalFromConfig = inFromFetch.find(element => {
+        return element.ConfigFolderCreated
+    });
+
+    if (jVarLocalFromConfig === undefined === false) {
+        myUrlWithParams.searchParams.append("ConfigFolderCreated", true);
+    };
+
+    let jVarLocalFromData = inFromFetch.find(element => {
+        return element.DataFolderCreated
+    });
+
+    if (jVarLocalFromData === undefined === false) {
+        myUrlWithParams.searchParams.append("DataFolderCreated", true);
+    };
+
+    let jVarLocalAnyCreated = inFromFetch.filter(element => {
+        return element.KTF
+    });
+
+    if (jVarLocalAnyCreated.length > 0) {
+        return true;
+    };
+
+    return false;
+};
+
+let jFLocalPostFetchAsArray = ({ inFromFetch, inBodyData }) => {
+    if (jFLocalPostFetchCheckTF({ inFromFetch })) {
+        const myUrlWithParams = new URL(`${window.location.origin}${window.location.pathname}`);
+
+        if ("FolderName" in inBodyData) {
+            myUrlWithParams.searchParams.append("inFolderName", inBodyData.FolderName);
+        };
+
+        if ("FileName" in inBodyData) {
+            myUrlWithParams.searchParams.append("inFileName", inBodyData.FileName);
+        };
+
+        if ("ItemName" in inBodyData) {
+            myUrlWithParams.searchParams.append("ItemName", inBodyData.ItemName);
+        };
+
+        window.location.href = myUrlWithParams.href;
     };
 };
 

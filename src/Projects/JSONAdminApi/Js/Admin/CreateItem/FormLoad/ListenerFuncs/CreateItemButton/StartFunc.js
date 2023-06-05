@@ -44,13 +44,21 @@ let jFLocalPostFetch = ({ inFromFetch, inBodyData }) => {
 
 let jFLocalPostFetchAsArray = ({ inFromFetch, inBodyData }) => {
     if (jFLocalPostFetchCheckTF({ inFromFetch })) {
-        if ("inFolderName" in inBodyData) {
+        const myUrlWithParams = new URL(`${window.location.origin}${window.location.pathname}`);
 
+        if ("FolderName" in inBodyData) {
+            myUrlWithParams.searchParams.append("inFolderName", inBodyData.FolderName);
         };
 
-        console.log("inBodyData : ", inBodyData);
-        // myUrlWithParams.searchParams.append("NewFileName", inNewFileName);
-        // window.location.href = myUrlWithParams.href;
+        if ("FileName" in inBodyData) {
+            myUrlWithParams.searchParams.append("inFileName", inBodyData.FileName);
+        };
+
+        if ("NewItemName" in inBodyData) {
+            myUrlWithParams.searchParams.append("NewItemName", inBodyData.NewItemName);
+        };
+
+        window.location.href = myUrlWithParams.href;
     };
 };
 
