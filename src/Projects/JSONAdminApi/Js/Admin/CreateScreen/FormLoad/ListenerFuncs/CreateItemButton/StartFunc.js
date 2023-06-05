@@ -102,7 +102,7 @@ let jFLocalPostFetchAsArray = ({ inFromFetch, inBodyData }) => {
         };
 
         if ("ItemName" in inBodyData) {
-            myUrlWithParams.searchParams.append("ItemName", inBodyData.ItemName);
+            myUrlWithParams.searchParams.append("inItemName", inBodyData.ItemName);
         };
 
         window.location.href = myUrlWithParams.href;
