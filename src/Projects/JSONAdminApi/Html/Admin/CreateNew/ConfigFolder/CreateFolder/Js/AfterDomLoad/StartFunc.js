@@ -1,6 +1,6 @@
 import { StartFunc as StartFuncAddlisteners } from "./Addlisteners.js";
 
-const StartFunc = () => {
+const StartFunc = ({inProjectName}) => {
     let jVarLocalFolderCreated = getUrlQueryParams({ inGetKey: "NewFolderName" });
 
     let jVarLocalHtmlId = "KCont1";
@@ -11,7 +11,7 @@ const StartFunc = () => {
         jVarLocalFindRow.classList.add("table-success");
     };
 
-    StartFuncAddlisteners();
+    StartFuncAddlisteners({inProjectName});
 };
 
 let getUrlQueryParams = ({ inGetKey }) => {
