@@ -33,7 +33,13 @@ let jFLocalCheckBeforeFetch = () => {
 let jFLocalPostFetch = ({ inFromFetch, inNewFolderName }) => {
     if (Array.isArray(inFromFetch)) {
         jFLocalPostFetchAsArray({ inFromFetch, inNewFolderName });
+    } else {
+        jFLocalPostFetchNotArray({ inFromFetch, inNewFolderName });
     };
+};
+
+let jFLocalPostFetchNotArray = ({ inFromFetch, inNewFolderName }) => {
+    console.log("aaaaaaaaaa : ", inFromFetch);
 };
 
 let jFLocalPostFetchAsArray = ({ inFromFetch, inNewFolderName }) => {
@@ -77,7 +83,10 @@ let jFLocalPreparePostData = () => {
 };
 
 let jFLocalCallFetch = async ({ inBodyData, inProjectName }) => {
-    let jFetchUrl = `/${inProjectName}/AdminApi/AsTree/Json/UserFolders/ConfigAndDataFolders/CreateNew/CreateFolder`;
+    //  let jFetchUrl = `/${inProjectName}/AdminApi/AsTree/Json/UserFolders/ConfigAndDataFolders/CreateNew/CreateFolder`;
+
+    let jFetchUrl = `/${inProjectName}/AdminApi/AsTree/Json/UserFolders/ConfigFolder/CreateNew/CreateFolder`;
+
     let jFetchBody = {
         method: "post",
         headers: {
