@@ -3,7 +3,7 @@ import { StartFunc as RowAndColumnsStartFunc } from "./ApplyClasses.js";
 
 let jFCreateFoldersToDom = async ({ inProjectName }) => {
     let jVarLocalRoute = inProjectName;
-    let jVarLocalFetchUrl = `/${jVarLocalRoute}/AdminApi/AsTree/Json/UserFolders/ConfigFolder/UserFileAsFolder/Duplicate/DuplicateFile`;
+    let jVarLocalFetchUrl = `/${jVarLocalRoute}/AdminApi/AsTree/Json/UserFolders/ConfigAndDataFolders/UserFile/CreateNew/CreateFile`;
 
     let jVarLocalFromFetch = await fetch(jVarLocalFetchUrl);
     let dataFromApi = await jVarLocalFromFetch.json();
