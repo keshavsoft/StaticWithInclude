@@ -101,7 +101,10 @@
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
 
     <script id="HbsTemplateForFoldersOnly" type="text/x-handlebars">
+        {{log "main : " this}}
+
                 {{#each Folders}}
+                {{log "ssssssss : " this}}
                 <tr class="{{RowClass}}" data-foldername="{{FolderName}}">
                     <td class="text-center">
                         {{ForSNo @index}}
