@@ -12,7 +12,7 @@ let StartFunc = ({ inProjectName }) => {
 };
 
 let jFLocalButtonClickFunc = async ({ inEvent }) => {
-    const myUrlWithParams = new URL(`${window.location.origin}${window.location.pathname.replace("CreateItem.html", "CreateScreen.html")}`);
+    const myUrlWithParams = new URL(`${window.location.origin}${window.location.pathname.replace("CreateItem.html", "../CreateScreen/CreateScreen.html")}`);
 
     let jVarLocalCurrentTarget = inEvent.currentTarget;
     let jVarLocalFolderName = jVarLocalCurrentTarget.dataset.foldername;
