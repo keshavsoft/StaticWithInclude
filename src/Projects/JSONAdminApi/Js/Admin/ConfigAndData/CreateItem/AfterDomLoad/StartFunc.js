@@ -1,5 +1,6 @@
 
 const StartFunc = ({ inProjectName }) => {
+    console.log("jjjjjj");
     let jVarLocalFolderCreated = getUrlQueryParams({ inGetKey: "NewFileName" });
 
     let jVarLocalHtmlId = "KCont1";
