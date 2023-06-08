@@ -107,11 +107,9 @@
                             {{ItemName}}
                         </td>
                         <td>
-                            <button type="button" class="btn btn-outline-info ShowButtonClass"
-                              data-foldername="{{@../../key}}" data-filename="{{@../key}}" data-itemname="{{@key}}">
-                                Show Items
-                            </button>
-
+                            <a href="../CreateItem/CreateItem.html?inFolderName={{@../key}}&inFileName={{@key}}" class="btn btn-outline-info ShowButtonClass"
+                            >Show Screens</a>
+                            
                         </td>
                     </tr>
                     {{/each}}
