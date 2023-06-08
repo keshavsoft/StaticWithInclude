@@ -1,5 +1,6 @@
 import { StartFunc as StartFuncAdminData } from "../../../AdminData/StartFunc.js";
 import { StartFunc as StartFuncInsertSerial } from "./InsertSerial.js";
+import { StartFunc as StartFuncAddListeners } from "./AddListeners/StartFunc.js";
 
 let jFSetup = async (event) => {
     let jVarLocalCurrentTarget = event.currentTarget;
@@ -33,14 +34,17 @@ let jFShowData = async () => {
 
 let StartFunc = async () => {
     let PromiseData = await StartFuncAdminData();
-    console.log("PromiseData : ", PromiseData);
+
     if (PromiseData) {
         await jFShowData();
-        let jVarLocalSetupButtonClass = document.querySelectorAll(".SetupButtonClass");
 
-        jVarLocalSetupButtonClass.forEach(box => {
-            box.addEventListener('click', jFSetup);
-        });
+        StartFuncAddListeners();
+        // let jVarLocalSetupButtonClass = document.querySelectorAll(".SetupButtonClass");
+
+        // jVarLocalSetupButtonClass.forEach(box => {
+        //     box.addEventListener('click', jFSetup);
+        // });
+
     };
 };
 
