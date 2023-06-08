@@ -112,8 +112,8 @@ let jFLocalPreparePostData = ({ inEvent }) => {
 };
 
 let jFLocalCallFetch = async ({ inBodyData, inProjectName }) => {
-
     let jFetchUrl = `/${inProjectName}/AdminApi/AsTree/Json/UserFolders/ConfigFolder/UserFileAsFolder/CreateNew/CreateFile`;
+
     let jFetchBody = {
         method: "post",
         headers: {
