@@ -1,4 +1,4 @@
-import { jFCreateFoldersToDom } from "./ShowOnDom/ShowOnDom.js";
+import { StartFunc as StartFuncShowOnDom } from "./ShowOnDom/ShowOnDom.js";
 import ApiConfigJson from '../../../../ApiConfig.json' assert {type: 'json'};
 import { StartFunc as StartFuncAdminData } from "../../../../../AdminData/StartFunc.js";
 import { StartFunc as StartFuncFormLoad } from "./FormLoad/StartFunc.js";
@@ -10,7 +10,7 @@ const StartFunc = () => {
     let jVarLocalFromAdmin = StartFuncAdminData();
 
     if (jVarLocalFromAdmin) {
-        jFCreateFoldersToDom({ inProjectName: jVarCommonProjectName }).then(() => {
+        StartFuncShowOnDom({ inProjectName: jVarCommonProjectName }).then(() => {
             StartFuncFormLoad({ inProjectName: jVarCommonProjectName });
 
             StartFuncAfterDomLoad({});

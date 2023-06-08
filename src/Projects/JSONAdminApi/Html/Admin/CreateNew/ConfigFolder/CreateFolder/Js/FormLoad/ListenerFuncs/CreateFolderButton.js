@@ -40,6 +40,12 @@ let jFLocalPostFetch = ({ inFromFetch, inNewFolderName }) => {
 
 let jFLocalPostFetchNotArray = ({ inFromFetch, inNewFolderName }) => {
     console.log("aaaaaaaaaa : ", inFromFetch);
+    const myUrlWithParams = new URL(`${window.location.origin}${window.location.pathname}`);
+
+    if (inFromFetch.ConfigFolderCreated) {
+        myUrlWithParams.searchParams.append("ConfigFolderCreated", true);
+    };
+    console.log("---- : ", myUrlWithParams);
 };
 
 let jFLocalPostFetchAsArray = ({ inFromFetch, inNewFolderName }) => {
