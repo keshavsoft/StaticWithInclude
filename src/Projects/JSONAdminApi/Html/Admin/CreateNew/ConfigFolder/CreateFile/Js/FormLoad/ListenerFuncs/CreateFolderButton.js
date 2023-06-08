@@ -6,7 +6,7 @@ let StartFunc = async ({ inEvent, inProjectName }) => {
 
 
     if (localjFLocalCheckBeforeFetch) {
-        let jVarLocalBodyData = jFLocalPreparePostData({inEvent});
+        let jVarLocalBodyData = jFLocalPreparePostData({ inEvent });
         let jVarLocalFileName = jVarLocalBodyData.NewFileName;
         jVarLocalBodyData.FolderName = jVarLocalFolderName;
 
@@ -45,6 +45,22 @@ let jFLocalCheckBeforeFetch = ({ inEvent }) => {
 let jFLocalPostFetch = ({ inFromFetch, inNewFolderName, inNewFileName }) => {
     if (Array.isArray(inFromFetch)) {
         jFLocalPostFetchAsArray({ inFromFetch, inNewFolderName, inNewFileName });
+    } else {
+        jFLocalPostFetchNotArray({ inFromFetch, inNewFolderName, inNewFileName });
+    };
+};
+
+let jFLocalPostFetchNotArray = ({ inFromFetch, inNewFolderName, inNewFileName }) => {
+    const myUrlWithParams = new URL(`${window.location.origin}${window.location.pathname}`);
+
+    if (inFromFetch.ConfigFolderCreated) {
+        myUrlWithParams.searchParams.append("ConfigFolderCreated", true);
+    };
+
+    if (inFromFetch.KTF) {
+        myUrlWithParams.searchParams.append("inFolderName", inNewFolderName);
+        myUrlWithParams.searchParams.append("NewFileName", inNewFileName);
+        window.location.href = myUrlWithParams.href;
     };
 };
 
@@ -83,7 +99,7 @@ let jFLocalPostFetchAsArray = ({ inFromFetch, inNewFolderName, inNewFileName }) 
     };
 };
 
-let jFLocalPreparePostData = ({inEvent}) => {
+let jFLocalPreparePostData = ({ inEvent }) => {
     let jVarLocalCurrentTarget = inEvent.currentTarget;
     let jVarLocalColsestTr = jVarLocalCurrentTarget.closest("tr");
     let jVarLocalFileName = jVarLocalColsestTr.querySelector('[name="FileName"]');
