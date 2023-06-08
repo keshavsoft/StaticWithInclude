@@ -1,4 +1,5 @@
 import { StartFunc as StartFuncPreparePostData } from "./PreparePostData.js";
+import { StartFunc as StartFuncPostFetch } from "./PostFetch.js";
 
 let StartFunc = async ({ inEvent, inProjectName }) => {
     let localjFLocalCheckBeforeFetch = jFLocalCheckBeforeFetch({ inEvent });
@@ -11,7 +12,7 @@ let StartFunc = async ({ inEvent, inProjectName }) => {
             inProjectName
         });
 
-        jFLocalPostFetch({
+        StartFuncPostFetch({
             inFromFetch: response,
             inBodyData: jVarLocalBodyData
         });
@@ -32,47 +33,6 @@ let jFLocalCheckBeforeFetch = ({ inEvent }) => {
     };
 
     return true;
-};
-
-let jFLocalPostFetch = ({ inFromFetch, inBodyData }) => {
-    if (Array.isArray(inFromFetch)) {
-      //  jFLocalPostFetchAsArray({ inFromFetch, inBodyData });
-    };
-};
-
-let jFLocalPostFetchAsArray = ({ inFromFetch, inBodyData}) => {
-    const myUrlWithParams = new URL(window.location.href);
-
-    let jVarLocalFromConfig = inFromFetch.find(element => {
-        return element.ConfigFolderCreated
-    });
-
-    if (jVarLocalFromConfig === undefined === false) {
-        myUrlWithParams.searchParams.append("ConfigFolderCreated", true);
-        // const alert = bootstrap.Alert.getOrCreateInstance('#ConfigFolderInsertSuccessId');
-        // alert.close();
-    };
-
-    let jVarLocalFromData = inFromFetch.find(element => {
-        return element.DataFolderCreated
-    });
-
-    if (jVarLocalFromData === undefined === false) {
-        myUrlWithParams.searchParams.append("DataFolderCreated", true);
-        // const alert = bootstrap.Alert.getOrCreateInstance('#DataFolderInsertSuccessId');
-        // alert.close();
-    };
-
-    let jVarLocalAnyCreated = inFromFetch.filter(element => {
-        return element.KTF
-    });
-
-    // FolderCreated
-
-    if (jVarLocalAnyCreated.length > 0) {
-        myUrlWithParams.searchParams.append("NewFileName", inNewFileName);
-        window.location.href = myUrlWithParams.href;
-    };
 };
 
 let jFLocalCallFetch = async ({ inBodyData, inProjectName }) => {
