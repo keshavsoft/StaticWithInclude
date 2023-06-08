@@ -1,5 +1,7 @@
 let StartFunc = ({ inFromFetch, inBodyData }) => {
     if (Array.isArray(inFromFetch)) {
+
+    } else {
         jFLocalPostFetchAsArray({ inFromFetch, inBodyData });
     };
 };
@@ -27,27 +29,15 @@ let jFLocalPostFetchAsArray = ({ inFromFetch, inBodyData }) => {
 let jFLocalPostFetchCheckTF = ({ inFromFetch }) => {
     const myUrlWithParams = new URL(window.location.href);
 
-    let jVarLocalFromConfig = inFromFetch.find(element => {
-        return element.ConfigFolderCreated
-    });
-
-    if (jVarLocalFromConfig === undefined === false) {
+    if (inFromFetch.ConfigFolderCreated) {
         myUrlWithParams.searchParams.append("ConfigFolderCreated", true);
     };
 
-    let jVarLocalFromData = inFromFetch.find(element => {
-        return element.DataFolderCreated
-    });
-
-    if (jVarLocalFromData === undefined === false) {
+    if (inFromFetch.DataFolderCreated) {
         myUrlWithParams.searchParams.append("DataFolderCreated", true);
     };
 
-    let jVarLocalAnyCreated = inFromFetch.filter(element => {
-        return element.KTF
-    });
-
-    if (jVarLocalAnyCreated.length > 0) {
+    if (inFromFetch.KTF) {
         return true;
     };
 
