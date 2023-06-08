@@ -1,6 +1,24 @@
 let StartFunc = ({ inFromFetch, inBodyData }) => {
     if (Array.isArray(inFromFetch)) {
         jFLocalPostFetchAsArray({ inFromFetch, inBodyData });
+    } else {
+        jFLocalPostFetchNotArray({ inFromFetch, inBodyData });
+    };
+};
+
+let jFLocalPostFetchNotArray = ({ inFromFetch, inBodyData }) => {
+    const myUrlWithParams = new URL(`${window.location.origin}${window.location.pathname}`);
+
+    if ("FolderName" in inBodyData) {
+        myUrlWithParams.searchParams.append("inFolderName", inBodyData.FolderName);
+    };
+
+    if ("FileName" in inBodyData) {
+        myUrlWithParams.searchParams.append("inFileName", inBodyData.FileName);
+    };
+
+    if (inFromFetch.KTF) {
+        window.location.href = myUrlWithParams.href;
     };
 };
 
