@@ -2,6 +2,7 @@ let StartFunc = ({ inDataFromApi }) => {
     if (jFLocalFolderClass({ inDataFromApi })) {
         jFLocalFileClass({ inDataFromApi });
     };
+    noFolderAlertFunc({ inDataFromApi });
 };
 
 let jFLocalFolderClass = ({ inDataFromApi }) => {
@@ -59,6 +60,17 @@ let StartFunc11111 = ({ inDataFromApi }) => {
 
     // _.set(inDataFromApi, `Folders.${jVarLocalFromUrl}.Files.${jVarLocalFromUrlinFileName}.TabPaneClass`, " show active");
     // _.set(inDataFromApi, `Folders.${jVarLocalFromUrl}.Files.${jVarLocalFromUrlinFileName}.ButtonClass`, " active");
+};
+
+let noFolderAlertFunc = ({ inDataFromApi }) => {
+
+    if (Object.keys(inDataFromApi.Folders).length > 0) {
+        const bsAlert = new bootstrap.Alert('#noFolderAlertID');
+        bsAlert.close()
+
+    } else {
+        const bsAlert = new bootstrap.Alert('#noFolderAlertID');
+    };
 };
 
 
