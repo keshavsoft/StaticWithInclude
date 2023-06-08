@@ -1,4 +1,4 @@
-import { StartFunc as StartFuncAdminData } from "../../AdminData/StartFunc.js";
+import { StartFunc as StartFuncAdminData } from "../../../AdminData/StartFunc.js";
 import { StartFunc as StartFuncInsertSerial } from "./InsertSerial.js";
 
 let jFSetup = async (event) => {
