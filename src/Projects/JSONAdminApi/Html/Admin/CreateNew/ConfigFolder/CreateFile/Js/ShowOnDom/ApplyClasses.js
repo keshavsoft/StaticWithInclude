@@ -95,18 +95,15 @@ let LocalForClassesFromUrl = ({ indataFromApi, inQueryParamsAsObject }) => {
     };
 };
 
-const noFolderAlertFunc = ({ inDataFromApi }) => {
-    // let localAlertID = document.getElementById("noFolderAlertID");
-    console.log("out----:", inDataFromApi.Folders);
-    console.log("outtt----:", inDataFromApi);
+let noFolderAlertFunc = ({ inDataFromApi }) => {
 
-    if (inDataFromApi.Folders === "{}") {
-        console.log("in----");
-
+    if (Object.keys(inDataFromApi.Folders).length > 0) {
         const bsAlert = new bootstrap.Alert('#noFolderAlertID');
         bsAlert.close()
-    }
 
-}
+    } else {
+        const bsAlert = new bootstrap.Alert('#noFolderAlertID');
+    };
+};
 
 export { StartFunc }
