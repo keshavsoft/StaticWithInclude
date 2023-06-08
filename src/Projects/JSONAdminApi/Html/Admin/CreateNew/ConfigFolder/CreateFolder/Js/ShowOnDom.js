@@ -1,6 +1,6 @@
 let jFCreateFoldersToDom = async ({ inProjectName }) => {
     let jVarLocalRoute = inProjectName;
-    let jVarLocalFetchUrl = `/${jVarLocalRoute}/AdminApi/AsTree/Json/UserFolders/ConfigFolder/Duplicate/DuplicateFolder`;
+    let jVarLocalFetchUrl = `/${jVarLocalRoute}/AdminApi/AsTree/Json/UserFolders/ConfigFolder/CreateNew/CreateFolder`;
 
     let jVarLocalFromFetch = await fetch(jVarLocalFetchUrl);
     let dataFromApi = await jVarLocalFromFetch.json();
