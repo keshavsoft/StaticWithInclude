@@ -1,4 +1,5 @@
 let StartFunc = ({ inDataFromApi }) => {
+    noFolderAlertFunc({ inDataFromApi });
     let jVarLocalFromUrl = getUrlQueryParams({ inGetKey: "inFolderName" });
 
     if (jVarLocalFromUrl in inDataFromApi.Folders) {
@@ -93,5 +94,19 @@ let LocalForClassesFromUrl = ({ indataFromApi, inQueryParamsAsObject }) => {
         };
     };
 };
+
+const noFolderAlertFunc = ({ inDataFromApi }) => {
+    // let localAlertID = document.getElementById("noFolderAlertID");
+    console.log("out----:", inDataFromApi.Folders);
+    console.log("outtt----:", inDataFromApi);
+
+    if (inDataFromApi.Folders === "{}") {
+        console.log("in----");
+
+        const bsAlert = new bootstrap.Alert('#noFolderAlertID');
+        bsAlert.close()
+    }
+
+}
 
 export { StartFunc }
