@@ -101,10 +101,12 @@
                             {{this.ScreenName}}
                         </td>
                         <td>
-                            <button type="button" class="btn btn-outline-dark ShowButtonClass"
+                            <a href="../CreateColumn/CreateColumn.html?inFolderName={{@../key}}&inFileName={{@key}}" class="btn btn-outline-info ShowButtonClass"
+                            >Show Column</a>
+                            <!-- <button type="button" class="btn btn-outline-dark ShowButtonClass"
                              data-foldername="{{@../../key}}" data-filename="{{@../key}}" data-itemname="{{@./key}}">
                                 Show Column
-                            </button>
+                            </button> -->
                         </td>
                     </tr>
                     {{/each}}
