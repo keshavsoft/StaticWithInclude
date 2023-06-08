@@ -1,4 +1,5 @@
 import { StartFunc as StartFuncFormValidate } from "./FormValidate.js";
+import { StartFunc as StartPostFetch } from "./PostFetch.js";
 
 let StartFunc = ({ inSubRoute }) => {
     let jVarLocalSaveButtonid = document.getElementById("SaveButtonid");
@@ -31,17 +32,7 @@ let jFLocalSave = async ({ inSubRoute }) => {
     let jVarLocalFetchPostData = jFLocalPrepareFetchBody();
     let jVarLocalFromFetch = await jFLocalCallFetch({ inSubRoute, inFetchPostData: jVarLocalFetchPostData });
 
-    jFLocalPostFetch({ inFetchData: jVarLocalFromFetch, inDataPk: jVarLocalFetchPostData.pk });
-};
-
-let jFLocalPostFetch = ({ inFetchData, inDataPk }) => {
-    if (inFetchData.KTF) {
-        window.location = `../Link/UploadData.html?FromInsertNew=true&DataPk=${inDataPk}`;
-    } else {
-        Swal.fire(
-            inFetchData.KReason
-        )
-    };
+    StartPostFetch({ inFetchData: jVarLocalFromFetch, inDataPk: jVarLocalFetchPostData.pk });
 };
 
 let jFLocalPrepareFetchBody = () => {
