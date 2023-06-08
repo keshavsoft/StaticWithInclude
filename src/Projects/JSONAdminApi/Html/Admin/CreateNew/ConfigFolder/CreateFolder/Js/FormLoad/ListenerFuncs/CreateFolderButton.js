@@ -38,18 +38,18 @@ let jFLocalPostFetch = ({ inFromFetch, inNewFolderName }) => {
     };
 };
 
-let jFLocalPostFetchNotArray = ({ inFromFetch, inNewFolderName }) => {
-    const myUrlWithParams = new URL(`${window.location.origin}${window.location.pathname}`);
+    let jFLocalPostFetchNotArray = ({ inFromFetch, inNewFolderName }) => {
+        const myUrlWithParams = new URL(`${window.location.origin}${window.location.pathname}`);
 
-    if (inFromFetch.ConfigFolderCreated) {
-        myUrlWithParams.searchParams.append("ConfigFolderCreated", true);
+        if (inFromFetch.ConfigFolderCreated) {
+            myUrlWithParams.searchParams.append("ConfigFolderCreated", true);
+        };
+        
+        if (inFromFetch.KTF) {
+            myUrlWithParams.searchParams.append("NewFolderName", inNewFolderName);
+            window.location.href = myUrlWithParams.href;
+        };
     };
-    
-    if (inFromFetch.KTF) {
-        myUrlWithParams.searchParams.append("NewFolderName", inNewFolderName);
-        window.location.href = myUrlWithParams.href;
-    };
-};
 
 let jFLocalPostFetchAsArray = ({ inFromFetch, inNewFolderName }) => {
     const myUrlWithParams = new URL(`${window.location.origin}${window.location.pathname}`);
