@@ -45,7 +45,11 @@ let jFLocalPostFetchNotArray = ({ inFromFetch, inNewFolderName }) => {
     if (inFromFetch.ConfigFolderCreated) {
         myUrlWithParams.searchParams.append("ConfigFolderCreated", true);
     };
-    console.log("---- : ", myUrlWithParams);
+    
+    if (inFromFetch.KTF) {
+        myUrlWithParams.searchParams.append("NewFolderName", inNewFolderName);
+        window.location.href = myUrlWithParams.href;
+    };
 };
 
 let jFLocalPostFetchAsArray = ({ inFromFetch, inNewFolderName }) => {
