@@ -91,7 +91,7 @@ let jFLocalPreparePostData = () => {
 let jFLocalCallFetch = async ({ inBodyData, inProjectName }) => {
     //  let jFetchUrl = `/${inProjectName}/AdminApi/AsTree/Json/UserFolders/ConfigAndDataFolders/CreateNew/CreateFolder`;
 
-    let jFetchUrl = `/${inProjectName}/AdminApi/AsTree/Json/UserFolders/ConfigFolder/CreateNew/CreateFolder`;
+    let jFetchUrl = `/${inProjectName}/AdminApi/AsTree/Json/UserFolders/DataFolder/CreateNew/CreateFolder`;
 
     let jFetchBody = {
         method: "post",
