@@ -36,7 +36,7 @@ let jFLocalCheckBeforeFetch = ({ inEvent }) => {
 };
 
 let jFLocalCallFetch = async ({ inBodyData, inProjectName }) => {
-    let jFetchUrl = `/${inProjectName}/AdminApi/AsTree/Json/UserFolders/ConfigAndDataFolders/UserFile/ItemName/ScreenName/TableColumns/CreateNew/CreateColumn`;
+    let jFetchUrl = `/${inProjectName}/AdminApi/AsTree/Json/UserFolders/ConfigFolder/UserFileAsFolder/JsonItem/JsonScreen/TableColumns/CreateNew/CreateColumn`;
 
     let jFetchBody = {
         method: "post",
