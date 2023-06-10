@@ -1,3 +1,5 @@
+import { StartFunc as StartFuncPostFetch } from "./PostFetch.js";
+
 let StartFunc = async (event) => {
     let jVarLocalCurrentTarget = event.currentTarget;
     let LocalDataPK = jVarLocalCurrentTarget.dataset.pk;
@@ -7,12 +9,17 @@ let StartFunc = async (event) => {
     let data = await response.json();
 
     if (data.KTF) {
-        var myModal = new bootstrap.Modal(document.getElementById('SetupModal'), {
-            keyboard: false
+        StartFuncPostFetch({
+            inPromiseData: data,
+            inDataPk: LocalDataPK
         });
-        window.location = "../BoilerPlate/FoldersOnly.html";
 
-        myModal.show();
+        // var myModal = new bootstrap.Modal(document.getElementById('SetupModal'), {
+        //     keyboard: false
+        // });
+        // window.location = "../BoilerPlate/FoldersOnly.html";
+
+        // myModal.show();
     };
 };
 
