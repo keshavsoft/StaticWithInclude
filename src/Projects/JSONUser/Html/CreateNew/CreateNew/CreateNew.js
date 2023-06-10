@@ -1,7 +1,9 @@
 import { StartFunc as StartFuncAdminData } from "../../AdminData/StartFunc.js";
-import { StartFunc as StartFuncButtonClicks } from "./ListenerFuncs/ButtonClicks.js";
+import { StartFunc as StartFuncButtonClicks } from "./Js/ListenerFuncs/StartFunc.js";
 
-let jVarGlobalAdminSubRoute = "JSONUser";
+import FromConfigKeys from '../../ConfigKeys.json' assert { type: 'json' };
+
+let jVarGlobalAdminSubRoute = FromConfigKeys.AdminSubRoute;
 
 let StartFunc = async () => {
     let jVarLocalFromAdmin = await StartFuncAdminData();

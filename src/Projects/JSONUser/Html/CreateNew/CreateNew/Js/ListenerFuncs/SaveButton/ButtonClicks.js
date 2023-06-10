@@ -1,3 +1,5 @@
+import { StartFunc as StartFuncPostFetch } from "./PostFetch.js";
+
 let StartFunc = ({ inSubRoute }) => {
     let jVarLocalSaveButtonId = document.getElementById("SaveButtonId");
 
@@ -30,31 +32,13 @@ let LocalButtonClickFunc = async ({ inSubRoute }) => {
 
     if (jVarLocalFetchPostData.UserName === "" === false) {
         if (jVarLocalFetchPostData.PassWord === "" === false) {
-            
-            await fetch(jVarLocalUrl, jVarLocalSettings).then(response => {
-                if (!response.ok) {
-                    throw new Error(response.statusText);
-                }
-                return response.json();
-            }).then((FetchData) => {
-                if (FetchData.KTF) {
-                    window.location = "../BoilerPlate/FoldersOnly.html";
-                }
-            }).catch((e) => { })
+            let jVarLocalFromFetch = await fetch(jVarLocalUrl, jVarLocalSettings);
+            let jVarLocalFetchData = await jVarLocalFromFetch.json();
 
+            StartFuncPostFetch({ inFetchData: jVarLocalFetchData });
         };
-
-
     };
-    // let data = await response.json();
-
-    // if (data.KTF) {
-    //     //jVarLocalApiFuncs.ShowData();
-    //     // window.location = "Show.html";
-    //     // window.location = "../BoilerPlate/FoldersOnly.html";
-    // };
 };
-
 
 let serializeObject = (form) => {
     // Create a new FormData object
@@ -72,5 +56,4 @@ let serializeObject = (form) => {
     return pairs;
 };
 
-
-export { StartFunc }
+export { StartFunc };
