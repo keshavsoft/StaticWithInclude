@@ -23,7 +23,7 @@ let jFButtonClick = async ({ inKeyName }) => {
 
     if (jVarLocalFromToken.KTF) {
         localStorage.setItem(inKeyName, jVarLocalUserName);
-        window.location = "/index.html";
+        window.location = "/Garments/index.html";
     };
 };
 
