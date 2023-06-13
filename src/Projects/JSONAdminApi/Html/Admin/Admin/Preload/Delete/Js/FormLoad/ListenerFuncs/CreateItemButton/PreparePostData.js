@@ -1,29 +1,23 @@
 let StartFunc = ({ inEvent }) => {
     let jVarLocalCurrentTarget = inEvent.currentTarget;
     let jVarLocalColsestTr = jVarLocalCurrentTarget.closest("tr");
-    let jVarLocalColumnName = jVarLocalColsestTr.querySelector('[name="ColumnName"]');
+    let jVarLocalColumnName = jVarLocalColsestTr.querySelector('[name="CloneName"]');
     let jVarLocalColumnNameValue = jVarLocalColumnName.value;
 
     let jVarLocalFromButtonData = jFLocalFromButton({ inCurrentTarget: jVarLocalCurrentTarget });
 
     return {
         ...jVarLocalFromButtonData,
-        NewColumnName: jVarLocalColumnNameValue
+        inNewKeyName: jVarLocalColumnNameValue
     };
 };
 
 const jFLocalFromButton = ({ inCurrentTarget }) => {
     let jVarLocalCurrentTarget = inCurrentTarget;
-    let jVarLocalFolderName = jVarLocalCurrentTarget.dataset.foldername;
-    let jVarLocalFileName = jVarLocalCurrentTarget.dataset.filename;
-    let jVarLocalitemname = jVarLocalCurrentTarget.dataset.itemname;
-    let jVarLocalscreenname = jVarLocalCurrentTarget.dataset.screenname;
+    let jVarLocalFolderName = jVarLocalCurrentTarget.dataset.preloadkey;
 
     return {
-        FolderName: jVarLocalFolderName,
-        FileName: jVarLocalFileName,
-        ItemName: jVarLocalitemname,
-        ScreenName: jVarLocalscreenname
+        fromKeyName: jVarLocalFolderName
     };
 };
 
