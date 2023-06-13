@@ -23,7 +23,7 @@ let jFLocalCheckBeforeFetch = ({ inEvent }) => {
 
     let jVarLocalCurrentTarget = inEvent.currentTarget;
     let jVarLocalColsestTr = jVarLocalCurrentTarget.closest("tr");
-    let jVarLocalColumnName = jVarLocalColsestTr.querySelector('[name="ColumnName"]');
+    let jVarLocalColumnName = jVarLocalColsestTr.querySelector('[name="CloneName"]');
     let jVarLocalColumnNameValue = jVarLocalColumnName.value;
 
     if (jVarLocalColumnNameValue === "") {
@@ -36,7 +36,7 @@ let jFLocalCheckBeforeFetch = ({ inEvent }) => {
 };
 
 let jFLocalCallFetch = async ({ inBodyData, inProjectName }) => {
-    let jFetchUrl = `/${inProjectName}/AdminApi/AsTree/Json/UserFolders/ConfigAndDataFolders/UserFile/ItemName/ScreenName/TableColumns/CreateNew/CreateColumn`;
+    let jFetchUrl = `/${inProjectName}/AdminApi/AsTree/Json/UserFolders/AdminFolder/PreloadJsonFile/FromKeys/Duplicate`;
 
     let jFetchBody = {
         method: "post",

@@ -10,7 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <title>Preload</title>
+    <title>Preload Duplicate</title>
     <!-- Custom styles for this template -->
     <link href="/JSONProject/css/headers.css" rel="stylesheet">
 
@@ -29,8 +29,6 @@
 
     <include src="./src/components/Projects/JSONAdminApi/Html/Admin/Admin/Preload/Header.html"></include>
 
-    <!-- <include src="./src/components/Templates/Admin/Preload/FromKeys/Header.html"></include> -->
-
 
     <main>
         <div class="container">
@@ -43,8 +41,8 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>FolderName</th>
-                                <th>Duplicate Folder Name</th>
+                                <th>PreloadKeys</th>
+                                <th>Duplicate Preload</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -73,20 +71,20 @@
 
 
     <script id="HbsTemplateForFoldersOnly" type="text/x-handlebars">
-                {{#each Folders}}
+                {{#each this}}
                 <tr class="{{RowClass}}">
                     <td class="text-center">
                         {{ForSNo @index}}
                     </td>
                     <td>
-                        {{this.FolderName}}
+                        {{@key}}
                     </td>
                     
                     <td>
                         <input class="form-control" type="text" name="CloneName" id="CloneName" autofocus >
                     </td>
                     <td>
-                        <button type="button" class="btn btn-outline-info CloneButtonClass"  data-foldername="{{@key}}">
+                        <button type="button" class="btn btn-outline-info CloneButtonClass"  data-preloadkey="{{@key}}">
                             Duplicate
                         </button>
                     </td>
@@ -118,30 +116,8 @@
 
     </script>
 
-
-    <script>
-        let jFChangeHeaderActiveClass = () => {
-            let jVarLocalPathArray = window.location.pathname.split("/");
-            let jVarLocalHTMLName = jVarLocalPathArray[jVarLocalPathArray.length - 1];
-            jFChangeNavAnchorClass({ inClassName: jVarLocalHTMLName.split(".")[0] });
-        };
-
-        let jFChangeNavAnchorClass = ({ inClassName }) => {
-            let jVarLocalNavBarId = document.getElementById("NavBarId");
-            let jVarLocalAnchorNeeded = jVarLocalNavBarId.querySelector(`.${inClassName}AClass`);
-
-            if (jVarLocalAnchorNeeded !== null) {
-
-                if (jVarLocalAnchorNeeded.classList.contains("text-white")) {
-                    jVarLocalAnchorNeeded.classList.remove("text-white");
-                };
-
-                jVarLocalAnchorNeeded.classList.add("text-info");
-            };
-        };
-
-        jFChangeHeaderActiveClass();
-    </script>
+  <!-- Header Change js -->
+  <script src="../../../../../Js/Header/headerChange.js" type="module"></script>
 
 
     <script src="../Duplicate/Js/Duplicate.js" type="module"></script>
