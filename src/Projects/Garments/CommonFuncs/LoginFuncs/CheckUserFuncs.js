@@ -5,7 +5,7 @@ let jFStartFunc = ({ inUserKey, inKTokenKey }) => {
     let jVarLocalTokenValue = getCookie(jVarLocalKToken);
 
     if (jVarLocalTokenValue === null) {
-        window.location = "/Garments/pages/authentication/signin/illustration/illustration.html";
+        window.location = "/Garments/authentication/signin/illustration.html";
     } else {
         OnHeaderFunc({ inUserKey });
     };
