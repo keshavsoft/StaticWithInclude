@@ -1,14 +1,12 @@
-import { StartFunc as StartFuncPreparePostData } from "./PreparePostData.js";
+// import { StartFunc as StartFuncPreparePostData } from "./PreparePostData.js";
 import { StartFunc as StartFuncPostFetch } from "./PostFetch.js";
 
 let StartFunc = async ({ inEvent, inProjectName }) => {
-    let localjFLocalCheckBeforeFetch = jFLocalCheckBeforeFetch({ inEvent });
-
-    if (localjFLocalCheckBeforeFetch) {
-        let jVarLocalBodyData = StartFuncPreparePostData({ inEvent });
+        let jVarLocalCurrentTarget = inEvent.currentTarget;
+        let jVarLocalFolderName = jVarLocalCurrentTarget.dataset.preloadkey;
 
         let response = await jFLocalCallFetch({
-            inBodyData: jVarLocalBodyData,
+            inBodyData: jVarLocalFolderName,
             inProjectName
         });
 
@@ -16,14 +14,13 @@ let StartFunc = async ({ inEvent, inProjectName }) => {
             inFromFetch: response,
             inBodyData: jVarLocalBodyData
         });
-    };
 };
 
 let jFLocalCheckBeforeFetch = ({ inEvent }) => {
 
     let jVarLocalCurrentTarget = inEvent.currentTarget;
     let jVarLocalColsestTr = jVarLocalCurrentTarget.closest("tr");
-    let jVarLocalColumnName = jVarLocalColsestTr.querySelector('[name="ColumnName"]');
+    let jVarLocalColumnName = jVarLocalColsestTr.querySelector('[name="CloneName"]');
     let jVarLocalColumnNameValue = jVarLocalColumnName.value;
 
     if (jVarLocalColumnNameValue === "") {
@@ -36,7 +33,7 @@ let jFLocalCheckBeforeFetch = ({ inEvent }) => {
 };
 
 let jFLocalCallFetch = async ({ inBodyData, inProjectName }) => {
-    let jFetchUrl = `/${inProjectName}/AdminApi/AsTree/Json/UserFolders/ConfigAndDataFolders/UserFile/ItemName/ScreenName/TableColumns/CreateNew/CreateColumn`;
+    let jFetchUrl = `/${inProjectName}/AdminApi/AsTree/Json/UserFolders/AdminFolder/PreloadJsonFile/FromKeys/Delete`;
 
     let jFetchBody = {
         method: "post",

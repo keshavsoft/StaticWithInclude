@@ -1,7 +1,5 @@
 let StartFunc = ({ inFromFetch, inBodyData }) => {
-    if (Array.isArray(inFromFetch)) {
-        jFLocalPostFetchAsArray({ inFromFetch, inBodyData });
-    };
+    jFLocalPostFetchAsArray({ inFromFetch, inBodyData });
 };
 
 let jFLocalPostFetchCheckTF = ({ inFromFetch }) => {
@@ -12,7 +10,7 @@ let jFLocalPostFetchCheckTF = ({ inFromFetch }) => {
     });
 
     if (jVarLocalFromConfig === undefined === false) {
-        myUrlWithParams.searchParams.append("ConfigFolderCreated", true);
+        myUrlWithParams.searchParams.append("inNewKeyName", true);
     };
 
     let jVarLocalFromData = inFromFetch.find(element => {
