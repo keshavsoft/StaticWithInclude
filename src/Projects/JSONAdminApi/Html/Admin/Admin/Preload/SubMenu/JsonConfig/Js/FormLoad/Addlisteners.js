@@ -1,10 +1,10 @@
 import { StartFunc as StartFuncListenerFuncs } from "./ListenerFuncs/StartFunc.js";
 
 let StartFunc = ({ inProjectName }) => {
-    let jVarLocalFileCreateClassName = document.getElementsByClassName("CreateColumnButtonClass");
+    let jVarLocalUpdatebuttonClassClassName = document.getElementsByClassName("UpdatebuttonClass");
 
-    for (let i = 0; i < jVarLocalFileCreateClassName.length; i++) {
-        jVarLocalFileCreateClassName[i].addEventListener("click", async (event) => {
+    for (let i = 0; i < jVarLocalUpdatebuttonClassClassName.length; i++) {
+        jVarLocalUpdatebuttonClassClassName[i].addEventListener("click", async (event) => {
             await StartFuncListenerFuncs({
                 inEvent: event,
                 inProjectName

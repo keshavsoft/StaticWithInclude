@@ -6,11 +6,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <title>Delete</title>
+
+    <include src="src/components/Projects/JSONAdminApi/HtmlInclude/ToHead.html"></include>
+
+
+    <title>JsonConfig Update</title>
     <!-- Custom styles for this template -->
     <link href="/JSONProject/css/headers.css" rel="stylesheet">
 
@@ -29,122 +29,104 @@
 
     <include src="./src/components/Projects/JSONAdminApi/Html/Admin/Admin/Preload/SubMenu/Header.html"></include>
 
-    <!-- <include src="./src/components/Templates/Admin/Preload/FromKeys/Header.html"></include> -->
 
 
     <main>
-        <div class="container">
-            <div class="card mt-3">
-                <div class="card-header">
-                    Delete
-                </div>
-                <div class="card-body">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>FolderName</th>
-                                <th>Duplicate Folder Name</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody id="KCont1">
 
-                        </tbody>
-                    </table>
-                </div>
+        <div class="container">
+            <div id="ConfigFolderInsertSuccessId" class="alert alert-primary alert-dismissible fade show mt-2"
+                role="alert">
+                <strong id="ConfigFolderInsertSuccessStrongId">Holy guacamole!</strong> Config folder creasted
+                Sucessfully.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
+
+            <div id="DataFolderInsertSuccessId" class="alert alert-primary alert-dismissible fade show mt-2"
+                role="alert">
+                <strong id="DataFolderInsertSuccessStrongId">Holy guacamole!</strong> Data folder creasted Sucessfully.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <div id="KCont1">
+            </div>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">PreloadKeys</th>
+                            <th scope="col">UserFolderName</th>
+                            <th scope="col">inFolderName</th>
+                            <th scope="col">inJsonFileName</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="KtBody">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
     </main>
 
     <include src="./src/components/Templates/Admin/FooterWithLogin.html"></include>
 
 
+    <script src="/JSONApi/Js/lodash.js"></script>
+
     <script src="/ClassesStatic/CommonClass.js"></script>
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
-        crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
 
 
+    <script id="HbsTemplateForPreload" type="text/x-handlebars">
+        {{#each this}}
 
+        <tr>
+            <td class="text-center">
+                {{ForSNo @index}}
+            </td>
+            <td>{{@key}}</td>
+            <td><div class="mb-3">
+              <input type="text"
+                class="form-control" name="UserFolderName" value="{{JsonConfig.UserFolderName}}" id="" aria-describedby="helpId" placeholder="">
+            </div></td>
+            <td><div class="mb-3">
+                <input type="text"
+                  class="form-control" name="inFolderName" value="{{JsonConfig.inFolderName}}" id="" aria-describedby="helpId" placeholder="">
+              </div></td>
+              <td><div class="mb-3">
+                <input type="text"
+                  class="form-control" name="inJsonFileName" value="{{JsonConfig.inJsonFileName}}" id="" aria-describedby="helpId" placeholder="">
+              </div></td>
+              <td>
+                <div class="d-grid gap-2">
+                  <button type="button"  class="btn btn-outline-primary UpdatebuttonClass" data-fromkey="{{@key}}" >Update</button>
+                </div>
+              </td>
+        </tr>
+        {{/each}}
 
-    <script id="HbsTemplateForFoldersOnly" type="text/x-handlebars">
-                {{#each Folders}}
-                <tr class="{{RowClass}}">
-                    <td class="text-center">
-                        {{ForSNo @index}}
-                    </td>
-                    <td>
-                        {{this.FolderName}}
-                    </td>
-                    
-                    <td>
-                        <input class="form-control" type="text" name="CloneName" id="CloneName" autofocus >
-                    </td>
-                    <td>
-                        <button type="button" class="btn btn-outline-info CloneButtonClass"  data-foldername="{{@key}}">
-                            Duplicate
-                        </button>
-                    </td>
-                </tr>
-
-               
-                </tr>
-                {{/each}}
 </script>
 
-    <script>
-        //HbsTemplateForScreensWithSubTableColumnsOnly
-        class jClassForHbs {
-            static FillPartialFromScriptInHtml = ({ inHtmlHbsScriptId }) => {
-                let jVarLocalHbsTemplate = document.getElementById(inHtmlHbsScriptId);
+<script>
+    Handlebars.registerHelper('ForSNo', function (item) {
+        return item + 1;
+    });
+</script>
 
-                if (jVarLocalHbsTemplate !== null) {
-                    Handlebars.registerPartial(inHtmlHbsScriptId, jVarLocalHbsTemplate.innerHTML);
-                };
-            };
-        };
-
-
-        let jVarLocalHbsTemplateForTable = document.getElementById("HbsTemplateForTable");
-
-        Handlebars.registerHelper('ForSNo', function (item) {
-            return item + 1;
-        });
-
-    </script>
-
+    <!-- Header Change js -->
+    <script src="../../../../../../Js/Header/headerChange.js" type="module"></script>
 
     <script>
-        let jFChangeHeaderActiveClass = () => {
-            let jVarLocalPathArray = window.location.pathname.split("/");
-            let jVarLocalHTMLName = jVarLocalPathArray[jVarLocalPathArray.length - 1];
-            jFChangeNavAnchorClass({ inClassName: jVarLocalHTMLName.split(".")[0] });
-        };
-
-        let jFChangeNavAnchorClass = ({ inClassName }) => {
-            let jVarLocalNavBarId = document.getElementById("NavBarId");
-            let jVarLocalAnchorNeeded = jVarLocalNavBarId.querySelector(`.${inClassName}AClass`);
-
-            if (jVarLocalAnchorNeeded !== null) {
-
-                if (jVarLocalAnchorNeeded.classList.contains("text-white")) {
-                    jVarLocalAnchorNeeded.classList.remove("text-white");
-                };
-
-                jVarLocalAnchorNeeded.classList.add("text-info");
-            };
-        };
-
-        jFChangeHeaderActiveClass();
+        let jVarGlobalPresentViewData;
     </script>
+    
+    <script src="./Js/JsonConfig.js" type="module"></script>
 
-
-    <script src="../Delete/Js/Delete.js" type="module"></script>
 
 </body>
 

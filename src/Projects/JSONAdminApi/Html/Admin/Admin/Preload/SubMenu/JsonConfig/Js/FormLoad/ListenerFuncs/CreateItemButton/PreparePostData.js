@@ -1,29 +1,27 @@
 let StartFunc = ({ inEvent }) => {
     let jVarLocalCurrentTarget = inEvent.currentTarget;
+    let jVarLocalfromkey = jVarLocalCurrentTarget.dataset.fromkey;
+
     let jVarLocalColsestTr = jVarLocalCurrentTarget.closest("tr");
-    let jVarLocalColumnName = jVarLocalColsestTr.querySelector('[name="ColumnName"]');
-    let jVarLocalColumnNameValue = jVarLocalColumnName.value;
+    let jVarLocalUserFolderName = jVarLocalColsestTr.querySelector('[name="UserFolderName"]');
+    let jVarLocalinFolderName = jVarLocalColsestTr.querySelector('[name="inFolderName"]');
+    let jVarLocalinJsonFileName = jVarLocalColsestTr.querySelector('[name="inJsonFileName"]');
 
-    let jVarLocalFromButtonData = jFLocalFromButton({ inCurrentTarget: jVarLocalCurrentTarget });
+    let jVarLocalUserFolderNameValue = jVarLocalUserFolderName.value;
+    let jVarLocaljVarLocalinFolderName = jVarLocalinFolderName.value;
+    let jVarLocaljVarLocalinJsonFileName = jVarLocalinJsonFileName.value;
 
-    return {
-        ...jVarLocalFromButtonData,
-        NewColumnName: jVarLocalColumnNameValue
+    let localBodyAsJson = {
+        UserFolderName: jVarLocalUserFolderNameValue,
+        inFolderName: jVarLocaljVarLocalinFolderName,
+        inJsonFileName: jVarLocaljVarLocalinJsonFileName
     };
-};
 
-const jFLocalFromButton = ({ inCurrentTarget }) => {
-    let jVarLocalCurrentTarget = inCurrentTarget;
-    let jVarLocalFolderName = jVarLocalCurrentTarget.dataset.foldername;
-    let jVarLocalFileName = jVarLocalCurrentTarget.dataset.filename;
-    let jVarLocalitemname = jVarLocalCurrentTarget.dataset.itemname;
-    let jVarLocalscreenname = jVarLocalCurrentTarget.dataset.screenname;
 
     return {
-        FolderName: jVarLocalFolderName,
-        FileName: jVarLocalFileName,
-        ItemName: jVarLocalitemname,
-        ScreenName: jVarLocalscreenname
+        KeyName: jVarLocalfromkey,
+        BodyAsJson: localBodyAsJson
+
     };
 };
 
