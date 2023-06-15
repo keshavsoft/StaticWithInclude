@@ -1,4 +1,4 @@
-import { jFStartFunc as CheckUserFuncsjFStartFunc } from "../../../../CommonFuncs/LoginFuncs/CheckUserFuncs.js";
+import { jFStartFunc as CheckUserFuncsjFStartFunc } from "../../../CommonFuncs/LoginFuncs/CheckUserFuncs.js";
 import { StartFunc as ShowAllStartFunc } from "../ShowAll/ToDom/ShowInBody.js";
 import { StartFunc as AddListenersStartFunc } from "../ShowAll/AddListeners.js";
 import { StartFunc as FormLoadFuncsStartFunc } from "./FormLoadFuncs.js";
