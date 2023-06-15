@@ -15,4 +15,5 @@ let StartFunc = () => {
         });
     }
 };
+
 StartFunc();
