@@ -2,9 +2,7 @@ import { StartFunc as StartFuncPreparePostData } from "./PreparePostData.js";
 import { StartFunc as StartFuncPostFetch } from "./PostFetch.js";
 
 let StartFunc = async ({ inEvent, inProjectName }) => {
-    let localjFLocalCheckBeforeFetch = jFLocalCheckBeforeFetch({ inEvent });
 
-    if (localjFLocalCheckBeforeFetch) {
         let jVarLocalBodyData = StartFuncPreparePostData({ inEvent });
 
         let response = await jFLocalCallFetch({
@@ -16,27 +14,10 @@ let StartFunc = async ({ inEvent, inProjectName }) => {
             inFromFetch: response,
             inBodyData: jVarLocalBodyData
         });
-    };
-};
-
-let jFLocalCheckBeforeFetch = ({ inEvent }) => {
-
-    let jVarLocalCurrentTarget = inEvent.currentTarget;
-    let jVarLocalColsestTr = jVarLocalCurrentTarget.closest("tr");
-    let jVarLocalColumnName = jVarLocalColsestTr.querySelector('[name="ColumnName"]');
-    let jVarLocalColumnNameValue = jVarLocalColumnName.value;
-
-    if (jVarLocalColumnNameValue === "") {
-        jVarLocalColumnName.classList.add("is-invalid");
-        jVarLocalColumnName.focus();
-        return false;
-    };
-
-    return true;
 };
 
 let jFLocalCallFetch = async ({ inBodyData, inProjectName }) => {
-    let jFetchUrl = `/${inProjectName}/AdminApi/AsTree/Json/UserFolders/ConfigAndDataFolders/UserFile/ItemName/ScreenName/TableColumns/CreateNew/CreateColumn`;
+    let jFetchUrl = `/${inProjectName}/AdminApi/AsTree/Json/UserFolders/AdminFolder/PreloadJsonFile/FromKeys/ConfigKey/ItemConfigKey`;
 
     let jFetchBody = {
         method: "post",
