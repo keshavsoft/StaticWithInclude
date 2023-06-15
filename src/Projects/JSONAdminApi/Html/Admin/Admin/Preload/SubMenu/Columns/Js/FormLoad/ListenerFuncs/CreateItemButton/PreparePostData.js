@@ -3,12 +3,12 @@ let StartFunc = ({ inEvent }) => {
     let jVarLocalfromkey = jVarLocalCurrentTarget.dataset.fromkey;
 
     let jVarLocalColsestTr = jVarLocalCurrentTarget.closest("tr");
-    let jVarLocalItemName = jVarLocalColsestTr.querySelector('[name="DatalistID"]');
+    let jVarLocalItemName = jVarLocalColsestTr.querySelector('[name="Columns"]');
 
     let jVarLocalItemNameValue = jVarLocalItemName.value;
 
     let localBodyAsJson = {
-        DatalistID: jVarLocalItemNameValue,
+        Columns: jVarLocalItemNameValue,
     };
 
 
