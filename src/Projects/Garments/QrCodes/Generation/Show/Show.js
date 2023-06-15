@@ -1,4 +1,4 @@
-import { jFStartFunc as CheckUserFuncsjFStartFunc } from "../../../../CommonFuncs/LoginFuncs/CheckUserFuncs.js";
+import { jFStartFunc as CheckUserFuncsjFStartFunc } from "../../../CommonFuncs/LoginFuncs/CheckUserFuncs.js";
 import { StartFunc as ShowOnDomStartFunc } from "./ToDom/ShowOnDom.js";
 import { StartFunc as AddListenersStartFunc } from "../Show/AddListenerFuncs/StartFuncs.js";
 import { ConfigObject } from "../../../ApiConfig.js";
