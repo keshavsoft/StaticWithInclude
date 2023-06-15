@@ -9,7 +9,7 @@ import { ReturnRowPK as ReturnRowPKurlSearchParams } from "./urlSearchParams.js"
 import { StartFunc as FormLoadStartFunc } from "./FormLoad/StartFuncs.js";
 
 let jVarCommonKToken = ConfigObject.TokenName;
-let jVarLocalStorageKeyName = ConfigObject.LocalStorageKeyName;
+let jVarLocalStorageKeyName = ConfigObject.LocalStorageKeyName ;
 let jVarCommonKeys = KeysObject.CommonKeys;
 let jVarCommonProjectName = ConfigObject.ProjectName;
 
