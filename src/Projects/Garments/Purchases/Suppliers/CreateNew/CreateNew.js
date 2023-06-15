@@ -1,4 +1,4 @@
-import { jFStartFunc as CheckUserFuncsjFStartFunc } from "../../../../CommonFuncs/LoginFuncs/CheckUserFuncs.js";
+import { jFStartFunc as CheckUserFuncsjFStartFunc } from "../../../CommonFuncs/LoginFuncs/CheckUserFuncs.js"
 import { StartFunc as AddListenersStartFunc } from "../CreateNew/AddListeners.js";
 import { ConfigObject } from "../../../ApiConfig.js";
 import { KeysObject } from "../ConfigKeys.js";
