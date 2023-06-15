@@ -1,13 +1,17 @@
-let jFUpdateFunc = () => {
+let jFUpdateFunc = ({ inProjectName }) => {
     let jVarLocalUpdateClassName = document.getElementsByClassName("UpdateButtonClass");
 
     for (let i = 0; i < jVarLocalUpdateClassName.length; i++) {
-        jVarLocalUpdateClassName[i].addEventListener("click", jFLocalClickFunc)
+        jVarLocalUpdateClassName[i].addEventListener("click", (event) => {
+            jFLocalClickFunc({
+                inevent: event, inProjectName
+            })
+        })
     };
 };
 
-let jFLocalClickFunc = async (event) => {
-    let jVarLocalCurrentTarget = event.currentTarget;
+let jFLocalClickFunc = async ({ inevent, inProjectName }) => {
+    let jVarLocalCurrentTarget = inevent.currentTarget;
     let jVarLocalFolderName = jVarLocalCurrentTarget.dataset.foldername;
     let jVarLocalfilename = jVarLocalCurrentTarget.dataset.filename;
     let jVarLocalitemname = jVarLocalCurrentTarget.dataset.itemname;
@@ -29,11 +33,11 @@ let jFLocalClickFunc = async (event) => {
     let BodyAsJson = {
         HTMLControlType: jVarLocalValidateValue,
         Step: jVarLocalDataListReverseValue,
-        Min:jVarLocalTypeValue,
-        Max:jVarLocalMaxValue
+        Min: jVarLocalTypeValue,
+        Max: jVarLocalMaxValue
     }
 
-    let jFetchUrl = "/JSONAdminApi/AdminApi/AsTree/Json/UserFolders/ScreensFromDisplayJson/SubTableColumns/SubKeys/KDataset";
+    let jFetchUrl = `/${inProjectName}/AdminApi/AsTree/Json/UserFolders/ScreensFromDisplayJson/SubTableColumns/SubKeys/KDataset`;
 
     let response = await fetch(jFetchUrl, {
         method: "PATCH",
