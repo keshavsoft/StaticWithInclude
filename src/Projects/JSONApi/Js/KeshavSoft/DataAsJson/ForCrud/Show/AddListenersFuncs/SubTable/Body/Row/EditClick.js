@@ -1,5 +1,6 @@
 import { StartFunc as StartFuncLoopInputs } from "../../../../../CommonFuncs/Htmlnputs/LoopInputs.js";
 import { StartFunc as StartFuncFromDataSet } from "../../../../../CommonFuncs/FromCard/FromDataSet.js";
+import { StartFunc as StartFuncUpdateClicks } from "./UpdateClicks/StartFunc.js";
 
 let StartFunc = async ({ inProjectName, inSubRoute }) => {
     let jVarLocalFind = document.querySelectorAll(".SubTableFooterBodyRowEditClass");
@@ -46,7 +47,9 @@ let jFLocalButtonClick = ({ inEvent, inProjectName, inSubRoute }) => {
 
     jVarLocalClosestTd.innerHTML = jVarLocalTableFooterUpdate.innerHTML;
 
-    jFLocalUpdateClick({ inClosestTd: jVarLocalClosestTd, inProjectName, inSubRoute });
+    // jFLocalUpdateClick({ inClosestTd: jVarLocalClosestTd, inProjectName, inSubRoute });
+
+    StartFuncUpdateClicks({ inClosestTd: jVarLocalClosestTd, inProjectName, inSubRoute });
 };
 
 let jFLocalUpdateClick = ({ inClosestTd, inProjectName, inSubRoute }) => {

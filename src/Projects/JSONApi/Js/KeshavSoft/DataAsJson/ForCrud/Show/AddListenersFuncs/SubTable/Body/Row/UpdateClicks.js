@@ -1,60 +1,38 @@
-let StartFunc = async ({ inProjectName, inSubRoute }) => {
-    let jVarLocalFind = document.querySelectorAll(".SubTableFooterBodyRowUpdateClass");
+let StartFunc = ({ inClosestTd, inProjectName, inSubRoute }) => {
+    let jVarLocalHtmlControlNeeded = inClosestTd.querySelector(".SubTableFooterBodyRowUpdateClass");
 
-    console.log("aaaaaaaaaaaa : ", jVarLocalFind);
+    jVarLocalHtmlControlNeeded.addEventListener("click", async (event) => {
+        let jVarLocalCurrentTarget = event.currentTarget;
+        let jVarClosestTr = jVarLocalCurrentTarget.closest("tr");
+        let jVarClosestCard = jVarLocalCurrentTarget.closest(".card");
 
-    //MainTable Body Row Options Print
-    jVarLocalFind.forEach((spanElement) => {
-        spanElement.addEventListener("click", async (event) => {
-            console.log("bbbbbbbb : ", event);
+        let jVarLocalRoute = inProjectName;
+        let jVarLocalSubRoute = inSubRoute;
+        let JsonPK = jVarClosestTr.dataset.pk;
 
-          //  jFLocalButtonClick({ inEvent: event, inProjectName, inSubRoute });
-        });
+        let jVarLocalFetchUrl = `/${jVarLocalRoute}/${jVarLocalSubRoute}/Data/FromFolder/FromFile/ScreensFromDisplayJson/SubTable/Body/Row/Update`;
+
+        let jVarLocalFetchPostData = StartFuncLoopInputs({ jVarHtmlCardBody: jVarClosestTr });
+        let jVarLocalBody = StartFuncFromDataSet({ inHtmlCard: jVarClosestCard });
+
+        jVarLocalBody.MainRowPK = jVarLocalBody.pk;
+        jVarLocalBody.SubTableRowPK = JsonPK;
+        jVarLocalBody.inDataToUpdate = jVarLocalFetchPostData;
+
+        let jVarLocalFetchHeaderObject = {
+            method: "post",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(jVarLocalBody)
+        };
+
+        let ReponseData = await fetch(jVarLocalFetchUrl, jVarLocalFetchHeaderObject);
+        let PromiseData = await ReponseData.json();
+
+        console.log("PromiseData : ", PromiseData);
     });
 };
-
-let jFLocalButtonClick = ({ inEvent, inProjectName, inSubRoute }) => {
-    inEvent.preventDefault();
-    let jVarLocalCurrentTarget = inEvent.currentTarget;
-
-    console.log("SubTableFooterBodyRowUpdateClass : ", jVarLocalCurrentTarget);
-};
-
-// ButtonClick: ({ inEvent }) => {
-//     let jVarLocalCurrentTarget = inEvent.currentTarget;
-//     let jVarLocalClosestTd = jVarLocalCurrentTarget.closest("td");
-//     jVarLocalClosestTd.classList.remove("ButtonClass");
-
-//     let jVarLocalKTableId = jVarLocalCurrentTarget.closest("table");
-
-//     let jVarLocalTableBodyRow = jVarLocalCurrentTarget.closest("tr");
-//     let jVarLocalTableFooterRow = jVarLocalKTableId.querySelector("tfoot tr");
-//     let jVarLocalTableFooterUpdate = jVarLocalTableFooterRow.querySelector("td.UpdateSubTableClass");
-
-//     jVarLocalTableBodyRow.querySelectorAll("td.ButtonClass").forEach((element, LoopIndex) => {
-//         element.parentNode.removeChild(element);
-//     });
-
-//     jVarLocalTableBodyRow.querySelectorAll("[class^='KCol']").forEach((element, LoopIndex) => {
-//         if (element.querySelector("input") === null) {
-//             let jVarLocalOldValue = element.innerHTML.trim();
-//             let jVarLoopLocalClassList = element.classList[0];
-//             let jVarLoopLocalFind = jVarLocalTableFooterRow.querySelector(`[class*='${jVarLoopLocalClassList}']`);
-//             element.innerHTML = jVarLoopLocalFind.innerHTML;
-
-//             switch (element.querySelector("input").type) {
-//                 case "number":
-//                     element.querySelector("input").value = jVarLocalOldValue.replace(/,/g, "");
-//                     break;
-//                 default:
-//                     element.querySelector("input").value = jVarLocalOldValue;
-//                     break;
-//             };
-//         };
-//     });
-
-//     jVarLocalClosestTd.innerHTML = jVarLocalTableFooterUpdate.innerHTML;
-// }
-
 
 export { StartFunc }
