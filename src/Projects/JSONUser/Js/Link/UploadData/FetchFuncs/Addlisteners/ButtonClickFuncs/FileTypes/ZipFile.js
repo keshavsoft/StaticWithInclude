@@ -1,7 +1,7 @@
 let StartFunc = async ({ inHtmlSelect, DataPk }) => {
     let jVarLocalSelectedFile = inHtmlSelect;
     let jVarLocalFromValidation = fileValidation(jVarLocalSelectedFile);
-
+    console.log("jVarLocalFromValidation : ", jVarLocalFromValidation);
     if (jVarLocalFromValidation) {
         const formData = new FormData();
         formData.append("inFile", jVarLocalSelectedFile);
@@ -14,17 +14,12 @@ let StartFunc = async ({ inHtmlSelect, DataPk }) => {
         });
 
         if (response.status === 200) {
-            window.location = `/JSONUser/Html/Link/UploadData.html?UploadData=true&Datapk=${DataPk}`
+            //window.location = `/JSONUser/Html/Link/UploadData.html?UploadData=true&Datapk=${DataPk}`
         } else {
             Swal.fire('Data Not Uploaded')
 
         }
-
     };
-    // let jVarLocalFromFile = await jVarLocalreadFileAsync(jVarLocalSelectedFile);
-    // jvarLocalJSONData.JsonReports = JSON.parse(jVarLocalFromFile);
-
-
 };
 
 let fileValidation = (file) => {

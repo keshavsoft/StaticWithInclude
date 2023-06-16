@@ -19,13 +19,6 @@ let StartFunc = async ({ inEvent, inUserLocalStorageKey, inFirmDetailsLocalStora
         });
 
         StartFuncPostFetch({ inFromFetch: LocalFromFetch });
-        // if ("RedirectPage" in LocalFromFetch) {
-        //     window.open(LocalFromFetch.RedirectPage, '_newtab');
-        //     //window.location.href = LocalFromFetch.RedirectPage;
-        // };
-
-        // window.open("/JSONApi/Html/UserData/Menu/AsCards/Files.html", '_newtab');
-
     };
 };
 

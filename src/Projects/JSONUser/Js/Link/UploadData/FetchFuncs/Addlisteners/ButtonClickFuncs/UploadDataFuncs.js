@@ -10,22 +10,37 @@ let ButtonClickFunc = async (event) => {
     let jVarLocalSelectedFile = jVarLocalFileSelect.files[0];
     let LocalDataPk = jVarLocalCurrentTarget.dataset.datapk;
 
-    switch (jVarLocalSelectedFile.type) {
-        case "application/x-zip-compressed":
-            StartFuncZipFile({ inHtmlSelect: jVarLocalSelectedFile, DataPk: LocalDataPk });
+    let jVarLocalFromRowCheck = jFLocalRowCheck({ inCurrentTarget: jVarLocalCurrentTarget });
 
-            break;
+    if (jVarLocalFromRowCheck) {
+        switch (jVarLocalSelectedFile.type) {
+            case "application/x-zip-compressed":
+                StartFuncZipFile({ inHtmlSelect: jVarLocalSelectedFile, DataPk: LocalDataPk });
 
-        default:
-            fileValidation(jVarLocalSelectedFile);
-            let jVarLocalFromFile = await jVarLocalreadFileAsync(jVarLocalSelectedFile);
-            jvarLocalJSONData.JsonReports = JSON.parse(jVarLocalFromFile);
+                break;
 
-            ShowOnDomStartFunc({ JsonData: jvarLocalJSONData });
-            break;
-    }
+            default:
+                fileValidation(jVarLocalSelectedFile);
+                let jVarLocalFromFile = await jVarLocalreadFileAsync(jVarLocalSelectedFile);
+                jvarLocalJSONData.JsonReports = JSON.parse(jVarLocalFromFile);
 
+                ShowOnDomStartFunc({ JsonData: jvarLocalJSONData });
+                break;
+        };
+    } else {
+        Swal.fire(`Uploaded zip file should be : ${LocalDataPk} only`);
+    };
+};
 
+let jFLocalRowCheck = ({ inCurrentTarget }) => {
+    let jVarLocalCurrentTarget = inCurrentTarget;
+    let jVarLocalClosestTr = jVarLocalCurrentTarget.closest("Tr");
+
+    if (jVarLocalClosestTr.classList.contains("table-danger")) {
+        return false;
+    };
+
+    return true;
 };
 
 let fileValidation = (file) => {
