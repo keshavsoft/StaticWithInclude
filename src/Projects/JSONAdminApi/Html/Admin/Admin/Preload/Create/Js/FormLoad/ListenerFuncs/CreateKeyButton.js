@@ -1,7 +1,8 @@
 let StartFunc = async ({ inEvent, inProjectName }) => {
-    if (jFLocalCheckBeforeFetch()) {
+    let localjFLocalCheckBeforeFetch = jFLocalCheckBeforeFetch();
+    if (localjFLocalCheckBeforeFetch) {
         let jVarLocalBodyData = jFLocalPreparePostData();
-        let jVarLocalFolderName = jVarLocalBodyData.NewFolderName;
+        let jVarLocalFolderName = jVarLocalBodyData.inNewKeyName;
 
         let response = await jFLocalCallFetch({
             inBodyData: jVarLocalBodyData,
@@ -16,14 +17,14 @@ let StartFunc = async ({ inEvent, inProjectName }) => {
 };
 
 let jFLocalCheckBeforeFetch = () => {
-    let jVarLocalHtmlId = "CreateFolderInputId";
-    let jVarCreateFolderInputId = document.getElementById(jVarLocalHtmlId);
+    let jVarLocalHtmlId = "CreateInputId";
+    let jVarCreateKeyInputId = document.getElementById(jVarLocalHtmlId);
 
-    let jVarLocalFolderName = jVarCreateFolderInputId.value;
+    let jVarLocalkeyName = jVarCreateKeyInputId.value;
 
-    if (jVarLocalFolderName === "") {
-        jVarCreateFolderInputId.classList.add("is-invalid");
-        jVarCreateFolderInputId.focus();
+    if (jVarLocalkeyName === "") {
+        jVarCreateKeyInputId.classList.add("is-invalid");
+        jVarCreateKeyInputId.focus();
         return false;
     };
 
@@ -66,13 +67,13 @@ let jFLocalPostFetchAsArray = ({ inFromFetch, inNewFolderName }) => {
 };
 
 let jFLocalPreparePostData = () => {
-    let jVarLocalHtmlId = "CreateFolderInputId";
-    let jVarCreateFolderInputId = document.getElementById(jVarLocalHtmlId);
+    let jVarLocalHtmlId = "CreateInputId";
+    let jVarCreateKeyInputId = document.getElementById(jVarLocalHtmlId);
 
-    let jVarLocalFolderName = jVarCreateFolderInputId.value.trim();
+    let jVarLocalKeyName = jVarCreateKeyInputId.value.trim();
 
     return {
-        inNewKeyName: jVarLocalFolderName
+        inNewKeyName: jVarLocalKeyName
     };
 };
 
