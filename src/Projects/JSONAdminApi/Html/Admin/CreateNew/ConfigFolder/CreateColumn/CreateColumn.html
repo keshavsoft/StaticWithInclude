@@ -139,7 +139,14 @@
                 <tr>
                 <td></td>
                 <td>
-                    <input name="ColumnName" type="text" class="form-control" placeholder="Enter Column Name" autocomplete="off">
+                    <div >
+                        <div class="form-group">
+                            <input  name="ColumnName" type="text" class="form-control " placeholder="Enter Column Name" autocomplete="off" required="" autofocus="">
+                            <div class="invalid-feedback">
+                                Should not be empty!
+                            </div>
+                        </div>
+                    </div>
                 </td>
                 <td>
                     <button data-foldername="{{@../../../key}}" data-filename="{{@../../key}}" data-itemname="{{@../key}}" data-screenname="{{@key}}" class="btn btn-success CreateColumnButtonClass">Insert New Column</button>
