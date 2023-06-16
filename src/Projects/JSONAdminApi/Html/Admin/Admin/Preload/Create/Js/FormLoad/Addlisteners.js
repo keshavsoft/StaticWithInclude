@@ -1,10 +1,10 @@
-import { StartFunc as StartFuncCreateFolderButton } from "./ListenerFuncs/CreateFolderButton.js";
+import { StartFunc as StartFuncCreateKeyButton } from "./ListenerFuncs/CreateKeyButton.js";
 
 let StartFunc = ({ inProjectName }) => {
-    let jVarLocalCreateFolderButtonId = document.getElementById("CreateFolderButtonId");
+    let jVarLocalCreateFolderButtonId = document.getElementById("CreateKeyButtonId");
 
     jVarLocalCreateFolderButtonId.addEventListener("click", async () => {
-        await StartFuncCreateFolderButton({
+        await StartFuncCreateKeyButton({
             inEvent: event,
             inProjectName
         });
