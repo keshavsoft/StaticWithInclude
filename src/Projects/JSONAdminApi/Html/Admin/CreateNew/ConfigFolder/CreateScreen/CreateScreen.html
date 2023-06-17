@@ -106,8 +106,9 @@
                             {{this.ScreenName}}
                         </td>
                         <td>
-                            <a href="../CreateScreen/CreateScreen.html?inFolderName={{@../../../key}}&inFileName={{@../../key}}&inScreenName={{@../key}}&inColumnName={{@key}}"
-                             class="btn btn-outline-info ShowButtonClass">Show Columns</a>
+
+                            <a href="../CreateColumn/CreateColumn.html?inFolderName={{@../../../key}}&inFileName={{@../../key}}&inItemName={{@../key}}&inScreenName={{@key}}" class="btn btn-outline-info ShowButtonClass"
+                            >Show Column</a>
                         </td>
                     </tr>
                     {{/each}}
@@ -193,7 +194,7 @@
     </button>
     {{else}}
     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-    data-bs-target="#collapse-{{@../../key}}-{{@../key}}-{{@key}}" aria-expanded="false aria-controls="collapse-{{this.ItemNameForHtmlId}}">
+    data-bs-target="#collapse-{{@../../key}}-{{@../key}}-{{@key}}" aria-expanded="false" aria-controls="collapse-{{this.ItemNameForHtmlId}}">
     {{ItemName}}
     </button>
     {{/if}}
