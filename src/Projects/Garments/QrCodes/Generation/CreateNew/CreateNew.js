@@ -1,4 +1,4 @@
-import { jFStartFunc as CheckUserFromCookie } from "../../../../CommonFuncs/LoginFuncs/CheckUserFuncs.js";
+import { jFStartFunc as CheckUserFromCookie } from "../../../CommonFuncs/LoginFuncs/CheckUserFuncs.js";
 import { StartFunc as AddListenersStartFunc } from "./AddListenerFuncs/StartFunc.js"
 import { StartFunc as FormLoadFuncs } from "./FormLoadFuncs.js";
 import { ConfigObject } from "../../../ApiConfig.js";
