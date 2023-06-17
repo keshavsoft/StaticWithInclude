@@ -2,14 +2,18 @@ let StartFunc = ({ inDataFromApi }) => {
     let jVarLocalFrominFolderName = getUrlQueryParams({ inGetKey: "inFolderName" });
     let jVarLocalFromUrlinFileName = getUrlQueryParams({ inGetKey: "inFileName" });
     let jVarLocalFromUrlinItemName = getUrlQueryParams({ inGetKey: "inItemName" });
+    let jVarLocalFromUrlinScreenName = getUrlQueryParams({ inGetKey: "inScreenName" });
 
     if (jFLocalFolderClass({ inDataFromApi })) {
         if (jFLocalFileClass({ inDataFromApi })) {
-            jFLocalItemClass({
-                inDataFromApi, inFolderName: jVarLocalFrominFolderName,
-                inFileName: jVarLocalFromUrlinFileName,
-                inItemName: jVarLocalFromUrlinItemName
-            });
+            if (jFLocalItemClass({ inDataFromApi })) {
+                jFLocalScreenClass({
+                    inDataFromApi, inFolderName: jVarLocalFrominFolderName,
+                    inFileName: jVarLocalFromUrlinFileName,
+                    inItemName: jVarLocalFromUrlinItemName,
+                    inScreenName:jVarLocalFromUrlinScreenName
+                });
+            };
         };
     };
 };
@@ -40,9 +44,22 @@ let jFLocalFileClass = ({ inDataFromApi }) => {
         return true;
     };
 };
+let jFLocalItemClass = ({ inDataFromApi }) => {
+    let jVarLocalFromUrl = getUrlQueryParams({ inGetKey: "inFolderName" });
+    let jVarLocalFromUrlinFileName = getUrlQueryParams({ inGetKey: "inFileName" });
 
-let jFLocalItemClass = ({ inDataFromApi, inFolderName, inFileName, inItemName }) => {
-    let jVarLocalFilekeyNeeded = `Folders.${inFolderName}.Files.${inFileName}.Items.${inItemName}`;
+    let jVarLocalFilekeyNeeded = `Folders.${jVarLocalFromUrl}.Files.${jVarLocalFromUrlinFileName}`;
+
+    if (jVarLocalFromUrlinFileName === null === false) {
+        _.has(inDataFromApi, jVarLocalFilekeyNeeded) && _.set(inDataFromApi, `${jVarLocalFilekeyNeeded}.TabPaneClass`, " show active");
+        _.has(inDataFromApi, jVarLocalFilekeyNeeded) && _.set(inDataFromApi, `${jVarLocalFilekeyNeeded}.ButtonClass`, " active");
+
+        return true;
+    };
+};
+
+let jFLocalScreenClass = ({ inDataFromApi, inFolderName, inFileName, inItemName,inScreenName }) => {
+    let jVarLocalFilekeyNeeded = `Folders.${inFolderName}.Files.${inFileName}.Items.${inItemName}.Screens.${inScreenName}`;
 
     if (inItemName === null === false) {
         _.has(inDataFromApi, jVarLocalFilekeyNeeded) && _.set(inDataFromApi, `${jVarLocalFilekeyNeeded}.ShowOnLoad`, true);
