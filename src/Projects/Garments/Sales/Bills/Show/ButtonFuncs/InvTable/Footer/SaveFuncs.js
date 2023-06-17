@@ -2,11 +2,11 @@
 //import { StartFunc as UpdateFuncsStartFunc } from "../FetchFuncs/UpdateFuncs.js";
 import { StartFunc as SaveStartFunc } from "../../../FetchFuncs/InvTable/Footer/SaveFuncs.js";
 
-let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) => {
-    return await SaveStartFunc({
+let StartFunc = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
+    SaveStartFunc({
         inFolderName, inFileName, inItemName,
         inProjectName
-    });
+    }).then()
 };
 // InvTableFooterSaveButtonId
 export { StartFunc };
