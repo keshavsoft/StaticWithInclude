@@ -70,7 +70,7 @@
             </thead>
             <tbody>
                 {{#each this.Screens}}
-                {{log "inside" this}}
+                {{log "inside" this.TableInfo}}
                 <tr class="{{RowClass}}">
                     <td class="text-center">
                         {{ForSNo @index}}
@@ -83,7 +83,7 @@
                     </td>
                     <td>
                         <div class="form-check  form-switch">
-                            {{#if Simple}}
+                            {{#if this.TableInfo.TableRowOptions.Delete.Simple}}
                             <input class="form-check-input" type="checkbox" name="Simple" checked>
                             {{else}}
                             <input class="form-check-input" type="checkbox" name="Simple">
