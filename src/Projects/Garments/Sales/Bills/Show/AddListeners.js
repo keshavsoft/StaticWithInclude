@@ -73,10 +73,10 @@ let localButtonDeleteFunc = ({ inFolderName, inFileName, inItemName, inProjectNa
 };
 let localprintBurronClickFuncc = () => {
     let jvarLocalPrinButtonId = document.getElementById("PrintId");
+
     jvarLocalPrinButtonId.addEventListener("click", () => {
         let localRowPK = ReturnRowPK().RowPK;
-        window.location.href = `/pages/Sales/BillPrint/Show/Show.html?RowPK=${localRowPK}`;
-
+        window.location.href = `/Garments/Sales/BillPrint/Show/Show.html?RowPK=${localRowPK}`;
     })
 };
 
