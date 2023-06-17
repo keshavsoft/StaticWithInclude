@@ -1,6 +1,15 @@
 let StartFunc = ({ inDataFromApi }) => {
+    let jVarLocalFrominFolderName = getUrlQueryParams({ inGetKey: "inFolderName" });
+    let jVarLocalFromUrlinFileName = getUrlQueryParams({ inGetKey: "inFileName" });
+    let jVarLocalFromUrlinItemName = getUrlQueryParams({ inGetKey: "inItemName" });
     if (jFLocalFolderClass({ inDataFromApi })) {
-        jFLocalFileClass({ inDataFromApi });
+         (jFLocalFileClass({ inDataFromApi }))
+            jFLocalItemClass({
+                inDataFromApi, inFolderName: jVarLocalFrominFolderName,
+                inFileName: jVarLocalFromUrlinFileName,
+                inItemName: jVarLocalFromUrlinItemName
+            });
+            
     };
     noFolderAlertFunc({ inDataFromApi });
 };
@@ -27,6 +36,15 @@ let jFLocalFileClass = ({ inDataFromApi }) => {
     if (jVarLocalFromUrlinFileName === null === false) {
         _.has(inDataFromApi, jVarLocalFilekeyNeeded) && _.set(inDataFromApi, `${jVarLocalFilekeyNeeded}.TabPaneClass`, " show active");
         _.has(inDataFromApi, jVarLocalFilekeyNeeded) && _.set(inDataFromApi, `${jVarLocalFilekeyNeeded}.ButtonClass`, " active");
+    };
+
+};
+
+let jFLocalItemClass = ({ inDataFromApi, inFolderName, inFileName, inItemName }) => {
+    let jVarLocalFilekeyNeeded = `Folders.${inFolderName}.Files.${inFileName}.Items.${inItemName}`;
+
+    if (inItemName === null === false) {
+        _.has(inDataFromApi, jVarLocalFilekeyNeeded) && _.set(inDataFromApi, `${jVarLocalFilekeyNeeded}.ShowOnLoad`, true);
     };
 };
 
