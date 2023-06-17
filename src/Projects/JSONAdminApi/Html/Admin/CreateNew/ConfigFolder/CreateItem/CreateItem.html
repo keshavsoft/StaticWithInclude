@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <include src="src/components/Projects/JSONAdminApi/HtmlInclude/ToHead.html"></include>
-   
+
     <title>Create Item</title>
     <!-- Custom styles for this template -->
     <link href="/JSONProject/css/headers.css" rel="stylesheet">
@@ -60,15 +60,15 @@
 
     <script src="/JSONApi/Js/lodash.js"></script>
 
-    
-        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
 
 
-    
 
-      <script id="HbsTemplateForScreensOnly" type="text/x-handlebars">
+
+    <script id="HbsTemplateForScreensOnly" type="text/x-handlebars">
         <div class="card mt-3">
             <div class="card-header text-bg-info">
                 Create New Item
@@ -112,7 +112,8 @@
                             {{ItemName}}
                         </td>
                         <td>
-                            <a href="../CreateScreen/CreateScreen.html?inFolderName={{@../key}}&inFileName={{@key}}" class="btn btn-outline-info ShowButtonClass"
+                            <a href="../CreateScreen/CreateScreen.html?inFolderName={{@../../key}}&inFileName={{@../key}}&inScreenName={{@key}}"
+                             class="btn btn-outline-info ShowButtonClass"
                             >Show Screens</a>
                             
                         </td>
@@ -313,9 +314,9 @@
     </script>
 
 
-<script>
-    let jVarGlobalPresentViewData;
-</script>
+    <script>
+        let jVarGlobalPresentViewData;
+    </script>
 
 
     <script src="./Js/CreateItem.js" type="module"></script>
