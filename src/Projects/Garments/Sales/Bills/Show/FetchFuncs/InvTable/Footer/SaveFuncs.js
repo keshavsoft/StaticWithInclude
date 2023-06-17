@@ -1,5 +1,6 @@
 import { ReturnRowPK } from "../../../urlSearchParams.js";
 import { StartFunc as StartFuncPreparePostData } from "./PreparePostData.js";
+import { StartFunc as StartFuncAfterFetch } from "./AfterFetch.js";
 
 let PreparePostData = () => {
     let jVarLocalItemNameId = document.getElementById("ItemsDataList");
@@ -54,45 +55,6 @@ let PreparePostData = () => {
     return jVarLocalReturnData;
 };
 
-let StartFunc1 = async ({ inFolderName, inFileName, inItemName, inProjectName }) => {
-    try {
-        let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
-        let jVarLocalRowPK = ReturnRowPK().RowPK;
-        //  jVarLocalRowPK = 2;
-
-        let inFetchPostData = {
-            FileNameOnly: inFileName,
-            FolderName: inFolderName,
-            ItemName: "BillsQrCode",
-            JsonPk: jVarLocalRowPK,
-            ScreenName: "Create",
-            SubTableKey: "InvGrid"
-        };
-
-        inFetchPostData.DataToInsert = StartFuncPreparePostData();
-        let jVarLocalFetchUrl = `/${inProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/WithScreens/SubTable/WithChecking/Insert`;
-
-        let jVarLocalFetchHeaders = {
-            method: "post",
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(inFetchPostData)
-        };
-
-        const response = await fetch(jVarLocalFetchUrl, jVarLocalFetchHeaders);
-        const data = await response.json();
-        LocalReturnObject.KTF = data.KTF;
-
-        LocalReturnObject.KTF = true;
-        return await LocalReturnObject;
-
-    } catch (error) {
-        console.log("error:", error);
-    }
-
-};
 let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) => {
     try {
         let inFetchPostData = {
@@ -102,10 +64,9 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) 
             ScreenName: "Create"
         };
 
-        inFetchPostData.inPostData = PreparePostData();
-        let jVarLocalFetchUrl = `/${inProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/WithScreens/WithChecking/InsertWithPk`;
+        inFetchPostData.inPostData = StartFuncPreparePostData();
 
-        // let jVarLocalFetchUrl = `/${inProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/WithScreens/SubTable/WithChecking/Insert`;
+        let jVarLocalFetchUrl = `/${inProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/WithScreens/WithChecking/InsertWithPk`;
 
         let jVarLocalFetchHeaders = {
             method: "post",
@@ -119,11 +80,10 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) 
         const response = await fetch(jVarLocalFetchUrl, jVarLocalFetchHeaders);
         const data = await response.json();
 
-        return await data;
+        StartFuncAfterFetch({ inPostData: data })
     } catch (error) {
         console.log("error:", error);
     }
 };
-
 
 export { StartFunc };

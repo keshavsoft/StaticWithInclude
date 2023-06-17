@@ -27,15 +27,7 @@ let LocalFooterSaveAssign = ({ inFolderName, inFileName, inItemName, inProjectNa
                 inEvent: event
             });
 
-            if (LocalFromSave.KTF) {
-                window.location.href = `?RowPK=${localRowPK}&FromSave=true`;
-                await ShowOnDomStartFunc({
-                    inFolderName, inFileName, inItemName, inProjectName,
-                    inShowSuccess: true
-                });
-            } else {
-                Swal.fire(LocalFromSave.KReason);
-            }
+
         });
     };
 

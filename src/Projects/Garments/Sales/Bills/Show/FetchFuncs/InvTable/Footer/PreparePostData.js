@@ -35,11 +35,11 @@ let StartFunc = () => {
         jVarLocalReturnData.Barcode = jVarLocalQrCode.value;
     };
 
-    if (!(jVarLocalQrCode === null)) {
+    if (!(jVarLocalDisPersantage === null)) {
         jVarLocalReturnData.DisPercentage = parseInt(jVarLocalDisPersantage.value);
     };
 
-    if (!(jVarLocalQrCode === null)) {
+    if (!(jVarLocalDisRate === null)) {
         jVarLocalReturnData.DisRate = parseInt(jVarLocalDisRate.value);
     };
 

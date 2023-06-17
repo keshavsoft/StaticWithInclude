@@ -1,6 +1,6 @@
 import { StartFunc as StartFuncApplyClasses } from "./ApplyClasses.js";
 
-let jFCreateFoldersToDom = async ({ inProjectName }) => {
+let StartFunc = async ({ inProjectName }) => {
     let jVarLocalRoute = inProjectName;
     
     let jVarLocalFetchUrl = `/${jVarLocalRoute}/AdminApi/AsTree/Json/UserFolders/ConfigFolder/UserFileAsFolder/JsonItem/CreateNew/CreateItem`;
@@ -20,4 +20,4 @@ let jFCreateFoldersToDom = async ({ inProjectName }) => {
     return await dataFromApi;
 };
 
-export { jFCreateFoldersToDom }
+export { StartFunc }
