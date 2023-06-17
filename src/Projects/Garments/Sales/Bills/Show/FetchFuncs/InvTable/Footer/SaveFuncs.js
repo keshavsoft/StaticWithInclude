@@ -1,4 +1,5 @@
 import { ReturnRowPK } from "../../../urlSearchParams.js";
+import { StartFunc as StartFuncPreparePostData } from "./PreparePostData.js";
 
 let PreparePostData = () => {
     let jVarLocalItemNameId = document.getElementById("ItemsDataList");
@@ -68,7 +69,7 @@ let StartFunc1 = async ({ inFolderName, inFileName, inItemName, inProjectName })
             SubTableKey: "InvGrid"
         };
 
-        inFetchPostData.DataToInsert = PreparePostData();
+        inFetchPostData.DataToInsert = StartFuncPreparePostData();
         let jVarLocalFetchUrl = `/${inProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/WithScreens/SubTable/WithChecking/Insert`;
 
         let jVarLocalFetchHeaders = {
