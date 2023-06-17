@@ -26,11 +26,14 @@ let jFLocalCheckBeforeFetch = ({ inEvent }) => {
     let jVarLocalCurrentTarget = inEvent.currentTarget;
     let jVarLocalColsestTr = jVarLocalCurrentTarget.closest("tr");
     let jVarLocalColumnName = jVarLocalColsestTr.querySelector('[name="ColumnName"]');
+    let jVarLocaldiv = jVarLocalColsestTr.querySelector('.invalid-feedback');
     let jVarLocalColumnNameValue = jVarLocalColumnName.value;
 
     if (jVarLocalColumnNameValue === "") {
         jVarLocalColumnName.classList.add("is-invalid");
+        jVarLocaldiv.innerHTML = "Should not be empty!"
         jVarLocalColumnName.focus();
+
         return false;
     };
 
