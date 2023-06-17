@@ -27,22 +27,13 @@
         </symbol>
     </svg>
 
-    <include src="./src/components/Templates/Admin/Columns/Tabular/CreateNew/Header.html"></include>
+    <include src="./src/components/Projects/JSONAdminApi/Admin/CreateNew/ConfigFolder/HeaderWithModals.html"></include>
 
     <main class="mt-2">
         <div class="container">
             <div id="KCont1">
             </div>
         </div>
-
-        <datalist id="DefaultValueDataList">
-            <option value="Object"></option>
-        </datalist>
-
-        <datalist id="TextAlignDataList">
-            <option value="Right"></option>
-            <option value="Left"></option>
-        </datalist>
     </main>
 
     <include src="./src/components/Templates/Admin/FooterWithLogin.html"></include>
@@ -347,33 +338,11 @@
         };
     </script>
 
-
-    <script>
-        let jFChangeHeaderActiveClass = () => {
-            let jVarLocalPathArray = window.location.pathname.split("/");
-            let jVarLocalHTMLName = jVarLocalPathArray[jVarLocalPathArray.length - 1];
-            jFChangeNavAnchorClass({ inClassName: jVarLocalHTMLName.split(".")[0] });
-        };
-
-        let jFChangeNavAnchorClass = ({ inClassName }) => {
-            let jVarLocalNavBarId = document.getElementById("NavBarId");
-            let jVarLocalAnchorNeeded = jVarLocalNavBarId.querySelector(`.${inClassName}AClass`);
-
-            if (jVarLocalAnchorNeeded !== null) {
-
-                if (jVarLocalAnchorNeeded.classList.contains("text-white")) {
-                    jVarLocalAnchorNeeded.classList.remove("text-white");
-                };
-
-                jVarLocalAnchorNeeded.classList.add("text-info");
-            };
-        };
-
-        jFChangeHeaderActiveClass();
-    </script>
+<script src="../../../../../Js/Header/headerChange.js"></script>
+    
     <script src="/JSONAdminApi/Js/Login/Check.js" type="module"></script>
     <script src="/JSONAdminApi/Js/Login/LoginFetch.js" type="module"></script>
-    <script src="../../../../../Js/Columns/Tabular/ToSubTable/ToSubTableCreate.js" type="module"></script>
+    <script src="./Js/CreateToSubTable.js" type="module"></script>
 
 </body>
 
