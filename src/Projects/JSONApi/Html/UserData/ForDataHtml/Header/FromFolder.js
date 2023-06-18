@@ -41,8 +41,6 @@ let jFShowFoldersInMenu = ({ inProjectName, inSubRoute }) => {
     }).then(dataFromApi => {
         if (dataFromApi !== null) {
             if (dataFromApi.KTF) {
-                console.log("dataFromApi-------- : ", dataFromApi);
-
                 Object.entries(dataFromApi.Folders).forEach(
                     ([key, value]) => {
                         jFPrepareMenuItem({
@@ -51,13 +49,6 @@ let jFShowFoldersInMenu = ({ inProjectName, inSubRoute }) => {
                             inIconClass: value.IconClass
                         });
                     });
-
-
-                // let k1 = document.querySelectorAll('[keshavsoftfoldername]');
-
-                // k1.forEach((spanElement) => {
-                //     spanElement.addEventListener("click", FetchAsPost);
-                // });
             };
         };
     });

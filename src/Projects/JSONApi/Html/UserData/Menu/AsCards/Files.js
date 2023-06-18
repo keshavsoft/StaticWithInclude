@@ -1,6 +1,9 @@
 import { jFShowFoldersInMenu } from "./Header/FromFolder.js";
 import { ReturnFolderName as urlSearchParamsReturnFolderName  } from "./ForFiles/urlSearchParams.js";
 import { FetchFiles } from "./ForFiles/FetchFuncs.js";
+import { StartFunc as StartFuncToLocalStorage } from "../../../../Js/KeshavSoft/CommonFuncs/ToLocalStorage/ForHeader.js";
+
+StartFuncToLocalStorage().then();
 
 jFShowFoldersInMenu({
     inProjectName: jVarGlobalProject,
