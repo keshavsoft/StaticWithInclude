@@ -401,24 +401,25 @@
         </li>
     </template>
 
-    <template id="TemplateForItemCard1">
-        <div class="col-4">
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-body">
-                        <h5 class="card-title">{{inFileNameWithExtension}}</h5>
-                        <h6 class="card-title">{{inItemName}} - {{inScreenCount}}</h6>
-                        <p>Rows : <span class="RowCountClass">{{inRowCount}}</span> </p>
-                        <a href="Screens.html?FolderName={{inFolderName}}&FileName={{inFileNameWithExtension}}&ItemName={{inItemName}}&RowCount={{inRowCount}}"
-                            keshavsoftItemName="{{ItemName}}" class="btn btn-primary keshavsoftItemclick">Screens :
-                            <span class="ScreenCountClass">{{ScreenCount}}</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </template>
+    
+    <template id="TemplateForMenuItemLoop">
+        {{#each this}}
+     
+        <li class="UserLiClass">
+            <a href="Files.html?FolderName={{FolderName}}" keshavsoftfoldername="{{FolderName}}" class="nav-link {{MenuClass}}">
 
+                <svg class="bi d-block mx-auto mb-1 d-none d-md-block" width="24" height="24">
+                    <use xlink:href="#{{IconClass}}"></use>
+                </svg>
+
+                {{FolderName}}
+            </a>
+        </li>
+        
+      {{/each}}
+
+    </template>
+    
     
     <template id="TemplateForItemCard">
         <div class="col-4">
@@ -439,7 +440,9 @@
     </template>
 
     
-    <script src="/JSONApi/Js/KeshavSoft/Menu/AsCards/Items.js" type="module"></script>
+    <script src="./Items.js" type="module"></script>
+
+
 </body>
 
 </html>
