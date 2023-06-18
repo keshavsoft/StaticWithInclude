@@ -363,8 +363,13 @@
     </div>
 
     <!-- AddForPreload -->
-    <include src="./src/components/Projects/JSONApi/AddForPreload.html"></include>
+    <!-- <include src="./src/components/Projects/JSONApi/AddForPreload.html"></include> -->
+    
+    <div id="DataListsID">
 
+    </div>
+
+    
     <!-- AddForCrud -->
     <include src="./src/components/Projects/JSONApi/AddForCrud.html"></include>
 
@@ -407,11 +412,15 @@
 
 <script>
     let jVarGlobalKeshavSoftLocalFuncsObject = new KeshavSoftLocalFuncs({});
-    jVarGlobalApiFuncs.ApiFuncs.PreLoad.Masters.FillDataFromServer();
+    // jVarGlobalApiFuncs.ApiFuncs.PreLoad.Masters.FillDataFromServer();
 </script>
 
+<!-- <script type="module" src="../../../Js/KeshavSoft/ToLocalStorage/FromPreload.js"></script> -->
+
+<script type="module" src="../ToDataList/FromLocalStorage.js"></script>
+
     <script src="/JSONApi/Js/KeshavSoftCrudFuncs.js"></script>
-    <script src="/JSONApi/Js/KeshavSoft/DataAsJson/ForCrud/Table.js" type="module"></script>
+    <script src="./Table.js" type="module"></script>
 
 </body>
 
