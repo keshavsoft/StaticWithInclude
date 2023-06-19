@@ -18,4 +18,19 @@ const StartFunc = ({ inHtmlCard }) => {
     return jVarLocalReturnData;
 };
 
+
+// let jVarLocalJsonConfig = JSON.parse(jVarLocalCardDataset.jsonconfig);
+// let jVarLocalItemConfig = JSON.parse(jVarLocalCardDataset.itemconfig);
+
+// let jVarLocalReturnData = {
+//     FolderName: jVarLocalJsonConfig.inFolderName,
+//     FileName: jVarLocalJsonConfig.inJsonFileName,
+//     ItemName: jVarLocalItemConfig.inItemName,
+//     ScreenName: jVarLocalItemConfig.inScreenName,
+//     InsertKey: jVarLocalCardDataset.insertkey,
+//     MainRowPK: jVarLocalCardDataset.pk
+// };
+
+// return jVarLocalReturnData;
+
 export { StartFunc }

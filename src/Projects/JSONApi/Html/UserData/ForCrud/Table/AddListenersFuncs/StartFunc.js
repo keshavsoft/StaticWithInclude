@@ -3,10 +3,10 @@ import { StartFunc as StartFuncButtonClickFuncs } from "./Table/Search/ButtonCli
 import { StartFunc as StartFuncFooter } from "./Table/Footer/SaveClick.js";
 
 let StartFunc = ({ inRoute, inSubRoute }) => {
-    TableStartFunc();
+    TableStartFunc({ inRoute, inSubRoute });
+    
     StartFuncButtonClickFuncs();
     StartFuncFooter({ inRoute, inSubRoute });
-    
 };
 
 export { StartFunc };
