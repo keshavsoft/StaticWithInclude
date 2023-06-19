@@ -89,10 +89,18 @@ let jFLocalCallFetch = async ({ inBodyData, inProjectName }) => {
     }
 
     let response = await fetch(jFetchUrl, jFetchBody);
+    let localData = await response.json();
 
-    if (response.status === 200) {
-        return await response.json();
+    if ((localData.KTF) === false) {
+        Swal.fire(`Reason: ${localData.KReason}`)
     };
+
+    return localData;
+
+
+    // if (response.status === 200) {
+    //     return await response.json();
+    // };
 };
 
 export { StartFunc };
