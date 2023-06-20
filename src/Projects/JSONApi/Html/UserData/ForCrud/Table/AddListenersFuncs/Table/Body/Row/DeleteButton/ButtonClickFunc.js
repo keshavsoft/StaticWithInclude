@@ -4,19 +4,21 @@ let StartFunc = async (event) => {
     let jVarLocalCurrentTarget = event.currentTarget;
 
     Swal.fire({
-        title: 'Do you want to Delete the changes?',
-        showDenyButton: true,
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
         showCancelButton: true,
-        confirmButtonText: 'Delete',
-        denyButtonText: `Don't Delete`,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'Yes, delete it!',
+        confirmButtonText: 'Cancel'
     }).then((result) => {
-        /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
+        } else {
             StartFuncFetchFunc({ currentTarget: jVarLocalCurrentTarget })
-            // Swal.fire('Saved!', '', 'success')
-        } else if (result.isDenied) {
-            Swal.fire('Changes are not saved', '', 'info')
-        }
+
+        };
+
     });
 
 };
