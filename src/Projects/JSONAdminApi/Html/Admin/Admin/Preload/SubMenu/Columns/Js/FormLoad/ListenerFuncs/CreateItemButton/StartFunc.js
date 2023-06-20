@@ -7,6 +7,7 @@ let StartFunc = async ({ inEvent, inProjectName }) => {
     let jFetchUrl = `/${inProjectName}/AdminApi/AsTree/Json/UserFolders/AdminFolder/PreloadJsonFile/FromKeys/ConfigKey/ColumnsKey`;
 
     let jVarLocalBodyData = StartFuncPreparePostData({ inEvent });
+    console.log("jVarLocalBodyData:",jVarLocalBodyData);
 
     let response = await StartFuncFetchFunc({
         inBodyData: jVarLocalBodyData,

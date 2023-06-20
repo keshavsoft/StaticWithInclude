@@ -4,7 +4,7 @@ import { StartFunc as StartFuncPostFetch } from "./PostFetch.js";
 let StartFunc = async ({ inEvent, inProjectName }) => {
 
         let jVarLocalBodyData = StartFuncPreparePostData({ inEvent });
-
+        console.log("jVarLocalBodyData:",jVarLocalBodyData);
         let response = await jFLocalCallFetch({
             inBodyData: jVarLocalBodyData,
             inProjectName
