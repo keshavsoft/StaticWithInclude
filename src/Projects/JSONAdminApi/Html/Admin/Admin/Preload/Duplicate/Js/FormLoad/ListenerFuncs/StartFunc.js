@@ -1,6 +1,6 @@
 import { StartFunc as StartFuncCreateItemButton } from "./CreateItemButton/StartFunc.js";
 
-let StartFunc = async ({ inEvent, inProjectName }) => {
+let StartFunc =  ({ inEvent, inProjectName }) => {
     StartFuncCreateItemButton({ inEvent, inProjectName });
 };
 

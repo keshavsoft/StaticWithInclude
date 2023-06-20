@@ -3,6 +3,9 @@ import { StartFunc as ShowDataFuncsStartFunc } from "./Table/FetchFuns.js";
 import { jFAddtoPrintButtonInTable } from "./Table/AddListeners.js";
 import { StartFunc as CardHeaderStartFunc } from "./Table/AddListenersFuncs/Card/CardHeader/ButtonClicks.js";
 import { StartFunc as AddListenersFuncsStartFunc } from "./Table/AddListenersFuncs/StartFunc.js";
+import { StartFunc as StartFuncHeader } from "../ForDataHtml/Header/ClickFuncs.js";
+
+StartFuncHeader();
 
 jFShowFoldersInMenu({
     inProjectName: jVarGlobalProject,

@@ -4,8 +4,8 @@ let StartFunc = ({ inProjectName }) => {
     let jVarLocalFileCreateClassName = document.getElementsByClassName("CloneButtonClass");
 
     for (let i = 0; i < jVarLocalFileCreateClassName.length; i++) {
-        jVarLocalFileCreateClassName[i].addEventListener("click", async (event) => {
-            await StartFuncListenerFuncs({
+        jVarLocalFileCreateClassName[i].addEventListener("click", (event) => {
+            StartFuncListenerFuncs({
                 inEvent: event,
                 inProjectName
             });
