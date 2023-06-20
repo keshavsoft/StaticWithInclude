@@ -1,53 +1,24 @@
-import ConfigJson from "../../../../../../../../../Config.json" assert{type: "json"};
-import { StartFunc as StartFuncFromCard } from "../../../../../../CommonFuncs/FromCard/FromDataSetAsSingleObject.js";
-import { StartFunc as StartFuncAfterFetch } from "./AfterFetch.js";
+import { StartFunc as StartFuncFetchFunc } from "./FetchFunc.js";
 
 let StartFunc = async (event) => {
+    let jVarLocalCurrentTarget = event.currentTarget;
+
     Swal.fire({
-        title: 'Do you want to save the changes?',
+        title: 'Do you want to Delete the changes?',
         showDenyButton: true,
         showCancelButton: true,
-        confirmButtonText: 'Save',
-        denyButtonText: `Don't save`,
+        confirmButtonText: 'Delete',
+        denyButtonText: `Don't Delete`,
     }).then((result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
-            Swal.fire('Saved!', '', 'success')
+            StartFuncFetchFunc({ currentTarget: jVarLocalCurrentTarget })
+            // Swal.fire('Saved!', '', 'success')
         } else if (result.isDenied) {
             Swal.fire('Changes are not saved', '', 'info')
         }
     });
 
-    let jVarLocalCurrentTarget = event.currentTarget;
-
-    let jVarClosestCard = jVarLocalCurrentTarget.closest(".KTableDivClass");
-    let jVarClosestTr = jVarLocalCurrentTarget.closest("tr");
-
-    let jVarLocalRoute = ConfigJson.Project;
-    let jVarLocalSubRoute = ConfigJson.SubRoute;
-    let JsonPK = jVarClosestTr.dataset.pk;
-
-    let jVarLocalBody = StartFuncFromCard({ inHtmlCard: jVarClosestCard });
-    jVarLocalBody.RowPK = JsonPK;
-
-    let jVarLocalFetchUrl = `/${jVarLocalRoute}/${jVarLocalSubRoute}/Data/FromFolder/FromFile/ScreensFromDisplayJson/Tabular/Row/Delete/FromRowPK`;
-
-    // let jVarLocalFetchHeaderObject = {
-    //     method: "post",
-    //     headers: {
-    //         'Accept': 'application/json',
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify(jVarLocalBody)
-    // };
-
-    // fetch(jVarLocalFetchUrl, jVarLocalFetchHeaderObject).then(response => {
-    //     if (!response.ok) { throw new Error(response.statusText) };
-
-    //     return response.json();
-    // }).then((FetchData) => {
-    //     StartFuncAfterFetch({ inFetchData: FetchData });
-    // });
 };
 
 export { StartFunc }
