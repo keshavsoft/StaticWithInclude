@@ -1,6 +1,14 @@
 let StartFunc = ({ inFromFetch, inBodyData }) => {
     if (Array.isArray(inFromFetch)) {
         jFLocalPostFetchAsArray({ inFromFetch, inBodyData });
+    } else {
+        jFLocalIfNotArray({ inFromFetch });
+    };
+};
+
+const jFLocalIfNotArray = ({ inFromFetch }) => {
+    if (inFromFetch.KTF) {
+        window.location = "";
     };
 };
 
