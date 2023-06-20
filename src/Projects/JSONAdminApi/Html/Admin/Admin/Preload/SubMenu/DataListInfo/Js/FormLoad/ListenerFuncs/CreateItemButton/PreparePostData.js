@@ -6,9 +6,10 @@ let StartFunc = ({ inEvent }) => {
     let jVarLocalItemName = jVarLocalColsestTr.querySelector('[name="DatalistID"]');
 
     let jVarLocalItemNameValue = jVarLocalItemName.value;
+    let jVarlocalTrimValue = jVarLocalItemNameValue.trim();
 
     let localBodyAsJson = {
-        DatalistID: jVarLocalItemNameValue,
+        DatalistID: jVarlocalTrimValue,
     };
 
 
