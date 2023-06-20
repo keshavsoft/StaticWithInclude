@@ -1,12 +1,13 @@
 import ConfigJson from "../../../../../../../../../Config.json" assert{type: "json"};
 import { StartFunc as StartFuncFromCard } from "../../../../../../CommonFuncs/FromCard/FromDataSetAsSingleObject.js";
 import { StartFunc as StartFuncAfterFetch } from "./AfterFetch.js";
+import { StartFunc as StartFuncButtonClickFunc } from "./ButtonClickFunc.js";
 
 let StartFunc = () => {
     let jVarLocalCardHeaderButtons = document.querySelectorAll(".KMainTableBodyRowDeleteButtonClass");
 
     for (let i = 0; i < jVarLocalCardHeaderButtons.length; i++) {
-        jVarLocalCardHeaderButtons[i].addEventListener("click", LocalButtonClick);
+        jVarLocalCardHeaderButtons[i].addEventListener("click", StartFuncButtonClickFunc);
     };
 };
 
