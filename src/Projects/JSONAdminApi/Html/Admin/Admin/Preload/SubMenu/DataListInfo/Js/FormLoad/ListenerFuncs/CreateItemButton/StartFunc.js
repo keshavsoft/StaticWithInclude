@@ -3,11 +3,9 @@ import { StartFunc as StartFuncPostFetch } from "./PostFetch.js";
 import { StartFunc as StartFuncFetchFunc } from "./FetchFunc.js";
 
 let StartFunc = async ({ inEvent, inProjectName }) => {
-
     let jFetchUrl = `/${inProjectName}/AdminApi/AsTree/Json/UserFolders/AdminFolder/PreloadJsonFile/FromKeys/ConfigKey/DataListInfoKey`;
 
     let jVarLocalBodyData = StartFuncPreparePostData({ inEvent });
-    console.log("jVarLocalBodyData:",jVarLocalBodyData);
 
     let response = await StartFuncFetchFunc({
         inBodyData: jVarLocalBodyData,
