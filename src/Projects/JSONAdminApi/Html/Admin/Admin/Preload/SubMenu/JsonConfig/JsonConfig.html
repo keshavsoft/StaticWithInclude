@@ -54,7 +54,6 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">PreloadKeys</th>
-                            <th scope="col">UserFolderName</th>
                             <th scope="col">inFolderName</th>
                             <th scope="col">inJsonFileName</th>
                             <th scope="col"></th>
@@ -90,10 +89,6 @@
                 {{ForSNo @index}}
             </td>
             <td>{{@key}}</td>
-            <td><div class="mb-3">
-              <input type="text"
-                class="form-control" name="UserFolderName" value="{{JsonConfig.UserFolderName}}" id="" aria-describedby="helpId" placeholder="">
-            </div></td>
             <td><div class="mb-3">
                 <input type="text"
                   class="form-control" name="inFolderName" value="{{JsonConfig.inFolderName}}" id="" aria-describedby="helpId" placeholder="">
