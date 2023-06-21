@@ -31,7 +31,7 @@ let jFLocalClickFunc = async (event) => {
         ShowTotals: jVarLocalShowTotalsValue
     }
 
-    let jFetchUrl = "/JSONAdminApi/AdminApi/AsTree/Json/UserFolders/ScreensFromDisplayJson/SubTableInfo/SubMenu/FooterType/FromKeys";
+    let jFetchUrl = "/AdminApi/AsTree/Json/UserFolders/ScreensFromDisplayJson/TableInfo/SubMenu/TableRowOptions/Delete";
 
     let response = await fetch(jFetchUrl, {
         method: "PATCH",
