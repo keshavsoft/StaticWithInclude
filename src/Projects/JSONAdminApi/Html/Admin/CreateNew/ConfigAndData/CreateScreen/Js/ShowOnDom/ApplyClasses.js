@@ -41,7 +41,21 @@ let jFLocalFileClass = ({ inDataFromApi }) => {
     };
 };
 
-let jFLocalItemClass = ({ inDataFromApi, inFolderName, inFileName, inItemName }) => {
+let jFLocalItemClass = ({ inDataFromApi }) => {
+    let jVarLocalFromUrl = getUrlQueryParams({ inGetKey: "inFolderName" });
+    let jVarLocalFromUrlinFileName = getUrlQueryParams({ inGetKey: "inFileName" });
+    let jVarLocalFromUrlinItemName = getUrlQueryParams({ inGetKey: "inItemName" });
+
+    let jVarLocalFilekeyNeeded = `Folders.${jVarLocalFromUrl}.Files.${jVarLocalFromUrlinFileName}.Items.${jVarLocalFromUrlinItemName}`;
+
+    if (jVarLocalFromUrlinFileName === null === false) {
+        _.has(inDataFromApi, jVarLocalFilekeyNeeded) && _.set(inDataFromApi, `${jVarLocalFilekeyNeeded}.ShowOnLoad`, true);
+
+        return true;
+    };
+};
+
+let jFLocalItemClass_Keshav = ({ inDataFromApi, inFolderName, inFileName, inItemName }) => {
     let jVarLocalFilekeyNeeded = `Folders.${inFolderName}.Files.${inFileName}.Items.${inItemName}`;
 
     if (inItemName === null === false) {
