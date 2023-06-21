@@ -59,20 +59,6 @@
   </script>
 
 <script id="HbsTemplateForItemsOnly" type="text/x-handlebars">
-<div class="card text-dark bg-light">
-    <div class="card-header">
-        <div class="row">
-            <div class="col">
-                <h4>{{FileName}}</h4>
-            </div>
-
-            <div class="col">
-                <input type="text" class="form-control" name="" placeholder="Type to search..."
-                    onkeyup="jFTableSearch(event)" autofocus>
-            </div>
-        </div>
-    </div>
-    <div class="card-body">
         {{#each this.Items}}
         <div class="accordion-item">
           <h2 class="accordion-header" id="heading-{{@../../key}}-{{@../key}}-{{@key}}">
@@ -103,8 +89,6 @@
           {{/if}}
         </div>
         {{/each}}
-    </div>
-</div>
         </script>
 
 <script id="HbsTemplateForScreensOnly" type="text/x-handlebars">
