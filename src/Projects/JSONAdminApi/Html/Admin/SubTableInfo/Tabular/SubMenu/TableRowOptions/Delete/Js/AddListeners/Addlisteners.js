@@ -14,24 +14,17 @@ let jFLocalClickFunc = async (event) => {
     let jVarLocalscreenname = jVarLocalCurrentTarget.dataset.screenname;
     let jVarLocalGridName = jVarLocalCurrentTarget.dataset.gridname;
 
-    console.log("jVarLocalscreenname:",jVarLocalscreenname);
 
     let jVarLocalColsestTr = jVarLocalCurrentTarget.closest("tr");
-    let jVarLocalShowBalance = jVarLocalColsestTr.querySelector('[name="ShowBalance"]');
-    let jVarLocalCreateNew = jVarLocalColsestTr.querySelector('[name="CreateNew"]');
-    let jVarLocalShowTotals = jVarLocalColsestTr.querySelector('[name="ShowTotals"]');
+    let jVarLocalSimple = jVarLocalColsestTr.querySelector('[name="Simple"]');
 
-    let jVarLocalShowBalanceValue = jVarLocalShowBalance.checked;
-    let jVarLocalCreateNewValue = jVarLocalCreateNew.checked;
-    let jVarLocalShowTotalsValue = jVarLocalShowTotals.checked;
+    let jVarLocalSimpleValue = jVarLocalSimple.checked;
 
     let BodyAsJson = {
-        ShowBalance: jVarLocalShowBalanceValue,
-        CreateNew: jVarLocalCreateNewValue,
-        ShowTotals: jVarLocalShowTotalsValue
+        Simple: jVarLocalSimpleValue
     }
 
-    let jFetchUrl = "/AdminApi/AsTree/Json/UserFolders/ScreensFromDisplayJson/TableInfo/SubMenu/TableRowOptions/Delete";
+    let jFetchUrl = "/JSONAdminApi/AdminApi/AsTree/Json/UserFolders/ScreensFromDisplayJson/SubTableInfo/SubMenu/TableRowOptions/Delete";
 
     let response = await fetch(jFetchUrl, {
         method: "PATCH",
@@ -40,7 +33,7 @@ let jFLocalClickFunc = async (event) => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            folderName: jVarLocalFolderName,
+            FolderName: jVarLocalFolderName,
             FileName: jVarLocalfilename,
             ItemName: jVarLocalitemname,
             ScreenName: jVarLocalscreenname,
