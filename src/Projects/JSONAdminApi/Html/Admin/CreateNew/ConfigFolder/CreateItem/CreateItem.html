@@ -68,7 +68,7 @@
 
 
 
-    <script id="HbsTemplateForScreensOnly" type="text/x-handlebars">
+  <script id="HbsTemplateForScreensOnly" type="text/x-handlebars">
         <div class="card mt-3">
             <div class="card-header text-bg-info">
                 Create New Item
@@ -112,7 +112,7 @@
                             {{ItemName}}
                         </td>
                         <td>
-                            <a href="../CreateScreen/CreateScreen.html?inFolderName={{@../../key}}&inFileName={{@../key}}&inScreenName={{@key}}"
+                            <a href="../CreateScreen/CreateScreen.html?inFolderName={{@../../key}}&inFileName={{@../key}}&inItemName={{@key}}"
                              class="btn btn-outline-info ShowButtonClass">Show Screens</a>
                         </td>
                     </tr>
@@ -125,6 +125,7 @@
         </div>
     </div>
       </script>
+
 
 
     <script id="HbsTemplateForFoldersOnly" type="text/x-handlebars">
