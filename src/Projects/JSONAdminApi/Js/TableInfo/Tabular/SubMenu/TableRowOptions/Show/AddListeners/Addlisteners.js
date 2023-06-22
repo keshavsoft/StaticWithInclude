@@ -22,7 +22,7 @@ let jFLocalClickFunc = async (event) => {
         Simple: jVarLocalSimpleValue
     }
 
-    let jFetchUrl = "/JSONAdminApi/AdminApi/AsTree/Json/UserFolders/ScreensFromDisplayJson/TableInfo/SubMenu/TableRowOptions/PrintToPrinter";
+    let jFetchUrl = "/JSONAdminApi/AdminApi/AsTree/Json/UserFolders/ScreensFromDisplayJson/TableInfo/SubMenu/TableRowOptions/Show";
 
     let FetchBody = {
         method: "PATCH",

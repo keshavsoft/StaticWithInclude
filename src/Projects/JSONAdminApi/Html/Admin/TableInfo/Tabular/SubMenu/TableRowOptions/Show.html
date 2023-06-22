@@ -64,7 +64,7 @@
                     <th>#</th>
                     <th>ScreenName</th>
                     <th>ScreenNameForHtmlId</th>
-                    <th>Delete</th>
+                    <th>Show</th>
                     <th></th>
                 </tr>
             </thead>
@@ -83,7 +83,7 @@
                     </td>
                     <td>
                         <div class="form-check  form-switch">
-                            {{#if Simple}}
+                            {{#if this.TableInfo.TableRowOptions.Show.Rowshow}}
                             <input class="form-check-input" type="checkbox" name="Simple" checked>
                             {{else}}
                             <input class="form-check-input" type="checkbox" name="Simple">
