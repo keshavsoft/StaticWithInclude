@@ -16,15 +16,15 @@ let jFLocalClickFunc = async (event) => {
 
 
     let jVarLocalColsestTr = jVarLocalCurrentTarget.closest("tr");
-    let jVarLocalSimple = jVarLocalColsestTr.querySelector('[name="Simple"]');
+    let jVarLocalSimple = jVarLocalColsestTr.querySelector('[name="SubTableRowEdit"]');
 
     let jVarLocalSimpleValue = jVarLocalSimple.checked;
 
     let BodyAsJson = {
-        Simple: jVarLocalSimpleValue
+        SubTableRowEdit: jVarLocalSimpleValue
     }
 
-    let jFetchUrl = "/JSONAdminApi/AdminApi/AsTree/Json/UserFolders/ScreensFromDisplayJson/SubTableInfo/SubMenu/TableRowOptions/Delete";
+    let jFetchUrl = "/JSONAdminApi/AdminApi/AsTree/Json/UserFolders/ScreensFromDisplayJson/SubTableInfo/SubMenu/TableRowOptions/Edit";
 
     let response = await fetch(jFetchUrl, {
         method: "PATCH",
