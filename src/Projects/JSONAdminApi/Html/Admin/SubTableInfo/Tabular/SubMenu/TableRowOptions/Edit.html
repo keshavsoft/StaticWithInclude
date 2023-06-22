@@ -61,7 +61,7 @@
                 <tr>
                     <th>#</th>
                     <th>SubTable</th>
-                    <th>Delete</th>
+                    <th>Edit</th>
                 </tr>
             </thead>
             {{#each SubTableInfo}}
@@ -74,7 +74,7 @@
                     
                     <td>
                         <div class="form-check  form-switch">
-                            {{#if TableRowOptions.Delete.SubTableRowEdit}}
+                            {{#if TableRowOptions.Edit.SubTableRowEdit}}
                             <input class="form-check-input" type="checkbox" name="SubTableRowEdit" checked>
                             {{else}}
                             <input class="form-check-input" type="checkbox" name="SubTableRowEdit">
@@ -106,7 +106,7 @@
     <script src="../../../../../../Js/Login/Check.js" type="module"></script>
 
     <!-- HTML js -->
-    <script src="./Delete/Js/Delete.js" type="module"></script>
+    <script src="./Edit/Js/Edit.js" type="module"></script>
 
 
 
