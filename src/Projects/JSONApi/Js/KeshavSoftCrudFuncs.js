@@ -71,6 +71,46 @@ let jVarGlobalhelpersObject = {
 };
 
 let HandleBarsHelpers = () => {
+    Handlebars.registerHelper('HrefToMainToggles', function (inDataAttributes) {
+        let jVarPublicConfig = jVarGlobalPublicConfig;
+
+        let jVarLocalJsonConfig = JSON.parse(inDataAttributes.JsonConfig);
+        let jVarLocalItemConfig = JSON.parse(inDataAttributes.ItemConfig);
+        let jVarLocalFileNameOnly = jVarLocalJsonConfig.inJsonFileName.replace(/\.[^/.]+$/, "");
+
+        let queryString = `${window.location.origin}/${jVarPublicConfig.AdminFolder}/Html/Admin/Columns/Tabular/Alter/Toggles.html`;
+
+        const myUrlWithParams = new URL(queryString);
+
+        myUrlWithParams.searchParams.append("inFolderName", jVarLocalJsonConfig.inFolderName);
+        myUrlWithParams.searchParams.append("inFileName", jVarLocalFileNameOnly);
+        myUrlWithParams.searchParams.append("inItemName", jVarLocalItemConfig.inItemName);
+        myUrlWithParams.searchParams.append("inScreenName", jVarLocalItemConfig.inScreenName);
+
+        return myUrlWithParams.href;
+    });
+
+    Handlebars.registerHelper('HrefToSubTableToggles', function (inDataAttributes) {
+        let jVarPublicConfig = jVarGlobalPublicConfig;
+
+        let jVarLocalJsonConfig = JSON.parse(inDataAttributes.JsonConfig);
+        let jVarLocalItemConfig = JSON.parse(inDataAttributes.ItemConfig);
+        let jVarLocalFileNameOnly = jVarLocalJsonConfig.inJsonFileName.replace(/\.[^/.]+$/, "");
+
+        let queryString = `${window.location.origin}/${jVarPublicConfig.AdminFolder}/Html/Admin/SubTableColumns/Tabular/Alter/Toggles.html`;
+        
+        //&subtablecolumnkey=InvGrid&inColumnName=FK
+
+        const myUrlWithParams = new URL(queryString);
+
+        myUrlWithParams.searchParams.append("inFolderName", jVarLocalJsonConfig.inFolderName);
+        myUrlWithParams.searchParams.append("inFileName", jVarLocalFileNameOnly);
+        myUrlWithParams.searchParams.append("inItemName", jVarLocalItemConfig.inItemName);
+        myUrlWithParams.searchParams.append("inScreenName", jVarLocalItemConfig.inScreenName);
+
+        return myUrlWithParams.href;
+    });
+
     Handlebars.registerHelper('NumToWord', function (inputNumber) {
         return jVarGlobalUtilClass.FloatToWords(inputNumber);
     });
@@ -1839,4 +1879,4 @@ class KeshavSoftCrud {
 HandleBarsHelpers();
 jVarHbsTemplatesFill();
 
-console.log("pppppppppppppp----------");
+console.log("KeshavSoftCrudFuncs----------");
