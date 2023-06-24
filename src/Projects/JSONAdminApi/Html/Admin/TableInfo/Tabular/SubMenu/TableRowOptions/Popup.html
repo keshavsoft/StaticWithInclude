@@ -64,13 +64,13 @@
                     <th>#</th>
                     <th>ScreenName</th>
                     <th>ScreenNameForHtmlId</th>
-                    <th>Delete</th>
+                    <th>PopUp</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 {{#each this.Screens}}
-                {{log "inside" this}}
+                {{log "inside" this.TableInfo.TableRowOptions.PopUp.Rowshow}}
                 <tr class="{{RowClass}}">
                     <td class="text-center">
                         {{ForSNo @index}}
@@ -83,10 +83,10 @@
                     </td>
                     <td>
                         <div class="form-check  form-switch">
-                            {{#if Simple}}
-                            <input class="form-check-input" type="checkbox" name="Simple" checked>
+                            {{#if TableInfo.TableRowOptions.PopUp.Rowshow}}
+                            <input class="form-check-input" type="checkbox" name="Rowshow" checked>
                             {{else}}
-                            <input class="form-check-input" type="checkbox" name="Simple">
+                            <input class="form-check-input" type="checkbox" name="Rowshow">
                             {{/if}}
                         </div>
                     </td>
