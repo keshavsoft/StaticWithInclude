@@ -11,7 +11,7 @@ let StartFunc = ({ inCurrentTarget }) => {
     let jVarLocalRowshowValue = jVarLocalRowshow.checked;
 
     let BodyAsJson = {
-        Simple: jVarLocalRowshowValue
+        Rowshow: jVarLocalRowshowValue
     };
 
     return {
