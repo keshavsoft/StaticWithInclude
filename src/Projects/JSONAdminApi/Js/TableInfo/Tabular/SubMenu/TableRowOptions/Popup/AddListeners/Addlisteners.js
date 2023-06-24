@@ -14,12 +14,12 @@ let jFLocalClickFunc = async (event) => {
     let jVarLocalscreenname = jVarLocalCurrentTarget.dataset.screenname;
 
     let jVarLocalColsestTr = jVarLocalCurrentTarget.closest("tr");
-    let jVarLocalSimple = jVarLocalColsestTr.querySelector('[name="Simple"]');
+    let jVarLocalRowshow = jVarLocalColsestTr.querySelector('[name="Rowshow"]');
 
-    let jVarLocalSimpleValue = jVarLocalSimple.checked;
+    let jVarLocalRowshowValue = jVarLocalRowshow.checked;
 
     let BodyAsJson = {
-        Simple: jVarLocalSimpleValue
+        Simple: jVarLocalRowshowValue
     }
 
     let jFetchUrl = "/JSONAdminApi/AdminApi/AsTree/Json/UserFolders/ScreensFromDisplayJson/TableInfo/SubMenu/TableRowOptions/Popup";
