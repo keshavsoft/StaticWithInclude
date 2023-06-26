@@ -51,7 +51,7 @@ let StartFunc = async (event) => {
         let responseStatus = await LocalFetchFunc({
             inBodyData: {
                 ToName: jVarLocalvoucherName,
-                ReportConficObject: localReportConficObject,
+                ReportConfigObject: localReportConficObject,
             }
         });
 
