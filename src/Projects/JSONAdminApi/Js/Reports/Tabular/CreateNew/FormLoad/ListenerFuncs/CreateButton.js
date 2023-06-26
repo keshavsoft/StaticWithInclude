@@ -1,16 +1,16 @@
+import {StartFunc as StartFuncAfterFetchFunc  } from "./AfterFetchFunc.js";
+
 let StartFunc = async ({ inEvent, inProjectName }) => {
     if (jFLocalCheckBeforeFetch()) {
         let jVarLocalBodyData = jFLocalPreparePostData();
-        let jVarLocalFolderName = jVarLocalBodyData.NewFolderName;
 
         let response = await jFLocalCallFetch({
             inBodyData: jVarLocalBodyData,
             inProjectName
         });
 
-        jFLocalPostFetch({
-            inFromFetch: response,
-            inNewFolderName: jVarLocalFolderName
+        StartFuncAfterFetchFunc({
+            inFromFetch: response
         });
     };
 };
@@ -30,10 +30,6 @@ let jFLocalCheckBeforeFetch = () => {
     return true;
 };
 
-let jFLocalPostFetch = ({ inFromFetch, inNewFolderName }) => {
-};
-
-
 let jFLocalPreparePostData = () => {
     let jVarLocalHtmlId = "CreateReportInputId";
     let jVarCreateInputId = document.getElementById(jVarLocalHtmlId);
@@ -47,7 +43,7 @@ let jFLocalPreparePostData = () => {
 
 let jFLocalCallFetch = async ({ inBodyData, inProjectName }) => {
 
-    let jFetchUrl = `/${inProjectName}/AdminApi/AsTree/Json/UserFolders/ConfigFolder/CreateNew/CreateFolder`;
+    let jFetchUrl = `/${inProjectName}/AdminApi/AsTree/Json/UserFolders/ReportsFolder/LedgerAutoJsonFile/FromKeys/InsertKey`;
 
     let jFetchBody = {
         method: "post",
@@ -60,9 +56,7 @@ let jFLocalCallFetch = async ({ inBodyData, inProjectName }) => {
 
     let response = await fetch(jFetchUrl, jFetchBody);
 
-    if (response.status === 200) {
-        return await response.json();
-    };
+    return await response;
 };
 
 export { StartFunc };
