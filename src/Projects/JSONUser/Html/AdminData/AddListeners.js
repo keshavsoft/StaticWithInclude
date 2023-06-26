@@ -1,5 +1,7 @@
 import { StartFunc as CheckOnDomStartFunc } from "./CheckOnDom.js";
 import { StartFunc as StartFuncDeleteTokenAndCheck } from "./DeleteTokenAndCheck.js";
+import { StartFunc as StartFuncLoginButtonOnModal } from "./LoginModal/LoginButtonOnModal/StartFunc.js";
+import { StartFunc as StartFuncShowModal } from "./LoginModal/ShowModal/StartFunc.js";
 
 let LocalFirmDetails = ({ inUserKey }) => {
     let LocalUserName = document.getElementById("KUserNameInput").value;
@@ -8,13 +10,16 @@ let LocalFirmDetails = ({ inUserKey }) => {
 };
 
 let StartFunc = ({ inSubRoute, inUserKey, inFirmKey, inTokenName, inModalId }) => {
-    let jVarLocalLoginButtonOnModalId = document.getElementById("LoginButtonOnModalId");
+    StartFuncLoginButtonOnModal({ inSubRoute, inUserKey, inFirmKey, inTokenName, inModalId });
+    StartFuncShowModal();
 
-    if ((jVarLocalLoginButtonOnModalId == null) === false) { //Executes if variable is null OR undefined
-        jVarLocalLoginButtonOnModalId.addEventListener("click", async () => {
-            await LocalButtonClickFunc({ inSubRoute, inUserKey, inFirmKey, inTokenName, inModalId });
-        });
-    };
+    // let jVarLocalLoginButtonOnModalId = document.getElementById("LoginButtonOnModalId");
+
+    // if ((jVarLocalLoginButtonOnModalId == null) === false) { //Executes if variable is null OR undefined
+    //     jVarLocalLoginButtonOnModalId.addEventListener("click", async () => {
+    //         await LocalButtonClickFunc({ inSubRoute, inUserKey, inFirmKey, inTokenName, inModalId });
+    //     });
+    // };
 
     let jVarLocalHeaderLoginButtonId = document.getElementById("HeaderLoginButtonId");
 
@@ -36,13 +41,11 @@ let StartFunc = ({ inSubRoute, inUserKey, inFirmKey, inTokenName, inModalId }) =
 
 let LocalButtonClickFunc = async ({ inSubRoute, inUserKey, inFirmKey, inTokenName, inModalId }) => {
     let LocalFromDomFunc = await CheckOnDomStartFunc({ inSubRoute, inUserKey, inFirmKey, inTokenName });
-    
+
     if (LocalFromDomFunc.KTF) {
         LocalFirmDetails({ inUserKey });
 
         window.location.href = "";
-
-        // CheckTokenStartFunc({ inUserKey, inFirmKey, inTokenName, inModalId });
     };
 };
 

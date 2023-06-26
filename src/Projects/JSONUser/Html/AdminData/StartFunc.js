@@ -1,6 +1,5 @@
 import { StartFunc as StartFuncAddListeners } from "./AddListeners.js";
 import { StartFunc as StartFuncCheckToken } from "./CheckToken.js";
-// inSubRoute, inUserKey, inFirmKey, inTokenName, inModalId
 
 let StartFunc = async () => {
     let jVarLocalFromCheck = await StartFuncCheckToken();
@@ -26,7 +25,5 @@ let StartFunc = async () => {
 
     return await jVarLocalFromCheck;
 };
-
-// StartFunc().then();
 
 export { StartFunc };
