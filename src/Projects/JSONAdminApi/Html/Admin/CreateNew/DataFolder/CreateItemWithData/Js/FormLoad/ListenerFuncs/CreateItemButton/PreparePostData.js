@@ -1,8 +1,8 @@
 let StartFunc = async ({ inEvent }) => {
     let jVarLocalCurrentTarget = inEvent.currentTarget;
     let jVarLocalColsestTr = jVarLocalCurrentTarget.closest("tr");
-    let jVarLocalItemName = jVarLocalColsestTr.querySelector('[name="slectFile"]');
-    let jVarLocalSelectedFile = jVarLocalItemName.files[0];
+    let jVarLocalslectFile = jVarLocalColsestTr.querySelector('[name="slectFile"]');
+    let jVarLocalSelectedFile = jVarLocalslectFile.files[0];
 
     fileValidation(jVarLocalSelectedFile);
     let jVarLocalFromFile = await jVarLocalreadFileAsync(jVarLocalSelectedFile);
@@ -20,12 +20,14 @@ const jFLocalFromButton = ({ inCurrentTarget }) => {
     let jVarLocalCurrentTarget = inCurrentTarget;
     let jVarLocalFolderName = jVarLocalCurrentTarget.dataset.foldername;
     let jVarLocalFileName = jVarLocalCurrentTarget.dataset.filename;
-    let jVarLocalitemname = jVarLocalCurrentTarget.dataset.itemname;
+    let jVarLocalColsestTr = jVarLocalCurrentTarget.closest("tr");
+    let jVarLocalItemName = jVarLocalColsestTr.querySelector('[name="ItemName"]');
+    let jVarLocalitemnameValue = jVarLocalItemName.value;
 
     return {
         FolderName: jVarLocalFolderName,
         FileName: jVarLocalFileName,
-        ItemName: jVarLocalitemname
+        ItemName: jVarLocalitemnameValue
     };
 };
 let fileValidation = (file) => {

@@ -77,6 +77,40 @@
                         <th>SelectFile</th>
                         <th></th>
                     </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <div class="form-group">
+                                <div class="input-group has-validation">
+                                  <input type="text" class="form-control" name="ItemName"  required>
+                                  <div class="invalid-feedback">
+                                    Should not be empty!
+                                  </div>
+                                </div>
+                              </div>
+
+                        </td>
+                        <td>
+
+                            <div class="form-group">
+                                <div class="input-group has-validation">
+                                  <input type="file" class="form-control UploadFileInputClass" name="slectFile"  aria-describedby="inputGroupPrepend" >
+                                  <div class="invalid-feedback">
+                                    Should not be empty!
+                                  </div>
+                                </div>
+                              </div>
+
+                        </td>
+                      
+                        <td>
+                            <button type="button" class="btn btn-outline-info UploadFileButtonClass"
+                             data-foldername="{{@../key}}" data-filename="{{@key}}">
+                                Upload File
+                            </button>
+                        </td>
+                        <td></td>
+                    </tr>
                 </thead>
                 
                 <tbody>
@@ -88,25 +122,9 @@
                         <td>
                             {{ItemName}}
                         </td>
-                        <td>
-
-                            <div class="form-group">
-                                <div class="input-group has-validation">
-                                  <!-- <span class="input-group-text" id="inputGroupPrepend">Choose File</span> -->
-                                  <input type="file" class="form-control UploadFileInputClass" name="slectFile"  aria-describedby="inputGroupPrepend"  required>
-                                  <div class="invalid-feedback">
-                                    Should not be empty!
-                                  </div>
-                                </div>
-                              </div>
-
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-outline-info UploadFileButtonClass"
-                             data-foldername="{{@../../key}}" data-filename="{{@./../key}}" data-itemname="{{@key}}">
-                                Upload File
-                            </button>
-                        </td>
+                        <td></td>
+                        <td></td>
+                        
                     </tr>
                     {{/each}}
                 </tbody>
