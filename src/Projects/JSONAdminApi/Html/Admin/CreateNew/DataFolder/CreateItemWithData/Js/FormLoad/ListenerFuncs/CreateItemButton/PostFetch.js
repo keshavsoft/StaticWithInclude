@@ -16,6 +16,9 @@ let jFLocalPostFetchNotArray = ({ inFromFetch, inBodyData }) => {
     if ("FileName" in inBodyData) {
         myUrlWithParams.searchParams.append("inFileName", inBodyData.FileName);
     };
+    if ("ItemName" in inBodyData) {
+        myUrlWithParams.searchParams.append("ItemName", inBodyData.ItemName);
+    };
 
     if (inFromFetch.KTF) {
         window.location.href = myUrlWithParams.href;
@@ -34,8 +37,8 @@ let jFLocalPostFetchAsArray = ({ inFromFetch, inBodyData }) => {
             myUrlWithParams.searchParams.append("inFileName", inBodyData.FileName);
         };
 
-        if ("NewItemName" in inBodyData) {
-            myUrlWithParams.searchParams.append("NewItemName", inBodyData.NewItemName);
+        if ("ItemName" in inBodyData) {
+            myUrlWithParams.searchParams.append("ItemName", inBodyData.ItemName);
         };
 
         window.location.href = myUrlWithParams.href;
