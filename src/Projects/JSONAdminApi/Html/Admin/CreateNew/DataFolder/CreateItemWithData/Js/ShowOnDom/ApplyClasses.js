@@ -1,6 +1,7 @@
 let StartFunc = ({ inDataFromApi }) => {
     if (jFLocalFolderClass({ inDataFromApi })) {
         jFLocalFileClass({ inDataFromApi });
+        jFLocalItemClass({inDataFromApi});
     };
 };
 
@@ -26,6 +27,17 @@ let jFLocalFileClass = ({ inDataFromApi }) => {
     if (jVarLocalFromUrlinFileName === null === false) {
         _.has(inDataFromApi, jVarLocalFilekeyNeeded) && _.set(inDataFromApi, `${jVarLocalFilekeyNeeded}.TabPaneClass`, " show active");
         _.has(inDataFromApi, jVarLocalFilekeyNeeded) && _.set(inDataFromApi, `${jVarLocalFilekeyNeeded}.ButtonClass`, " active");
+    };
+};
+
+let jFLocalItemClass = ({ inDataFromApi }) => {
+    let jVarLocalFromUrl = getUrlQueryParams({ inGetKey: "inFolderName" });
+    let jVarLocalFromUrlinFileName = getUrlQueryParams({ inGetKey: "inFileName" });
+    let jVarLocalFromUrlItemName = getUrlQueryParams({ inGetKey: "ItemName" });
+
+    let jVarLocalItemkeyNeeded = `Folders.${jVarLocalFromUrl}.Files.${jVarLocalFromUrlinFileName}.Items.${jVarLocalFromUrlItemName}`;
+    if (jVarLocalItemkeyNeeded === null === false) {
+        _.has(inDataFromApi, jVarLocalItemkeyNeeded) && _.set(inDataFromApi, `${jVarLocalItemkeyNeeded}.RowClass`, " table-success");
     };
 };
 

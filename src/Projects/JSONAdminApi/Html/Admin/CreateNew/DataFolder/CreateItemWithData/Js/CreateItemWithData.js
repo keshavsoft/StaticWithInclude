@@ -13,7 +13,7 @@ const StartFunc = () => {
         jFCreateFoldersToDom({ inProjectName: jVarCommonProjectName }).then(() => {
             StartFuncFormLoad({ inProjectName: jVarCommonProjectName });
 
-            StartFuncAfterDomLoad({});
+            // StartFuncAfterDomLoad({});
         });
     };
 };
