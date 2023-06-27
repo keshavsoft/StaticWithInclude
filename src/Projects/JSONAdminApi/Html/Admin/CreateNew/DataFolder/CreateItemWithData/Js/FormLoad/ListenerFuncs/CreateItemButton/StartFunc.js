@@ -5,7 +5,7 @@ let StartFunc = async ({ inEvent, inProjectName }) => {
     let localjFLocalCheckBeforeFetch = jFLocalCheckBeforeFetch({ inEvent });
 
     if (localjFLocalCheckBeforeFetch) {
-        let jVarLocalBodyData =await StartFuncPreparePostData({ inEvent });
+        let jVarLocalBodyData = await StartFuncPreparePostData({ inEvent });
 
         let response = await jFLocalCallFetch({
             inBodyData: jVarLocalBodyData,
@@ -22,12 +22,15 @@ let StartFunc = async ({ inEvent, inProjectName }) => {
 let jFLocalCheckBeforeFetch = ({ inEvent }) => {
     let jVarLocalCurrentTarget = inEvent.currentTarget;
     let jVarLocalColsestTr = jVarLocalCurrentTarget.closest("tr");
+    let jVarLocalItemName = jVarLocalColsestTr.querySelector('[name="ItemName"]');
     let jVarLocalFileName = jVarLocalColsestTr.querySelector('[name="slectFile"]');
+    let jVarLocalItemNameValue = jVarLocalItemName.value;
     let jVarLocalFileNameValue = jVarLocalFileName.value;
 
-    if (jVarLocalFileNameValue === "") {
+    if (jVarLocalFileNameValue === "" && jVarLocalItemNameValue === "") {
         jVarLocalFileName.classList.add("is-invalid");
-        jVarLocalFileName.focus();
+        jVarLocalItemName.classList.add("is-invalid");
+        jVarLocalItemName.focus();
         return false;
     };
 
