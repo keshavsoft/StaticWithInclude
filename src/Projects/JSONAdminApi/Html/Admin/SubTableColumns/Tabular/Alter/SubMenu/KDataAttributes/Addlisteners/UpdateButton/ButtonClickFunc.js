@@ -5,7 +5,7 @@ import { StartFunc as StartFuncAfterFetch } from "./AfterFetch.js";
 let StartFunc = async (event) => {
     let jVarLocalCurrentTarget = event.currentTarget;
 
-    let jVarLocalPostData = StartFuncPreparePostData();
+    let jVarLocalPostData = StartFuncPreparePostData({ inCurrentTarget: jVarLocalCurrentTarget });
     let jVarLocalResponse = await StartFuncPatchFetch({ inFetchBody: jVarLocalPostData });
     StartFuncAfterFetch({ inResponse: jVarLocalResponse, inCurrentTarget: jVarLocalCurrentTarget });
 };

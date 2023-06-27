@@ -1,5 +1,5 @@
-let StartFunc = (event) => {
-    let jVarLocalCurrentTarget = event.currentTarget;
+let StartFunc = ({ inCurrentTarget }) => {
+    let jVarLocalCurrentTarget = inCurrentTarget;
     let jVarLocalFolderName = jVarLocalCurrentTarget.dataset.foldername;
     let jVarLocalfilename = jVarLocalCurrentTarget.dataset.filename;
     let jVarLocalitemname = jVarLocalCurrentTarget.dataset.itemname;
