@@ -2,6 +2,8 @@ import { StartFunc as StartFuncPreparePostData } from "./PreparePostData.js";
 import { StartFunc as StartFuncPostFetch } from "./PostFetch.js";
 
 let StartFunc = async ({ inEvent, inProjectName }) => {
+    let jVarLocalCurrentTarget = inEvent.currentTarget;
+
     let localjFLocalCheckBeforeFetch = jFLocalCheckBeforeFetch({ inEvent });
 
     if (localjFLocalCheckBeforeFetch) {
@@ -14,7 +16,8 @@ let StartFunc = async ({ inEvent, inProjectName }) => {
 
         StartFuncPostFetch({
             inFromFetch: response,
-            inBodyData: jVarLocalBodyData
+            inBodyData: jVarLocalBodyData,
+            currentTarget:jVarLocalCurrentTarget
         });
     };
 };

@@ -75,7 +75,7 @@
 
                             <div class="form-group">
                                 <div class="input-group has-validation">
-                                  <input type="file" class="form-control UploadFileInputClass" name="slectFile"  aria-describedby="inputGroupPrepend" >
+                                  <input type="file" class="form-control " name="slectFile"  aria-describedby="inputGroupPrepend" >
                                   <div class="invalid-feedback">
                                     Should not be empty!
                                   </div>
@@ -95,6 +95,18 @@
                 </thead>
                 
                 <tbody>
+                    {{#each this.Items}}
+                    <tr class="{{RowClass}}">
+                        <td class="text-center">
+                            {{ForSNo @index}}
+                        </td>
+                        <td>
+                            {{ItemName}}
+                        </td>
+                        <td></td>
+                        
+                    </tr>
+                    {{/each}}
                 </tbody>
                 <tfoot>
 
