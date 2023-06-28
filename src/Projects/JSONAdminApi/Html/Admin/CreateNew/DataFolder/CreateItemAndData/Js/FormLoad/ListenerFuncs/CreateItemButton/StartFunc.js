@@ -2,6 +2,8 @@ import { StartFunc as StartFuncPreparePostData } from "./PreparePostData.js";
 import { StartFunc as StartFuncPostFetch } from "./PostFetch.js";
 
 let StartFunc = async ({ inEvent, inProjectName }) => {
+    let jVarLocalCurrentTarget = inEvent.currentTarget;
+
     let localjFLocalCheckBeforeFetch = jFLocalCheckBeforeFetch({ inEvent });
 
     if (localjFLocalCheckBeforeFetch) {
@@ -14,7 +16,8 @@ let StartFunc = async ({ inEvent, inProjectName }) => {
 
         StartFuncPostFetch({
             inFromFetch: response,
-            inBodyData: jVarLocalBodyData
+            inBodyData: jVarLocalBodyData,
+            currentTarget:jVarLocalCurrentTarget
         });
     };
 };
@@ -22,15 +25,14 @@ let StartFunc = async ({ inEvent, inProjectName }) => {
 let jFLocalCheckBeforeFetch = ({ inEvent }) => {
     let jVarLocalCurrentTarget = inEvent.currentTarget;
     let jVarLocalColsestTr = jVarLocalCurrentTarget.closest("tr");
-    let jVarLocalItemName = jVarLocalColsestTr.querySelector('[name="ItemName"]');
     let jVarLocalFileName = jVarLocalColsestTr.querySelector('[name="slectFile"]');
-    let jVarLocalItemNameValue = jVarLocalItemName.value;
+    let jVarLocaldiv = jVarLocalColsestTr.querySelector('.invalid-feedback');
     let jVarLocalFileNameValue = jVarLocalFileName.value;
 
-    if (jVarLocalFileNameValue === "" && jVarLocalItemNameValue === "") {
+    if (jVarLocalFileNameValue === "") {
         jVarLocalFileName.classList.add("is-invalid");
-        jVarLocalItemName.classList.add("is-invalid");
-        jVarLocalItemName.focus();
+        jVarLocaldiv.innerHTML = "Should not be empty!"
+        jVarLocalFileName.focus();
         return false;
     };
 
@@ -38,7 +40,7 @@ let jFLocalCheckBeforeFetch = ({ inEvent }) => {
 };
 
 let jFLocalCallFetch = async ({ inBodyData, inProjectName }) => {
-    let jFetchUrl = `/${inProjectName}/AdminApi/AsTree/Json/UserFolders/DataFolder/FileinFolder/ItemName/CreateNew/CreateItemWithData`;
+    let jFetchUrl = `/${inProjectName}/AdminApi/AsTree/Json/UserFolders/DataFolder/FileinFolder/ItemName/CreateNew/CreateItemAndData`;
 
     let jFetchBody = {
         method: "post",

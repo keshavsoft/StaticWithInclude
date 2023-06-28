@@ -20,14 +20,10 @@ const jFLocalFromButton = ({ inCurrentTarget }) => {
     let jVarLocalCurrentTarget = inCurrentTarget;
     let jVarLocalFolderName = jVarLocalCurrentTarget.dataset.foldername;
     let jVarLocalFileName = jVarLocalCurrentTarget.dataset.filename;
-    let jVarLocalColsestTr = jVarLocalCurrentTarget.closest("tr");
-    let jVarLocalItemName = jVarLocalColsestTr.querySelector('[name="ItemName"]');
-    let jVarLocalitemnameValue = jVarLocalItemName.value;
 
     return {
         FolderName: jVarLocalFolderName,
-        FileName: jVarLocalFileName,
-        ItemName: jVarLocalitemnameValue
+        FileName: jVarLocalFileName
     };
 };
 let fileValidation = (file) => {
