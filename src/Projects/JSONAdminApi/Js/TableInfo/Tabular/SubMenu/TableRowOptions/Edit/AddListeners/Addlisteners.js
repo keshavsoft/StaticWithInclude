@@ -14,18 +14,18 @@ let jFLocalClickFunc = async (event) => {
     let jVarLocalscreenname = jVarLocalCurrentTarget.dataset.screenname;
 
     let jVarLocalColsestTr = jVarLocalCurrentTarget.closest("tr");
-    let jVarLocalSimple = jVarLocalColsestTr.querySelector('[name="Simple"]');
+    let jVarLocalSimple = jVarLocalColsestTr.querySelector('[name="RowEdit"]');
 
     let jVarLocalSimpleValue = jVarLocalSimple.checked;
 
     let BodyAsJson = {
-        Simple: jVarLocalSimpleValue
+        RowEdit: jVarLocalSimpleValue
     }
 
     let jFetchUrl = "/JSONAdminApi/AdminApi/AsTree/Json/UserFolders/ScreensFromDisplayJson/TableInfo/SubMenu/TableRowOptions/Edit";
 
     let FetchBody = {
-        method: "GET",
+        method: "PATCH",
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
