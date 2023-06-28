@@ -25,7 +25,7 @@ let jFLocalClickFunc = async (event) => {
     let jFetchUrl = "/JSONAdminApi/AdminApi/AsTree/Json/UserFolders/ScreensFromDisplayJson/TableInfo/SubMenu/TableRowOptions/Edit";
 
     let FetchBody = {
-        method: "PATCH",
+        method: "GET",
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
