@@ -66,16 +66,28 @@
                 <thead>
                     <tr>
                         <th>#</th>
+                        <th>ItemName</th>
                         <th>SelectFile</th>
                         <th></th>
                     </tr>
                     <tr>
                         <td></td>
                         <td>
+                            <div class="form-group">
+                                <div class="input-group has-validation">
+                                  <input type="text" class="form-control" name="ItemName"  required>
+                                  <div class="invalid-feedback">
+                                    Should not be empty!
+                                  </div>
+                                </div>
+                              </div>
+
+                        </td>
+                        <td>
 
                             <div class="form-group">
                                 <div class="input-group has-validation">
-                                  <input type="file" class="form-control " name="slectFile"  aria-describedby="inputGroupPrepend" >
+                                  <input type="file" class="form-control UploadFileInputClass" name="slectFile"  aria-describedby="inputGroupPrepend" >
                                   <div class="invalid-feedback">
                                     Should not be empty!
                                   </div>
@@ -103,6 +115,7 @@
                         <td>
                             {{ItemName}}
                         </td>
+                        <td></td>
                         <td></td>
                         
                     </tr>

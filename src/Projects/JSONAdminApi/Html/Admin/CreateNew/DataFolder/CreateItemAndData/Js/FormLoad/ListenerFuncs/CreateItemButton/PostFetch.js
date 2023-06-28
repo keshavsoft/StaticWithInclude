@@ -1,12 +1,12 @@
-let StartFunc = ({ inFromFetch, inBodyData,currentTarget }) => {
+let StartFunc = ({ inFromFetch, inBodyData, currentTarget }) => {
     if (Array.isArray(inFromFetch)) {
-        jFLocalPostFetchAsArray({ inFromFetch, inBodyData,currentTarget });
+        jFLocalPostFetchAsArray({ inFromFetch, inBodyData, currentTarget });
     } else {
-        jFLocalPostFetchNotArray({ inFromFetch, inBodyData,currentTarget });
+        jFLocalPostFetchNotArray({ inFromFetch, inBodyData, currentTarget });
     };
 };
 
-let jFLocalPostFetchNotArray = ({ inFromFetch, inBodyData,currentTarget }) => {
+let jFLocalPostFetchNotArray = ({ inFromFetch, inBodyData, currentTarget }) => {
     const myUrlWithParams = new URL(`${window.location.origin}${window.location.pathname}`);
 
     if ("FolderName" in inBodyData) {
@@ -22,14 +22,14 @@ let jFLocalPostFetchNotArray = ({ inFromFetch, inBodyData,currentTarget }) => {
 
     if (inFromFetch.KTF) {
         window.location.href = myUrlWithParams.href;
-    }else{
+    } else {
         let jVarLocalColsestTr = currentTarget.closest("tr");
         let jVarLocalFileName = jVarLocalColsestTr.querySelector('[name="slectFile"]');
         let jVarLocaldiv = jVarLocalColsestTr.querySelector('.invalid-feedback');
 
         jVarLocalFileName.classList.add("is-invalid");
         jVarLocaldiv.innerHTML = "Already found!"
-    }
+    };
 };
 
 let jFLocalPostFetchAsArray = ({ inFromFetch, inBodyData }) => {

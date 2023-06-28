@@ -25,14 +25,15 @@ let StartFunc = async ({ inEvent, inProjectName }) => {
 let jFLocalCheckBeforeFetch = ({ inEvent }) => {
     let jVarLocalCurrentTarget = inEvent.currentTarget;
     let jVarLocalColsestTr = jVarLocalCurrentTarget.closest("tr");
+    let jVarLocalItemName = jVarLocalColsestTr.querySelector('[name="ItemName"]');
     let jVarLocalFileName = jVarLocalColsestTr.querySelector('[name="slectFile"]');
-    let jVarLocaldiv = jVarLocalColsestTr.querySelector('.invalid-feedback');
+    let jVarLocalItemNameValue = jVarLocalItemName.value;
     let jVarLocalFileNameValue = jVarLocalFileName.value;
 
-    if (jVarLocalFileNameValue === "") {
+    if (jVarLocalFileNameValue === "" && jVarLocalItemNameValue === "") {
         jVarLocalFileName.classList.add("is-invalid");
-        jVarLocaldiv.innerHTML = "Should not be empty!"
-        jVarLocalFileName.focus();
+        jVarLocalItemName.classList.add("is-invalid");
+        jVarLocalItemName.focus();
         return false;
     };
 
@@ -40,7 +41,7 @@ let jFLocalCheckBeforeFetch = ({ inEvent }) => {
 };
 
 let jFLocalCallFetch = async ({ inBodyData, inProjectName }) => {
-    let jFetchUrl = `/${inProjectName}/AdminApi/AsTree/Json/UserFolders/DataFolder/FileinFolder/ItemName/CreateNew/CreateItemAndData`;
+    let jFetchUrl = `/${inProjectName}/AdminApi/AsTree/Json/UserFolders/DataFolder/FileinFolder/ItemName/CreateNew/CreateItemWithData`;
 
     let jFetchBody = {
         method: "post",
