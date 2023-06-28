@@ -1,10 +1,11 @@
 import { StartFunc as StartFuncPreparePostData } from "./PreparePostData.js";
 import { StartFunc as StartFuncPostFetch } from "./PostFetch.js";
+import { StartFunc as StartFuncCheckBeforeSave } from "./CheckBeforeSave.js";
 
 let StartFunc = async ({ inEvent, inProjectName }) => {
     let jVarLocalCurrentTarget = inEvent.currentTarget;
 
-    let localjFLocalCheckBeforeFetch = jFLocalCheckBeforeFetch({ inEvent });
+    let localjFLocalCheckBeforeFetch = StartFuncCheckBeforeSave({ inEvent });
 
     if (localjFLocalCheckBeforeFetch) {
         let jVarLocalBodyData = await StartFuncPreparePostData({ inEvent });
@@ -17,7 +18,7 @@ let StartFunc = async ({ inEvent, inProjectName }) => {
         StartFuncPostFetch({
             inFromFetch: response,
             inBodyData: jVarLocalBodyData,
-            currentTarget:jVarLocalCurrentTarget
+            currentTarget: jVarLocalCurrentTarget
         });
     };
 };
