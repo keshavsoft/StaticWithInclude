@@ -35,6 +35,7 @@ let jFLocalPostFetchCheckTF = ({ inFromFetch }) => {
 };
 
 let jFLocalPostFetchAsArray = ({ inFromFetch, inBodyData }) => {
+    console.log("inBodyData:",inBodyData);
     if (jFLocalPostFetchCheckTF({ inFromFetch })) {
         const myUrlWithParams = new URL(`${window.location.origin}${window.location.pathname}`);
 
@@ -48,6 +49,12 @@ let jFLocalPostFetchAsArray = ({ inFromFetch, inBodyData }) => {
 
         if ("ItemName" in inBodyData) {
             myUrlWithParams.searchParams.append("inItemName", inBodyData.ItemName);
+        };
+        if ("ScreenName" in inBodyData) {
+            myUrlWithParams.searchParams.append("inScreenName", inBodyData.ScreenName);
+        };
+        if ("NewColumnName" in inBodyData) {
+            myUrlWithParams.searchParams.append("inColumnName", inBodyData.NewColumnName);
         };
 
         window.location.href = myUrlWithParams.href;
