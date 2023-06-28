@@ -2,7 +2,8 @@ let StartFunc = ({ inDataFromApi }) => {
     if (jFLocalFolderClass({ inDataFromApi })) {
         if (jFLocalFileClass({ inDataFromApi })) {
             if (jFLocalItemClass({ inDataFromApi })) {
-                jFLocalScreenClass({
+                jFLocalScreenClass({inDataFromApi});
+                jFLocalColumnClass({
                     inDataFromApi
                 });
             };
@@ -52,6 +53,7 @@ let jFLocalItemClass = ({ inDataFromApi }) => {
 };
 
 let jFLocalScreenClass = ({ inDataFromApi }) => {
+    console.log('inDataFromApi:',inDataFromApi);
     let jVarLocalFromUrl = getUrlQueryParams({ inGetKey: "inFolderName" });
     let jVarLocalFromUrlinFileName = getUrlQueryParams({ inGetKey: "inFileName" });
     let jVarLocalFromUrlinItemName = getUrlQueryParams({ inGetKey: "inItemName" });
@@ -61,6 +63,23 @@ let jFLocalScreenClass = ({ inDataFromApi }) => {
 
     if (jVarLocalFromUrlinFileName === null === false) {
         _.has(inDataFromApi, jVarLocalFilekeyNeeded) && _.set(inDataFromApi, `${jVarLocalFilekeyNeeded}.CollapseClass`, "show");
+
+        return true;
+    };
+};
+
+let jFLocalColumnClass = ({ inDataFromApi }) => {
+    console.log('inDataFromApi:',inDataFromApi);
+    let jVarLocalFromUrl = getUrlQueryParams({ inGetKey: "inFolderName" });
+    let jVarLocalFromUrlinFileName = getUrlQueryParams({ inGetKey: "inFileName" });
+    let jVarLocalFromUrlinItemName = getUrlQueryParams({ inGetKey: "inItemName" });
+    let jVarLocalFromUrlinScreenName = getUrlQueryParams({ inGetKey: "inScreenName" });
+    let jVarLocalFromUrlinColumnName = getUrlQueryParams({ inGetKey: "inColumnName" });
+
+    let jVarLocalFilekeyNeeded = `Folders.${jVarLocalFromUrl}.Files.${jVarLocalFromUrlinFileName}.Items.${jVarLocalFromUrlinItemName}.Screens.${jVarLocalFromUrlinScreenName}.TableColumnsObject.${jVarLocalFromUrlinColumnName}`;
+
+    if (jVarLocalFromUrlinFileName === null === false) {
+        _.has(inDataFromApi, jVarLocalFilekeyNeeded) && _.set(inDataFromApi, `${jVarLocalFilekeyNeeded}.RowClass`, "table-success");
 
         return true;
     };
