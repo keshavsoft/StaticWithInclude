@@ -104,7 +104,7 @@
       </script>
 
 
-    <script id="HbsTemplateForTableColumnsForTogglesOnly" type="text/x-handlebars">
+        <script id="HbsTemplateForTableColumnsForTogglesOnly" type="text/x-handlebars">
         <table class="table">
             <thead>
                 <tr>
@@ -115,53 +115,57 @@
             </thead>
             <tbody>
                 {{#each TableColumnsObject}}
-              
+              {{log "this" this}}
     <tr class="{{RowClass}}">
     <td class="text-center">
     {{ForSNo @index}}
     </td>
     <td>
     <div class="row mb-3">
-        <div class="col-12 col-xl-6">
-                                <div class="row">
-            <label class="col-md-5 col-form-label">DataAttribute</label>
-        <div class="col-7">
-            <input class="form-control" type="text" name="DataAttribute" disabled value="{{DataAttribute}}">
-        </div>
-    
-    </div>
-    
-        </div>
-        <div class="col-12 col-xl-6">
-            
-        <div class="row">
-            <label class="col-md-5 col-form-label">Parent1Class</label>
-            <div class="col-7">
-                <input class="form-control" type="text" name="Parent1Class" list="ParentClassesDataList" value="{{Parent1Class}}" >
+        <div class="col-10 col-xl-6">
+            <div class="row">
+                <label class="col-md-5 col-form-label">DataAttribute</label>
+                <div class="col-7">
+                    <input class="form-control" type="text" name="DataAttribute" disabled value="{{DataAttribute}}">
+                </div>
             </div>
         </div>
-    
+        <div class="col-10 col-xl-6">
+            <div class="row">
+                <label class="col-md-5 col-form-label">DisplayName</label>
+                <div class="col-7">
+                    <input class="form-control" type="text" name="DisplayName" disabled value="{{DisplayName}}">
+                </div>
+            </div>
+        </div>
+        
     </div>
-    </div>
     
-    <div class="row mb-3">
+    <div class="row mb-3">   
+            <div class="col row">
+                <label class="col-md-5 col-form-label">Parent1Class</label>
+                <div class="col-7">
+                    <input class="form-control" type="text" name="Parent1Class" list="ParentClassesDataList" value="{{Parent1Class}}" >
+                </div>
+            </div>
         <div class="col row">
             <label class="col-md-5 col-form-label">Parent2Class</label>
             <div class="col-7">
                 <input class="form-control" type="text" name="Parent2Class" list="ParentClassesDataList" value="{{Parent2Class}}" >
             </div>
         </div>
+
+    </div>
+    
+    <div class="row mb-3">
         <div class="col row">
             <label class="col-md-5 col-form-label">Parent3Class</label>
             <div class="col-7">
                 <input class="form-control" type="text" name="Parent3Class" list="ParentClassesDataList" value="{{Parent3Class}}" >
             </div>
         </div>
-    </div>
-    
-    <div class="row mb-3">
         <div class="col row">
-            <label class="col-md-8 col-form-label">InputClass</label>
+            <label class="col-md-5 col-form-label">InputClass</label>
             <div class="col-7">
                 <input class="form-control" type="text" name="InputClass" list="formcontrolDataList" value="{{InputClass}}" >
             </div>
@@ -187,7 +191,6 @@
         </table>
     
         </script>
-
 
 
     <script id="HbsTemplateForTable" type="text/x-handlebars">
