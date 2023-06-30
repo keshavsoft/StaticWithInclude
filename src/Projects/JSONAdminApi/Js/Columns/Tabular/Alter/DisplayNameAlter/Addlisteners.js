@@ -15,14 +15,14 @@ let jFLocalClickFunc = async (event) => {
 
     let jVarLocalColsestTr = jVarLocalCurrentTarget.closest("tr");
     let jVarLocalDataAttribute = jVarLocalColsestTr.querySelector('[name="DataAttribute"]');
-    let jVarLocalDataAttribute1 = jVarLocalColsestTr.querySelector('[name="DataAttribute1"]');
+    let jVarLocalDataAttribute1 = jVarLocalColsestTr.querySelector('[name="DisplayName"]');
 
 
     let jVarLocalDataAttributeValue = jVarLocalDataAttribute.value;
     let jVarLocalDataAttributeValue1 = jVarLocalDataAttribute1.value;
 
     let BodyAsJson = {
-        DataAttribute1: jVarLocalDataAttributeValue1
+        DisplayName: jVarLocalDataAttributeValue1
     }
 
     let jFetchUrl = "/JSONAdminApi/AdminApi/AsTree/Json/UserFolders/ScreensFromDisplayJson/TableColumns/DisplayNameAlter";
