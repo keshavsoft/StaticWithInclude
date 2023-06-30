@@ -25,7 +25,7 @@ let jFLocalClickFunc = async (event) => {
         DataAttribute1: jVarLocalDataAttributeValue1
     }
 
-    let jFetchUrl = "/JSONAdminApi/AdminApi/AsTree/Json/UserFolders/ScreensFromDisplayJson/TableColumns/DisplayNameAlter";
+    let jFetchUrl = "/AdminApi/AsTree/Json/UserFolders/ScreensFromDisplayJson/TableColumns/DisplayNameAlter";
 
     let response = await fetch(jFetchUrl, {
         method: "PATCH",

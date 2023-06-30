@@ -1,5 +1,5 @@
-import { jFUpdateFunc } from "./DisplayNameAlter/Addlisteners";
-import { jFCreateFoldersToDom } from "./DisplayNameAlter/ShowOnDom";
+import { jFUpdateFunc } from "./DisplayNameAlter/Addlisteners.js";
+import { jFCreateFoldersToDom } from "./DisplayNameAlter/ShowOnDom.js";
 
 jFCreateFoldersToDom().then(FromjFCreateFoldersToDom => {
    // console.log("FromjFCreateFoldersToDom : ", FromjFCreateFoldersToDom);
