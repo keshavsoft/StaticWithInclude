@@ -31,7 +31,7 @@ let jFLocalClickFunc = async (event) => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            folderName: jVarLocalFolderName,
+            FolderName: jVarLocalFolderName,
             FileName: jVarLocalfilename,
             ItemName: jVarLocalitemname,
             ScreenName: jVarLocalscreenname,
