@@ -222,7 +222,6 @@
                     </svg>
                     New Tab</button>
             </li>
-
         </ul>
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="TabPane1" role="tabpanel" aria-labelledby="home-tab"
@@ -231,8 +230,8 @@
                     <input type="text" class="form-control ReportSelectedClass" list="ReportsList"
                         placeholder="Select Folder" autofocus>
 
-                    <button class="btn btn-outline-secondary" type="button" onclick="jFShowReportDataFromInput(event)"
-                        id="button-addon2">Go</button>
+                    <button  class="btn btn-outline-secondary" type="button" onclick="jFShowReportDataFromInput(event)"
+                        id="GoButtonOnDomId">Go</button>
                 </div>
 
                 <div class="TabPaneKCont1 mt-2">
@@ -358,20 +357,6 @@
             </div>
         </div>
     </div>
-
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script> -->
-
-    <!-- <script src="/js/lodash.js"></script>
-
-    <script src="/js/Bs5/bootstrap.bundle.min.js"></script>
-    <script src="/js/handlebars/handlebars.min-v4.7.7.js"></script>
-    <script src="/js/sweetalert2/sweetalert2@11.js"></script> -->
-
-    <!-- <script src="/ClassesStatic/CommonClass.js"></script> -->
-
-    <!-- <script src="/JSONReports/Js/CommonClassOnly.js"></script>
-    <script src="/ClassesStatic/BuildDynamic.js"></script> -->
-
     
     <include src="./src/components/JScripts/HandleBars/HbsScript.html"></include>
 
@@ -951,6 +936,8 @@
     
     </script>
     
+<script type="module" src="./Js/WithOutFiltersAndTabs.js"></script>
+
 
 </body>
 

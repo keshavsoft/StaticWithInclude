@@ -15,4 +15,13 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
+	"Mock Template 2 lines For Html": {
+		"scope": "javascript,typescript",
+		"prefix": "KMock2Lines",
+		"body": [
+			"	let jVarLocalHtmlId = '$1';",
+			"   let jVarLocal$1 = document.getElementById(jVarLocalHtmlId);"
+		],
+		"description": "Log output to console"
+	},
 }

@@ -1,0 +1,10 @@
+{
+    "Project": "JSONReports",
+    "SubRoute": "Api",
+    "LocalStorageKeys": {
+        "HeaderKeys": {
+            "HeaderFoldersKey": "HeaderFolders"
+        },
+        "ForDataList": "ForDataList"
+    }
+}
