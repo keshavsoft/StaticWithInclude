@@ -8,7 +8,7 @@ let StartFunc = async ({ inEvent }) => {
     let jVarLocalFromFile = await jVarLocalreadFileAsync(jVarLocalSelectedFile);
     let jvarLocalJSONData = JSON.parse(jVarLocalFromFile);
 
-    console.log("ooooo:",jvarLocalJSONData.toString());
+    jFLocalArrayToObject({ inDataArrray:jvarLocalJSONData });
 
     let jVarLocalFromButtonData = jFLocalFromButton({ inCurrentTarget: jVarLocalCurrentTarget });
 
@@ -16,6 +16,14 @@ let StartFunc = async ({ inEvent }) => {
         ...jVarLocalFromButtonData,
         NewData: jvarLocalJSONData
     };
+};
+
+let jFLocalArrayToObject = ({ inDataArrray }) => {
+    let jVarLocalReturnObject = {};
+
+    inDataArrray.forEach((element, LoopIndex) => {
+        console.log("aaaaaaaaa : ", element, LoopIndex);
+    });
 };
 
 const jFLocalFromButton = ({ inCurrentTarget }) => {
@@ -32,8 +40,9 @@ const jFLocalFromButton = ({ inCurrentTarget }) => {
         ItemName: jVarLocalitemnameValue
     };
 };
+
 let fileValidation = (file) => {
-    
+
     // console.log("file", file, file.type, file.type === "application/json");
 
     if ((file.type === "application/json") === false) {
@@ -41,6 +50,7 @@ let fileValidation = (file) => {
         return false;
     }
 };
+
 let jVarLocalreadFileAsync = (file) => {
     return new Promise((resolve, reject) => {
         let reader = new FileReader();
