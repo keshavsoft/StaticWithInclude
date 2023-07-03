@@ -8,13 +8,13 @@ let StartFunc = async ({ inEvent }) => {
     let jVarLocalFromFile = await jVarLocalreadFileAsync(jVarLocalSelectedFile);
     let jvarLocalJSONData = JSON.parse(jVarLocalFromFile);
 
-    jFLocalArrayToObject({ inDataArrray:jvarLocalJSONData });
+    let jVarLocalJsonData = jFLocalArrayToObject({ inDataArrray: jvarLocalJSONData });
 
     let jVarLocalFromButtonData = jFLocalFromButton({ inCurrentTarget: jVarLocalCurrentTarget });
 
     return {
         ...jVarLocalFromButtonData,
-        NewData: jvarLocalJSONData
+        NewData: jVarLocalJsonData
     };
 };
 
@@ -22,8 +22,11 @@ let jFLocalArrayToObject = ({ inDataArrray }) => {
     let jVarLocalReturnObject = {};
 
     inDataArrray.forEach((element, LoopIndex) => {
-        console.log("aaaaaaaaa : ", element, LoopIndex);
+
+        jVarLocalReturnObject[element.pk] = element
+
     });
+    return jVarLocalReturnObject;
 };
 
 const jFLocalFromButton = ({ inCurrentTarget }) => {
