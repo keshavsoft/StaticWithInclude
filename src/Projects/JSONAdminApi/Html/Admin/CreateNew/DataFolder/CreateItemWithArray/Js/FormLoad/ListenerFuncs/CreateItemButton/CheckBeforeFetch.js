@@ -13,6 +13,7 @@ let StartFunc = ({ inEvent }) => {
         return false;
     };
     if (jVarLocalColsestTr.classList == "table-danger") {
+        jVarLocalFileName.classList.add("is-invalid");
 
         return false;
     };
