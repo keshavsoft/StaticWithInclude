@@ -12,6 +12,10 @@ let StartFunc = ({ inEvent }) => {
         jVarLocalItemName.focus();
         return false;
     };
+    if (jVarLocalColsestTr.classList == "table-danger") {
+
+        return false;
+    };
 
     return true;
 };

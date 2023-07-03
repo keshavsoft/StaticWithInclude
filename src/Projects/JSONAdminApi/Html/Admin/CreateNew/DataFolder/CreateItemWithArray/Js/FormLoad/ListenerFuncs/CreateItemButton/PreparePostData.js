@@ -8,6 +8,8 @@ let StartFunc = async ({ inEvent }) => {
     let jVarLocalFromFile = await jVarLocalreadFileAsync(jVarLocalSelectedFile);
     let jvarLocalJSONData = JSON.parse(jVarLocalFromFile);
 
+    console.log("ooooo:",jvarLocalJSONData.toString());
+
     let jVarLocalFromButtonData = jFLocalFromButton({ inCurrentTarget: jVarLocalCurrentTarget });
 
     return {
