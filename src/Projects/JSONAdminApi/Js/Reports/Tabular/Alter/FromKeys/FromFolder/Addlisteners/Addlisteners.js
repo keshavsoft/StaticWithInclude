@@ -6,7 +6,7 @@ let jFUpdateFunc = () => {
     };
 
 };
-let jFLocalClickFunc = (event) => {
+let jFLocalClickFunc = async (event) => {
     let jVarLocalCurrentTarget = event.currentTarget;
     let jVarLocalItemName = jVarLocalCurrentTarget.dataset.item;
 
@@ -44,13 +44,14 @@ let jFLocalClickFunc = (event) => {
         })
     }
     let response = fetch(jFetchUrl, jVarLocalRequestHeader);
+    let responseData = await response;
 
-    switch (response.status) {
+    switch (responseData.status) {
         case 200:
             let jVarLocalNewLocation = "";
             jVarLocalNewLocation += `?inReportName=${jVarLocalItemName}`
             jVarLocalNewLocation += `&inRowPK=${jVarLocalvoucherName}`
-          //  window.location = jVarLocalNewLocation;
+            window.location = jVarLocalNewLocation;
 
             break;
 
