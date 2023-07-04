@@ -16,17 +16,20 @@ let jFLocalClickFunc = async (event) => {
     let jVarLocalFolderName = jVarLocalColsestTr.querySelector('[name="FromFolder"]');
     let jVarLocalFileName = jVarLocalColsestTr.querySelector('[name="ItemNameConsider"]');
     let jVarLocalJsonFileConsider = jVarLocalColsestTr.querySelector('[name="JsonFileConsider"]');
+    let jVarLocalActive = jVarLocalColsestTr.querySelector('[name="Active"]');
 
 
     let jVarLocalFolderNameValue = jVarLocalFolderName.checked;
     let jVarLocalFileNameValue = jVarLocalFileName.checked;
     let jVarLocalJsonFileConsiderValue = jVarLocalJsonFileConsider.checked;
+    let jVarLocalActiveValue = jVarLocalActive.checked;
 
 
     let BodyAsJson = {
         FromFolder: jVarLocalFolderNameValue,
         ItemNameConsider: jVarLocalFileNameValue,
-        JsonFileConsider: jVarLocalJsonFileConsiderValue
+        JsonFileConsider: jVarLocalJsonFileConsiderValue,
+        Active: jVarLocalActiveValue
 
     };
 

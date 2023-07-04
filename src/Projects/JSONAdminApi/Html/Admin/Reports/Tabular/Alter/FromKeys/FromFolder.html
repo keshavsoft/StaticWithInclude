@@ -235,6 +235,7 @@
                     <th>FromFolder</th>
                     <th width="5%">ItemName Consider</th>
                     <th>JsonFileConsider</th>
+                    <th>Active</th>
                 </tr>
             </thead>
             <tbody>
@@ -279,6 +280,15 @@
                             <input class="form-check-input" type="checkbox" name="JsonFileConsider" checked>
                             {{else}}
                             <input class="form-check-input" type="checkbox" name="JsonFileConsider">
+                            {{/if}}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check  form-switch">
+                            {{#if Active}}
+                            <input class="form-check-input" type="checkbox" name="Active" checked>
+                            {{else}}
+                            <input class="form-check-input" type="checkbox" name="Active">
                             {{/if}}
                         </div>
                     </td>
