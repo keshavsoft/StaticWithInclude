@@ -22,7 +22,7 @@ let jFLocalClickFunc = async (event) => {
         DefaultValue: jVarLocalDefaultValueValue
     };
 
-    let jFetchUrl = "/JSONAdminApi/AdminApi/AsTree/Json/UserFolders/ReportsFolder/LedgerAutoJsonFile/VouchersConsider/Columns/DisplayColumn";
+    let jFetchUrl = "/JSONAdminApi/AdminApi/AsTree/Json/UserFolders/ReportsFolder/LedgerAutoJsonFile/VouchersConsider/Columns/DefaultValue";
     let jVarLocalRequestHeader = {
         method: "PATCH",
         headers: {
