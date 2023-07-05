@@ -16,7 +16,7 @@ let jFLocalClickFunc = async (event) => {
     let jVarLocalFolderName = jVarLocalColsestTr.querySelector('[name="FolderName"]');
     let jVarLocalFromFolder = jVarLocalColsestTr.querySelector('[name="FromFolder"]');
 
-    let jVarLocalFolderNameValue = jVarLocalFolderName.Value;
+    let jVarLocalFolderNameValue = jVarLocalFolderName.value;
     let jVarLocalFromFolderValue = jVarLocalFromFolder.checked;
 
     let BodyAsJson = {
