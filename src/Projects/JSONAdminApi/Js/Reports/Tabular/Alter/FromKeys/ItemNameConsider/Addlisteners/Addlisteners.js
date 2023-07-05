@@ -27,7 +27,7 @@ let jFLocalClickFunc = (event) => {
         Active: jVarLocalActiveValue
     };
 
-    let jFetchUrl = "/JSONAdminApi/AdminApi/AsTree/Json/UserFolders/ReportsFolder/LedgerAutoJsonFile/FromKeys/ItemNameConsider";
+    let jFetchUrl = "/AdminApi/AsTree/Json/UserFolders/ReportsFolder/LedgerAutoJsonFile/FromReports/FromVoucherConsider/FromKeys/ItemNameConsider";
 
     let response = fetch(jFetchUrl, {
         method: "PATCH",
