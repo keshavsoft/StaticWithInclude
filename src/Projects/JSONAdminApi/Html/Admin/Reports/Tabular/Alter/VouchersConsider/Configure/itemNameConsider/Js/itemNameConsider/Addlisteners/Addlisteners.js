@@ -30,9 +30,8 @@ let jFLocalClickFunc = (event) => {
         ItemNameConsider: jVarLocalItemNameConsiderValue
     };
 
-    let jFetchUrl = "/AdminApi/AsTree/Json/UserFolders/ReportsFolder/LedgerAutoJsonFile/FromReports/FromVoucherConsider/FromKeys/ItemNameConsider";
-
-    let response = fetch(jFetchUrl, {
+    let jFetchUrl = "/JSONAdminApi/AdminApi/AsTree/Json/UserFolders/ReportsFolder/LedgerAutoJsonFile/FromReports/FromVoucherConsider/FromKeys/ItemNameConsider";
+    let jVarLocalRequestHeader = {
         method: "PATCH",
         headers: {
             'Accept': 'application/json',
@@ -43,7 +42,10 @@ let jFLocalClickFunc = (event) => {
             voucher: jVarLocalvoucherName,
             BodyAsJson
         })
-    });
+    }
+
+    let response = fetch(jFetchUrl, jVarLocalRequestHeader);
+
 
     switch (response.status) {
         case 200:
