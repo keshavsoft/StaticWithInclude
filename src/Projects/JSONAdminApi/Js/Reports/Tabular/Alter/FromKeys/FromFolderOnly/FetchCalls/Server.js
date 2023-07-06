@@ -6,14 +6,10 @@ let StartFunc = async () => {
 
     let jVarLocalFromFetch = await fetch(jVarLocalFetchUrl);
     let dataFromApiJsonData = await jVarLocalFromFetch.json();
-    let dataFromApi = dataFromApiJsonData.JsonData;
 
-    if (dataFromApi !== null) {
-        StartFuncDatalist({ inData: dataFromApi });
-
+    if (dataFromApiJsonData !== null) {
+        StartFuncDatalist({ inData: dataFromApiJsonData });
     };
-
-    return await dataFromApi;
 };
 
 export { StartFunc }

@@ -9,21 +9,12 @@ const StartFunc = async ({ inData }) => {
 
 const jFLocalFromArray = ({ inData, inDataListsID }) => {
     inData.forEach(LoopItem => {
-        let LocalDataList = document.createElement("datalist");
-        LocalDataList.setAttribute("id", LoopItem.DatalistID);
+        let LocalDataListOption = document.createElement("option");
 
-        inDataListsID.appendChild(LocalDataList);
+        LocalDataListOption.setAttribute("value", LoopItem);
+        // LocalDataListOption.innerHTML = "-----";
 
-        LoopItem.Data.forEach(LoopItemSub => {
-            let LocalDataListOption = document.createElement("option");
-            LocalDataListOption.setAttribute("value", LoopItemSub[0]);
-
-            if (LoopItemSub.length > 1) {
-                LocalDataListOption.innerHTML = LoopItemSub[1];
-            }
-
-            LocalDataList.appendChild(LocalDataListOption);
-        });
+        inDataListsID.appendChild(LocalDataListOption);
     });
 };
 
