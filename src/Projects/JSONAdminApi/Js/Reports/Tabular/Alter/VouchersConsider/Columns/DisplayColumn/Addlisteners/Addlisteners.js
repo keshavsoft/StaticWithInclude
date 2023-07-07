@@ -21,7 +21,6 @@ let jFLocalClickFunc = async (event) => {
     let jVarLocalDisplayColumnValue = jVarLocalDisplayColumn.value;
     let jVarLocalTransformTypeValue = jVarLocalTransformType.value;
 
-
     let BodyAsJson = {
         Name: jVarLocalNameValue,
         DisplayColumn: jVarLocalDisplayColumnValue,
