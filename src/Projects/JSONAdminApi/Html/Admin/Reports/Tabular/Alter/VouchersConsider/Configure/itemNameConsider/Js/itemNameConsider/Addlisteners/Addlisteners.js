@@ -6,11 +6,10 @@ let jFUpdateFunc = () => {
     };
 
 };
-let jFLocalClickFunc = (event) => {
+let jFLocalClickFunc =async (event) => {
     let jVarLocalCurrentTarget = event.currentTarget;
     let jVarLocalItemName = jVarLocalCurrentTarget.dataset.item;
-
-    let jVarLocalvoucherName = jVarLocalCurrentTarget.dataset.voucher;
+    let jVarLocalvoucherPk = jVarLocalCurrentTarget.dataset.voucher;
 
     let jVarLocalColsestTr = jVarLocalCurrentTarget.closest("tr");
     let jVarLocalFolderName = jVarLocalColsestTr.querySelector('[name="FolderName"]');
@@ -32,20 +31,19 @@ let jFLocalClickFunc = (event) => {
 
     let jFetchUrl = "/JSONAdminApi/AdminApi/AsTree/Json/UserFolders/ReportsFolder/LedgerAutoJsonFile/FromReports/FromVoucherConsider/FromKeys/ItemNameConsider";
     let jVarLocalRequestHeader = {
-        method: "PATCH",
+        method: "Post",
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            ItemName: jVarLocalItemName,
-            voucher: jVarLocalvoucherName,
+            ReportName: jVarLocalItemName,
+            voucherPk: jVarLocalvoucherPk,
             BodyAsJson
         })
     }
 
-    let response = fetch(jFetchUrl, jVarLocalRequestHeader);
-
+    let response =await fetch(jFetchUrl, jVarLocalRequestHeader);
 
     switch (response.status) {
         case 200:
