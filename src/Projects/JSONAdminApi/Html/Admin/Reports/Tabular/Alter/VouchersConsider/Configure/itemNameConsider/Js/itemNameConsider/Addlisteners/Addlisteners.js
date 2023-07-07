@@ -38,7 +38,7 @@ let jFLocalClickFunc =async (event) => {
         },
         body: JSON.stringify({
             ReportName: jVarLocalItemName,
-            voucherPk: jVarLocalvoucherPk,
+            VoucherPk: jVarLocalvoucherPk,
             BodyAsJson
         })
     }
@@ -49,7 +49,7 @@ let jFLocalClickFunc =async (event) => {
         case 200:
             let jVarLocalNewLocation = "";
             jVarLocalNewLocation += `?inReportName=${jVarLocalItemName}`
-            jVarLocalNewLocation += `&inRowPK=${jVarLocalvoucherName}`
+            jVarLocalNewLocation += `&inRowPK=${jVarLocalvoucherPk}`
             window.location = jVarLocalNewLocation;
 
             break;
