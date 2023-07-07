@@ -13,35 +13,24 @@ let jFLocalUpdateClickFunc = async (event) => {
     let jVarLocalvoucherName = jVarLocalCurrentTarget.dataset.voucher;
 
     let jVarLocalColsestTr = jVarLocalCurrentTarget.closest("tr");
-    let jVarLocalFolderName = jVarLocalColsestTr.querySelector('[name="FolderName"]');
-    let jVarLocalFileName = jVarLocalColsestTr.querySelector('[name="FileName"]');
     let jVarLocalActive = jVarLocalColsestTr.querySelector('[name="Active"]');
-    let jVarLocalColumnNameToPick = jVarLocalColsestTr.querySelector('[name="ColumnNameToPick"]');
 
-
-    let jVarLocalFolderNameValue = jVarLocalFolderName.value;
-    let jVarLocalFileNameValue = jVarLocalFileName.value;
     let jVarLocalActiveValue = jVarLocalActive.checked;
-    let jVarLocalColumnNameToPickValue = jVarLocalColumnNameToPick.value;
 
     let BodyAsJson = {
-        FolderName: jVarLocalFolderNameValue,
-        FileName: jVarLocalFileNameValue,
-        Active: jVarLocalActiveValue,
-        ColumnNameToPick: jVarLocalColumnNameToPickValue
-
+        Active: jVarLocalActiveValue
     };
 
     let jFetchUrl = "/JSONAdminApi/AdminApi/AsTree/Json/UserFolders/ReportsFolder/LedgerAutoJsonFile/FromReports/FromVoucherConsider/FromKeys/Toggles";
     let jVarLocalRequestHeader = {
-        method: "PATCH",
+        method: "post",
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            ItemName: jVarLocalItemName,
-            voucher: jVarLocalvoucherName,
+            ReportName: jVarLocalItemName,
+            VoucherPk: jVarLocalvoucherName,
             BodyAsJson
         })
     };
