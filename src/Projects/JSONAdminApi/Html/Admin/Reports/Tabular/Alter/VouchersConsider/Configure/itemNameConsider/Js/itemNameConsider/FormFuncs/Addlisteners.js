@@ -16,7 +16,6 @@ let StartFunc = () => {
             StartFuncUpdateWithCheck({ inevent: event })
         })
     };
-
 };
 
 export { StartFunc };
