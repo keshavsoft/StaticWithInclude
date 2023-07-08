@@ -23,7 +23,7 @@ let StartFunc = async ({inevent}) => {
 
     let jFetchUrl = "/JSONAdminApi/AdminApi/AsTree/Json/UserFolders/ReportsFolder/LedgerAutoJsonFile/FromReports/FromVoucherConsider/FromKeys/ItemNameConsider";
     let jVarLocalRequestHeader = {
-        method: "Post",
+        method: "Patch",
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
