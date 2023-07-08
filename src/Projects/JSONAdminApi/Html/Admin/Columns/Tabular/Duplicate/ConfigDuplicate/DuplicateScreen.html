@@ -83,7 +83,7 @@
                     </td>
                     
                     <td>
-                        <input class="form-control" type="text" name="CloneName" id="CloneName" >
+                        <input class="form-control" type="text" name="CloneName" onkeypress="return event.charCode != 32  && event.charCode != 44">
                     </td>
                     <td>
                         <button type="button" class="btn btn-outline-info CloneButtonClass" data-foldername="{{@../../../key}}" data-filename="{{@../../key}}" data-itemname="{{@../key}}" data-screenname="{{@key}}">
