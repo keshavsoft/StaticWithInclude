@@ -1,102 +1,110 @@
 let StartFunc = ({ inDataFromApi }) => {
-    let jVarLocalFrominFolderName = getUrlQueryParams({ inGetKey: "inFolderName" });
-    let jVarLocalFromUrlinFileName = getUrlQueryParams({ inGetKey: "inFileName" });
-    let jVarLocalFromUrlinItemName = getUrlQueryParams({ inGetKey: "inItemName" });
-    let jVarLocalFromUrlinScreenName = getUrlQueryParams({ inGetKey: "inScreenName" });
+    let jVarLocalQueryParams = jFgetUrlQueryParams();
+    let jVarLocaldataFromApi = inDataFromApi;
 
-    if (jFLocalFolderClass({ inDataFromApi })) {
-        if (jFLocalFileClass({ inDataFromApi })) {
-            if (jFLocalItemClass({ inDataFromApi })) {
-                jFLocalScreenClass({
-                    inDataFromApi, inFolderName: jVarLocalFrominFolderName,
-                    inFileName: jVarLocalFromUrlinFileName,
-                    inItemName: jVarLocalFromUrlinItemName,
-                    inScreenName:jVarLocalFromUrlinScreenName
-                });
+    if (Object.keys(jVarLocalQueryParams).length > 0) {
+        jFLocalApplyClassesFromUrl({
+            indataFromApi: jVarLocaldataFromApi,
+            inQueryParamsAsObject: jVarLocalQueryParams
+        });
+    } else {
+        jFLocalApplyClasses({ indataFromApi: jVarLocaldataFromApi });
+    };
+};
+
+let jFgetUrlQueryParams = () => {
+    var queryParams = {}, param;
+    var params = window.location.search.substring(1).split("&");
+    // console.log("params : ", params);
+    for (var i = 0; i < params.length; i++) {
+        param = params[i].split('=');
+        // console.log("param : ", param);
+        if (param.length === 2) {
+            queryParams[param[0]] = param[1];
+        };
+    }
+    return queryParams;
+};
+
+let jFLocalApplyClasses = ({ indataFromApi }) => {
+    let jVarLocalFirstFolder;
+    let jVarLocalFirstFile;
+    let jVarLocalFirstItem;
+    let jVarLocalFirstScreen;
+    console.log("aaaaaaaaaaaa : ", indataFromApi);
+    if ("Folders" in indataFromApi) {
+        if (Object.values(indataFromApi.Folders).length > 0) {
+            jVarLocalFirstFolder = Object.values(indataFromApi.Folders)[0];
+            jVarLocalFirstFolder.TabPageClass = " show active";
+            jVarLocalFirstFolder.MenuClass = " active";
+
+            if ("Files" in jVarLocalFirstFolder) {
+                if (Object.values(jVarLocalFirstFolder.Files).length > 0) {
+                    jVarLocalFirstFile = Object.values(jVarLocalFirstFolder.Files)[0];
+                    jVarLocalFirstFile.TabPaneClass = " show active";
+                    jVarLocalFirstFile.ButtonClass = " active";
+
+                    if ("Items" in jVarLocalFirstFile) {
+                        if (Object.values(jVarLocalFirstFile.Items).length > 0) {
+                            jVarLocalFirstItem = Object.values(jVarLocalFirstFile.Items)[0];
+                            jVarLocalFirstItem.ShowOnLoad = true;
+
+                            if ("Screens" in jVarLocalFirstItem) {
+                                if (Object.values(jVarLocalFirstItem.Screens).length > 0) {
+                                    jVarLocalFirstScreen = Object.values(jVarLocalFirstItem.Screens)[0];
+                                    jVarLocalFirstScreen.CollapseClass = " show";
+                                };
+                            };
+                        };
+                    };
+                };
+
             };
+
         };
     };
 };
 
-let jFLocalFolderClass = ({ inDataFromApi }) => {
-    let jVarLocalFromUrl = getUrlQueryParams({ inGetKey: "inFolderName" });
+let jFLocalApplyClassesFromUrl = ({ indataFromApi, inQueryParamsAsObject }) => {
+    let jVarLocalFolderName = inQueryParamsAsObject.inFolderName;
+    let jVarLocalFileName = inQueryParamsAsObject.inFileName;
+    let jVarLocalItemName = inQueryParamsAsObject.inItemName;
+    let jVarLocalScreenName = inQueryParamsAsObject.inScreenName;
+    let jVarLocalsubtablecolumnkey = inQueryParamsAsObject.subtablecolumnkey;
 
-    if (jVarLocalFromUrl === null === false) {
-        let jVarLocalFilekeyNeeded = `Folders.${jVarLocalFromUrl}`;
+    if ("Folders" in indataFromApi) {
+        if (jVarLocalFolderName in indataFromApi.Folders) {
+            indataFromApi.Folders[jVarLocalFolderName].TabPageClass = " show active";
+            indataFromApi.Folders[jVarLocalFolderName].MenuClass = " active";
 
-        _.has(inDataFromApi, jVarLocalFilekeyNeeded) && _.set(inDataFromApi, `${jVarLocalFilekeyNeeded}.TabPageClass`, " show active");
-        _.has(inDataFromApi, jVarLocalFilekeyNeeded) && _.set(inDataFromApi, `${jVarLocalFilekeyNeeded}.MenuClass`, " active");
+            if ("Files" in indataFromApi.Folders[jVarLocalFolderName]) {
+                if (jVarLocalFileName in indataFromApi.Folders[jVarLocalFolderName].Files) {
+                    indataFromApi.Folders[jVarLocalFolderName].Files[jVarLocalFileName].TabPaneClass = " show active";
+                    indataFromApi.Folders[jVarLocalFolderName].Files[jVarLocalFileName].ButtonClass = " active";
 
-        return true;
-    };
-};
+                    if ("Items" in indataFromApi.Folders[jVarLocalFolderName].Files[jVarLocalFileName]) {
+                        if (jVarLocalItemName in indataFromApi.Folders[jVarLocalFolderName].Files[jVarLocalFileName].Items) {
+                            indataFromApi.Folders[jVarLocalFolderName].Files[jVarLocalFileName].Items[jVarLocalItemName].ShowOnLoad = true;
 
-let jFLocalFileClass = ({ inDataFromApi }) => {
-    let jVarLocalFromUrl = getUrlQueryParams({ inGetKey: "inFolderName" });
-    let jVarLocalFromUrlinFileName = getUrlQueryParams({ inGetKey: "inFileName" });
+                            if ("Screens" in indataFromApi.Folders[jVarLocalFolderName].Files[jVarLocalFileName].Items[jVarLocalItemName]) {
+                                if (jVarLocalScreenName in indataFromApi.Folders[jVarLocalFolderName].Files[jVarLocalFileName].Items[jVarLocalItemName].Screens) {
+                                    indataFromApi.Folders[jVarLocalFolderName].Files[jVarLocalFileName].Items[jVarLocalItemName].Screens[jVarLocalScreenName].CollapseClass = " show";
 
-    let jVarLocalFilekeyNeeded = `Folders.${jVarLocalFromUrl}.Files.${jVarLocalFromUrlinFileName}`;
+                                    if ("SubTableColumnsObject" in indataFromApi.Folders[jVarLocalFolderName].Files[jVarLocalFileName].Items[jVarLocalItemName].Screens[jVarLocalScreenName]) {
+                                        if (jVarLocalsubtablecolumnkey in indataFromApi.Folders[jVarLocalFolderName].Files[jVarLocalFileName].Items[jVarLocalItemName].Screens[jVarLocalScreenName].SubTableColumnsObject) {
+                                            indataFromApi.Folders[jVarLocalFolderName].Files[jVarLocalFileName].Items[jVarLocalItemName].Screens[jVarLocalScreenName].SubTableColumnsObject[jVarLocalsubtablecolumnkey].TabPageClass = " show active";
+                                            indataFromApi.Folders[jVarLocalFolderName].Files[jVarLocalFileName].Items[jVarLocalItemName].Screens[jVarLocalScreenName].SubTableColumnsObject[jVarLocalsubtablecolumnkey].MenuClass = " active";
+                                        };
+                                    };
+                                };
+                            };
+                        };
+                    };
+                };
+            };
 
-    if (jVarLocalFromUrlinFileName === null === false) {
-        _.has(inDataFromApi, jVarLocalFilekeyNeeded) && _.set(inDataFromApi, `${jVarLocalFilekeyNeeded}.TabPaneClass`, " show active");
-        _.has(inDataFromApi, jVarLocalFilekeyNeeded) && _.set(inDataFromApi, `${jVarLocalFilekeyNeeded}.ButtonClass`, " active");
-
-        return true;
-    };
-};
-let jFLocalItemClass = ({ inDataFromApi }) => {
-    let jVarLocalFromUrl = getUrlQueryParams({ inGetKey: "inFolderName" });
-    let jVarLocalFromUrlinFileName = getUrlQueryParams({ inGetKey: "inFileName" });
-
-    let jVarLocalFilekeyNeeded = `Folders.${jVarLocalFromUrl}.Files.${jVarLocalFromUrlinFileName}`;
-
-    if (jVarLocalFromUrlinFileName === null === false) {
-        _.has(inDataFromApi, jVarLocalFilekeyNeeded) && _.set(inDataFromApi, `${jVarLocalFilekeyNeeded}.TabPaneClass`, " show active");
-        _.has(inDataFromApi, jVarLocalFilekeyNeeded) && _.set(inDataFromApi, `${jVarLocalFilekeyNeeded}.ButtonClass`, " active");
-
-        return true;
-    };
-};
-
-let jFLocalScreenClass = ({ inDataFromApi, inFolderName, inFileName, inItemName,inScreenName }) => {
-    let jVarLocalFilekeyNeeded = `Folders.${inFolderName}.Files.${inFileName}.Items.${inItemName}.Screens.${inScreenName}`;
-
-    if (inItemName === null === false) {
-        _.has(inDataFromApi, jVarLocalFilekeyNeeded) && _.set(inDataFromApi, `${jVarLocalFilekeyNeeded}.ShowOnLoad`, true);
-    };
-};
-
-let getUrlQueryParams = ({ inGetKey }) => {
-    const queryString = window.location.search;
-    const parameters = new URLSearchParams(queryString);
-    const value = parameters.get(inGetKey);
-    return value;
-};
-
-let StartFunc11111 = ({ inDataFromApi }) => {
-    let jVarLocalFromUrl = getUrlQueryParams({ inGetKey: "inFolderName" });
-    let jVarLocalFromUrlinFileName = getUrlQueryParams({ inGetKey: "inFileName" });
-    console.log("jVarLocalFromUrl : ", jVarLocalFromUrl);
-
-    if (jVarLocalFromUrl === null === false) {
-        let jVarLocalFolderkeyNeeded = `Folders.${jVarLocalFromUrl}.Files.${jVarLocalFromUrlinFileName}`;
-
-        _.has(inDataFromApi, `Folders.${jVarLocalFromUrl}`) && _.set(inDataFromApi, `Folders.${jVarLocalFromUrl}.TabPageClass`, " show active");
-        _.has(inDataFromApi, `Folders.${jVarLocalFromUrl}`) && _.set(inDataFromApi, `Folders.${jVarLocalFromUrl}.MenuClass`, " active");
-
-        if (jVarLocalFromUrlinFileName === null === false) {
-            let jVarLocalFilekeyNeeded = `Folders.${jVarLocalFromUrl}.Files.${jVarLocalFromUrlinFileName}`;
-
-            _.has(inDataFromApi, jVarLocalFilekeyNeeded) && _.set(inDataFromApi, `${jVarLocalFilekeyNeeded}.TabPaneClass`, " show active");
-            _.has(inDataFromApi, jVarLocalFilekeyNeeded) && _.set(inDataFromApi, `${jVarLocalFilekeyNeeded}.ButtonClass`, " active");
         };
     };
-
-    // _.set(inDataFromApi, `Folders.${jVarLocalFromUrl}.MenuClass`, " active");
-
-    // _.set(inDataFromApi, `Folders.${jVarLocalFromUrl}.Files.${jVarLocalFromUrlinFileName}.TabPaneClass`, " show active");
-    // _.set(inDataFromApi, `Folders.${jVarLocalFromUrl}.Files.${jVarLocalFromUrlinFileName}.ButtonClass`, " active");
 };
 
-
-export { StartFunc };
+export { StartFunc }
