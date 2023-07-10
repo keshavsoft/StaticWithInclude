@@ -37,8 +37,7 @@
             </div>
         </div>
 
-        <datalist id="DefaultValueDataList">
-            <option value="Object"></option>
+        <datalist id="FolderNameList">
         </datalist>
 
         <datalist id="TextAlignDataList">
@@ -112,7 +111,7 @@
                         {{@key}}
                     </td>
                     <td>
-                        <input class="form-control" type="text" name="FolderName" value="{{FolderName}}">
+                        <input class="form-control" type="text" name="FolderName" list="FolderNameList" value="{{FolderName}}">
                     </td>
                     <td>
                         <input class="form-control" type="text" name="FileName" value="{{FileName}}">
