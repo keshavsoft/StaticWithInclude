@@ -33,7 +33,7 @@ let StartFunc = async ({ inevent }) => {
 
     let response = await fetch(jFetchUrl, jVarLocalRequestHeader);
 
-   switch (responseData.status) {
+   switch (response.status) {
         case 200:
             let jVarLocalNewLocation = "";
             jVarLocalNewLocation += `?inReportName=${jVarLocalItemName}`
