@@ -14,7 +14,7 @@ let StartFunc = async ({ inevent }) => {
     let BodyAsJson = {
         FolderName: jVarLocalFolderNameValue,
         FromFolder: jVarLocalFromFolderValue
-        
+
     };
 
     let jFetchUrl = "/JSONAdminApi/AdminApi/AsTree/Json/UserFolders/ReportsFolder/LedgerAutoJsonFile/FromReports/FromVoucherConsider/FromKeys/FromFolderOnly";
@@ -25,16 +25,18 @@ let StartFunc = async ({ inevent }) => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-             ItemName: jVarLocalItemName,
-            voucher: jVarLocalvoucherName,
+            ReportName: jVarLocalItemName,
+            VoucherPk: jVarLocalvoucherName,
             BodyAsJson
         })
     }
 
     let response = await fetch(jFetchUrl, jVarLocalRequestHeader);
 
-   switch (responseData.status) {
-        case 200:
+    let ResopnseData = await response.json();
+
+    switch (ResopnseData.KTF) {
+        case true:
             let jVarLocalNewLocation = "";
             jVarLocalNewLocation += `?inReportName=${jVarLocalItemName}`
             jVarLocalNewLocation += `&inRowPK=${jVarLocalvoucherName}`
@@ -42,8 +44,8 @@ let StartFunc = async ({ inevent }) => {
 
             break;
 
-        case 204:
-            Swal.fire('Not Update Data')
+        case false:
+            Swal.fire(`Not Update Data...&#128531 Reson: ${ResopnseData.KReason}`)
             break;
         default:
         // code block
