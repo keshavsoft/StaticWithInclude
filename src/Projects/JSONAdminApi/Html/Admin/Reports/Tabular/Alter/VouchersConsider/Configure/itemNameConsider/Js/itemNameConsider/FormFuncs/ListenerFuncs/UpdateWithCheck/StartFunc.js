@@ -48,7 +48,6 @@ let StartFunc = async ({ inevent }) => {
             break;
 
         case false:
-            console.log("ResopnseData.KReason:",ResopnseData.KReason);
             Swal.fire(`Not Update Data...&#128531 Reson: ${ResopnseData.KReason}`)
             break;
         default:
