@@ -1,4 +1,4 @@
-let StartFunc = async ({inevent}) => {
+let StartFunc = async ({ inevent }) => {
     let jVarLocalCurrentTarget = inevent.currentTarget;
     let jVarLocalItemName = jVarLocalCurrentTarget.dataset.item;
     let jVarLocalvoucherPk = jVarLocalCurrentTarget.dataset.voucher;
@@ -36,9 +36,10 @@ let StartFunc = async ({inevent}) => {
     }
 
     let response = await fetch(jFetchUrl, jVarLocalRequestHeader);
+    let ResopnseData = await response.json();
 
-    switch (response.status) {
-        case 200:
+    switch (ResopnseData.KTF) {
+        case true:
             let jVarLocalNewLocation = "";
             jVarLocalNewLocation += `?inReportName=${jVarLocalItemName}`
             jVarLocalNewLocation += `&inRowPK=${jVarLocalvoucherPk}`
@@ -46,8 +47,9 @@ let StartFunc = async ({inevent}) => {
 
             break;
 
-        case 204:
-            Swal.fire('Not Update Data...&#128531')
+        case false:
+            console.log("ResopnseData.KReason:",ResopnseData.KReason);
+            Swal.fire(`Not Update Data...&#128531 Reson: ${ResopnseData.KReason}`)
             break;
         default:
         // code block
