@@ -12,11 +12,7 @@ let StartFunc = ({ inDataFromApi }) => {
                 indataFromApi: jVarLocaldataFromApi,
                 inQueryParamsAsObject: jVarLocalQueryParams
             });
-            
-        }
-       
-
-
+        };
     } else {
         LocalForApplyClasses({ indataFromApi: jVarLocaldataFromApi });
     };
@@ -36,8 +32,6 @@ let jFgetUrlQueryParams = () => {
     }
     return queryParams;
 };
-
-
 
 let LocalForApplyClasses = ({ indataFromApi }) => {
     console.log("indataFromApi", indataFromApi);
@@ -74,15 +68,8 @@ let LocalForClassesFromUrlForFale = ({ indataFromApi, inQueryParamsAsObject }) =
         if (jVarLocalReportName in indataFromApi.Reports) {
             indataFromApi.Reports[jVarLocalReportName].TabPageClass = " show active";
             indataFromApi.Reports[jVarLocalReportName].MenuClass = " active";
-            indataFromApi.Reports[jVarLocalReportName].VouchersConsider[jVarLocalFileName].RowClass = "bg-danger";
+            indataFromApi.Reports[jVarLocalReportName].VouchersConsider[jVarLocalFileName].RowClass = "table-danger";
             Swal.fire(`Not Update Data...&#128531 Reson: ${url}..`)
-
-            // if (jVarLocalKReson in inQueryParamsAsObject) {
-            //     console.log("kkkkkkkkk");
-            //     // indataFromApi.Reports[jVarLocalReportName].VouchersConsider[jVarLocalFileName].RowClass = "table-info";
-
-            // };
-
         };
     };
 };

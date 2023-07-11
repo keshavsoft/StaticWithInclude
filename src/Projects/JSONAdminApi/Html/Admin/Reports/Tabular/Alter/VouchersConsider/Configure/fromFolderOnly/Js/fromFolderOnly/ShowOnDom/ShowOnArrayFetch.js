@@ -1,4 +1,4 @@
-import { StartFunc as StartFuncDatalist } from "../ShowOnDom/Datalist.js";
+import { StartFunc as StartFuncDatalist } from "./Datalist.js";
 
 let StartFunc = async () => {
     let jVarLocalRoute = window.location.pathname.split("/")[1];
