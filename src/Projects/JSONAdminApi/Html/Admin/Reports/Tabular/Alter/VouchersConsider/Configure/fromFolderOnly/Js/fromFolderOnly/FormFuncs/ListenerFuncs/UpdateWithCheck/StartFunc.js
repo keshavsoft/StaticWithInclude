@@ -45,7 +45,24 @@ let StartFunc = async ({ inevent }) => {
             break;
 
         case false:
-            Swal.fire(`Not Update Data...&#128531 Reson: ${ResopnseData.KReason}`)
+            let jVarLocalNewLocationForFalse = "";
+            jVarLocalNewLocationForFalse += `?inReportName=${jVarLocalItemName}`
+            jVarLocalNewLocationForFalse += `&inRowPK=${jVarLocalvoucherName}`
+            jVarLocalNewLocationForFalse += `&KReson=${ResopnseData.KReason}`
+            window.location = jVarLocalNewLocationForFalse;
+            // Swal.fire({
+            //     title: `Not Update Data...&#128531 Reson: ${ResopnseData.KReason}`,
+            //     width: 600,
+            //     padding: '3em',
+            //     color: '#FFFFFF',
+            //     background: '#FF726F url(/images/trees.png)',
+            //     backdrop: `
+            //       rgba(0,0,123,0.4)
+            //       url("/images/nyan-cat.gif")
+            //       left top
+            //       no-repeat
+            //     `
+            //   })
             break;
         default:
         // code block

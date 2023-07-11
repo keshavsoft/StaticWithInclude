@@ -7,7 +7,15 @@ let StartFunc = ({ inDataFromApi }) => {
             indataFromApi: jVarLocaldataFromApi,
             inQueryParamsAsObject: jVarLocalQueryParams
         });
-        Swal.fire('Updated Sucessfully..&#128522')
+        if (jVarLocalQueryParams.KReson) {
+            LocalForClassesFromUrlForFale({
+                indataFromApi: jVarLocaldataFromApi,
+                inQueryParamsAsObject: jVarLocalQueryParams
+            });
+            
+        }
+       
+
 
     } else {
         LocalForApplyClasses({ indataFromApi: jVarLocaldataFromApi });
@@ -45,19 +53,37 @@ let LocalForApplyClasses = ({ indataFromApi }) => {
 };
 
 let LocalForClassesFromUrl = ({ indataFromApi, inQueryParamsAsObject }) => {
-    console.log("inQueryParamsAsObject",inQueryParamsAsObject);
     let jVarLocalReportName = inQueryParamsAsObject.inReportName;
-    console.log("indataFromApi--", indataFromApi.Reports);
     let jVarLocalFileName = inQueryParamsAsObject.inRowPK;
     if ("Reports" in indataFromApi) {
         if (jVarLocalReportName in indataFromApi.Reports) {
             indataFromApi.Reports[jVarLocalReportName].TabPageClass = " show active";
             indataFromApi.Reports[jVarLocalReportName].MenuClass = " active";
             indataFromApi.Reports[jVarLocalReportName].VouchersConsider[jVarLocalFileName].RowClass = "table-success";
-
-
+            Swal.fire('Updated Sucessfully..&#128522')
         };
     };
 };
 
+let LocalForClassesFromUrlForFale = ({ indataFromApi, inQueryParamsAsObject }) => {
+    let jVarLocalReportName = inQueryParamsAsObject.inReportName;
+    let jVarLocalFileName = inQueryParamsAsObject.inRowPK;
+    let jVarLocalKReson = inQueryParamsAsObject.KReson;
+    let url = jVarLocalKReson.replace(/%20| /g, " ");
+    if ("Reports" in indataFromApi) {
+        if (jVarLocalReportName in indataFromApi.Reports) {
+            indataFromApi.Reports[jVarLocalReportName].TabPageClass = " show active";
+            indataFromApi.Reports[jVarLocalReportName].MenuClass = " active";
+            indataFromApi.Reports[jVarLocalReportName].VouchersConsider[jVarLocalFileName].RowClass = "bg-danger";
+            Swal.fire(`Not Update Data...&#128531 Reson: ${url}..`)
+
+            // if (jVarLocalKReson in inQueryParamsAsObject) {
+            //     console.log("kkkkkkkkk");
+            //     // indataFromApi.Reports[jVarLocalReportName].VouchersConsider[jVarLocalFileName].RowClass = "table-info";
+
+            // };
+
+        };
+    };
+};
 export { StartFunc }
