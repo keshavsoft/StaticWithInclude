@@ -1,5 +1,5 @@
 let jFCloneFunc = () => {
-    let jVarLocalCloneClassName = document.getElementsByClassName("UpdateButtonClass");
+    let jVarLocalCloneClassName = document.getElementsByClassName("DeleteButtonClass");
 
     for (let i = 0; i < jVarLocalCloneClassName.length; i++) {
         jVarLocalCloneClassName[i].addEventListener("click", jFLocalClickFunc)
@@ -28,9 +28,9 @@ let jFLocalClickFunc = async (event) => {
     };
 
     // let jFetchUrl = "/JSONAdminApi/AdminApi/AsTree/Json/UserFolders/ReportsFolder/LedgerAutoJsonFile/FromReports/AsTable";
-    let jFetchUrl = "/JSONAdminApi/AdminApi/AsTree/Json/UserFolders/ReportsFolder/LedgerAutoJsonFile/VouchersConsider/Columns/DisplayColumn";
+    let jFetchUrl = "/JSONAdminApi/AdminApi/AsTree/Json/UserFolders/ReportsFolder/LedgerAutoJsonFile/VouchersConsider/Columns/DisplayColumnDelete";
     let jVarLocalRequestHeader = {
-        method: "PATCH",
+        method: "POST",
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
