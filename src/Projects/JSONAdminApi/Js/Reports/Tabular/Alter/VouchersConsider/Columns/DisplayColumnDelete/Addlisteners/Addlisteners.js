@@ -27,16 +27,15 @@ let jFLocalClickFunc = async (event) => {
         TransformType: jVarLocalTransformTypeValue
     };
 
-    // let jFetchUrl = "/JSONAdminApi/AdminApi/AsTree/Json/UserFolders/ReportsFolder/LedgerAutoJsonFile/FromReports/AsTable";
     let jFetchUrl = "/JSONAdminApi/AdminApi/AsTree/Json/UserFolders/ReportsFolder/LedgerAutoJsonFile/VouchersConsider/Columns/DisplayColumnDelete";
     let jVarLocalRequestHeader = {
-        method: "POST",
+        method: "DELETE",
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            Reportname: jVarLocalreportname,
+            ReportName: jVarLocalreportname,
             Voucherpk: jVarLocalvoucherconsiderpk,
             Columnpk: jVarLocalColumnPk,
             BodyAsJson

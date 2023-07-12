@@ -7,13 +7,11 @@ let StartFunc = ({ inDataFromApi }) => {
             indataFromApi: jVarLocaldataFromApi,
             inQueryParamsAsObject: jVarLocalQueryParams
         });
-        Swal.fire('Updated Sucessfully..&#128522')
 
     } else {
         LocalForApplyClasses({ indataFromApi: jVarLocaldataFromApi });
     };
 };
-
 
 let jFgetUrlQueryParams = () => {
     var queryParams = {}, param;
@@ -28,8 +26,6 @@ let jFgetUrlQueryParams = () => {
     }
     return queryParams;
 };
-
-
 
 let LocalForApplyClasses = ({ indataFromApi }) => {
     let jVarLocalReportName;
@@ -69,8 +65,8 @@ let LocalForClassesFromUrl = ({ indataFromApi, inQueryParamsAsObject }) => {
                 if (jVarLocalVoucherConsiderPk in indataFromApi.ReportsObject[jVarLocalReportName].VouchersConsiderObject) {
                     indataFromApi.ReportsObject[jVarLocalReportName].VouchersConsiderObject[jVarLocalVoucherConsiderPk].TabPaneClass = " show active";
                     indataFromApi.ReportsObject[jVarLocalReportName].VouchersConsiderObject[jVarLocalVoucherConsiderPk].ButtonClass = " active";
-                    indataFromApi.ReportsObject[jVarLocalReportName].VouchersConsiderObject[jVarLocalVoucherConsiderPk].ColumnsObject[jVarLocalcolumnpk].RowClass = "table-success";
 
+                    Swal.fire(`Deleted Sucessfully..&#128522 Column PK ${jVarLocalcolumnpk}`)
 
                 };
             };
@@ -80,4 +76,4 @@ let LocalForClassesFromUrl = ({ indataFromApi, inQueryParamsAsObject }) => {
 
 };
 
-export { StartFunc }
+export { StartFunc };
