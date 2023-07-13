@@ -139,7 +139,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="{{RowClass}}">
+                <tr>
                     <td>
                     </td>
                     <td></td>
@@ -154,14 +154,14 @@
                         <input class="form-control" type="text" name="ItemName" value="" >
                  
                     <td>
-                        <button type="button" class="btn btn-outline-info CloneButtonClass"  data-reportName="{{@key}}">
+                        <button type="button" class="btn btn-outline-info CreateButtonClass"  data-reportname="{{@key}}">
                             Create
                         </button>
                     </td>
                 </tr>
                 {{#each this.VouchersConsider}}
                 
-                <tr>
+                <tr class="{{RowClass}}">
                     <td class="text-center">
                         {{ForSNo @index}}
                     </td>
