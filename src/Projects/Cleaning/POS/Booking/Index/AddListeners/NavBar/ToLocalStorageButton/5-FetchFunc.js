@@ -1,24 +1,20 @@
-// import { StartFunc as StartFuncToLocalStorage } from "../../../../../../../../../../../ToLocalStorage/CheckOutData/Update.js";
-import { StartFunc as StartFuncToLocalStorage } from "../../../../../../../../../../../ToLocalStorage/OrdersData/Update.js";
+let StartFunc = async ({inBodyData}) => {
+    let jVarLocalBodyData = inBodyData;
+    let jVarLocalFetchUrl = "http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/ScreensFromDisplayJson/MainTable/WithSelectedColumns";
 
-let StartFunc = ({ inOrderKey, inSettlementData }) => {
-    return jFToLocalStorage({ inOrderKey, inSettlementData });
-};
+    let jVarLocalFetchHeaderObject = {
+        method: "post",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(jVarLocalBodyData)
+    };
 
-const jFToLocalStorage = ({ inOrderKey, inSettlementData }) => {
-    let jVarLocalOrderKey = getUrlQueryParams({ inGetKey: "OrderNumber" });
+    let response = await fetch(jVarLocalFetchUrl, jVarLocalFetchHeaderObject);
+    let jVarLocalResponse = await response.json();
 
-    return StartFuncToLocalStorage({
-        inOrderKey: jVarLocalOrderKey,
-        inSettlementData
-    });
-};
-
-let getUrlQueryParams = ({ inGetKey }) => {
-    const queryString = window.location.search;
-    const parameters = new URLSearchParams(queryString);
-    const value = parameters.get(inGetKey);
-    return value;
+    return jVarLocalResponse;
 };
 
 export { StartFunc };
