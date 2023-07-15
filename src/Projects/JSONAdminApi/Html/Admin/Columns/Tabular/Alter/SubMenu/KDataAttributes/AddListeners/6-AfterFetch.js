@@ -1,27 +1,25 @@
-let StartFunc = ({ inFromFetch }) => {
+let StartFunc = ({ inFromFetch, inBodyData }) => {
     let response = inFromFetch;
-    switch (response.status) {
-        case 200:
+    switch (response.KTF) {
+        case true:
             //window.location = "";
             let jVarLocalNewLocation = "";
-            jVarLocalNewLocation += `?inFolderName=${jVarLocalFolderName}`
-            jVarLocalNewLocation += `&inFileName=${jVarLocalfilename}`
-            jVarLocalNewLocation += `&inItemName=${jVarLocalitemname}`
-            jVarLocalNewLocation += `&inScreenName=${jVarLocalscreenname}`
-            jVarLocalNewLocation += `&inColumnName=${jVarLocalDataAttributeValue}`;
-            console.log("jVarLocalNewLocation : ", jVarLocalNewLocation);
+            jVarLocalNewLocation += `?inFolderName=${inBodyData.folderName}`
+            jVarLocalNewLocation += `&inFileName=${inBodyData.FileName}`
+            jVarLocalNewLocation += `&inItemName=${inBodyData.ItemName}`
+            jVarLocalNewLocation += `&inScreenName=${inBodyData.ScreenName}`
+            jVarLocalNewLocation += `&inColumnName=${inBodyData.DataAttribute}`;
             window.location = jVarLocalNewLocation;
 
             break;
 
-        case 204:
+        case false:
             Swal.fire('Not Update Data')
             break;
         default:
         // code block
     };
 
-    console.log("response : ", response.status);
 };
 
 export { StartFunc };
