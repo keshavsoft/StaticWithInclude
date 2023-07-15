@@ -100,7 +100,7 @@
         </table>
       </script>
 
-      <script id="HbsTemplateForTableColumnsForTogglesOnly" type="text/x-handlebars">
+       <script id="HbsTemplateForTableColumnsForTogglesOnly" type="text/x-handlebars">
         <table class="table">
             <thead>
                 <tr>
@@ -145,7 +145,7 @@
                                     <div class="row">
                 <label class="col-md-5 col-form-label">ClientEval</label>
             <div class="col-7">
-                <input class="form-control" type="text" name="ClientEval" list="ClientEvalDataList"  value="{{ClientEval}}">
+                <input class="form-control" type="text" name="ClientEval" list="ClientEvalDataList"  value="{{KDataAttributes.ClientEval}}">
             </div>
         
         </div>
@@ -157,7 +157,7 @@
                 <label class="col-md-8 col-form-label">onkeypress</label>
                 <div class="col-4">
                     <div class="form-check  form-switch">
-                        {{#if onkeypress}}
+                        {{#if KDataAttributes.onkeypress}}
                         <input class="form-check-input" type="checkbox" name="onkeypress" checked>
                         {{else}}
                         <input class="form-check-input" type="checkbox" name="onkeypress">
@@ -175,7 +175,7 @@
                                         <label class="col-md-8 col-form-label">EnterOnClient</label>
                                         <div class="col-4">
                                             <div class="form-check  form-switch">
-                                                {{#if EnterOnClient}}
+                                                {{#if KDataAttributes.EnterOnClient}}
                                                 <input class="form-check-input" type="checkbox" name="EnterOnClient" checked>
                                                 {{else}}
                                                 <input class="form-check-input" type="checkbox" name="EnterOnClient">
@@ -191,7 +191,7 @@
                 <label class="col-md-8 col-form-label">CustomDataList</label>
                 <div class="col-4">
                     <div class="form-check  form-switch">
-                        {{#if CustomDataList}}
+                        {{#if KDataAttributes.CustomDataList}}
                         <input class="form-check-input" type="checkbox" name="CustomDataList" checked>
                         {{else}}
                         <input class="form-check-input" type="checkbox" name="CustomDataList">
@@ -218,10 +218,6 @@
         </table>
     
         </script>
-
-
-
-
 
     <script id="HbsTemplateForTable" type="text/x-handlebars">
                         {{#each this.KData}}
