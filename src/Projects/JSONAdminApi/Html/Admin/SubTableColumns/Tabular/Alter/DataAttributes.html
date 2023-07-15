@@ -68,58 +68,58 @@
 
     <!-- HTML template -->
     <script id="HbsTemplateToShowFetchDataId" type="text/x-handlebars">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th width="5%"></th>
-                                    <th width="90%"></th>
-                                    <th width="5%"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {{#each SubTableColumnsObject}}
-                              
-                    <tr class="{{RowClass}}">
-                    <td class="text-center">
-                    {{ForSNo @index}}
-                    </td>
-                    <td>
-                    <div class="row mb-3">
-                        <div class="col-12 col-xl-6">
-                            <div class="row">
-                                <label class="col-md-5 col-form-label">DataAttribute</label>
-                            <div class="col-7">
-                            <input class="form-control" type="text" name="DataAttribute" disabled value="{{DataAttribute}}">
-                        </div>
-                    
-                    </div>
-                    
-                        </div>
-                        <div class="col-12 col-xl-6">
-                            
-                        <div class="row">
-                            <label class="col-md-5 col-form-label">DataAttribute</label>
-                            <div class="col-7">
-                                <input class="form-control" type="text" name="DataAttribute1" value="{{DataAttribute}}" >
-                            </div>
-                        </div>
-                    
-                    </div>
-                    </div>
-                    
-                    </td>
-                    <td>
-                    <button type="button" class="btn btn-outline-info UpdateButtonClass" data-foldername="{{@../../../../key}}" data-filename="{{@../../../key}}" data-itemname="{{@../../key}}" data-screenname="{{@../key}}">
-                        Update
-                    </button>
-                    </td>
-                    </tr>
-                    
-                                {{/each}}
-                            </tbody>
-                        </table>
-                    
-                        </script>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th width="5%"></th>
+                    <th width="90%"></th>
+                    <th width="5%"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each TableColumnsObject}}
+              
+    <tr class="{{RowClass}}">
+    <td class="text-center">
+    {{ForSNo @index}}
+    </td>
+    <td>
+    <div class="row mb-3">
+        <div class="col-12 col-xl-6">
+            <div class="row">
+                <label class="col-md-5 col-form-label">DataAttribute</label>
+            <div class="col-7">
+            <input class="form-control" type="text" name="DataAttribute" disabled value="{{DataAttribute}}">
+        </div>
+    
+    </div>
+    
+        </div>
+        <div class="col-12 col-xl-6">
+            
+        <div class="row">
+            <label class="col-md-5 col-form-label">DataAttribute</label>
+            <div class="col-7">
+                <input class="form-control" type="text" name="DataAttribute1" value="{{DataAttribute}}" >
+            </div>
+        </div>
+    
+    </div>
+    </div>
+    
+    </td>
+    <td>
+    <button type="button" class="btn btn-outline-info UpdateButtonClass" data-foldername="{{@../../../../../key}}" data-filename="{{@../../../../key}}" data-itemname="{{@../../../key}}" data-screenname="{{@../../key}}" data-subtablecolumnkey="{{@../key}}" data-tablecolumnkey={{@key}}>
+        Update
+    </button>
+    </td>
+    </tr>
+    
+                {{/each}}
+            </tbody>
+        </table>
+    
+        </script>
 
     <!-- foders hbs -->
     <include src="./src/components/Templates/Admin/SubTableColumns/HbsTemplatesAndAdd.html"></include>
@@ -132,7 +132,7 @@
     <script src="../../../../../Js/Login/Check.js" type="module"></script>
 
     <!-- HTML js -->
-    <script src="./DataAttributes.js" type="module"></script>
+    <script src="./DataAttributes/Js/DataAttributes.js" type="module"></script>
 
 
 
