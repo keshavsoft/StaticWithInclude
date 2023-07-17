@@ -1,13 +1,14 @@
 let StartFunc = async ({ CurrentTarget }) => {
     let jVarLocalCurrentTarget = CurrentTarget;
 
-    let jVarLocalItemName = jVarLocalCurrentTarget.dataset.item;
+    let jVarLocalVoucherName = jVarLocalCurrentTarget.dataset.item;
 
     let jVarLocalvoucherName = jVarLocalCurrentTarget.dataset.voucher;
 
     let jVarLocalColsestTr = jVarLocalCurrentTarget.closest("tr");
     let jVarLocalFolderName = jVarLocalColsestTr.querySelector('[name="FolderName"]');
     let jVarLocalFileName = jVarLocalColsestTr.querySelector('[name="FileName"]');
+    let jVarLocalItemName = jVarLocalColsestTr.querySelector('[name="ItemName"]');
     let jVarLocalColumnNameToPick = jVarLocalColsestTr.querySelector('[name="ColumnNameToPick"]');
 
     let jVarLocalFolderNameValue = jVarLocalFolderName.value;
@@ -17,10 +18,11 @@ let StartFunc = async ({ CurrentTarget }) => {
     let BodyAsJson = {
         FolderName: jVarLocalFolderNameValue,
         FileName: jVarLocalFileNameValue,
+        ItemName: jVarLocalItemName,
         ColumnNameToPick: jVarLocalColumnNameToPickValue
     };
     return await {
-        ItemName: jVarLocalItemName,
+        ItemName: jVarLocalVoucherName,
         voucher: jVarLocalvoucherName,
         BodyAsJson
     };
