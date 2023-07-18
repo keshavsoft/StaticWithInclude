@@ -1,7 +1,7 @@
-import { StartFunc as StartFuncDeleteButton } from "./DeleteButton/1-ClickFunc.js";
+import { StartFunc as StartFuncCreateButton } from "./CreateButton/1-ClickFunc.js";
 
 const StartFunc = () => {
-    StartFuncDeleteButton();
+    StartFuncCreateButton();
 };
 
 export { StartFunc };

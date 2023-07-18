@@ -12,7 +12,6 @@ const jFLocalFromArray = ({ inData, inDataListsID }) => {
         let LocalDataListOption = document.createElement("option");
 
         LocalDataListOption.setAttribute("value", LoopItem);
-        // LocalDataListOption.innerHTML = "-----";
 
         inDataListsID.appendChild(LocalDataListOption);
     });
