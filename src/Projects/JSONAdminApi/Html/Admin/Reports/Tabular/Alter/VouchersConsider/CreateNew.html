@@ -36,6 +36,8 @@
             <div id="KCont1">
             </div>
         </div>
+        <datalist id="FolderNameList">
+        </datalist>
 
     </main>
 
@@ -145,7 +147,7 @@
                     <td></td>
                     
                     <td>
-                        <input class="form-control" type="text" name="FolderName" value="" >
+                        <input class="form-control" type="text" list="FolderNameList" name="FolderName" value="" >
                     </td>
                     <td>
                           <input class="form-control" type="text" name="FileName" value="" >
@@ -184,7 +186,7 @@
        
         </table>
       </script>
-      
+
     <script>
         //HbsTemplateForScreensWithSubTableColumnsOnly
         Handlebars.registerHelper('ForSNo', function (item) {
