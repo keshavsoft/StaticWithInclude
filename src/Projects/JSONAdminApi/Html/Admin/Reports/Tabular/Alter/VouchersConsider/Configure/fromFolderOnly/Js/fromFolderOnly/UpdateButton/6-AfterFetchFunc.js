@@ -1,11 +1,10 @@
-let StartFunc = async ({ inResponse, CurrentTarget }) => {
+let StartFunc = async ({ inResponse, inBodyData }) => {
 
-    let jVarLocalCurrentTarget = CurrentTarget;
-    let jVarLocalItemName = jVarLocalCurrentTarget.dataset.item;
-    let jVarLocalvoucherName = jVarLocalCurrentTarget.dataset.voucher;
+    let jVarLocalItemName = inBodyData.ItemName;
+    let jVarLocalvoucherName = inBodyData.voucher;
 
-    switch (inResponse) {
-        case 200:
+    switch (inResponse.KTF) {
+        case true:
             //window.location = "";
             let jVarLocalNewLocation = "";
             jVarLocalNewLocation += `?inReportName=${jVarLocalItemName}`
@@ -14,7 +13,7 @@ let StartFunc = async ({ inResponse, CurrentTarget }) => {
 
             break;
 
-        case 204:
+        case false:
             Swal.fire('Not Update Data')
             break;
         default:
