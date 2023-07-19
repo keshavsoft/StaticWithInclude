@@ -16,8 +16,8 @@ let StartFunc = async ({ CurrentTarget }) => {
 
     };
     return await {
-        ItemName: jVarLocalItemName,
-        voucher: jVarLocalvoucherName,
+        ReportName: jVarLocalItemName,
+        VoucherPk: jVarLocalvoucherName,
         BodyAsJson
     };
 };

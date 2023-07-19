@@ -1,9 +1,7 @@
-let StartFunc = async ({ inResponse, CurrentTarget }) => {
+let StartFunc = async ({ inResponse, inBodyData }) => {
 
-    let jVarLocalCurrentTarget = CurrentTarget;
-    let jVarLocalItemName = jVarLocalCurrentTarget.dataset.item;
-    let jVarLocalvoucherName = jVarLocalCurrentTarget.dataset.voucher;
-
+    let jVarLocalItemName = inBodyData.ReportName;
+    let jVarLocalvoucherName = inBodyData.VoucherPk;
 
     switch (inResponse.KTF) {
         case true:
