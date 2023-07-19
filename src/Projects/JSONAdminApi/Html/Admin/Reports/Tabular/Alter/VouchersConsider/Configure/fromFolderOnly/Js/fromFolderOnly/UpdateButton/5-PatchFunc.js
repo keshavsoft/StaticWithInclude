@@ -2,30 +2,27 @@ import ApiConfigJson from '../../../../../../../../../ApiConfig.json' assert {ty
 import { StartFunc as StartFuncAfterFetchFunc } from "./6-AfterFetchFunc.js";
 
 
-let StartFunc = async ({ inFetchBody, inBodyData }) => {
-
-    const newPath = `/${ApiConfigJson.ProjectName}/Html/Admin/Reports/Tabular/Alter/VouchersConsider/Configure/fromFolderOnly/FromFolderOnly.html` // Replace this with the new path you want
+let StartFunc = async ({ inFetchBody }) => {
 
     Swal.fire({
-        title: 'Do you want to Update the changes?',
-        showDenyButton: true,
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
         showCancelButton: true,
-        confirmButtonText: 'Update',
-        denyButtonText: `Don't Update`,
-        focusDeny: true
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ok',
+        focusCancel: true,
+        focusButtonColor: "#0000ff"
     }).then((result) => {
         if (result.isConfirmed) {
-            localFetchFunc({ inFetchBody, inBodyData });
-        } else if (result.isDenied) {
-            window.location.href = newPath;
-            Swal.fire('Changes are not saved', '', 'info');
-
-        };
+            localFetchFunc({ inFetchBody })
+        }
     });
 
 };
 
-const localFetchFunc = async ({ inFetchBody, inBodyData }) => {
+const localFetchFunc = async ({ inFetchBody }) => {
     let jFetchUrl = `/${ApiConfigJson.ProjectName}/AdminApi/AsTree/Json/UserFolders/ReportsFolder/LedgerAutoJsonFile/FromReports/FromVoucherConsider/FromKeys/FromFolderOnly`;
 
     let jLocalFetchConfig = {
@@ -40,9 +37,8 @@ const localFetchFunc = async ({ inFetchBody, inBodyData }) => {
     let response = await fetch(jFetchUrl, jLocalFetchConfig);
 
     let jVarLocalResponseData = await response.json();
-    console.log('jVarLocalResponseData:', jVarLocalResponseData, inBodyData);
 
-    StartFuncAfterFetchFunc({ inResponse: jVarLocalResponseData, inBodyData });
+    StartFuncAfterFetchFunc({ inResponse: jVarLocalResponseData, inBodyData: inFetchBody });
 
     // return await response.status;
 

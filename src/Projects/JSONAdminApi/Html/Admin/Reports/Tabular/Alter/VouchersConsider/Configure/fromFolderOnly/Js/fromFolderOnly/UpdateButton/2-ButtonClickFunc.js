@@ -8,12 +8,7 @@ let StartFunc = async ({ inevent }) => {
 
     if (StartFuncCheckBeforeFetch()) {
         let jVarLocalPreparePostData = await StartFuncPreparePostData({ CurrentTarget: jVarLocalCurrentTarget });
-        let jFLocalFromFetch = await StartFuncPatchFunc({
-            inFetchBody: jVarLocalPreparePostData,
-            inBodyData: { ...jVarLocalPreparePostData }
-        });
-        console.log("jFLocalFromFetch:", jFLocalFromFetch);
-
+        StartFuncPatchFunc({ inFetchBody: jVarLocalPreparePostData });
         // StartFuncAfterFetchFunc({ inResponse: jFLocalFromFetch, CurrentTarget: jVarLocalCurrentTarget });
     };
 };
