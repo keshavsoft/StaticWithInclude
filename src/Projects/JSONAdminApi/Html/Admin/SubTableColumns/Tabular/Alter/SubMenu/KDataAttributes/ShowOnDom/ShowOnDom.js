@@ -1,4 +1,4 @@
-import { StartFunc as StartFuncApplyClasses } from "./ApplyClasses.js";
+import { jFStartFunc as StartFuncApplyClasses } from "./ApplyClasses.js";
 
 let jFCreateFoldersToDom = async () => {
     let jVarLocalRoute = window.location.pathname.split("/")[1];

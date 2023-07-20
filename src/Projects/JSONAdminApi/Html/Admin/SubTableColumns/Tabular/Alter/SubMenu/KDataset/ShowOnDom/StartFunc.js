@@ -1,4 +1,4 @@
-import { StartFunc as StartFuncApplyClasses } from "./ApplyClasses.js";
+import { jFStartFunc as StartFuncApplyClasses } from "./ApplyClasses.js";
 
 let StartFunc = async ({ inProjectName }) => {
   let jVarLocalRoute = inProjectName;
