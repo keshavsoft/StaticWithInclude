@@ -14,7 +14,7 @@ let StartFunc = async ({ inResponse, inBodyData }) => {
             break;
 
         case false:
-            Swal.fire('Not Update Data')
+            Swal.fire(`Not Update Data ${inResponse.KReason}`)
             break;
         default:
     };

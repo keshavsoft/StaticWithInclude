@@ -14,11 +14,12 @@ let StartFunc = async ({ CurrentTarget }) => {
     let jVarLocalFolderNameValue = jVarLocalFolderName.value;
     let jVarLocalFileNameValue = jVarLocalFileName.value;
     let jVarLocalColumnNameToPickValue = jVarLocalColumnNameToPick.value;
+    let jVarLocalItemNameValue = jVarLocalItemName.value;
 
     let BodyAsJson = {
         FolderName: jVarLocalFolderNameValue,
         FileName: jVarLocalFileNameValue,
-        ItemName: jVarLocalItemName,
+        ItemName: jVarLocalItemNameValue,
         ColumnNameToPick: jVarLocalColumnNameToPickValue
     };
     return await {
