@@ -7,7 +7,6 @@ let StartFunc = ({ inDataFromApi }) => {
             indataFromApi: jVarLocaldataFromApi,
             inQueryParamsAsObject: jVarLocalQueryParams
         });
-        Swal.fire('Updated Sucessfully..&#128522')
 
     } else {
         LocalForApplyClasses({ indataFromApi: jVarLocaldataFromApi });
@@ -45,15 +44,13 @@ let LocalForApplyClasses = ({ indataFromApi }) => {
 };
 
 let LocalForClassesFromUrl = ({ indataFromApi, inQueryParamsAsObject }) => {
-    console.log("inQueryParamsAsObject",inQueryParamsAsObject);
     let jVarLocalReportName = inQueryParamsAsObject.inReportName;
-    console.log("indataFromApi--", indataFromApi.Reports);
     let jVarLocalFileName = inQueryParamsAsObject.inRowPK;
     if ("Reports" in indataFromApi) {
         if (jVarLocalReportName in indataFromApi.Reports) {
             indataFromApi.Reports[jVarLocalReportName].TabPageClass = " show active";
             indataFromApi.Reports[jVarLocalReportName].MenuClass = " active";
-            indataFromApi.Reports[jVarLocalReportName].VouchersConsider[jVarLocalFileName].RowClass = "table-success";
+            Swal.fire(`Deleted Sucessfully..&#128522 Voucher Consider PK: ${jVarLocalFileName}`)
 
 
         };
