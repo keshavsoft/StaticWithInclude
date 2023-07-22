@@ -4,7 +4,4 @@ let jFUpdateFunc = () => {
     StartFuncUpdateWithButton();
 };
 
-
-
-
 export { jFUpdateFunc };
