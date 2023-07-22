@@ -1,14 +1,14 @@
-let jFStartFunc = ({ inDataFromApi }) => {
+let StartFunc = ({ inDataFromApi }) => {
     let jVarLocalQueryParams = jFgetUrlQueryParams();
     let jVarLocaldataFromApi = inDataFromApi;
 
     if (Object.keys(jVarLocalQueryParams).length > 0) {
-        jFLocalApplyClassesFromUrl({
+        LocalForClassesFromUrl({
             indataFromApi: jVarLocaldataFromApi,
             inQueryParamsAsObject: jVarLocalQueryParams
         });
     } else {
-        jFLocalApplyClasses({ indataFromApi: jVarLocaldataFromApi });
+        LocalForApplyClasses({ indataFromApi: jVarLocaldataFromApi });
     };
 };
 
@@ -27,7 +27,7 @@ let jFgetUrlQueryParams = () => {
     return queryParams;
 };
 
-let jFLocalApplyClasses = ({ indataFromApi }) => {
+let LocalForApplyClasses = ({ indataFromApi }) => {
     let jVarLocalFirstFolder;
     let jVarLocalFirstFile;
     let jVarLocalFirstItem;
@@ -64,10 +64,9 @@ let jFLocalApplyClasses = ({ indataFromApi }) => {
 
         };
     };
-}
+};
 
-
-let jFLocalApplyClassesFromUrl = ({ indataFromApi, inQueryParamsAsObject }) => {
+let LocalForClassesFromUrl = ({ indataFromApi, inQueryParamsAsObject }) => {
     let jVarLocalFolderName = inQueryParamsAsObject.inFolderName;
     let jVarLocalFileName = inQueryParamsAsObject.inFileName;
     let jVarLocalItemName = inQueryParamsAsObject.inItemName;
@@ -93,11 +92,9 @@ let jFLocalApplyClassesFromUrl = ({ indataFromApi, inQueryParamsAsObject }) => {
                                     indataFromApi.Folders[jVarLocalFolderName].Files[jVarLocalFileName].Items[jVarLocalItemName].Screens[jVarLocalScreenName].CollapseClass = " show";
 
                                     if ("TableColumnsObject" in indataFromApi.Folders[jVarLocalFolderName].Files[jVarLocalFileName].Items[jVarLocalItemName].Screens[jVarLocalScreenName]) {
-                                        if (jVarLocalColumnName in indataFromApi.Folders[jVarLocalFolderName].Files[jVarLocalFileName].Items[jVarLocalItemName].Screens[jVarLocalScreenName].TableColumnsObject) {
-                                            indataFromApi.Folders[jVarLocalFolderName].Files[jVarLocalFileName].Items[jVarLocalItemName].Screens[jVarLocalScreenName].TableColumnsObject[jVarLocalColumnName].RowClass = "table-success";
 
-                                            //                                                        console.log("--------- : ", jVarLocalColumnName, indataFromApi.Folders[jVarLocalFolderName].Files[jVarLocalFileName].Items[jVarLocalItemName].Screens[jVarLocalScreenName].TableColumnsObject[jVarLocalColumnName]);
-                                        };
+                                            Swal.fire(`Updated sucessfylly.! &#128525`);
+                                            Animination();
                                     };
                                 };
                             };
@@ -110,5 +107,23 @@ let jFLocalApplyClassesFromUrl = ({ indataFromApi, inQueryParamsAsObject }) => {
     };
 };
 
+const Animination = () => {
+    const timeSet = (params) => {
+        setTimeout(() => {
+            confetti.start();
+            params();
 
-export { jFStartFunc }
+        });
+    };
+    const timeOut = () => {
+        setTimeout(() => {
+            confetti.stop();
+
+        }, 5000);
+
+    }
+    timeSet(timeOut);
+
+}
+
+export { StartFunc }
