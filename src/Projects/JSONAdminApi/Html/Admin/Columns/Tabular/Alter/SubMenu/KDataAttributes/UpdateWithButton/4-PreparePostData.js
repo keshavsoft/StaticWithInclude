@@ -1,5 +1,6 @@
-let StartFunc = () => {
-    let jVarLocalCurrentTarget = event.currentTarget;
+let StartFunc = ({ CurrentTarget }) => {
+    let jVarLocalCurrentTarget = CurrentTarget;
+
     let jVarLocalColsestTr = jVarLocalCurrentTarget.closest("tr");
     let jVarLocalDataAttribute = jVarLocalColsestTr.querySelector('[name="DataAttribute"]');
     let jVarLocalonkeypress = jVarLocalColsestTr.querySelector('[name="onkeypress"]');
@@ -19,13 +20,6 @@ let StartFunc = () => {
 
     let jVarLocalTypeValue = jVarLocalType.value;
 
-    // let BodyAsJson = {
-    //     CustomDataList: jVarLocalCustomDataListValue,
-    //     onkeypress: jVarLocalonkeypressValue,
-    //     EnterOnClient: jVarLocalEnterOnClientValue,
-    //     ClientEval: jVarLocalTypeValue
-    // };
-
     let BodyAsJson = {
         CustomDataList: jVarLocalCustomDataListValue,
         onkeypress: jVarLocalonkeypressValue,
@@ -33,7 +27,7 @@ let StartFunc = () => {
         ClientEval: jVarLocalTypeValue
     }
 
-    let jVarLocalReturnObject = {
+    return {
         folderName: jVarLocalFolderName,
         FileName: jVarLocalfilename,
         ItemName: jVarLocalitemname,
@@ -41,8 +35,6 @@ let StartFunc = () => {
         DataAttribute: jVarLocalDataAttributeValue,
         BodyAsJson
     };
-
-    return jVarLocalReturnObject;
 };
 
 export { StartFunc };
