@@ -1,11 +1,10 @@
-let StartFunc = () => { 
+let StartFunc = () => {
     let jVarLocalBody = {
         inFolderName: "Masters",
-        inFileName: "CRM.json",
-        inItemName: "Customers",
-        inScreenName: "Create"
+        inFileNameOnly: "CRM",
+        inItemName: "Customers"
     };
-    
+
     return jVarLocalBody;
 };
 
