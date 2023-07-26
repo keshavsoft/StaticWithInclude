@@ -2,7 +2,7 @@ let StartFunc = () => {
     let jVarLocalBody = {
         inFolderName: "Masters",
         inFileNameOnly: "CRM",
-        inItemName: "Customers"
+        inItemName: "CustomerNames"
     };
 
     return jVarLocalBody;
