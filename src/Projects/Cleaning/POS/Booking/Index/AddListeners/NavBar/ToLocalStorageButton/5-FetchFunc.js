@@ -1,6 +1,12 @@
-let StartFunc = async ({inBodyData}) => {
+import ApiConfigJson from "./../../../../../../Admin/ApiConfig.json" assert {type: 'json'};
+
+let StartFunc = async ({ inBodyData }) => {
     let jVarLocalBodyData = inBodyData;
-    let jVarLocalFetchUrl = "http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/ScreensFromDisplayJson/MainTable/WithSelectedColumns";
+
+    // let jVarLocalFetchUrl = `/${ApiConfigJson.ProjectName}/Api/Data/FromFolder/FromFile/ScreensFromDisplayJson/MainTable/WithSelectedColumns`;
+
+    let jVarLocalFetchUrl = `/${ApiConfigJson.ProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/AsArrayWithPK`;
+
 
     let jVarLocalFetchHeaderObject = {
         method: "post",
