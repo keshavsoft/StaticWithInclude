@@ -32,7 +32,7 @@ let jFLocalApplyClasses = ({ indataFromApi }) => {
     let jVarLocalFirstFile;
     let jVarLocalFirstItem;
     let jVarLocalFirstScreen;
-    console.log("aaaaaaaaaaaa : ", indataFromApi);
+    
     if ("Folders" in indataFromApi) {
         if (Object.values(indataFromApi.Folders).length > 0) {
             jVarLocalFirstFolder = Object.values(indataFromApi.Folders)[0];
