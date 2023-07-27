@@ -1,9 +1,7 @@
 let StartFunc = ({ inFromFetch }) => {
     let data = inFromFetch;
-    let jVarLocalNewData = {};
-    jVarLocalNewData.CustomerNames = data.JsonData;
     if (data) {
-        localStorage.setItem("Customers", JSON.stringify(jVarLocalNewData));
+        localStorage.setItem("Items", JSON.stringify(data.JsonData));
     };
 };
 
