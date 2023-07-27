@@ -1,6 +1,8 @@
 import CommonKeys from "../Keys.json" assert { type: "json" };
 import { StartFunc as StartFuncBulk } from "./Bulk.js";
-import CommonConfigJson from "../../Config.json" assert { type: "json" };
+// import CommonConfigJson from "../../Config.json" assert { type: "json" };
+
+import CommonConfigJson from "../../../../Config.json" assert { type: "json" };
 
 const toNumbers = arr => arr.map(Number);
 

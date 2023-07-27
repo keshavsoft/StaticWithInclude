@@ -4,10 +4,14 @@ import { StartFunc as StartFuncToUrlWithDiscount } from "./ToUrlWithDiscount.js"
 import { StartFunc as StartFuncToUrlWithoutDiscount } from "./ToUrlWithoutDiscount.js";
 import { StartFunc as StartFuncItemsInOrder } from "../../../../../FromLocalStorage/ItemsInOrder/Bulk.js";
 
+import { StartFunc as StartFuncFetchFuncs } from "../../../FetchFuncs/ToServer/NewOrder/5-FetchFunc.js";
+
 const StartFunc = () => {
     let jVarLocalToLocalStorage = StartFuncPrepareData();
-    
-    let jVarLocalOrderNumber = StartFuncToLocalStorage({ inEntry: jVarLocalToLocalStorage });
+    console.log("jVarLocalToLocalStorage : ", jVarLocalToLocalStorage);
+    // let jVarLocalOrderNumber = StartFuncToLocalStorage({ inEntry: jVarLocalToLocalStorage });
+
+    let jVarLocalOrderNumber = StartFuncFetchFuncs({ inBodyData: jVarLocalToLocalStorage });
 
     if (jVarLocalOrderNumber > 0) {
         let jVarLocalIsDiscountGiven = jFlocalIsDiscountGiven();
@@ -25,6 +29,7 @@ const StartFunc = () => {
             });
         }
     };
+
 };
 
 let jFlocalIsDiscountGiven = () => {

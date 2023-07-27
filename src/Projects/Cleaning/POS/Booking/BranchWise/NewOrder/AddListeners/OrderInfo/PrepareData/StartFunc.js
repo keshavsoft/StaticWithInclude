@@ -5,6 +5,25 @@ import { StartFunc as StartFuncOrderData } from "./OrderData.js";
 const StartFunc = () => {
     let jVarLocalToLocalStorage = {};
 
+    jVarLocalToLocalStorage.inJsonConfig = {};
+    jVarLocalToLocalStorage.inJsonConfig.inFolderName = "Transactions";
+    jVarLocalToLocalStorage.inJsonConfig.inJsonFileName = "Gurudwara.json";
+
+    jVarLocalToLocalStorage.inItemConfig = {};
+    jVarLocalToLocalStorage.inItemConfig.inItemName = 'Orders';
+
+    jVarLocalToLocalStorage.inPostData = {
+        ...StartFuncPresentOrderData(),
+        CustomerData: StartFuncCustomerData(),
+        OrderData: StartFuncOrderData()
+    };
+
+    return jVarLocalToLocalStorage;
+};
+
+const StartFunc1 = () => {
+    let jVarLocalToLocalStorage = {};
+
     jVarLocalToLocalStorage = {
         ...StartFuncPresentOrderData(),
         CustomerData: StartFuncCustomerData(),
