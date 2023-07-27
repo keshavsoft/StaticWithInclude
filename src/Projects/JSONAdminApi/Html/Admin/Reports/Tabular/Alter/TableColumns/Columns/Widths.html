@@ -25,9 +25,7 @@
         </symbol>
     </svg>
 
-
     <include src="./src/components/Templates/Admin/Reports/Tabular/Alter/TableColumns/Columns/Header.html"></include>
-
 
 
 
@@ -99,42 +97,34 @@
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
-    
     <script id="HbsTemplateForTableColumnsForTogglesOnly" type="text/x-handlebars">
         <table class="table" >
             <thead>
                 <tr>
                     <th width="5%">#</th>
-                    <th width="6%">pk</th>
-                    <th width="">Name</th>
-                    <th width="">DisplayColumn</th>
-                    <th width="">TransformType</th>
-                    <th width="">DefaultValue</th>
-                  
+                    <th width="">DataAttribute</th>
+                    <th width="">DisplayName</th>
+                    <th width="">Widths</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 {{#each ColumnsObject}}
+                {{log "this--s" this}}
     <tr class="{{RowClass}}">
     <td class="text-center">
     {{ForSNo @index}}
     </td>
     <td>
-        <input class="form-control" type="text" name="pk"  value="{{pk}}">
+        <input class="form-control" type="text" name="DataAttribute"  value="{{DataAttribute}}" disabled>
 </td>
 <td>
-    <input class="form-control" type="text" name="Name"  value="{{Name}}">
-</td>
-    <td>
-            <input class="form-control" type="text" name="DisplayColumn"  value="{{DisplayColumn}}">
-    </td>
-    <td>
-        <input class="form-control" type="text" name="TransformType"  value="{{TransformType}}">
+    <input class="form-control" type="text" name="DisplayName"  value="{{DisplayName}}" disabled>
 </td>
 <td>
-    <input class="form-control" type="text" name="DefaultValue"  value="{{DefaultValue}}">
+    <input class="form-control" type="text" name="Widths"  value="{{Widths}}" >
 </td>
+ 
     <td>
         <button type="button" class="btn btn-primary UpdateButtonClass" data-reportname="{{@../../key}}" data-voucherconsiderpk="{{@../key}}" data-ColumnPk="{{@key}}">
             Update</button>
@@ -344,7 +334,7 @@
         jFChangeHeaderActiveClass();
     </script>
 
-<script src="../../../../../../../Js/Reports/Tabular/Alter/VouchersConsider/Columns/DisplayColumn/DisplayColumn.js" type="module"></script>
+<script src="../../../../../../../Js/Reports/Tabular/Alter/VouchersConsider/Columns/Widths/Widths.js" type="module"></script>
 
 
 </body>
