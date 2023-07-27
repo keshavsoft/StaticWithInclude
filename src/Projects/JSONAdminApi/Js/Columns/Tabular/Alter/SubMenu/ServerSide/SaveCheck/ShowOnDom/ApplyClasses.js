@@ -32,7 +32,7 @@ let jFLocalApplyClasses = ({ indataFromApi }) => {
     let jVarLocalFirstFile;
     let jVarLocalFirstItem;
     let jVarLocalFirstScreen;
-    console.log("aaaaaaaaaaaa : ", indataFromApi);
+    
     if ("Folders" in indataFromApi) {
         if (Object.values(indataFromApi.Folders).length > 0) {
             jVarLocalFirstFolder = Object.values(indataFromApi.Folders)[0];
@@ -95,6 +95,7 @@ let jFLocalApplyClassesFromUrl = ({ indataFromApi, inQueryParamsAsObject }) => {
                                     if ("TableColumnsObject" in indataFromApi.Folders[jVarLocalFolderName].Files[jVarLocalFileName].Items[jVarLocalItemName].Screens[jVarLocalScreenName]) {
                                         if (jVarLocalColumnName in indataFromApi.Folders[jVarLocalFolderName].Files[jVarLocalFileName].Items[jVarLocalItemName].Screens[jVarLocalScreenName].TableColumnsObject) {
                                             indataFromApi.Folders[jVarLocalFolderName].Files[jVarLocalFileName].Items[jVarLocalItemName].Screens[jVarLocalScreenName].TableColumnsObject[jVarLocalColumnName].RowClass = "table-success";
+                                            Swal.fire(`Updated sucessfylly.! &#128525`);
 
                                             //                                                        console.log("--------- : ", jVarLocalColumnName, indataFromApi.Folders[jVarLocalFolderName].Files[jVarLocalFileName].Items[jVarLocalItemName].Screens[jVarLocalScreenName].TableColumnsObject[jVarLocalColumnName]);
                                         };
