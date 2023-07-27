@@ -1,7 +1,7 @@
 import { StartFunc as StartFuncAddListeners } from "./AddListeners/FrequentItems/ButtonClickFuncs.js";
-// import { StartFunc as StartFuncFromLocalStorage } from "../../FromLocalStorage/Items.js";
 
-import { StartFunc as StartFuncFilterCategory } from "../../../../../../../../../../FromLocalStorage/Items/FilterCategory.js";
+//import { StartFunc as StartFuncFilterCategory } from "../../../../../../../../../../FromLocalStorage/Items/FilterCategory.js";
+import { StartFunc as StartFuncFilterCategory } from "../../../../../FromLocalStorage/Items/FilterCategory.js";
 
 const StartFunc = ({ inCategory }) => {
     // let jVarLocalFromLocalStorage = StartFuncFromLocalStorage();

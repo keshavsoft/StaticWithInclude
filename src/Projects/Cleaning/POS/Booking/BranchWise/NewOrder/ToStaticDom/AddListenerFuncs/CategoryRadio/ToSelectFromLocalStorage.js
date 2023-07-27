@@ -1,4 +1,5 @@
-import { StartFunc as StartFuncFromLocalStorage } from "../../../../../../../../../../FromLocalStorage/Items/FilterCategory.js";
+// import { StartFunc as StartFuncFromLocalStorage } from "../../../../../../../../../../FromLocalStorage/Items/FilterCategory.js";
+import { StartFunc as StartFuncFromLocalStorage } from "../../../../../FromLocalStorage/Items/FilterCategory.js";
 
 let StartFunc = ({ inCategory }) => {
     let jVarLocalFromLocalStorage = StartFuncFromLocalStorage({ inCategory });

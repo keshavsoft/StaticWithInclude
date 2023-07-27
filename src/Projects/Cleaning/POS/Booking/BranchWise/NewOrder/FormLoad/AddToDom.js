@@ -13,4 +13,4 @@ let StartFunc = () => {
     StartFuncToDomToOrderItems();
 };
 
-export { StartFunc }
+export { StartFunc };

@@ -48,7 +48,6 @@ let jFLocalCurrentDateTime = () => {
     return `${yyyy}-${MM}-${dd}T${HH}:${mm}:${ss}`;
 };
 
-
 let jFLocalCurrentDateTimeToday = () => {
     let jVarLocalHtmlId= "Currentdateandtime";
     let jVarLocalDateId = document.getElementById(jVarLocalHtmlId);

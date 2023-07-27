@@ -1,11 +1,12 @@
-import { StartFunc as StartFuncToLocalStorage } from "../../../../../../../../../../ToLocalStorage/OrdersData/Single.js";
+import { StartFunc as StartFuncToLocalStorage } from "../../../../../ToLocalStorage/OrdersData/Single.js";
 import { StartFunc as StartFuncPrepareData } from "./../PrepareData/StartFunc.js";
 import { StartFunc as StartFuncToUrlWithDiscount } from "./ToUrlWithDiscount.js";
 import { StartFunc as StartFuncToUrlWithoutDiscount } from "./ToUrlWithoutDiscount.js";
-import { StartFunc as StartFuncItemsInOrder } from "../../../../../../../../../../FromLocalStorage/ItemsInOrder/Bulk.js";
+import { StartFunc as StartFuncItemsInOrder } from "../../../../../FromLocalStorage/ItemsInOrder/Bulk.js";
 
 const StartFunc = () => {
     let jVarLocalToLocalStorage = StartFuncPrepareData();
+    
     let jVarLocalOrderNumber = StartFuncToLocalStorage({ inEntry: jVarLocalToLocalStorage });
 
     if (jVarLocalOrderNumber > 0) {
@@ -25,8 +26,8 @@ const StartFunc = () => {
         }
     };
 };
-let jFlocalIsDiscountGiven = () => {
 
+let jFlocalIsDiscountGiven = () => {
     let jVarLocalItemData = StartFuncItemsInOrder();
     let jVarLocalFiltered = Object.values(jVarLocalItemData).filter(element => {
         return element.DisPer > 0;
@@ -34,7 +35,6 @@ let jFlocalIsDiscountGiven = () => {
 
     if (jVarLocalFiltered.length > 0) return true;
     return false;
-
 };
 
 export { StartFunc }
