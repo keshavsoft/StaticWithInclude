@@ -1,7 +1,7 @@
-// import { StartFunc as StartFuncFormLoad } from "./FormLoad/StartFunc.js";
+import { StartFunc as StartFuncFormLoad } from "./FormLoad/StartFunc.js";
 import { StartFunc as StartFuncAddListeners } from "./AddListeners/StartFunc.js";
 
-// StartFuncFormLoad();
+StartFuncFormLoad();
 
 const StartFunc = async () => {
     StartFuncAddListeners();
