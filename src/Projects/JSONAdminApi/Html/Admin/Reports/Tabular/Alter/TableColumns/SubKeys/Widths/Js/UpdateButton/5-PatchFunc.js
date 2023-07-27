@@ -1,5 +1,4 @@
-// import ApiConfigJson from '../../../../../../../../../ApiConfig.json' assert {type: 'json'};
-import ApiConfigJson from '../../../../../../../Admin/ApiConfig.json' assert {type: 'json'};
+import ApiConfigJson from '../../../../../../../../ApiConfig.json' assert {type: 'json'};
 
 import { StartFunc as StartFuncAfterFetchFunc } from "./6-AfterFetchFunc.js";
 
@@ -24,7 +23,7 @@ let StartFunc = async ({ inFetchBody }) => {
 };
 
 const localFetchFunc = async ({ inFetchBody }) => {
-    let jFetchUrl = `/${ApiConfigJson.ProjectName}/AdminApi/AsTree/Json/UserFolders/ReportsFolder/LedgerAutoJsonFile/VouchersConsider/Columns/DisplayToggles`;
+    let jFetchUrl = `/${ApiConfigJson.ProjectName}/AdminApi/AsTree/Json/UserFolders/ReportsFolder/LedgerAutoJsonFile/FromReports/FromTableColumns/SubKeys/Widths`;
 
     let jLocalFetchConfig = {
         method: "PATCH",
