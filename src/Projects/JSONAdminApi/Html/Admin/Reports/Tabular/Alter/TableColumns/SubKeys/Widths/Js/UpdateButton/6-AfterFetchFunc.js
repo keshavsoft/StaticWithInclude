@@ -1,16 +1,14 @@
 let StartFunc = async ({ inResponse, inBodyData }) => {
 
-    let jVarLocalreportname = inBodyData.reportname;
-    let jVarLocalvoucherconsiderpk = inBodyData.voucherconsiderpk;
-    let jVarLocalColumnPk = inBodyData.columnpk;
+    let jVarLocalreportname = inBodyData.ReportName;
+    let jVarLocalvoucherconsiderpk = inBodyData.TableColumnsPK;
 
     switch (inResponse.KTF) {
         case true:
             //window.location = "";
             let jVarLocalNewLocation = "";
             jVarLocalNewLocation += `?inReportName=${jVarLocalreportname}`
-            jVarLocalNewLocation += `&voucherconsiderpk=${jVarLocalvoucherconsiderpk}`
-            jVarLocalNewLocation += `&columnpk=${jVarLocalColumnPk}`
+            jVarLocalNewLocation += `&inDataAttribute=${jVarLocalvoucherconsiderpk}`
             window.location = jVarLocalNewLocation;
             break;
 
