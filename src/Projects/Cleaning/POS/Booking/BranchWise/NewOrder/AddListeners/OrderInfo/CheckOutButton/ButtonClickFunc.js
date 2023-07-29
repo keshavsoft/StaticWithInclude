@@ -6,12 +6,16 @@ import { StartFunc as StartFuncItemsInOrder } from "../../../../../FromLocalStor
 
 import { StartFunc as StartFuncFetchFuncs } from "../../../FetchFuncs/ToServer/NewOrder/5-FetchFunc.js";
 
-const StartFunc = () => {
+const StartFunc = async () => {
     let jVarLocalToLocalStorage = StartFuncPrepareData();
     console.log("jVarLocalToLocalStorage : ", jVarLocalToLocalStorage);
     // let jVarLocalOrderNumber = StartFuncToLocalStorage({ inEntry: jVarLocalToLocalStorage });
 
-    let jVarLocalOrderNumber = StartFuncFetchFuncs({ inBodyData: jVarLocalToLocalStorage });
+    let jVarLocalOrderNumber = await StartFuncFetchFuncs({ inBodyData: jVarLocalToLocalStorage });
+    
+    if (jVarLocalOrderNumber.KTF === false) {
+        Swal.fire(`inOrderNumber: ${jVarLocalOrderNumber.KReason}`)
+    };
 
     if (jVarLocalOrderNumber > 0) {
         let jVarLocalIsDiscountGiven = jFlocalIsDiscountGiven();
