@@ -4,7 +4,7 @@ let StartFunc = async () => {
     let jVarLocalBody = {
         inFolderName: "Masters",
         inFileName: "CRM.json",
-        inItemName: "Customers",
+        inItemName: "CustomerNames",
         inScreenName: "Create"
     };
 
