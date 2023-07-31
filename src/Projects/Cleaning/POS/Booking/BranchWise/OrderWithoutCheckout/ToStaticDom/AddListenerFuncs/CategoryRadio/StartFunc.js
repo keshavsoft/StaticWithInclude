@@ -1,4 +1,4 @@
-import { StartFunc as StartFuncItemsInCategory } from "./ToSelectFromLocalStorage.js";
+// import { StartFunc as StartFuncItemsInCategory } from "./ToSelectFromLocalStorage.js";
 import { StartFunc as StartFuncClickFunc } from "./ClickFunc.js";
 
 let StartFunc = () => {
@@ -13,10 +13,5 @@ let StartFunc = () => {
         });
     });
 };
-
-
-//         var element = document.getElementsByClassName('ItemSelect')[1];
-// var event = new Event('change');
-// element.dispatchEvent(event);
 
 export { StartFunc };

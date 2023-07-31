@@ -1,9 +1,15 @@
-import { StartFunc as StartFuncOrdersData } from "../../../../../../../../../../ToLocalStorage/OrdersData/Single.js";
+// import { StartFunc as StartFuncOrdersData } from "../../../../../../../../../../ToLocalStorage/OrdersData/Single.js";
 import { StartFunc as StartFuncPrepareData } from "./../PrepareData/StartFunc.js";
 import { StartFunc as StartFuncToUrlWithDiscount } from "./ToUrlWithDiscount.js";
 import { StartFunc as StartFuncToUrlWithoutDiscount } from "./ToUrlWithoutDiscount.js";
-import { StartFunc as StartFuncItemsInOrder } from "../../../../../../../../../../FromLocalStorage/ItemsInOrder/Bulk.js";
-import { StartFunc as StartFuncToLocalStorage } from "../../../../../../../../../../ToLocalStorage/OrdersData/ItemsInOrder.js";
+// import { StartFunc as StartFuncItemsInOrder } from "../../../../../../../../../../FromLocalStorage/ItemsInOrder/Bulk.js";
+
+import { StartFunc as StartFuncItemsInOrder } from "../../../../../FromLocalStorage/ItemsInOrder/Bulk.js";
+
+import { StartFunc as StartFuncToLocalStorage } from "../../../../../ToLocalStorage/OrdersData/ItemsInOrder.js";
+
+
+// import { StartFunc as StartFuncToLocalStorage } from "../../../../../../../../../../ToLocalStorage/OrdersData/ItemsInOrder.js";
 // import { StartFunc as StartFuncToLocalStorage } from "../../../../../../../../../../ToLocalStorage/OrdersData/ItemsInOrder.js";
 
 const StartFunc = () => {
