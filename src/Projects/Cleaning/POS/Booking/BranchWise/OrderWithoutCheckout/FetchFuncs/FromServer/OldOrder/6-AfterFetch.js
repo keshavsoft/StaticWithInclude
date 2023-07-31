@@ -1,11 +1,11 @@
-import { StartFunc as StartFuncToLocalStorage } from "../../../../../ToLocalStorage/ItemsInOrder/Bulk.js";
+// import { StartFunc as StartFuncToLocalStorage } from "../../../../../ToLocalStorage/ItemsInOrder/Bulk.js";
+import { StartFunc as StartFuncToLocalStorage } from "../../../../../ToLocalStorage/OrdersData/SingleWithPk.js";
 
-let StartFunc = ({ inFromFetch }) => {
+let StartFunc = ({ inFromFetch, inPk }) => {
     let data = inFromFetch;
+
     if (data) {
-        console.log("data",data);
-        // localStorage.setItem("K1", JSON.stringify(data.JsonData));
-        StartFuncToLocalStorage({ inData: data.JsonData.ItemsInOrder });
+        StartFuncToLocalStorage({ inEntry: data.JsonData, inPk });
     };
 };
 
