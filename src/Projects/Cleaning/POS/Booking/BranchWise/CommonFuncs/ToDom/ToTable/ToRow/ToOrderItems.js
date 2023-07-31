@@ -1,10 +1,12 @@
 // import { StartFunc as StartFuncFromAddOns } from "../../../FromLocalStorage/FromAddOns.js";
-import { StartFunc as StartFuncFromAddOns } from "../../../../../../../../../../FromLocalStorage/AddOnData/FilterAddOnData.js";
+// import { StartFunc as StartFuncFromAddOns } from "../../../../../../../../../../FromLocalStorage/AddOnData/FilterAddOnData.js";
+
+import { StartFunc as StartFuncFromAddOns } from "../../../../../FromLocalStorage/AddOnData/FilterAddOnData.js";
+
 import { StartFunc as StartFuncClickFuncs } from "./Buttons/ClickFuncs.js";
 
 let StartFunc = ({ inItemSerial, inClonedTemplateRow, inPcs }) => {
     let jVarLocalAddOnDataJson = StartFuncFromAddOns({ inAddOnItemSerial: inItemSerial });
-
     let jVarLocalOrderItemsOrderItemsAddOnClass = inClonedTemplateRow.querySelector(".OrderItemsAddOnClass");
 
     let jVarLocalAddOnRateArray = jVarLocalAddOnDataJson.map(element => element.AddOnRate);

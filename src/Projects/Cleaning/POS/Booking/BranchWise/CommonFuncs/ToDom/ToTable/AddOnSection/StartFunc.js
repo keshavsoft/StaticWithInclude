@@ -1,4 +1,8 @@
-import { StartFunc as StartFuncFromAddOns } from "../../../../../../../../../../FromLocalStorage/AddOnData/Bulk.js";
+// import { StartFunc as StartFuncFromAddOns } from "../../../../../../../../../../FromLocalStorage/AddOnData/Bulk.js";
+
+import { StartFunc as StartFuncFromAddOns } from "../../../../../FromLocalStorage/AddOnData/Bulk.js";
+
+
 import { StartFunc as StartFuncInsertRow } from "./InsertRow.js";
 
 let StartFunc = ({ inItemSerial }) => {

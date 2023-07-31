@@ -1,4 +1,8 @@
-import { StartFunc as StartFuncAddonAll } from "../../../../../../../../../FromLocalStorage/AddOnData/Bulk.js";
+// import { StartFunc as StartFuncAddonAll } from "../../../../../../../../../FromLocalStorage/AddOnData/Bulk.js";
+
+import { StartFunc as StartFuncAddonAll } from "../../../../FromLocalStorage/AddOnData/Bulk.js";
+
+
 let StartFunc = ({ inItemSerial, inNewPk }) => {
     let jVarLocalHtmlIdAddOnCardId = document.getElementById("AddOnCardId");
     let jVarLocalAddOnItemToAddOnClass = jVarLocalHtmlIdAddOnCardId.querySelector(".AddOnItemToAddOnClass");
