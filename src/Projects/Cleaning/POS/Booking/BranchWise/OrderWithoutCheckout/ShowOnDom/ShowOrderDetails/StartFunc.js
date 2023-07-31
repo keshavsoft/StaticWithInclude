@@ -1,4 +1,7 @@
-import { StartFunc as StartFuncFromLocalStorage } from "../../../../../../../../../FromLocalStorage/OrdersData/FromPk.js";
+// import { StartFunc as StartFuncFromLocalStorage } from "../../../../../../../../../FromLocalStorage/OrdersData/FromPk.js";
+
+import { StartFunc as StartFuncFromLocalStorage } from "../../../../FromLocalStorage/OrdersData/FromPk.js";
+
 
 const StartFunc = ({ inPk }) => {
     let jVarLocalData = StartFuncFromLocalStorage({ inPk });
