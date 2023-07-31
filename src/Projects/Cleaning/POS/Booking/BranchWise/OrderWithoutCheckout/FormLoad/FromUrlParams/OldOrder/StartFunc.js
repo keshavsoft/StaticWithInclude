@@ -1,28 +1,33 @@
-import { StartFunc as StartFuncFromLocalStorage } from "../../../../../FromLocalStorage/OrdersData/FromPk.js";
+// import { StartFunc as StartFuncFromLocalStorage } from "../../../../../FromLocalStorage/OrdersData/FromPk.js";
 
-import { StartFunc as StartFuncToLocalStorage } from "../../../../../ToLocalStorage/ItemsInOrder/Bulk.js";
+// import { StartFunc as StartFuncToLocalStorage } from "../../../../../ToLocalStorage/ItemsInOrder/Bulk.js";
 
-// import { StartFunc as StartFuncAddToDom } from "../../AddToDom.js";
+import { StartFunc as StartFuncButtonClickFunc } from "../../../FetchFuncs/FromServer/OldOrder/2-ButtonClickFunc.js";
+
+import { StartFunc as StartFuncAddToDom } from "../../AddToDom.js";
 // import { StartFunc as StartFuncShowOnDom } from "../../../ShowOnDom/StartFunc.js";
 
 let StartFunc = () => {
-    let jFLocalOrderNumber = getUrlQueryParams({ inGetKey: "OrderNumber" });
+    // let jFLocalOrderNumber = getUrlQueryParams({ inGetKey: "OrderNumber" });
 
     jFLocalFromOrdersDataToItemsInOrder();
 
-    // StartFuncAddToDom({ inPk: jFLocalOrderNumber });
+    StartFuncAddToDom();
     // StartFuncShowOnDom({ inPk: jFLocalOrderNumber });
 };
 
 let jFLocalFromOrdersDataToItemsInOrder = () => {
     let jFLocalOrderNumber = getUrlQueryParams({ inGetKey: "OrderNumber" });
-    let jVarLocalFromLocalStorage = StartFuncFromLocalStorage({ inPk: jFLocalOrderNumber });
+    // let jVarLocalFromLocalStorage = StartFuncFromLocalStorage({ inPk: jFLocalOrderNumber });
+
+    let jVarLocalFromLocalStorage = StartFuncButtonClickFunc();
+
 
     if (jVarLocalFromLocalStorage.KTF === false) {
         return false;
     };
 
-    StartFuncToLocalStorage({ inData: jVarLocalFromLocalStorage.JsonData.ItemsInOrder });
+    // StartFuncToLocalStorage({ inData: jVarLocalFromLocalStorage.JsonData.ItemsInOrder });
 };
 
 let getUrlQueryParams = ({ inGetKey }) => {

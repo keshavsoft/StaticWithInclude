@@ -1,4 +1,7 @@
-import { StartFunc as StartFuncFromAddOnsAll } from "../../../../../../../../../../FromLocalStorage/AddOnData/Bulk.js";
+// import { StartFunc as StartFuncFromAddOnsAll } from "../../../../../../../../../../FromLocalStorage/AddOnData/Bulk.js";
+
+import { StartFunc as StartFuncFromAddOnsAll } from "../../../../../FromLocalStorage/AddOnData/Bulk.js";
+
 
 let StartFunc = ({ inJsonData }) => {
     jFLocalShowTotals({ inJsonData });

@@ -1,5 +1,4 @@
-// import { StartFunc as StartFuncToAddOns } from "../ToAddOns.js";
-import { StartFunc as StartFuncToAddOns } from "../AddOnSection/StartFunc.js";
+import { StartFunc as StartFuncToAddOns } from "../ToAddOns.js";
 
 let StartFunc = (event) => {
     jFLocalItemSerialButtonClickFunc(event);
