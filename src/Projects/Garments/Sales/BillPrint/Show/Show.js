@@ -16,8 +16,9 @@ let jFStartFunc = async () => {
         inKTokenKey: jVarCommonKToken
     });
     
-    StartFuncButtonClickFuncs();
     await ShowOnDomStartFunc({ ...jVarCommonKeys, inProjectName: jVarCommonProjectName });
+    StartFuncButtonClickFuncs();
+
 };
 
 
