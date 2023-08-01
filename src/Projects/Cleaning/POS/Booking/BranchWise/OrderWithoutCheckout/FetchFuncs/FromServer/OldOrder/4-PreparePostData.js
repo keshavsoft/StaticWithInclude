@@ -1,9 +1,9 @@
-let StartFunc = () => {
+let StartFunc = ({ inPk }) => {
     let jVarLocalBody = {
         FolderName: "Transactions",
         FileNameOnly: "Gurudwara",
         ItemName: "Orders",
-        JsonPk: 7
+        JsonPk: inPk
     };
 
     return jVarLocalBody;

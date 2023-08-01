@@ -1,5 +1,8 @@
 import CommonKeys from "../../ToLocalStorage/Keys.json" assert { type: "json" };
-import CommonConfigJson from "../../Config.json" assert { type: "json" };
+// import CommonConfigJson from "../../Config.json" assert { type: "json" };
+
+import CommonConfigJson from "../../../../Config.json" assert { type: "json" };
+
 
 const StartFunc = () => {
     let jVarLocalBranchName = CommonConfigJson.BranchName;
