@@ -9,7 +9,7 @@ let StartFunc = async ({ inPk }) => {
 
         let response = await StartFuncFetchFunc({ inBodyData: jVarLocalBodyData });
 
-        StartFuncAfterFetch({ inFromFetch: response, inPk });
+        await StartFuncAfterFetch({ inFromFetch: response, inPk });
     };
 };
 
