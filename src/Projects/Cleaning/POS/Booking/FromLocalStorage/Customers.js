@@ -5,22 +5,12 @@ const StartFunc = () => {
     let jVarLocalStorageSubKey = CommonKeys.CustomersSubKey;
     let jVarLocalDataNeeded = {};
 
-    if (jVarLocalStorageKey in localStorage === false) {
+    if (jVarLocalStorageKey in localStorage) {
+        let jVarLocalCustomerData = localStorage.getItem(jVarLocalStorageKey);
+        let jVarLocalCustomerDataAsJson = JSON.parse(jVarLocalCustomerData);
 
-        return jVarLocalDataNeeded;
+        jVarLocalDataNeeded = jVarLocalCustomerDataAsJson[jVarLocalStorageSubKey];
     };
-
-    let jVarLocalCustomerData = localStorage.getItem(jVarLocalStorageKey);
-    let jVarLocalCustomerDataAsJson = JSON.parse(jVarLocalCustomerData);
-    
-    if (jVarLocalStorageSubKey in jVarLocalCustomerDataAsJson === false) {
-
-        return jVarLocalDataNeeded;
-
-    };
-
-    jVarLocalDataNeeded = jVarLocalCustomerDataAsJson[jVarLocalStorageSubKey];
-
 
     return jVarLocalDataNeeded;
 };
