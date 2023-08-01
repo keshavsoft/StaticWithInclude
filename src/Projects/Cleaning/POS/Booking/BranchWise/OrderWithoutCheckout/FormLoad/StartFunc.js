@@ -4,8 +4,8 @@
 
 import { StartFunc as StartFuncFromUrlParams } from "./FromUrlParams/StartFunc.js";
 
-let StartFunc = () => {
-    StartFuncFromUrlParams();
+let StartFunc = async() => {
+    await StartFuncFromUrlParams();
     
     
     // StartFuncToLocalStorageFuncs();

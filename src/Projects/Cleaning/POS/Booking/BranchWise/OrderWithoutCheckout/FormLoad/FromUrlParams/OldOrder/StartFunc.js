@@ -6,10 +6,10 @@ import { StartFunc as StartFuncToLocalStorage } from "../../../../../ToLocalStor
 import { StartFunc as StartFuncToLocalStorageAddOn } from "../../../../../ToLocalStorage/AddOnData/Bulk.js";
 
 
-let StartFunc = () => {
+let StartFunc = async() => {
     let jVarLocalRowPk = getUrlQueryParams({ inGetKey: "OrderNumber" });
 
-    StartFuncFromFetch({ inPk: jVarLocalRowPk });
+    await StartFuncFromFetch({ inPk: jVarLocalRowPk });
 
     jFLocalFromOrdersDataToItemsInOrder();
     jFLocalAddAddOnData();

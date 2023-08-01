@@ -5,7 +5,7 @@ import { StartFunc as StartFuncAddListeners } from "./AddListeners/StartFunc.js"
 let StartFunc = () => {
     StartFuncToStaticDomAddListenerFuncs();
 
-    StartFuncFormLoad();
+    StartFuncFormLoad().then();
 
     StartFuncAddListeners();
 };
