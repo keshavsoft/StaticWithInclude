@@ -13,9 +13,12 @@ const StartFunc = ({ inPk }) => {
 };
 
 let jFLocalToInputCurrentdateandtime = ({ inCurrentdateandtime }) => {
-    let jVarLocalHtmlId = 'Currentdateandtime';
-    let jVarLocalCurrentdateandtime = document.getElementById(jVarLocalHtmlId);
-    jVarLocalCurrentdateandtime.value = inCurrentdateandtime;
+    if (inCurrentdateandtime === undefined === false) {
+        console.log("inCurrentdateandtime", inCurrentdateandtime);
+        let jVarLocalHtmlId = 'Currentdateandtime';
+        let jVarLocalCurrentdateandtime = document.getElementById(jVarLocalHtmlId);
+        jVarLocalCurrentdateandtime.value = inCurrentdateandtime;
+    }
 };
 
 let jFLocalBranchNameId = ({ inBranchNameId }) => {
