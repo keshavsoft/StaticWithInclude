@@ -1,7 +1,7 @@
 import ConfigJson from "../../../../../Config.json" assert {type: 'json'};
 
 let StartFunc = ({ inCustomerName, inCustomerMobile}) => {
-    let jVarLocalToUrl = "/Cleaning/POS/Booking/BranchWise/NewOrder/NewOrder.html";
+    let jVarLocalToUrl = "/Cleaning/POS/Booking/BranchWise/NewOrder/NewOrderRowFetch.html";
     let jVarLocalBranchName = ConfigJson.BranchName;
     let jVarLocalAddNew = "true";
 
