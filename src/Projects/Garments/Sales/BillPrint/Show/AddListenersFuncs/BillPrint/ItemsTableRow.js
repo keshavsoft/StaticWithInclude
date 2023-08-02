@@ -12,7 +12,7 @@ const jfInsertToPreDiv = () => {
     k1.innerHTML += k2.innerHTML;
 
     jVarLocalInventoryDataAsJson.forEach(element => {
-        let jVarLoopInsideItem = `M-${element.pk}/${element.ItemName}`;
+        let jVarLoopInsideItem = `M-${element.pk}/${element.ProductName}`;
         let jVarLoopInsideRate = `${element.UnitRate}`;
         let jVarLoopInsideGST = `${element.GST}`;
         let jVarLoopInsideDisPercentage = `${element.DisPercentage}%-${element.DisRate}`;

@@ -13,10 +13,10 @@ const jFLocalPrintHeader = () => {
     let k2 = document.getElementById("TemplateForFirmHeading");
 
     k1.innerHTML += k2.innerHTML;
-    k1.innerHTML += `  Customer    :   ${jVarLocalBillDataAsJson.CustomerName}\n`;
+    k1.innerHTML += `  Customer :   ${jVarLocalBillDataAsJson.CustomerName}\n`;
     k1.innerHTML += `  Phone    :   ${jVarLocalBillDataAsJson.CustomerNumber}\n`;
-    k1.innerHTML += `  Bill    :   ${jVarLocalBillDataAsJson.BillNumber}\n`;
-    k1.innerHTML += `  Date    :   ${jVarLocalBillDataAsJson.Date}\n`;
+    k1.innerHTML += `  Bill     :   ${jVarLocalBillDataAsJson.BillNumber}\n`;
+    k1.innerHTML += `  Date     :   ${jVarLocalBillDataAsJson.Date}\n`;
 };
 
 const jFLocalPrintFooter = () => {
