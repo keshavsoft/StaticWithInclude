@@ -1,34 +1,7 @@
-const StartFunc = () => {
-    let jVarLocalOrderNumber=jFLocalFromDomOrderNumberId();
-    let jVarLocalToLocalStorage = {};
-
-    jVarLocalToLocalStorage.FolderName = "Transactions";
-    jVarLocalToLocalStorage.FileNameOnly = "Gurudwara";
-    jVarLocalToLocalStorage.ItemName = "Orders";
-    jVarLocalToLocalStorage.ScreenName = "Create";
-    jVarLocalToLocalStorage.JsonPk = jVarLocalOrderNumber;
-    
-    jVarLocalToLocalStorage.SubTableKey = "ItemsInOrder";
-    jVarLocalToLocalStorage.DataToInsert = jFLocalPrepareObject();
-    // jVarLocalToLocalStorage.inPostData.ItemsInOrder["1"] = jFLocalPrepareObject();
-
-    return jVarLocalToLocalStorage;
-};
-
-let jFLocalFromDomOrderNumberId = () => {
-    let jVarLocalHtmlOrderNumberId = 'OrderNumberId';
-   let jVarHtmlOrderNumberId = document.getElementById(jVarLocalHtmlOrderNumberId);
-   let jVarHtmlOrderNumberIdValue = jVarHtmlOrderNumberId.innerHTML.trim();
-   return jVarHtmlOrderNumberIdValue;
-};
-
-let jFLocalPrepareObject = () => {
+let StartFunc = () => {
     try {
         let jVarClosestTabPane = document.getElementById("MenItemsTabId");
 
-        // let jVarClosestTabPane = inTabPane;
-
-        // let jVarLocalItemSelect = jVarClosestTabPane.querySelector(".ItemSelect");
         let jVarLocalWashType = jVarClosestTabPane.querySelector(".WashTypeClass");
         let jVarLocalPcs = jVarClosestTabPane.querySelector(".PcsClass");
         let jVarLocalRate = jVarClosestTabPane.querySelector(".RateClass");
@@ -72,14 +45,7 @@ let jFLocalPrepareObject = () => {
 
 let jFLocalItemSerialClass = ({ inTabPane }) => {
     try {
-        // let jVarClosestTabPane = inTabPane;
         let jVarLocalItemsTableBodyId = document.getElementById("ItemsTableBodyId");
-
-        // let jVarLocalItemSerialClass = jVarClosestTabPane.querySelector(".ItemSerialClass");
-
-        // let localReturnObject = {
-        //     ItemSerial: jVarLocalItemSerialClass.value
-        // };
 
         let localReturnObject = {
             ItemSerial: jVarLocalItemsTableBodyId.rows.length + 1
