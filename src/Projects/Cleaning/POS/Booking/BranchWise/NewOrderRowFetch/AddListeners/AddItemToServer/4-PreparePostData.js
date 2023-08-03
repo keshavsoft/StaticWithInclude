@@ -12,24 +12,15 @@ const StartFunc = () => {
     jVarLocalToLocalStorage.inPostData = {
         ItemsInOrder: {}
     };
-    jVarLocalToLocalStorage.inPostData.ItemsInOrder = jFLocalPrepareObject();
+    jVarLocalToLocalStorage.inPostData.ItemsInOrder[1] = jFLocalPrepareObject();
 
     return jVarLocalToLocalStorage;
-};
-
-
-let StartFunc1 = ({ inTabPane }) => {
-    let jVarObjectToInsert = jFLocalPrepareObject({ inTabPane });
-    return jVarObjectToInsert;
 };
 
 let jFLocalPrepareObject = () => {
     try {
         let jVarClosestTabPane = document.getElementById("MenItemsTabId");
 
-        // let jVarClosestTabPane = inTabPane;
-
-        // let jVarLocalItemSelect = jVarClosestTabPane.querySelector(".ItemSelect");
         let jVarLocalWashType = jVarClosestTabPane.querySelector(".WashTypeClass");
         let jVarLocalPcs = jVarClosestTabPane.querySelector(".PcsClass");
         let jVarLocalRate = jVarClosestTabPane.querySelector(".RateClass");
@@ -73,14 +64,7 @@ let jFLocalPrepareObject = () => {
 
 let jFLocalItemSerialClass = ({ inTabPane }) => {
     try {
-        // let jVarClosestTabPane = inTabPane;
         let jVarLocalItemsTableBodyId = document.getElementById("ItemsTableBodyId");
-
-        // let jVarLocalItemSerialClass = jVarClosestTabPane.querySelector(".ItemSerialClass");
-
-        // let localReturnObject = {
-        //     ItemSerial: jVarLocalItemSerialClass.value
-        // };
 
         let localReturnObject = {
             ItemSerial: jVarLocalItemsTableBodyId.rows.length + 1
