@@ -14,7 +14,7 @@ let StartFunc = async() => {
             inBodyData: jVarLocalBodyData
         });
         console.log("response", response);
-        // StartFuncAfterFetch({ inFromFetch: response});
+        StartFuncAfterFetch({ inFromFetch: response});
     };
 };
 
