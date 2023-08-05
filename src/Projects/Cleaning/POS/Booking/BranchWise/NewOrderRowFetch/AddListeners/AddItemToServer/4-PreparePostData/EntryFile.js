@@ -1,5 +1,6 @@
 import { StartFunc as StartFuncPrepareItemsInOrder } from "./PrepareItemsInOrder.js";
-
+import { StartFunc as StartFuncCustomerData } from "./CustomerData.js";
+import { StartFunc as StartFuncOrderData } from "./OrderData.js";
 const StartFunc = () => {
 
     let jVarLocalToLocalStorage = {};
@@ -10,12 +11,15 @@ const StartFunc = () => {
 
     jVarLocalToLocalStorage.inItemConfig = {};
     jVarLocalToLocalStorage.inItemConfig.inItemName = 'Orders';
+    let jVarLocalCustomerData = StartFuncCustomerData();
+    let jVarLocalOrderData = StartFuncOrderData();
 
     jVarLocalToLocalStorage.inPostData = {
-        ItemsInOrder: {}
+        ItemsInOrder: {},
+        CustomerData: { ...jVarLocalCustomerData },
+        OrderData: { ...jVarLocalOrderData }
     };
     jVarLocalToLocalStorage.inPostData.ItemsInOrder[1] = StartFuncPrepareItemsInOrder();
-
     return jVarLocalToLocalStorage;
 };
 
