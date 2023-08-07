@@ -6,8 +6,10 @@ StartFuncFormLoad();
 
 const StartFunc = async () => {
     let jVarLocalFromAdmin = StartFuncAdminData();
-    console.log("jVarLocalFromAdmin : ", jVarLocalFromAdmin);
-    StartFuncAddListeners();
+
+    if (jVarLocalFromAdmin) {
+        StartFuncAddListeners();
+    };
 };
 
 StartFunc().then();
