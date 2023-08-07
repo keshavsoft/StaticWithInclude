@@ -1,23 +1,23 @@
 let StartFunc = ({ inFromFetch }) => {
-    if (inFromFetch) {
+    if (inFromFetch.KTF) {
         Swal.fire({
-            title: 'Settlement Success',
+            title: 'New Item Added',
             confirmButtonText: 'Ok',
-          }).then((result) => {
+        }).then((result) => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
-                jFLocalToURL({inOrderNumber: 16});
+                jFLocalToURL({ inOrderNumber: 16 });
             }
-          });
+        });
     };
 };
 
 let jFLocalToURL = ({ inOrderNumber }) => {
-    const myUrlWithParams = new URL(`${window.location.origin}${window.location.pathname}`);
-    myUrlWithParams.searchParams.append("OrderNumber", inOrderNumber);
-    const k1=new URL("../Orders/OrdersShow/OrdersShow.html",myUrlWithParams.href);
+    // const myUrlWithParams = new URL(`${window.location.origin}${window.location.pathname}`);
+    // myUrlWithParams.searchParams.append("OrderNumber", inOrderNumber);
+    // const k1 = new URL("../Orders/OrdersShow/OrdersShow.html", myUrlWithParams.href);
 
-    window.location.href = k1.href;
+    window.location.href = "";
 };
 
 export { StartFunc };
