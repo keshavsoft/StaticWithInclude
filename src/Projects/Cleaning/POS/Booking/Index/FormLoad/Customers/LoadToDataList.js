@@ -5,7 +5,9 @@ const StartFunc = () => {
     let jVarLocalHtmlId = "CustomerDataListId";
     let jVarLocalCustomerDataListId = document.getElementById(jVarLocalHtmlId);
 
-    LocalFillDataList({ inData: Object.values(jVarLocalDataNeeded), inCustomerDataListId: jVarLocalCustomerDataListId });
+    if (jVarLocalDataNeeded === undefined === false) {
+        LocalFillDataList({ inData: Object.values(jVarLocalDataNeeded), inCustomerDataListId: jVarLocalCustomerDataListId });
+    };
 };
 
 let LocalFillDataList = ({ inData, inCustomerDataListId }) => {
