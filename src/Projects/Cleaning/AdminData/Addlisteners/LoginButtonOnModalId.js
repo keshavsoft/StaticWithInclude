@@ -1,7 +1,10 @@
 const StartFunc = () => {
     let jVarLocalLoginModalButtonId = document.getElementById("LoginButtonOnModalId");
+    console.log("jVarLocalLoginModalButtonId ", jVarLocalLoginModalButtonId);
 
-    jVarLocalLoginModalButtonId.addEventListener("click", jFLocalLoginButtonClick);
+    if (jVarLocalLoginModalButtonId === null === false) {
+        jVarLocalLoginModalButtonId.addEventListener("click", jFLocalLoginButtonClick);
+    };
 };
 
 const jFLocalLoginButtonClick = () => {
@@ -16,9 +19,11 @@ const jFLocalLoginButtonClick = () => {
 };
 
 const jVarLocalCheckUserNamePassword = async ({ inUserName, inPassword }) => {
-    let jVarLocalPathArray = window.location.pathname.split("/");
+    //  let jVarLocalPathArray = window.location.pathname.split("/");
+    let jVarLocalPathArray = "JSONApi";
+    // let jVarLocalUserCheckRoute = jVarLocalPathArray[1];
+    let jVarLocalUserCheckRoute = "JSONApi";
 
-    let jVarLocalUserCheckRoute = jVarLocalPathArray[1];
     let jVarLocalFetchUrl = `/${jVarLocalUserCheckRoute}/Validate/Users/InUserDataJson/ForUserNameAndPassword/TokenToCookie`;
 
     let response = await fetch(jVarLocalFetchUrl, {

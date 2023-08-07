@@ -13,10 +13,12 @@ const StartFunc = () => {
         localStorage.removeItem("FirmDetails");
         jFDeleteCookie(jVarLocalTokenName);
         let jVarLocalHtmlModal = document.getElementById(jVarLocalLoginModalId);
-        console.log("jVarLocalHtmlModal : ", jVarLocalHtmlModal);
-        var myModal = new bootstrap.Modal(jVarLocalHtmlModal, { keyboard: true, focus: true });
 
-        myModal.show();
+        if (jVarLocalHtmlModal === null === false) {
+            var myModal = new bootstrap.Modal(jVarLocalHtmlModal, { keyboard: true, focus: true });
+
+            myModal.show();
+        };
 
         return false;
     } else {
