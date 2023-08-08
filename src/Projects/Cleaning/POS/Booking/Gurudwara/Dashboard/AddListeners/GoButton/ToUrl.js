@@ -1,5 +1,6 @@
 // import ConfigJson from "../../../../../Config.json" assert {type: 'json'};
-import ConfigJson from "../../../../../../Config.json" assert {type: 'json'};
+// import ConfigJson from "../../../../../../Config.json" assert {type: 'json'};
+import ConfigJson from "../../../ApiConfig.json" assert {type: 'json'};
 
 let StartFunc = ({ inCustomerName, inCustomerMobile, inBranchName }) => {
     // let jVarLocalToUrl = "/Cleaning/POS/Booking/BranchWise/NewOrderRowFetch/NewOrderRowFetch.html";

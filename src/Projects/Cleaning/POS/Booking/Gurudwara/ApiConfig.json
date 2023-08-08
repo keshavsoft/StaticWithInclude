@@ -2,5 +2,7 @@
     "TokenName": "KToken",
     "LocalStorageKeyName": "kUserName",
     "ProjectName": "JSONApi",
-    "JsonFileName": "Gurudwara.json"
+    "JsonFileName": "Gurudwara.json",
+    "JsonFileNameOnly": "Gurudwara",
+    "BranchName": "Gurudwara"
 }
