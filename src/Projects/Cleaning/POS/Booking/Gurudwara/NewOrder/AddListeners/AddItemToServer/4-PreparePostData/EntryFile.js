@@ -15,12 +15,6 @@ const StartFunc = () => {
     let jVarLocalCustomerData = StartFuncCustomerData();
     let jVarLocalOrderData = StartFuncOrderData();
 
-    // jVarLocalToLocalStorage.inPostData = {
-    //     ItemsInOrder: {},
-    //     CustomerData: { ...jVarLocalCustomerData },
-    //     OrderData: { ...jVarLocalOrderData }
-    // };
-
     jVarLocalToLocalStorage.inPostData = {};
     jVarLocalToLocalStorage.inPostData.ItemsInOrder = {};
     jVarLocalToLocalStorage.inPostData.CustomerData = jVarLocalCustomerData;
