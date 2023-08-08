@@ -1,9 +1,11 @@
+import ConfigJson from "../../../ApiConfig.json" assert {type: 'json'};
+
 const StartFunc = () => {
     let jVarLocalOrderNumber=jFLocalFromDomOrderNumberId();
     let jVarLocalToLocalStorage = {};
 
     jVarLocalToLocalStorage.FolderName = "Transactions";
-    jVarLocalToLocalStorage.FileNameOnly = "Gurudwara";
+    jVarLocalToLocalStorage.FileNameOnly = ConfigJson.JsonFileNameOnly;
     jVarLocalToLocalStorage.ItemName = "Orders";
     jVarLocalToLocalStorage.ScreenName = "Create";
     jVarLocalToLocalStorage.JsonPk = jVarLocalOrderNumber;
