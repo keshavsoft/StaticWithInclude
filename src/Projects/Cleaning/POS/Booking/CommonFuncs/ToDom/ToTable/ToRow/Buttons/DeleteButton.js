@@ -7,10 +7,12 @@ import { StartFunc as StartFuncAddOnData } from "../../../../../ToLocalStorage/A
 
 import { StartFunc as StartFuncToOrderItems } from "../../ToOrderItems.js";
 
+import { StartFunc as StartFuncDeleteButtonClick } from "../../AddListenersRunTime/DeleteButton/2-ButtonClickFunc.js";
+
 const StartFunc = ({ inItemSerial, inClonedTemplateRow }) => {
     let jVarLocalOrderItemsOrderItemsDeleteButtonClass = inClonedTemplateRow.querySelector(".OrderItemsDeleteButtonClass");
     jVarLocalOrderItemsOrderItemsDeleteButtonClass.dataset.itemserial = inItemSerial;
-    jVarLocalOrderItemsOrderItemsDeleteButtonClass.addEventListener("click", jFLocalItemDeleteButtonClickFunc);
+    jVarLocalOrderItemsOrderItemsDeleteButtonClass.addEventListener("click", StartFuncDeleteButtonClick);
 };
 
 const jFLocalItemDeleteButtonClickFunc = (event) => {
