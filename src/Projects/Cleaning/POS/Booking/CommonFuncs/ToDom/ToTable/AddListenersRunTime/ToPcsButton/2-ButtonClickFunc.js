@@ -1,4 +1,7 @@
-import { StartFunc as StartFuncChangePcs } from "../../../../ToLocalStorage/ItemsInOrder/ChangePcs.js";
+// import { StartFunc as StartFuncFetchFunc } from "./5-FetchFunc.js";
+// import { StartFunc as StartFuncPreparePostData } from "./4-PreparePostData.js";
+// import { StartFunc as StartFuncCheckBeforeFetch } from "./3-CheckBeforeFetch.js";
+// import { StartFunc as StartFuncAfterFetch } from "./6-AfterFetch.js";
 
 let StartFunc = (event) => {
     let jVarLocalEvent = event;
@@ -24,11 +27,7 @@ const jFLocalSwal = ({ inItemSerial, inPcs }) => {
         allowOutsideClick: () => !Swal.isLoading()
     }).then((result) => {
         if (result.isConfirmed) {
-            let jVarLocalFromChange = StartFuncChangePcs({ inKey: inItemSerial, inPcs: parseInt(result.value) });
-            console.log("jVarLocalFromChange : ", jVarLocalFromChange);
-            if (jVarLocalFromChange) {
-                // StartFuncToOrderItems();
-            };
+            console.log("jVarLocalFromChange : ", result.value);
         }
     });
 };
