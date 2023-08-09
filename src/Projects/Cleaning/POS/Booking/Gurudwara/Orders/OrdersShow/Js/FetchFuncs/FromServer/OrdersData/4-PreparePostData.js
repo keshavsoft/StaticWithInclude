@@ -3,7 +3,7 @@ import ConfigJson from "../../../../../../ApiConfig.json" assert {type: 'json'};
 let StartFunc = () => {
     let jVarLocalBody = {
         inFolderName: "Transactions",
-        inFileNameOnly: ConfigJson.JsonFileName,
+        inFileNameOnly: ConfigJson.JsonFileNameOnly,
         inItemName: "Orders"
     };
 
