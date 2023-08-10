@@ -2,9 +2,9 @@ const jfInsertToPreDiv = () => {
     let jVarLocalInventoryData = localStorage.getItem("InventoryData");
     let jVarLocalInventoryDataAsJson = JSON.parse(jVarLocalInventoryData);
 
-    let localTotalAmountId = document.getElementById("TotalAmountId")
-    let localTotalDiscountId = document.getElementById("TotalDiscountId")
-    let localTotalNettAmountId = document.getElementById("TotalNettAmountId")
+    // let localTotalAmountId = document.getElementById("TotalAmountId")
+    // let localTotalDiscountId = document.getElementById("TotalDiscountId")
+    // let localTotalNettAmountId = document.getElementById("TotalNettAmountId")
 
     let k1 = document.getElementById("PrintDiv");
     let k2 = document.getElementById("TemplateForGridHeader");
@@ -24,13 +24,23 @@ const jfInsertToPreDiv = () => {
         k1.innerHTML += `${jVarLoopInsideGST.padStart(10)}`;
         k1.innerHTML += `${jVarLoopInsideDisPercentage.padStart(17)}`;
         k1.innerHTML += `${jVarLoopInsideGrossAmout.padStart(18)}\n`;
+        k1.innerHTML += `---------------------------------------------\n`
+       
     });
 
-    k1.innerHTML += `---------------------------------------------\n`
-  
-    // k1.innerHTML += `                     Gross Amount    :   ${localTotalAmountId.innerHTML}\n`;
-    // k1.innerHTML += `                   Total Discount    :    ${localTotalDiscountId.innerHTML.padStart(3)}\n`;
-    // k1.innerHTML += `                          Net Amt    :   ${localTotalNettAmountId.innerHTML}\n`;
+    let jVarLoopInsideUnitRate = jVarLocalInventoryDataAsJson.map(element => {
+        return element.UnitRate;
+    });
+    let jVarLoopInsideDisCount = jVarLocalInventoryDataAsJson.map(element => {
+        return element.DisRate;
+    });
+    let jvarLocaltoatalUnitRate = jVarLoopInsideUnitRate.reduce((a, b) => a = b, 0)
+    let jvarLocaltoatalDisRate = jVarLoopInsideDisCount.reduce((a, b) => a = b, 0)
+    let localNetAmount = jvarLocaltoatalUnitRate - jvarLocaltoatalDisRate;
+
+    k1.innerHTML += `                     Gross Amount    :   ${jvarLocaltoatalUnitRate}\n`;
+    k1.innerHTML += `                   Total Discount    :    ${jvarLocaltoatalDisRate}\n`;
+    k1.innerHTML += `                          Net Amt    :   ${localNetAmount}\n`;
 
 };
 
