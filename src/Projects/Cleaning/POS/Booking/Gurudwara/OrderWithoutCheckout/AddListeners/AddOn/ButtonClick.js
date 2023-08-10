@@ -8,10 +8,12 @@ import { StartFunc as StartFuncToLocalStorage } from "../../ToLocalStorage/ToAdd
 
 import { StartFunc as StartFuncToDomToOrderItems } from "../../ToDom/ToTable/ToOrderItems.js";
 
+import { StartFunc as StartFuncAddOnInsertButtonClick } from "./AddOnInsertButton/2-ButtonClickFunc.js";
+
 let StartFunc = () => {
     let jVarLocalAddOnInsertButtonId = document.getElementById("AddOnInsertButtonId");
 
-    jVarLocalAddOnInsertButtonId.addEventListener("click", jFLocalButtonClick);
+    jVarLocalAddOnInsertButtonId.addEventListener("click", StartFuncAddOnInsertButtonClick);
 };
 
 let jFLocalButtonClick = (event) => {
