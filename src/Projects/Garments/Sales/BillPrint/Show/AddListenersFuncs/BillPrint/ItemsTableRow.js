@@ -28,7 +28,7 @@ const jfInsertToPreDiv = () => {
 
     k1.innerHTML += `---------------------------------------------\n`
     k1.innerHTML += `                     Gross Amount    :   ${localTotalAmountId.innerHTML}\n`;
-    k1.innerHTML += `                   Total Discount    :    ${localTotalDiscountId.innerHTML}\n`;
+    k1.innerHTML += `                   Total Discount    :    ${localTotalDiscountId.innerHTML.padStart(3)}\n`;
     k1.innerHTML += `                          Net Amt    :   ${localTotalNettAmountId.innerHTML}\n`;
 };
 
