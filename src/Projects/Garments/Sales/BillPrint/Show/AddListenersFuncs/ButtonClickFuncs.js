@@ -25,10 +25,10 @@ const jFLocalPrintHeader = () => {
 const jFLocalPrintFooter = () => {
     let jVarLocalInventoryData = localStorage.getItem("GstData");
     let jVarLocalInventoryDataAsJson = JSON.parse(jVarLocalInventoryData);
-    let localGstToata = document.getElementById("TotalTaxAmountId");
+    // let localGstToata = document.getElementById("TotalTaxAmountId");
     // let localTotalGSTAmountId = document.getElementById("TotalGSTAmountId");
-    let localTotalGSTAmountId = document.getElementById("TotalCGSTAmountId");
-    let localTotalSGSTAmountId = document.getElementById("TotalSGSTAmountId");
+    // let localTotalGSTAmountId = document.getElementById("TotalCGSTAmountId");
+    // let localTotalSGSTAmountId = document.getElementById("TotalSGSTAmountId");
 
     let k1 = document.getElementById("PrintDiv");
     let k2 = document.getElementById("TemplateForGridFooter");
@@ -53,10 +53,28 @@ const jFLocalPrintFooter = () => {
         k1.innerHTML += `${jVarLoopInsideSGSTValue.padStart(9)}\n`;
     });
 
+    let jVarLocalGST = jVarLocalInventoryDataAsJson.map((element) => {
+        return element.GstAmount;
+    });
+    let jVarLocalCGSTValue = jVarLocalInventoryDataAsJson.map((element) => {
+        console.log("element:",element);
+        return parseInt(element.CGSTValue);
+    });
+    let jVarLocalSGSTValue = jVarLocalInventoryDataAsJson.map((element) => {
+        return parseInt(element.SGSTValue);
+    });
+    let jvarLocalGstTaxaBleAmount = jVarLocalGST.reduce((a, b) => a + b, 0)
+    let jvarLocalTotalCGSTValue = jVarLocalCGSTValue.reduce((a, b) => a + b, 0)
+    let jvarLocalTotalSGSTValue = jVarLocalSGSTValue.reduce((a, b) => a + b, 0)
+
+    // k1.innerHTML += `----------------------------------------------\n`
+    // k1.innerHTML += `Total: ${jvarLocalGstTaxaBleAmount.padStart(2, " ")}`;
+    // k1.innerHTML += ` ${" ".repeat(9)}${jvarLocalTotalCGSTValue.padEnd(15)}`;
+    // k1.innerHTML += ` ${jvarLocalTotalSGSTValue}\n`;
+    // k1.innerHTML += `----------------------------------------------\n`
+
     k1.innerHTML += `----------------------------------------------\n`
-    k1.innerHTML += `Total: ${localGstToata.innerHTML.padStart(2, " ")}`;
-    k1.innerHTML += ` ${" ".repeat(9)}${localTotalGSTAmountId.innerHTML.padEnd(15)}`;
-    k1.innerHTML += ` ${localTotalSGSTAmountId.innerHTML}\n`;
+    k1.innerHTML += `Total:  ${jvarLocalGstTaxaBleAmount}             ${jvarLocalTotalCGSTValue}              ${jvarLocalTotalSGSTValue}\n`;
     k1.innerHTML += `----------------------------------------------\n`
 
 
@@ -69,11 +87,11 @@ const jFLocalPrintFooter = () => {
 let jFLocalClickFunc = () => {
     jFLocalPrintHeader();
     jfInsertToPreDivItemsTableRow();
-   
+
     // jFLocalPrintGrid();
-   
-    // jFLocalPrintFooter();
-   
+
+    jFLocalPrintFooter();
+
     printJS("PrintDiv", "html");
 };
 export { StartFunc };
