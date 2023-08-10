@@ -1,19 +1,20 @@
-import { FromNode } from "../PullData/FetchFuncs.js";
+// import { FromNode } from "../PullData/FetchFuncs.js";
 import { ReturnRowPK } from "../urlSearchParams.js";
 import { StartFunc as InvGridStartFunc } from "./InvGrid.js";
 import { StartFunc as TableFootSuccessStartFunc } from "../FetchFuncs/HtmlPull/TableFootSuccess.js";
 // import { StartFunc as StartFuncQrCodesData } from "../FetchFuncs/QrCodesData/ToLocalStorage.js";
-
+import { StartFunc as StartFuncButtonClickFunc } from "../PullData/ShowOnDom/2-ButtonClickFunc.js";
 let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName, inShowSuccess }) => {
     let jVarLocalRowPk = ReturnRowPK();
 
-    let jVarLocalData = await FromNode({
-        inFolderName,
-        inFileName,
-        inItemName,
-        inRowPK: jVarLocalRowPk.RowPK,
-        inProjectName
-    });
+    // let jVarLocalData = await FromNode({
+    //     inFolderName,
+    //     inFileName,
+    //     inItemName,
+    //     inRowPK: jVarLocalRowPk.RowPK,
+    //     inProjectName
+    // });
+    let jVarLocalData = await StartFuncButtonClickFunc();
 
     if (jVarLocalData.KTF) {
         jVarLocalData.JsonData.pk = jVarLocalRowPk.RowPK;
