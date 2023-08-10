@@ -6,12 +6,6 @@ const StartFunc = () => {
         ...PrepareKeysJson
     };
 
-    // jVarLocalToLocalStorage.FolderName = "Transactions";
-    // jVarLocalToLocalStorage.FileNameOnly = ConfigJson.JsonFileNameOnly;
-    // jVarLocalToLocalStorage.ItemName = "Orders";
-    // jVarLocalToLocalStorage.ScreenName = "Create";
-    // jVarLocalToLocalStorage.SubTableKey = "ItemsInOrder";
-
     jVarLocalToLocalStorage.JsonPk = jVarLocalOrderNumber;
     jVarLocalToLocalStorage.DataToInsert = jFLocalPrepareObject();
     // jVarLocalToLocalStorage.inPostData.ItemsInOrder["1"] = jFLocalPrepareObject();
@@ -27,6 +21,26 @@ let jFLocalFromDomOrderNumberId = () => {
 };
 
 let jFLocalPrepareObject = () => {
+    let jVarLocalAddOnServiceId = document.getElementById("AddOnServiceId");
+    let jVarLocalAddOnRateId = document.getElementById("AddOnRateId");
+    let jVarLocalAddOnItemId = document.getElementById("AddOnItemId");
+    let jVarLocalAddOnImageId = document.getElementById("AddOnImageId");
+
+    let jVarLocalAddOnRateIdValue = jVarLocalAddOnRateId.value;
+    let jVarLocaljVarLocalAddOnItemIdValue = jVarLocalAddOnItemId.value;
+    let jVarLocaljVarLocalAddOnImageIdValue = jVarLocalAddOnImageId.value;
+
+    var jVarLocalAddOnServiceIdtext = jVarLocalAddOnServiceId.options[jVarLocalAddOnServiceId.selectedIndex].text;
+
+    return {
+        inAddOnService: jVarLocalAddOnServiceIdtext,
+        inAddOnRate: parseInt(jVarLocalAddOnRateIdValue),
+        inAddOnItemSerial: parseInt(jVarLocaljVarLocalAddOnItemIdValue),
+        inAddOnImageSerial: jVarLocaljVarLocalAddOnImageIdValue
+    };
+};
+
+let jFLocalPrepareObject_Old_10Aug = () => {
     try {
         let jVarClosestTabPane = document.getElementById("MenItemsTabId");
 

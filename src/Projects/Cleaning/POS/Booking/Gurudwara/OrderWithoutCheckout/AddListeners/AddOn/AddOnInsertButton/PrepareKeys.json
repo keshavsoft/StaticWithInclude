@@ -3,6 +3,5 @@
     "FileNameOnly": "Gurudwara",
     "ItemName": "Orders",
     "ScreenName": "Create",
-    "SubTableKey": "AddOnData",
-    "SubTableColumnKey": "AddOnData"
+    "SubTableKey": "AddOnData"
 }
