@@ -27,8 +27,13 @@ const jFLocalSwal = ({ inItemSerial, inPcs }) => {
         allowOutsideClick: () => !Swal.isLoading()
     }).then((result) => {
         if (result.isConfirmed) {
-            let jVarLocalPreparePostData = StartFuncPreparePostData();
-            let response = StartFuncFetchFunc({inBodyData: jVarLocalPreparePostData});
+            let jVarLocalPreparePostData = StartFuncPreparePostData({ inPcs: result.value, inItemSerial });
+            let response = StartFuncFetchFunc({ inBodyData: jVarLocalPreparePostData }).then(PromiseData => {
+                console.log("PromiseData", PromiseData);
+                if (PromiseData.KTF === true) {
+                    window.location.href = "";
+                }
+            });
             console.log("jVarLocalFromChange : ", response);
         }
     });
