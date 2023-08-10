@@ -1,27 +1,25 @@
-import ConfigJson from "./../../../../../../../ApiConfig.json" assert {type: 'json'};
+import PrepareKeysJson from "./PrepareKeys.json" assert {type: 'json'};
 
-const StartFunc = () => {
-    let jVarLocalOrderNumber=jFLocalFromDomOrderNumberId();
-    let jVarLocalToLocalStorage = {};
+const StartFunc = ({ inItemSerial }) => {
+    let jVarLocalOrderNumber = jFLocalFromDomOrderNumberId();
+    let jVarLocalToLocalStorage = {
+        ...PrepareKeysJson
+    };
 
-    jVarLocalToLocalStorage.FolderName = "Transactions";
-    jVarLocalToLocalStorage.FileNameOnly = ConfigJson.JsonFileNameOnly;
-    jVarLocalToLocalStorage.ItemName = "Orders";
-    jVarLocalToLocalStorage.ScreenName = "Create";
-    jVarLocalToLocalStorage.JsonPk = jVarLocalOrderNumber;
-    
-    jVarLocalToLocalStorage.SubTableKey = "ItemsInOrder";
-    jVarLocalToLocalStorage.DataToInsert = jFLocalPrepareObject();
-    // jVarLocalToLocalStorage.inPostData.ItemsInOrder["1"] = jFLocalPrepareObject();
-
+    // jVarLocalToLocalStorage.JsonConfig = PrepareKeysJson.JsonConfig;
+    // jVarLocalToLocalStorage.ItemConfig = PrepareKeysJson.ItemConfig;
+    jVarLocalToLocalStorage.MainRowPK = jVarLocalOrderNumber;
+    jVarLocalToLocalStorage.RowPK = inItemSerial;
+    // jVarLocalToLocalStorage.InsertKey = PrepareKeysJson.InsertKey;
+    // jVarLocalToLocalStorage.inDataToUpdate = jFLocalPrepareObject();
     return jVarLocalToLocalStorage;
 };
 
 let jFLocalFromDomOrderNumberId = () => {
     let jVarLocalHtmlOrderNumberId = 'OrderNumberId';
-   let jVarHtmlOrderNumberId = document.getElementById(jVarLocalHtmlOrderNumberId);
-   let jVarHtmlOrderNumberIdValue = jVarHtmlOrderNumberId.innerHTML.trim();
-   return jVarHtmlOrderNumberIdValue;
+    let jVarHtmlOrderNumberId = document.getElementById(jVarLocalHtmlOrderNumberId);
+    let jVarHtmlOrderNumberIdValue = jVarHtmlOrderNumberId.innerHTML.trim();
+    return jVarHtmlOrderNumberIdValue;
 };
 
 let jFLocalPrepareObject = () => {

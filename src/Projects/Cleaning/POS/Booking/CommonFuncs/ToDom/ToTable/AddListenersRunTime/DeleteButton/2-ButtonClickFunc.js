@@ -14,21 +14,23 @@ let StartFunc = (event) => {
     });
 };
 
-const jFLocalSwal = ({ inItemSerial, inPcs }) => {
+const jFLocalSwal = ({ inItemSerial }) => {
     Swal.fire({
-        title: `${inItemSerial} : Change Pcs`,
-        input: 'number',
-        inputAttributes: {
-        },
-        inputValue: inPcs,
+        title: `${inItemSerial} : Are you sure?`,
         showCancelButton: true,
-        confirmButtonText: 'Save Pcs',
+        confirmButtonText: 'Delete',
+        cancelButtonText: 'No',
         showLoaderOnConfirm: true,
         allowOutsideClick: () => !Swal.isLoading()
     }).then((result) => {
         if (result.isConfirmed) {
-            let jVarLocalPreparePostData = StartFuncPreparePostData();
-            let response = StartFuncFetchFunc({inBodyData: jVarLocalPreparePostData});
+            let jVarLocalPreparePostData = StartFuncPreparePostData({ inItemSerial });
+            let response = StartFuncFetchFunc({ inBodyData: jVarLocalPreparePostData }).then(PromiseData => {
+                console.log("PromiseData", PromiseData);
+                if (PromiseData.KTF === true) {
+                    window.location.href = "";
+                }
+            });
             console.log("jVarLocalFromChange : ", response);
         }
     });
