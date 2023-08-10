@@ -25,7 +25,6 @@ const jFLocalPrintHeader = () => {
     let k1 = document.getElementById("PrintDiv");
     let k2 = document.getElementById("TemplateForFirmHeading");
     let LocalBillModeId = document.getElementById("BillModeId").value;
-    console.log("LocalBillModeId:",LocalBillModeId);
 
     k1.innerHTML += k2.innerHTML;
     k1.innerHTML += `---------------------------------------------\n`
@@ -59,23 +58,20 @@ const jFLocalPrintFooter = () => {
         let jVarLoopInsideSGSTKey = `${element.SGSTKey}%`;
         let jVarLoopInsideSGSTValue = `${element.SGSTValue}`;
 
-    k1.innerHTML +=` ${jVarLoopInsideGST}    ${jVarLoopInsideGstAmount}      ${jVarLoopInsideCGSTKey}   ${jVarLoopInsideCGSTValue}   ${jVarLoopInsideSGSTKey}    ${jVarLoopInsideSGSTValue}\n`;
+        // k1.innerHTML +=` ${jVarLoopInsideGST}    ${jVarLoopInsideGstAmount}      ${jVarLoopInsideCGSTKey}   ${jVarLoopInsideCGSTValue}   ${jVarLoopInsideSGSTKey}    ${jVarLoopInsideSGSTValue}\n`;
 
-
-
-        // k1.innerHTML += `${jVarLoopInsideGST.padStart(6, " ")}`;
-        // k1.innerHTML += `${" ".repeat(18)}${jVarLoopInsideCGSTKey.padEnd(10)}`;
-        // k1.innerHTML += `${jVarLoopInsideSGSTKey.padStart(11)}\n`;
-
-
-
-        // k1.innerHTML += `${jVarLoopInsideGstAmount.padStart(6, " ")}`;
-        // k1.innerHTML += `${" ".repeat(18)}${jVarLoopInsideCGSTValue.padEnd(10)}`;
-        // k1.innerHTML += `${" ".repeat(6)}${jVarLoopInsideSGSTValue.padEnd(10)}\n`;
+        k1.innerHTML += `${jVarLoopInsideGST.toString().padStart(2, " ")}`;
+        k1.innerHTML += `${" ".repeat(6)}${jVarLoopInsideGstAmount.padEnd(4, " ")}`;
+        k1.innerHTML += `${jVarLoopInsideCGSTKey.padStart(9)}`;
+        k1.innerHTML += `${jVarLoopInsideCGSTValue.padStart(7)}`;
+        k1.innerHTML += `${jVarLoopInsideSGSTKey.padStart(9)}`;
+        k1.innerHTML += `${jVarLoopInsideSGSTValue.padStart(9)}\n`;
 
     });
     k1.innerHTML += `----------------------------------------------\n`
-    k1.innerHTML += `Total: ${localGstToata.innerHTML}         ${localTotalGSTAmountId.innerHTML}        ${localTotalSGSTAmountId.innerHTML} \n`;
+    k1.innerHTML += `Total: ${localGstToata.innerHTML.padStart(2, " ")}`;
+    k1.innerHTML += ` ${" ".repeat(9)}${localTotalGSTAmountId.innerHTML.padEnd(15)}`;
+    k1.innerHTML += ` ${localTotalSGSTAmountId.innerHTML}\n`;
     k1.innerHTML += `----------------------------------------------\n`
 
 
