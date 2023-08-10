@@ -5,31 +5,16 @@ let StartFunc = () => {
     LocalPrintId.addEventListener("click", jFLocalClickFunc)
 };
 
-const jFLocalPrintHeader1 = () => {
-    let jVarLocalBillData = localStorage.getItem("BillData");
-    let jVarLocalBillDataAsJson = JSON.parse(jVarLocalBillData);
-
-    let k1 = document.getElementById("PrintDiv");
-    let k2 = document.getElementById("TemplateForFirmHeading");
-
-    k1.innerHTML += k2.innerHTML;
-    k1.innerHTML += `  Customer :   ${jVarLocalBillDataAsJson.CustomerName}\n`;
-    k1.innerHTML += `  Phone    :   ${jVarLocalBillDataAsJson.CustomerNumber}\n`;
-    k1.innerHTML += `  Bill     :   ${jVarLocalBillDataAsJson.BillNumber}\n`;
-    k1.innerHTML += `  Date     :   ${jVarLocalBillDataAsJson.Date}\n`;
-};
 const jFLocalPrintHeader = () => {
     let jVarLocalBillData = localStorage.getItem("BillData");
     let jVarLocalBillDataAsJson = JSON.parse(jVarLocalBillData);
 
     let k1 = document.getElementById("PrintDiv");
     let k2 = document.getElementById("TemplateForFirmHeading");
-    let LocalBillModeId = document.getElementById("BillModeId").value;
 
     k1.innerHTML += k2.innerHTML;
     k1.innerHTML += `---------------------------------------------\n`
     k1.innerHTML += `               TAX INVOICE\n`
-    k1.innerHTML += `               ${LocalBillModeId}\n`
     k1.innerHTML += `---------------------------------------------\n`
     k1.innerHTML += `  Customer :   ${jVarLocalBillDataAsJson.CustomerName}\n`;
     k1.innerHTML += `  Phone    :   ${jVarLocalBillDataAsJson.CustomerNumber}\n`;
@@ -66,8 +51,8 @@ const jFLocalPrintFooter = () => {
         k1.innerHTML += `${jVarLoopInsideCGSTValue.padStart(7)}`;
         k1.innerHTML += `${jVarLoopInsideSGSTKey.padStart(9)}`;
         k1.innerHTML += `${jVarLoopInsideSGSTValue.padStart(9)}\n`;
-
     });
+
     k1.innerHTML += `----------------------------------------------\n`
     k1.innerHTML += `Total: ${localGstToata.innerHTML.padStart(2, " ")}`;
     k1.innerHTML += ` ${" ".repeat(9)}${localTotalGSTAmountId.innerHTML.padEnd(15)}`;
@@ -84,8 +69,11 @@ const jFLocalPrintFooter = () => {
 let jFLocalClickFunc = () => {
     jFLocalPrintHeader();
     jfInsertToPreDivItemsTableRow();
+   
     // jFLocalPrintGrid();
-    jFLocalPrintFooter();
+   
+    // jFLocalPrintFooter();
+   
     printJS("PrintDiv", "html");
 };
 export { StartFunc };
