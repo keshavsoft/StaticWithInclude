@@ -2,8 +2,8 @@ import { StartFunc as StartFuncBulk } from "./Bulk.js";
 
 let StartFunc = ({ inCategory }) => {
     let jVarLocalFromLocalStorage = StartFuncBulk();
-
-    let jVarLocalFiletered = jVarLocalFromLocalStorage.filter(element => {
+    
+    let jVarLocalFiletered = Object.values(jVarLocalFromLocalStorage).filter(element => {
         return element.Category === inCategory;
     });
 
