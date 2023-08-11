@@ -1,4 +1,5 @@
-import { StartFunc as StartFuncToAddOns } from "../ToAddOns.js";
+// import { StartFunc as StartFuncToAddOns } from "../ToAddOns.js";
+import { StartFunc as StartFuncToAddOns } from "../AddOnTable/EnteryFile.js";
 
 let StartFunc = (event) => {
     jFLocalItemSerialButtonClickFunc(event);
@@ -13,8 +14,9 @@ let jFLocalItemSerialButtonClickFunc = (event) => {
     let jVarLocalDataFromrow = jFLocalFromRowTable({ inJVarClosestTr: jVarLocalClosestTr });
 
     jFLocalShowOnAbove({ inDataToShow: jVarLocalDataFromrow, inRowSelected: jVarLocalRowSelected });
-
+console.log("kkkkkkkkkkkkkkk");
     StartFuncToAddOns({ inItemSerial: jVarLocalRowSelected });
+    
 };
 
 let jFLocalShowOnAbove = ({ inDataToShow, inRowSelected }) => {

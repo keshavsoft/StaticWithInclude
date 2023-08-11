@@ -32,11 +32,17 @@ let jFLocalPrepareObject = () => {
 
     var jVarLocalAddOnServiceIdtext = jVarLocalAddOnServiceId.options[jVarLocalAddOnServiceId.selectedIndex].text;
 
+    // return {
+    //     inAddOnService: jVarLocalAddOnServiceIdtext,
+    //     inAddOnRate: parseInt(jVarLocalAddOnRateIdValue),
+    //     inAddOnItemSerial: parseInt(jVarLocaljVarLocalAddOnItemIdValue),
+    //     inAddOnImageSerial: jVarLocaljVarLocalAddOnImageIdValue
+    // };
     return {
-        inAddOnService: jVarLocalAddOnServiceIdtext,
-        inAddOnRate: parseInt(jVarLocalAddOnRateIdValue),
-        inAddOnItemSerial: parseInt(jVarLocaljVarLocalAddOnItemIdValue),
-        inAddOnImageSerial: jVarLocaljVarLocalAddOnImageIdValue
+        AddOnService: jVarLocalAddOnServiceIdtext,
+        AddOnRate: parseInt(jVarLocalAddOnRateIdValue),
+        AddOnItemSerial: parseInt(jVarLocaljVarLocalAddOnItemIdValue),
+        AddOnImageSerial: jVarLocaljVarLocalAddOnImageIdValue
     };
 };
 
