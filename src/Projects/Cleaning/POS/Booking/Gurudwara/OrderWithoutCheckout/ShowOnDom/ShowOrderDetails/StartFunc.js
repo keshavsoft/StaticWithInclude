@@ -2,8 +2,13 @@
 
 import { StartFunc as StartFuncFromLocalStorage } from "../../../../FromLocalStorage/OrdersData/FromPk.js";
 
+import ApiConfigJson from "../../../ApiConfig.json" assert { type: "json" };
+
 const StartFunc = ({ inPk }) => {
-    let jVarLocalData = StartFuncFromLocalStorage({ inPk });
+    let jVarLocalData = StartFuncFromLocalStorage({
+        inPk,
+        inBranchName: ApiConfigJson.BranchName
+    });
 
     jFLocalCustomerName({ inOrderInfoCustomerNameId: jVarLocalData.JsonData.CustomerData.CustomerName });
     jFLocalOrderInfoCustomerMobileId({ inOrderInfoCustomerMobileId: jVarLocalData.JsonData.CustomerData.CustomerMobile });
@@ -14,7 +19,6 @@ const StartFunc = ({ inPk }) => {
 
 let jFLocalToInputCurrentdateandtime = ({ inCurrentdateandtime }) => {
     if (inCurrentdateandtime === undefined === false) {
-        console.log("inCurrentdateandtime", inCurrentdateandtime);
         let jVarLocalHtmlId = 'Currentdateandtime';
         let jVarLocalCurrentdateandtime = document.getElementById(jVarLocalHtmlId);
         jVarLocalCurrentdateandtime.value = inCurrentdateandtime;
@@ -39,8 +43,6 @@ let jFLocalOrderAmount = ({ inData }) => {
     });
 
     const sumOfAddOn = jVarLocalAddOn.reduce((partialSum, a) => partialSum + a, 0);
-
-    // jFLocalOrderAmountId({ inOrderAmountId: sum + sumOfAddOn });
 };
 
 let jFLocalCustomerName = ({ inOrderInfoCustomerNameId }) => {
@@ -48,12 +50,6 @@ let jFLocalCustomerName = ({ inOrderInfoCustomerNameId }) => {
     let jVarLocalOrderInfoCustomerNameId = document.getElementById(jVarLocalHtmlId);
 
     jVarLocalOrderInfoCustomerNameId.value = inOrderInfoCustomerNameId;
-};
-
-let jFLocalOrderAmountId = ({ inOrderAmountId }) => {
-    let jVarLocalHtmlId = 'OrderAmountId';
-    let jVarLocalOrderAmountId = document.getElementById(jVarLocalHtmlId);
-    jVarLocalOrderAmountId.innerHTML = inOrderAmountId;
 };
 
 let jFLocalOrderInfoCustomerMobileId = ({ inOrderInfoCustomerMobileId }) => {

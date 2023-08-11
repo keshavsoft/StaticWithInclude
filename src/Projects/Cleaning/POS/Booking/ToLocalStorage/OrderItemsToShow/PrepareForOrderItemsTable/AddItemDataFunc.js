@@ -2,6 +2,7 @@ import { StartFunc as StartFuncItemsInOrder } from "../../../FromLocalStorage/It
 
 let StartFunc = () => {
     let jVarLocalOrderItemsData = StartFuncItemsInOrder();
+
     let jVarLocalToShowData = {};
 
     Object.entries(jVarLocalOrderItemsData).forEach(

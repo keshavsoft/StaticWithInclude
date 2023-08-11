@@ -1,39 +1,31 @@
-// import { StartFunc as StartFuncOrdersData } from "../../../../../../../../../../ToLocalStorage/OrdersData/Single.js";
 import { StartFunc as StartFuncPrepareData } from "./../PrepareData/StartFunc.js";
 import { StartFunc as StartFuncToUrlWithDiscount } from "./ToUrlWithDiscount.js";
 import { StartFunc as StartFuncToUrlWithoutDiscount } from "./ToUrlWithoutDiscount.js";
-// import { StartFunc as StartFuncItemsInOrder } from "../../../../../../../../../../FromLocalStorage/ItemsInOrder/Bulk.js";
 
 import { StartFunc as StartFuncItemsInOrder } from "../../../../../FromLocalStorage/ItemsInOrder/Bulk.js";
 
 import { StartFunc as StartFuncToLocalStorage } from "../../../../../ToLocalStorage/OrdersData/ItemsInOrder.js";
 
-
-// import { StartFunc as StartFuncToLocalStorage } from "../../../../../../../../../../ToLocalStorage/OrdersData/ItemsInOrder.js";
-// import { StartFunc as StartFuncToLocalStorage } from "../../../../../../../../../../ToLocalStorage/OrdersData/ItemsInOrder.js";
-
 const StartFunc = () => {
     let jVarLocalOrderNumberFromDom = jFLocalFromDomOrderNumberId();
     let jVarLocalToLocalStorage = StartFuncPrepareData();
-    //let jVarLocalOrderNumber = StartFuncOrdersData({ inEntry: jVarLocalToLocalStorage });
     let jVarLocalOrderNumber = StartFuncToLocalStorage({
         inEntry: jVarLocalToLocalStorage,
-        inPk: jVarLocalOrderNumberFromDom
+        inPk: jVarLocalOrderNumberFromDom,
+        inBranchName: ""
     });
-    
+
     if (jVarLocalOrderNumber > 0) {
         let jVarLocalIsDiscountGiven = jFlocalIsDiscountGiven();
 
         if (jVarLocalIsDiscountGiven === true) {
             StartFuncToUrlWithoutDiscount({
-                //  inBranchName: jVarLocalToLocalStorage.CustomerData.BranchName,
                 inBranchName: "Hello",
                 inOrderNumber: jVarLocalOrderNumber
             });
         }
         else {
             StartFuncToUrlWithDiscount({
-                // inBranchName: jVarLocalToLocalStorage.CustomerData.BranchName,
                 inBranchName: "Hello",
                 inOrderNumber: jVarLocalOrderNumber
             });

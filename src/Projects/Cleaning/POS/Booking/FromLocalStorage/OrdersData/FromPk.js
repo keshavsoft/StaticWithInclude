@@ -1,7 +1,10 @@
 import { StartFunc as StartFuncBulk } from "./Bulk.js"
 
-const StartFunc = ({ inPk }) => {
-    let jVarLocalDataNeeded = StartFuncBulk();
+const StartFunc = ({ inPk, inBranchName }) => {
+    let jVarLocalDataNeeded = StartFuncBulk({ inBranchName });
+
+    console.log("jVarLocalDataNeeded : ", jVarLocalDataNeeded, inBranchName);
+
     let jVarLocalReturnData = {};
     jVarLocalReturnData.KTF = false;
 

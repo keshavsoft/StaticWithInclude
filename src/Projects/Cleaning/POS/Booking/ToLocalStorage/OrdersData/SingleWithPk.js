@@ -1,9 +1,16 @@
 import CommonKeys from "../Keys.json" assert { type: "json" };
 import { StartFunc as StartFuncBulk } from "./Bulk.js";
-import CommonConfigJson from "../../../../Config.json" assert { type: "json" };
+// import CommonConfigJson from "../../../../Config.json" assert { type: "json" };
 
-let StartFunc = ({ inEntry, inPk }) => {
-    let jVarLocalBranchName = CommonConfigJson.BranchName;
+let StartFunc = ({ inEntry, inPk, inBranchName }) => {
+    // let jVarLocalBranchName = CommonConfigJson.BranchName;
+    let jVarLocalBranchName = inBranchName;
+
+    if (jVarLocalBranchName === undefined) {
+        console.log("jVarLocalBranchName undefined in toLocalStorage ");
+        return 0;
+    };
+
     let jVarLocalFromLocalStorage = localStorage.getItem(CommonKeys.OrdersData);
     let jVarLocalJsonData = JSON.parse(jVarLocalFromLocalStorage);
 
