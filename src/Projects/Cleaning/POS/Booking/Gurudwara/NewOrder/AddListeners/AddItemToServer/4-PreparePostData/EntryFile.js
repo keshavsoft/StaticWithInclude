@@ -20,6 +20,7 @@ const StartFunc = () => {
     jVarLocalToLocalStorage.inPostData.ItemsInOrder = {};
     jVarLocalToLocalStorage.inPostData.CustomerData = jVarLocalCustomerData;
     jVarLocalToLocalStorage.inPostData.OrderData = jVarLocalOrderData;
+    jVarLocalToLocalStorage.inPostData.AddOnData = {};
 
     jVarLocalToLocalStorage.inPostData.ItemsInOrder[1] = StartFuncPrepareItemsInOrder();
 
