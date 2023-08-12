@@ -9,7 +9,7 @@ let StartFunc = ({ inItemSerial, inNewPk }) => {
     jVarLocalHtmlTableBody.innerHTML = "";
 
     let jVarLocaljVarLocalItemsInOrderJson = jFLocalFromAddOns({ inItemSerial });
-
+console.log("jVarLocaljVarLocalItemsInOrderJson",jVarLocaljVarLocalItemsInOrderJson);
     jVarLocaljVarLocalItemsInOrderJson.forEach(
         LoopItem => {
             StartFuncInsertRowFunc({
@@ -18,7 +18,7 @@ let StartFunc = ({ inItemSerial, inNewPk }) => {
                 inAddOnRate: LoopItem.AddOnRate,
                 inAddOnItemSerial: LoopItem.AddOnItemSerial,
                 inAddOnImageSerial: LoopItem.AddOnImageSerial,
-                inNewPk
+                inNewPk: LoopItem.RowPk
             });
         }
     );

@@ -1,3 +1,5 @@
+import { StartFunc as StartFuncDeleteButton } from "./DeleteButton/2-ButtonClickFunc.js";
+
 let StartFunc = ({ inTableBodyId, inAddOnService, inAddOnRate, inAddOnItemSerial, inAddOnImageSerial, inNewPk }) => {
 
     var table = inTableBodyId;
@@ -23,9 +25,10 @@ let StartFunc = ({ inTableBodyId, inAddOnService, inAddOnRate, inAddOnItemSerial
 
     const clone = jVarLocalTemplate.content.cloneNode(true);
     let jVarLocalDeleteButton = clone.querySelector("button");
+    console.log("inNewPk",inNewPk);
     jVarLocalDeleteButton.setAttribute("data-pk", inNewPk);
     
-    jVarLocalDeleteButton.addEventListener("click", jFLocalDeleteFun);
+    jVarLocalDeleteButton.addEventListener("click", StartFuncDeleteButton);
 
     cell1.appendChild(newText1);
     cell2.appendChild(newText2);
@@ -37,7 +40,8 @@ let StartFunc = ({ inTableBodyId, inAddOnService, inAddOnRate, inAddOnItemSerial
 };
 
 const jFLocalDeleteFun = () => {
-    console.log("kkkkkkkk");
+    let jVarLocalCurrentTarget = event.currentTarget;
+    console.log("jVarLocalCurrentTarget",jVarLocalCurrentTarget);
 
 };
 
