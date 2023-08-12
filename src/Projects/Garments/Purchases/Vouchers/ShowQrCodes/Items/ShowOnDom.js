@@ -1,7 +1,8 @@
 import { StartFunc as FetchFunc } from "./FetchFunc.js";
 
-let StartFunc = async ({ inProjectName }) => {
+let StartFunc1 = async ({ inProjectName }) => {
     let jVarLocalFromFetch = await FetchFunc({ inProjectName });
+    console.log("jVarLocalFromFetch:", jVarLocalFromFetch);
 
     if (jVarLocalFromFetch.KTF) {
         let jVarLocalItemsDataListId = document.getElementById("ItemsDataListId");
@@ -16,5 +17,19 @@ let StartFunc = async ({ inProjectName }) => {
         };
     };
 };
+let StartFunc = async ({ inProjectName }) => {
+    let jVarLocalFromFetch = await FetchFunc({ inProjectName });
+
+    if (jVarLocalFromFetch.KTF) {
+        let jVarLocalItemsDataListId = document.getElementById("MastersDataListId");
+        jVarLocalFromFetch.JsonData.forEach((element) => {
+            const node = document.createElement("option");
+            node.value = element.ItemName
+            jVarLocalItemsDataListId.appendChild(node);
+
+        })
+    };
+};
+
 
 export { StartFunc };
