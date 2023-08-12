@@ -6,13 +6,15 @@ import { StartFunc as StartFuncItemsInOrder } from "../../../../../FromLocalStor
 
 import { StartFunc as StartFuncToLocalStorage } from "../../../../../ToLocalStorage/OrdersData/ItemsInOrder.js";
 
+import ApiConfigJson from "../../../../ApiConfig.json" assert {type: 'json'};
+
 const StartFunc = () => {
     let jVarLocalOrderNumberFromDom = jFLocalFromDomOrderNumberId();
     let jVarLocalToLocalStorage = StartFuncPrepareData();
     let jVarLocalOrderNumber = StartFuncToLocalStorage({
         inEntry: jVarLocalToLocalStorage,
         inPk: jVarLocalOrderNumberFromDom,
-        inBranchName: ""
+        inBranchName: ApiConfigJson.BranchName
     });
 
     if (jVarLocalOrderNumber > 0) {
@@ -20,13 +22,13 @@ const StartFunc = () => {
 
         if (jVarLocalIsDiscountGiven === true) {
             StartFuncToUrlWithoutDiscount({
-                inBranchName: "Hello",
+                inBranchName: ApiConfigJson.BranchName,
                 inOrderNumber: jVarLocalOrderNumber
             });
         }
         else {
             StartFuncToUrlWithDiscount({
-                inBranchName: "Hello",
+                inBranchName: ApiConfigJson.BranchName,
                 inOrderNumber: jVarLocalOrderNumber
             });
         }
