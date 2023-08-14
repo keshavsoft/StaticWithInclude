@@ -28,12 +28,13 @@ const jFLocalSwal = ({ inItemSerial, inPcs }) => {
     }).then((result) => {
         if (result.isConfirmed) {
             let jVarLocalPreparePostData = StartFuncPreparePostData({ inPcs: result.value, inItemSerial });
+
             let response = StartFuncFetchFunc({ inBodyData: jVarLocalPreparePostData }).then(PromiseData => {
-                console.log("PromiseData", PromiseData);
                 if (PromiseData.KTF === true) {
                     window.location.href = "";
                 }
             });
+            
             console.log("jVarLocalFromChange : ", response);
         }
     });

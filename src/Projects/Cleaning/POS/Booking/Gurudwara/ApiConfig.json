@@ -4,5 +4,11 @@
     "ProjectName": "JSONApi",
     "JsonFileName": "Gurudwara.json",
     "JsonFileNameOnly": "Gurudwara",
-    "BranchName": "Gurudwara"
+    "BranchName": "Gurudwara",
+    "ForFetch":{
+        "FolderName": "Transactions",
+        "FileNameOnly": "Gurudwara",
+        "JsonFileName": "Gurudwara.json",
+        "ItemName": "Orders"
+    }
 }
