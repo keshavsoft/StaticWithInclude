@@ -24,14 +24,6 @@ let jFConditionsShowData = ({ inData }) => {
     };
 
     return jVarLocalStorageDataAsJson;
-
-    // jVarGlobalPresentViewData = KeshavSoftCrud.BuildFromArray(jVarLocalStorageDataAsJson);
-
-    // jVarGlobalKeshavSoftLocalFuncsObject.AppendToDOM.RequiredHtml({
-    //     inData: jVarGlobalPresentViewData,
-    //     inHtmlParent: jVarLocalFilteredTableId
-    // });
-
 };
 
 let LocalShowData = () => {
@@ -51,18 +43,34 @@ let LocalShowData = () => {
     let jVarlocalTableData = jVarLocalNewData[0].KData.TableData;
     let jVarLocalFilteredTableId = document.getElementById("FilteredTableId");
     let jVarLocalFilteredData = _.filter(jVarlocalTableData, jVarLocalFilterObject);
-    let jVarLocalSortedData = _.sortBy(jVarLocalFilteredData, "DateDisplay");
+    let jVarLocalSortedData = _.sortBy(jVarLocalFilteredData, "Date");
 
     jVarLocalNewData[0].KData.TableData = jVarLocalSortedData;
+    LocalChangeTableColumns({ inTableColumns: jVarLocalNewData[0].KData.TableColumns });
 
     let jVarLocalFromCondition = jFConditionsShowData({ inData: jVarLocalNewData });
 
     let jVarLocalToShowData = KeshavSoftCrud.BuildFromArray(jVarLocalFromCondition);
-
+    console.log("jVarLocalToShowData jVarLocalToShowData: ", jVarLocalToShowData);
     jVarGlobalKeshavSoftLocalFuncsObject.AppendToDOM.RequiredHtml({
         inData: jVarLocalToShowData,
         inHtmlParent: jVarLocalFilteredTableId
     });
+};
+
+let LocalChangeTableColumns = ({ inTableColumns }) => {
+    let jVarLocalHtmlId = "ColumnsTableBody";
+    let jVarLocalColumnsTableBody = document.getElementById(jVarLocalHtmlId);
+    let jVarLocalChecks = jVarLocalColumnsTableBody.querySelectorAll("input[type=checkbox]");
+
+    for (let i = 0; i < jVarLocalChecks.length; i++) {
+        let LocalFind = inTableColumns.find(element => {
+            return element.DataAttribute === jVarLocalChecks[i].dataset.dataattribute;
+        });
+        console.log("jVarLocalChecks[i].checked : ", jVarLocalChecks[i].checked, LocalFind, jVarLocalChecks[i].dataset.dataattribute);
+
+        LocalFind.ShowInTable = jVarLocalChecks[i].checked;
+    }
 };
 
 let StartFunc = () => {

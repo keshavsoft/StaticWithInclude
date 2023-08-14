@@ -224,6 +224,10 @@
                 <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#Conditions-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Conditions</button>
             </li>
             <li class="nav-item" role="presentation">
+                <button class="nav-link" id="Columns-tab" data-bs-toggle="tab" data-bs-target="#Columns-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Columns</button>
+            </li>
+          
+            <li class="nav-item" role="presentation">
                 <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Filtered
                     Data</button>
             </li>
@@ -297,6 +301,19 @@
 
                 <button type="button" id="ConditionsButtonId" onclick="jFConditionsShowData(event)" class="btn btn-primary">Filter Data</button>
             </div>
+            <div class="tab-pane fade show active" id="Columns-tab-pane" role="tabpanel" aria-labelledby="Columns-tab" tabindex="0">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Column Name</th>
+                            <th scope="col">Show</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ColumnsTableBody">
+                    </tbody>
+                </table>
+            </div>
             <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
                 <div class="row">
                     <div class="col">
@@ -310,7 +327,6 @@
             <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">...</div>
         </div>
 
-
     </div>
 
     <div id="KCont1" class="m-3">
@@ -319,18 +335,24 @@
 
 
    
-    <template id="FilterTableRow_19Jan2022">
+    <template id="ColumnsTableRow">
         <tr>
             <th scope="row">{{SNo}}</th>
             <td>{{Name}}</td>
             <td>
-                <input type="text" class="form-control SearchInput" aria-describedby="helpId"
-                list="DataListForFilter-{{SNo}}">
-                <datalist id="DataListForFilter-{{SNo}}">
-                </datalist>
-            </td>
-            <td>
-                <button type="button" class="btn btn-primary" onclick="jFFilterData({inEvent:event})" data-dataattribute="{{DataAttribute}}" data-uuid="{{UUID}}">Filter Data</button>
+                <div class="form-check">
+                    {{#if ShowInTable}}
+                    
+                    <input class="form-check-input" type="checkbox" checked data-dataattribute="{{DataAttribute}}">
+                    {{else}}
+
+                    <input class="form-check-input" type="checkbox" data-dataattribute="{{DataAttribute}}">
+                                        {{/if}}
+
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Show
+                    </label>
+                  </div>
             </td>
         </tr>
     </template>
