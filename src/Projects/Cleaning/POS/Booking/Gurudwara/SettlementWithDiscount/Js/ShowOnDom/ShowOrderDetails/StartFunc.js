@@ -1,7 +1,12 @@
-import { StartFunc as StartFuncFromLocalStorage } from "../../../../../../../../../../FromLocalStorage/OrdersData/FromPk.js";
+// import { StartFunc as StartFuncFromLocalStorage } from "../../../../../../../../../../FromLocalStorage/OrdersData/FromPk.js";
+import { StartFunc as StartFuncFromLocalStorage } from "../../../../../FromLocalStorage/OrdersData/FromPk.js";
+import ApiConfigJson from "../../../../ApiConfig.json" assert { type: "json" };
 
 const StartFunc = ({ inPk }) => {
-    let jVarLocalData = StartFuncFromLocalStorage({ inPk });
+    let jVarLocalData = StartFuncFromLocalStorage({
+        inPk,
+        inBranchName: ApiConfigJson.BranchName
+    });
 
     jFLocalCustomerName({ inOrderInfoCustomerNameId: jVarLocalData.JsonData.CustomerData.CustomerName });
     jFLocalOrderInfoCustomerMobileId({ inOrderInfoCustomerMobileId: jVarLocalData.JsonData.CustomerData.CustomerMobile });
@@ -44,14 +49,14 @@ let jFLocalCustomerName = ({ inOrderInfoCustomerNameId }) => {
 
 let jFLocalBranchNameId = ({ inOrderInfoCustomerBranchId }) => {
     let jVarLocalHtmlId = 'BranchNameId';
-   let jVarLocalOrderInfoBranchNameId = document.getElementById(jVarLocalHtmlId);
-   jVarLocalOrderInfoBranchNameId.value = inOrderInfoCustomerBranchId;
+    let jVarLocalOrderInfoBranchNameId = document.getElementById(jVarLocalHtmlId);
+    jVarLocalOrderInfoBranchNameId.value = inOrderInfoCustomerBranchId;
 };
 
 let jFLocalToInputOrderDate = ({ inOrderDate }) => {
     let jVarLocalHtmlId = 'OrderDate';
-   let jVarLocalOrderDate = document.getElementById(jVarLocalHtmlId);
-   jVarLocalOrderDate.value = inOrderDate;
+    let jVarLocalOrderDate = document.getElementById(jVarLocalHtmlId);
+    jVarLocalOrderDate.value = inOrderDate;
 };
 
 let jFLocalOrderAmountId = ({ inOrderAmountId }) => {
