@@ -1,6 +1,5 @@
 import { StartFunc as StartFuncClubAddOnData } from "./PrepareForOrderItemsTable/ClubAddOnData.js";
 import { StartFunc as StartFuncAddItemData } from "./PrepareForOrderItemsTable/AddItemDataFunc.js";
-import { StartFunc as StartFuncFromLocalStorageOrderItemsToShow } from "../../FromLocalStorage/OrderItemsToShow/Bulk.js";
 import { StartFunc as StartFuncFooterData } from "./PrepareForOrderItemsTable/FooterDataFunc.js";
 
 let StartFunc = () => {

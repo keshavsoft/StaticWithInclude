@@ -1,5 +1,5 @@
 // import { StartFunc as StartFuncToLocalStorage } from "../../../../../../../../../../../ToLocalStorage/CheckOutData/Update.js";
-import { StartFunc as StartFuncToLocalStorage } from "../../../../../../../../../../../ToLocalStorage/OrdersData/Update.js";
+// import { StartFunc as StartFuncToLocalStorage } from "../../../../../../../../../../../ToLocalStorage/OrdersData/Update.js";
 
 let StartFunc = ({ inOrderKey, inSettlementData }) => {
     return jFToLocalStorage({ inOrderKey, inSettlementData });
@@ -8,10 +8,10 @@ let StartFunc = ({ inOrderKey, inSettlementData }) => {
 const jFToLocalStorage = ({ inOrderKey, inSettlementData }) => {
     let jVarLocalOrderKey = getUrlQueryParams({ inGetKey: "OrderNumber" });
 
-    return StartFuncToLocalStorage({
-        inOrderKey: jVarLocalOrderKey,
-        inSettlementData
-    });
+    // return StartFuncToLocalStorage({
+    //     inOrderKey: jVarLocalOrderKey,
+    //     inSettlementData
+    // });
 };
 
 let getUrlQueryParams = ({ inGetKey }) => {

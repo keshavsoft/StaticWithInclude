@@ -1,20 +1,18 @@
-// import { StartFunc as StartFuncFromLocalStorage } from "../../../../../../../../../../FromLocalStorage/OrdersData/FromPk.js";
-
 import { StartFunc as StartFuncFromLocalStorage } from "../../../../../FromLocalStorage/OrdersData/FromPk.js";
-
-//import { StartFunc as StartFuncPrepareForOrderItemsTable } from "../../../../../../../../../../ToLocalStorage/OrderItemsToShow/PrepareForOrderItemsTable.js";
-
 import { StartFunc as StartFuncPrepareForOrderItemsTable } from "../../../../../ToLocalStorage/OrderItemsToShow/PrepareForOrderItemsTable.js";
-
-// import { StartFunc as StartFuncFromLocalStorageOrderItemsToShow } from "../../../../../../../../../../FromLocalStorage/OrderItemsToShow/Bulk.js";
-
 import { StartFunc as StartFuncFromLocalStorageOrderItemsToShow } from "../../../../../FromLocalStorage/OrderItemsToShow/Bulk.js";
 
+import ApiConfigJson from "../../../../ApiConfig.json" assert { type: "json" };
+
 const StartFunc = ({ inPk }) => {
-    let jVarLocalData = StartFuncFromLocalStorage({ inPk });
+    let jVarLocalData = StartFuncFromLocalStorage({
+        inPk,
+        inBranchName: ApiConfigJson.BranchName
+    });
+    
     StartFuncPrepareForOrderItemsTable();
     let jVarLocalDataNeeded = StartFuncFromLocalStorageOrderItemsToShow();
-    
+
     jFLocalCustomerName({ inOrderInfoCustomerNameId: jVarLocalData.JsonData.CustomerData.CustomerName });
     jFLocalOrderInfoCustomerMobileId({ inOrderInfoCustomerMobileId: jVarLocalData.JsonData.CustomerData.CustomerMobile });
 

@@ -1,14 +1,17 @@
 let StartFunc = () => { 
     let jVarLocalGstData = {};
+
     jVarLocalGstData.Discount = parseFloat(jFLocalFromDomDiscountAmount());
     jVarLocalGstData.CGST = parseFloat(jFLocalFromDomCgstAmountId());
     jVarLocalGstData.SGST = parseFloat(jFLocalFromDomSgstAmountId());
+    
     let jVarLocalReturnObject = {
         CashAmount: parseInt(jFLocalCashAmountId()),
         CardAmount: parseInt(jFLocalCardAmountId()),
         UPIAmount: parseInt(jFLocalUPIAmountId()),
         Discount: parseInt(jFLocalFromDomDiscountId())
     };
+    
     jVarLocalReturnObject.GstData = jVarLocalGstData;
     
     return jVarLocalReturnObject;
