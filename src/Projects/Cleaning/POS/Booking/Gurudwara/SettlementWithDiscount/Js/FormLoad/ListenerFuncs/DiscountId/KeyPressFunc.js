@@ -1,8 +1,3 @@
-import { StartFunc as StartFuncFetchFunc } from "./FetchFunc.js";
-import { StartFunc as StartFuncPreparePostData } from "./PreparePostData.js";
-import { StartFunc as StartFuncCheckBeforeFetch } from "./CheckBeforeFetch.js";
-import { StartFunc as StartFuncAfterFetch } from "./AfterFetch.js";
-
 let StartFunc = () => {
     let jVarLocalEvent=event;
     let jVarLocalCurrentTarget = jVarLocalEvent.currentTarget;
