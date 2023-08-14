@@ -3,7 +3,7 @@ import ApiConfigJson from "./../../../../../../../../ApiConfig.json" assert {typ
 let StartFunc = async ({ inSettlementData }) => {
     let jVarLocalBodyData = inSettlementData;
 
-    let jVarLocalFetchUrl = `/${ApiConfigJson.ProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/MainTable/Update`;
+    let jVarLocalFetchUrl = `/${ApiConfigJson.ProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/SubTable/UpdateAsObject`;
     // POST http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/Items/FromDataFolder/WithScreens/SubTable/WithChecking/Insert
 
 
