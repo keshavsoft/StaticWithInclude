@@ -6,19 +6,18 @@ let StartFunc = () => {
     jVarLocalGstData.Discount = parseFloat(jFLocalFromDomDiscountAmount()) || 0;
     jVarLocalGstData.CGST = parseFloat(jFLocalFromDomCgstAmountId()) || 0;
     jVarLocalGstData.SGST = parseFloat(jFLocalFromDomSgstAmountId()) || 0;
-
     let jVarLocalReturnObject = {
         ...PrepareKeysJson,
-        inPostData: {}
+        MainRowPK: jFLocalFromDomOrderNumberId(),
+        inDataToUpdate: {},
     };
 
-    jVarLocalReturnObject.inPostData.CheckOutData = {};
-    jVarLocalReturnObject.inPostData.CheckOutData.CashAmount = parseInt(jFLocalCashAmountId()) || 0;
-    jVarLocalReturnObject.inPostData.CheckOutData.CardAmount = parseInt(jFLocalCardAmountId()) || 0;
-    jVarLocalReturnObject.inPostData.CheckOutData.UPIAmount = parseInt(jFLocalUPIAmountId()) || 0;
-    jVarLocalReturnObject.inPostData.CheckOutData.Discount = parseInt(jFLocalFromDomDiscountId()) || 0;
+    jVarLocalReturnObject.inDataToUpdate.CashAmount = parseInt(jFLocalCashAmountId()) || 0;
+    jVarLocalReturnObject.inDataToUpdate.CardAmount = parseInt(jFLocalCardAmountId()) || 0;
+    jVarLocalReturnObject.inDataToUpdate.UPIAmount = parseInt(jFLocalUPIAmountId()) || 0;
+    jVarLocalReturnObject.inDataToUpdate.Discount = parseInt(jFLocalFromDomDiscountId()) || 0;
 
-    jVarLocalReturnObject.inPostData.CheckOutData.GstData = jVarLocalGstData;
+    jVarLocalReturnObject.inDataToUpdate.GstData = jVarLocalGstData;
 
     return jVarLocalReturnObject;
 };
@@ -70,6 +69,13 @@ let jFLocalUPIAmountId = () => {
     let jVarHtmlUPIAmountId = document.getElementById(jVarLocalHtmlUPIAmountId);
     let jVarHtmlUPIAmountIdValue = jVarHtmlUPIAmountId.value.trim();
     return jVarHtmlUPIAmountIdValue;
+};
+
+let jFLocalFromDomOrderNumberId = () => {
+    let jVarLocalHtmlOrderNumberId = 'OrderNumberId';
+   let jVarHtmlOrderNumberId = document.getElementById(jVarLocalHtmlOrderNumberId);
+   let jVarHtmlOrderNumberIdValue = jVarHtmlOrderNumberId.innerHTML.trim();
+   return jVarHtmlOrderNumberIdValue;
 };
 
 export { StartFunc };
