@@ -6,6 +6,7 @@
     "ItemConfig":{
         "inItemName": "Orders"
     },
-    "inJsonPK": 0
+    "MainRowPK": 0,
+    "InsertKey": "CheckOutData"
 }
 
