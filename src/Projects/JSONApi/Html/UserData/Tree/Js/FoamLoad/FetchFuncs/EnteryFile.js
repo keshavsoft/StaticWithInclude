@@ -3,7 +3,7 @@ import { StartFunc as StartFuncAfterFetch } from "./6-AfterFetch.js";
 
 let StartFunc = async () => {
 
-    let response = await StartFuncFetchFunc({ inBodyData: jVarLocalBodyData });
+    let response = await StartFuncFetchFunc();
     StartFuncAfterFetch({ inFromFetch: response });
 };
 
