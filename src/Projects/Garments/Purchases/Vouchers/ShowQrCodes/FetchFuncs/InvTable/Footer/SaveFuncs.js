@@ -20,7 +20,7 @@ let LocalPreparePostData = () => {
     };
 
     if (!(jVarLocalQty === null)) {
-        jVarLocalReturnData.Qty = parseInt(jVarLocalQty.value);
+        jVarLocalReturnData.Qty = parseFloat(jVarLocalQty.value);
     };
     if (!(jVarLocalSno === null)) {
         jVarLocalReturnData.sno = parseInt(jVarLocalSno.value);
