@@ -1,4 +1,7 @@
-import { ReturnRowPK } from "../../../urlSearchParams.js";
+import { ReturnRowPK } from "../../urlSearchParams.js";
+import { KeysObject } from "../../../ConfigKeys.js";
+
+let jVarCommonKeys = KeysObject.CommonKeys;
 
 let StartFunc = () => {
     let jVarLocalItemNameId = document.getElementById("ItemsDataList");
@@ -54,7 +57,16 @@ let StartFunc = () => {
 
     jVarLocalReturnData.BillPk = jVarLocalRowPK;
 
-    return jVarLocalReturnData;
+    // return jVarLocalReturnData;
+    return {
+        inPostData: jVarLocalReturnData,
+        FileNameOnly: jVarCommonKeys.inFileName,
+        FolderName: jVarCommonKeys.inFolderName,
+        ItemName: "BillsQrCode",
+        ScreenName: "Create"
+
+    }
 };
+
 
 export { StartFunc };
