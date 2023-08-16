@@ -52,7 +52,7 @@ let StartFunc = () => {
     };
 
     if (!(jVarLocalQty === null)) {
-        jVarLocalReturnData.Qty = parseInt(jVarLocalQty.value);
+        jVarLocalReturnData.Qty = parseFloat(jVarLocalQty.value);
     };
 
     jVarLocalReturnData.BillPk = jVarLocalRowPK;
