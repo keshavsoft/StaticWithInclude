@@ -5,9 +5,11 @@ import { StartFunc as DeleteFuncsStartFunc } from "./ButtonFuncs/DeleteFuncs.js"
 import { StartFunc as StartFuncinvKeyPressCal } from "./invKeyPressCal.js";
 import { ReturnRowPK } from "./urlSearchParams.js";
 import { StartFunc as ButtonForImageDownload } from "./ToDom/ButtonForImageDownload.js";
+import { StartFunc as StartFuncSaveWithButton } from "./FetchFuncs/SaveWithButton/1-ClickFunc.js";
 
 let StartFunc = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
-    LocalFooterSaveAssign({ inFolderName, inFileName, inItemName, inProjectName });
+    // LocalFooterSaveAssign({ inFolderName, inFileName, inItemName, inProjectName });
+    StartFuncSaveWithButton();
     QrCodeKeyPressAssign({ inFolderName, inFileName, inItemName, inProjectName });
     localButtonDeleteFunc({ inFolderName, inFileName, inItemName, inProjectName });
     StartFuncinvKeyPressCal();
@@ -15,23 +17,23 @@ let StartFunc = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
     LocalModalButtonForImageDownloadFuncs();
 };
 
-let LocalFooterSaveAssign = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
-    let localRowPK = ReturnRowPK().RowPK;
-    let jVarLocalInvTableFooterSaveButtonId = document.getElementById("InvTableFooterSaveButtonId");
+// let LocalFooterSaveAssign = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
+//     let localRowPK = ReturnRowPK().RowPK;
+//     let jVarLocalInvTableFooterSaveButtonId = document.getElementById("InvTableFooterSaveButtonId");
 
-    if (jVarLocalInvTableFooterSaveButtonId !== null) {
-        jVarLocalInvTableFooterSaveButtonId.addEventListener("click", async (event) => {
-            event.preventDefault();
-            let LocalFromSave = await SaveFuncsStartFunc({
-                inFolderName, inFileName, inItemName, inProjectName,
-                inEvent: event
-            });
+//     if (jVarLocalInvTableFooterSaveButtonId !== null) {
+//         jVarLocalInvTableFooterSaveButtonId.addEventListener("click", async (event) => {
+//             event.preventDefault();
+//             let LocalFromSave = await SaveFuncsStartFunc({
+//                 inFolderName, inFileName, inItemName, inProjectName,
+//                 inEvent: event
+//             });
 
 
-        });
-    };
+//         });
+//     };
 
-};
+// };
 
 
 let QrCodeKeyPressAssign = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
