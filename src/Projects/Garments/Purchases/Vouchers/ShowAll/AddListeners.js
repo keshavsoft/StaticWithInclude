@@ -1,5 +1,6 @@
 //import { StartFunc as PushDataStartFunc } from "./PushData/FetchFuncs.js";
 import { StartFunc as DeleteFuncsStartFunc } from "./ButtonFuncs/DeleteFuncs.js";
+import { StartFunc as StartFuncQrCodeButtonClass } from "./QrCodeButtonClass/1-ClickAssign.js";
 
 let StartFunc = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
     let jVarLocalDeleteButtons = document.getElementsByClassName("DeleteButtonClass");
@@ -13,7 +14,7 @@ let StartFunc = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
         });
     };
 
-    LocalPostQrCodeButtonFuncs({ inProjectName });
+    StartFuncQrCodeButtonClass({ inProjectName });
 };
 
 let LocalPostQrCodeButtonFuncs = ({ inProjectName }) => {
@@ -67,6 +68,7 @@ let LocalPostQrCodeButtonFuncs = ({ inProjectName }) => {
 };
 
 let GetFunc = async ({ inRowPk, inProjectName }) => {
+
     try {
         let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
 
@@ -74,6 +76,7 @@ let GetFunc = async ({ inRowPk, inProjectName }) => {
 
         const response = await fetch(jVarLocalFetchUrl);
         const data = await response.json();
+
 
         if (data.KTF === false) {
             LocalReturnObject.KReason = data.KReason;
