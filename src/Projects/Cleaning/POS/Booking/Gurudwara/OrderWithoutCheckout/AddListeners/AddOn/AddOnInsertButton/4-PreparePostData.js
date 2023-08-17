@@ -1,14 +1,21 @@
-import PrepareKeysJson from "./PrepareKeys.json" assert {type: 'json'};
+// import PrepareKeysJson from "./PrepareKeys.json" assert {type: 'json'};
+import ApiConfigJson from "./../../../../ApiConfig.json" assert {type: 'json'};
 
 const StartFunc = () => {
     let jVarLocalOrderNumber = jFLocalFromDomOrderNumberId();
-    let jVarLocalToLocalStorage = {
-        ...PrepareKeysJson
-    };
+    
+    let jVarLocalToLocalStorage = {};
+
+    jVarLocalToLocalStorage.FolderName = ApiConfigJson.ForFetch.FolderName;
+    jVarLocalToLocalStorage.FileNameOnly = ApiConfigJson.ForFetch.FileNameOnly;
+
+    jVarLocalToLocalStorage.ItemName = ApiConfigJson.ForFetch.ItemName;
+    jVarLocalToLocalStorage.ScreenName = "Create";
+
+    jVarLocalToLocalStorage.SubTableKey = "AddOnData";
 
     jVarLocalToLocalStorage.JsonPk = jVarLocalOrderNumber;
     jVarLocalToLocalStorage.DataToInsert = jFLocalPrepareObject();
-    // jVarLocalToLocalStorage.inPostData.ItemsInOrder["1"] = jFLocalPrepareObject();
 
     return jVarLocalToLocalStorage;
 };

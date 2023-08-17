@@ -1,10 +1,18 @@
-import PrepareKeysJson from "./PrepareKeys.json" assert {type: 'json'};
+// import PrepareKeysJson from "./PrepareKeys.json" assert {type: 'json'};
+import ApiConfigJson from "./../../../../../../ApiConfig.json" assert {type: 'json'};
 
 const StartFunc = ({ inRowPk }) => {
     let jVarLocalOrderNumber = jFLocalFromDomOrderNumberId();
-    let jVarLocalToLocalStorage = {
-        ...PrepareKeysJson
-    };
+
+    let jVarLocalToLocalStorage = {};
+
+    jVarLocalToLocalStorage.FolderName = ApiConfigJson.ForFetch.FolderName;
+    jVarLocalToLocalStorage.FileName = ApiConfigJson.ForFetch.JsonFileName;
+
+    jVarLocalToLocalStorage.ItemName = ApiConfigJson.ForFetch.ItemName;
+    jVarLocalToLocalStorage.ScreenName = "Create";
+
+    jVarLocalToLocalStorage.InsertKey = "AddOnData";
 
     jVarLocalToLocalStorage.MainRowPK = jVarLocalOrderNumber;
     jVarLocalToLocalStorage.RowPK = inRowPk;

@@ -1,4 +1,5 @@
-import PrepareKeysJson from "./PrepareKeys.json" assert {type: 'json'};
+// import PrepareKeysJson from "./PrepareKeys.json" assert {type: 'json'};
+import ApiConfigJson from "./../../../../../../ApiConfig.json" assert {type: 'json'};
 
 let StartFunc = () => {
     let jVarLocalGstData = {};
@@ -6,11 +7,19 @@ let StartFunc = () => {
     jVarLocalGstData.DiscountAmount = parseFloat(jFLocalFromDomDiscountAmount()) || 0;
     jVarLocalGstData.CGST = parseFloat(jFLocalFromDomCgstAmountId()) || 0;
     jVarLocalGstData.SGST = parseFloat(jFLocalFromDomSgstAmountId()) || 0;
-    let jVarLocalReturnObject = {
-        ...PrepareKeysJson,
-        MainRowPK: jFLocalFromDomOrderNumberId(),
-        inDataToUpdate: {},
-    };
+    let jVarLocalReturnObject = {};
+    jVarLocalReturnObject.JsonConfig={};
+    jVarLocalReturnObject.ItemConfig={};
+    
+    jVarLocalReturnObject.JsonConfig.inFolderName = ApiConfigJson.ForFetch.FolderName;
+    jVarLocalReturnObject.JsonConfig.inJsonFileName = ApiConfigJson.ForFetch.JsonFileName;
+
+    jVarLocalReturnObject.ItemConfig.inItemName = ApiConfigJson.ForFetch.ItemName;
+    jVarLocalReturnObject.MainRowPK = jFLocalFromDomOrderNumberId();
+
+    jVarLocalReturnObject.InsertKey = "CheckOutData";
+    jVarLocalReturnObject.inDataToUpdate = {};
+
     jVarLocalReturnObject.inDataToUpdate.RoundOff = parseFloat(jFLocalFromDomRoundOffId()) || 0;
     jVarLocalReturnObject.inDataToUpdate.CashAmount = parseInt(jFLocalCashAmountId()) || 0;
     jVarLocalReturnObject.inDataToUpdate.CardAmount = parseInt(jFLocalCardAmountId()) || 0;
