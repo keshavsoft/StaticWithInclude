@@ -1,3 +1,5 @@
+import { StartFunc as StartFuncButtonClickFunc } from "./ButtonClickFunc.js";
+
 let jFConditionsShowData = ({ inData }) => {
     let jVarLocalFilteredTableId = document.getElementById("FilteredTableId");
 
@@ -52,7 +54,7 @@ let LocalShowData = () => {
     let jVarLocalFromCondition = jFConditionsShowData({ inData: jVarLocalNewData });
 
     let jVarLocalToShowData = KeshavSoftCrud.BuildFromArray(jVarLocalFromCondition);
-    
+
     jVarGlobalKeshavSoftLocalFuncsObject.AppendToDOM.RequiredHtml({
         inData: jVarLocalToShowData,
         inHtmlParent: jVarLocalFilteredTableId
@@ -75,7 +77,7 @@ let LocalChangeTableColumns = ({ inTableColumns }) => {
 
 let StartFunc = () => {
     let jVarLocalFilerButton = document.getElementById("FilterDataId");
-    jVarLocalFilerButton.addEventListener("click", LocalShowData);
+    jVarLocalFilerButton.addEventListener("click", StartFuncButtonClickFunc);
 };
 
 export { StartFunc }

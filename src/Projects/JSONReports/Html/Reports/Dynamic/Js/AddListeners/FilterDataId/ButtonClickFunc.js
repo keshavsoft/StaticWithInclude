@@ -26,10 +26,11 @@ let jFConditionsShowData = ({ inData }) => {
     return jVarLocalStorageDataAsJson;
 };
 
-let LocalShowData = () => {
+let StartFunc = () => {
     let jVarLocalFilterObject = {};
     let jVarLocalFilterTableBody = document.getElementById("FilterTableBody");
     let jVarCheckBoxes = jVarLocalFilterTableBody.querySelectorAll('input[type="checkbox"]:checked');
+    let jVarLocalFilteredTableId = document.getElementById("FilteredTableId");
 
     for (let i = 0; i < jVarCheckBoxes.length; i++) {
         let jVarLoopInsideClosestTr = jVarCheckBoxes[i].closest("tr");
@@ -40,19 +41,30 @@ let LocalShowData = () => {
 
     let jVarLocalNewData = JSON.parse(JSON.stringify(jVarGlobalPresentViewData));
 
-    let jVarlocalTableData = jVarLocalNewData[0].KData.TableData;
-    let jVarLocalFilteredTableId = document.getElementById("FilteredTableId");
-    let jVarLocalFilteredData = _.filter(jVarlocalTableData, jVarLocalFilterObject);
-    let jVarLocalSortedData = _.sortBy(jVarLocalFilteredData, "Date");
+    // let jVarlocalTableData = jVarLocalNewData[0].KData.TableData;
 
-    jVarLocalNewData[0].KData.TableData = jVarLocalSortedData;
+    let jVarLocalFilteredData = _.filter(jVarLocalNewData, jVarLocalFilterObject);
+    // let jVarLocalSortedData = _.sortBy(jVarLocalFilteredData, "Date");
 
-    LocalChangeTableColumns({ inTableColumns: jVarLocalNewData[0].KData.TableColumns });
+    // jVarLocalNewData[0].KData.TableData = jVarLocalSortedData;
 
-    let jVarLocalFromCondition = jFConditionsShowData({ inData: jVarLocalNewData });
 
-    let jVarLocalToShowData = KeshavSoftCrud.BuildFromArray(jVarLocalFromCondition);
-    
+
+    // LocalChangeTableColumns({ inTableColumns: jVarLocalNewData[0].KData.TableColumns });
+
+    // let jVarLocalFromCondition = jFConditionsShowData({ inData: jVarLocalNewData });
+
+    // let jVarLocalToShowData = KeshavSoftCrud.BuildFromArray(jVarLocalNewData);
+
+    let jVarLocalToShowData = [];
+
+    jVarLocalToShowData.push({
+        HTMLControlType: "TableFromData",
+        KData: {
+            TableData: jVarLocalFilteredData
+        }
+    });
+    console.log("jVarLocalNewData : ", jVarLocalFilteredData);
     jVarGlobalKeshavSoftLocalFuncsObject.AppendToDOM.RequiredHtml({
         inData: jVarLocalToShowData,
         inHtmlParent: jVarLocalFilteredTableId
@@ -71,11 +83,6 @@ let LocalChangeTableColumns = ({ inTableColumns }) => {
 
         LocalFind.ShowInTable = jVarLocalChecks[i].checked;
     }
-};
-
-let StartFunc = () => {
-    let jVarLocalFilerButton = document.getElementById("FilterDataId");
-    jVarLocalFilerButton.addEventListener("click", LocalShowData);
 };
 
 export { StartFunc }

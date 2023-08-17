@@ -6,6 +6,7 @@ let StartFunc = async () => {
     let jVarLocalFetchUrl = StartFuncPrepareFetchUrl(event);
 
     let LocalResponseAsJson = await StartFuncFetchFunc({ inFetchUrl: jVarLocalFetchUrl });
+
     StartFuncAfterFetch({ inResponseAsJson: LocalResponseAsJson });
 };
 
