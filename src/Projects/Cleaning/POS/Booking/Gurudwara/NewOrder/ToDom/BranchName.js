@@ -2,12 +2,13 @@
 
 // import { StartFunc as StartFuncFromLocalStorage } from "../../../FromLocalStorage/BranchName/Bulk.js";
 
-import ConfigJson from "../../../../../Config.json" assert{type: "json"};
+// import ConfigJson from "../../../../../Config.json" assert{type: "json"};
+import ApiConfigJson from "../../ApiConfig.json" assert{type: "json"};
 
 const StartFunc = () => {
     // let jVarLocalBranchName = StartFuncFromLocalStorage();
 
-    let jVarLocalBranchName = ConfigJson.BranchName;
+    let jVarLocalBranchName = ApiConfigJson.BranchName;
 
     jFLocalBranchNameId({ inBranchNameId: jVarLocalBranchName });
 };

@@ -1,7 +1,15 @@
+import ApiConfigJson from "./../../../ApiConfig.json" assert {type: 'json'};
+
 let StartFunc = ({ inFromFetch }) => {
     if (inFromFetch.KTF === true) {
         let jVarLocalOrderNumber = inFromFetch.kPK;
         jFLocalToURL({ inOrderNumber: jVarLocalOrderNumber });
+    }else{
+        Swal.fire({
+            icon: 'error',
+            title: `${ApiConfigJson.ForFetch.JsonFileName} not found`,
+            text: `Json File name : ${ApiConfigJson.ForFetch.JsonFileName} not found in Data Folder : ${ApiConfigJson.ForFetch.FolderName}`
+        })
     };
 };
 let jFLocalToURL = ({ inOrderNumber }) => {
