@@ -11,7 +11,9 @@ const jFLocalPrintHeader = () => {
 
     let k1 = document.getElementById("PrintDiv");
     let k2 = document.getElementById("TemplateForFirmHeading");
+    let k3 = document.getElementById("TemplateForFirmHeadId");
 
+    k1.innerHTML += k3.innerHTML;
     k1.innerHTML += k2.innerHTML;
     k1.innerHTML += `---------------------------------------------\n`
     k1.innerHTML += `               TAX INVOICE\n`
@@ -57,15 +59,14 @@ const jFLocalPrintFooter = () => {
         return element.GstAmount;
     });
     let jVarLocalCGSTValue = jVarLocalInventoryDataAsJson.map((element) => {
-        console.log("element:",element);
-        return parseInt(element.CGSTValue);
+        return parseFloat(element.CGSTValue);
     });
     let jVarLocalSGSTValue = jVarLocalInventoryDataAsJson.map((element) => {
-        return parseInt(element.SGSTValue);
+        return parseFloat(element.SGSTValue);
     });
-    let jvarLocalGstTaxaBleAmount = jVarLocalGST.reduce((a, b) => a + b, 0)
-    let jvarLocalTotalCGSTValue = jVarLocalCGSTValue.reduce((a, b) => a + b, 0)
-    let jvarLocalTotalSGSTValue = jVarLocalSGSTValue.reduce((a, b) => a + b, 0)
+    let jvarLocalGstTaxaBleAmount = jVarLocalGST.reduce((a, b) => a + b, 0).toFixed(2);
+    let jvarLocalTotalCGSTValue = jVarLocalCGSTValue.reduce((a, b) => a + b, 0).toFixed(2);
+    let jvarLocalTotalSGSTValue = jVarLocalSGSTValue.reduce((a, b) => a + b, 0).toFixed(2);
 
     // k1.innerHTML += `----------------------------------------------\n`
     // k1.innerHTML += `Total: ${jvarLocalGstTaxaBleAmount.padStart(2, " ")}`;
@@ -74,7 +75,9 @@ const jFLocalPrintFooter = () => {
     // k1.innerHTML += `----------------------------------------------\n`
 
     k1.innerHTML += `----------------------------------------------\n`
-    k1.innerHTML += `Total:  ${jvarLocalGstTaxaBleAmount}             ${jvarLocalTotalCGSTValue}              ${jvarLocalTotalSGSTValue}\n`;
+    k1.innerHTML += `Total:  ${jvarLocalGstTaxaBleAmount.padStart(5)}`;
+    k1.innerHTML += `${jvarLocalTotalCGSTValue.padStart(13)}`;
+    k1.innerHTML += `${jvarLocalTotalSGSTValue.padStart(18)}\n`;
     k1.innerHTML += `----------------------------------------------\n`
 
 
