@@ -1,9 +1,7 @@
 import CommonKeys from "../Keys.json" assert { type: "json" };
 import { StartFunc as StartFuncBulk } from "./Bulk.js";
-// import CommonConfigJson from "../../../../Config.json" assert { type: "json" };
 
 let StartFunc = ({ inEntry, inPk, inBranchName }) => {
-    // let jVarLocalBranchName = CommonConfigJson.BranchName;
     let jVarLocalBranchName = inBranchName;
 
     if (jVarLocalBranchName === undefined) {
@@ -21,11 +19,8 @@ let StartFunc = ({ inEntry, inPk, inBranchName }) => {
     let jVarLocalParsed = jVarLocalJsonData[jVarLocalBranchName];
     let jVarLocalNewData = jFLocalPrepareData({ inEntry });
 
-    // jVarLocalParsed[inPk] = jFLocalPrepareData({ inEntry });
     jVarLocalParsed[inPk] = jVarLocalNewData;
 
-    console.log("jVarLocalNewData", jVarLocalNewData);
-    console.log("inEntry", inEntry);
     StartFuncBulk({ inData: jVarLocalJsonData });
 
     return inPk;
