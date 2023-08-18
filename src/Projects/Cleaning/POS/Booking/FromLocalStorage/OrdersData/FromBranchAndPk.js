@@ -5,7 +5,7 @@ const StartFunc = ({ inPk, inBranchName }) => {
 
     let jVarLocalReturnData = {};
     jVarLocalReturnData.KTF = false;
-    
+
     if (inPk in jVarLocalDataNeeded) {
         jVarLocalReturnData.JsonData = jVarLocalDataNeeded[inPk];
         jVarLocalReturnData.KTF = true;
