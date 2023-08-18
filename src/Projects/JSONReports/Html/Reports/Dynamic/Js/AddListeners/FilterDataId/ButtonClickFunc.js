@@ -44,6 +44,12 @@ let StartFunc = () => {
     // let jVarlocalTableData = jVarLocalNewData[0].KData.TableData;
 
     let jVarLocalFilteredData = _.filter(jVarLocalNewData, jVarLocalFilterObject);
+    // let jVarLocalPickData = _.map(jVarLocalNewData, "Credit");
+
+    let jVarLocalPickData = _.map(jVarGlobalPresentViewData, function (object) {
+        return _.pick(object, ['AccountName', 'Credit']);
+    });
+
     // let jVarLocalSortedData = _.sortBy(jVarLocalFilteredData, "Date");
 
     // jVarLocalNewData[0].KData.TableData = jVarLocalSortedData;
@@ -61,7 +67,7 @@ let StartFunc = () => {
     jVarLocalToShowData.push({
         HTMLControlType: "TableFromData",
         KData: {
-            TableData: jVarLocalFilteredData
+            TableData: jVarLocalPickData
         }
     });
     console.log("jVarLocalNewData : ", jVarLocalFilteredData);
