@@ -3,7 +3,7 @@
 import { StartFunc as StartFuncButtonClickFunc } from "./FetchFuncs/FromServer/OrdersData/2-ButtonClickFunc.js";
 let StartFunc = async () => {
     // let jVarLocalDataNeeded = StartFuncFromLocalStorage();
-    let jVarLocalDataNeeded = StartFuncButtonClickFunc();
+    let jVarLocalDataNeeded = await StartFuncButtonClickFunc();
     console.log("jVarLocalDataNeeded", jVarLocalDataNeeded);
 
     if (jVarLocalDataNeeded !== null) {
