@@ -1,9 +1,8 @@
-import { StartFunc as StartFuncEntery } from "./BlockPrintFiles/Entery.js";
+import { StartFunc as StartFuncEntry } from "./BlockPrintFiles/Entry.js";
 
 let StartFunc = () => {
-    console.log("ooooppppp");
     let LocalPrintId = document.getElementById("PrintId");
-    LocalPrintId.addEventListener("click", StartFuncEntery)
+    LocalPrintId.addEventListener("click", StartFuncEntry)
 };
 
 export { StartFunc };
