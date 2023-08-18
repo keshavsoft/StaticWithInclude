@@ -1,5 +1,5 @@
 let jFConditionsShowData = ({ inData }) => {
-    let jVarLocalStorageDataAsJson = inData;
+    let jVarLocalFilteredTableId = document.getElementById("FilteredTableId");
 
     let jVarLocalColumnSelectedId = document.getElementById("ColumnSelectedId");
     let jVarLocalFromValueId = document.getElementById("FromValueId");
@@ -13,18 +13,20 @@ let jFConditionsShowData = ({ inData }) => {
     let jVarLocalToValue = jVarLocalToValueId.value;
     let jVarLocalToCondition = jVarLocalToConditionId.value;
 
-    let jVarLocalReturnData;
+    let jVarLocalStorageDataAsJson = inData;
+
+    let jVarLocalTableData = jVarLocalStorageDataAsJson[0].KData.TableData;
 
     if (jVarLocalFromCondition === ">=" && jVarLocalToCondition === "<=" && jVarLocalColumnSelected === "Date") {
-        jVarLocalReturnData = jVarLocalStorageDataAsJson.filter(l1 => {
+        jVarLocalStorageDataAsJson[0].KData.TableData = jVarLocalTableData.filter(l1 => {
             return l1.Date >= jVarLocalFromValue && l1.Date <= jVarLocalToValue
         });
     };
 
-    return jVarLocalReturnData;
+    return jVarLocalStorageDataAsJson;
 };
 
-let jFLocalFiterData = ({ inData }) => {
+let LocalShowData = () => {
     let jVarLocalFilterObject = {};
     let jVarLocalFilterTableBody = document.getElementById("FilterTableBody");
     let jVarCheckBoxes = jVarLocalFilterTableBody.querySelectorAll('input[type="checkbox"]:checked');
@@ -36,44 +38,21 @@ let jFLocalFiterData = ({ inData }) => {
         jVarLocalFilterObject[jVarLocalFilterKey] = jVarLoopInsideSearchInput.value;
     };
 
-    let jVarLocalNewData = inData;
-
-    let jVarLocalFilteredData = _.filter(jVarLocalNewData, jVarLocalFilterObject);
-    // let jVarLocalPickData = _.map(jVarLocalNewData, "Credit");
-
-    return jVarLocalFilteredData;
-};
-
-let StartFunc = () => {
-    let jVarLocalFilteredTableId = document.getElementById("FilteredTableId");
-
     let jVarLocalNewData = JSON.parse(JSON.stringify(jVarGlobalPresentViewData));
 
-    let jVarLocalFilteredData = jFLocalFiterData({ inData: jVarLocalNewData });
+    let jVarlocalTableData = jVarLocalNewData[0].KData.TableData;
+    let jVarLocalFilteredTableId = document.getElementById("FilteredTableId");
+    let jVarLocalFilteredData = _.filter(jVarlocalTableData, jVarLocalFilterObject);
+    let jVarLocalSortedData = _.sortBy(jVarLocalFilteredData, "Date");
 
-    let jVarLocalPickData = _.map(jVarLocalFilteredData, function (object) {
-        return _.pick(object, ['AccountName', 'Credit']);
-    });
+    jVarLocalNewData[0].KData.TableData = jVarLocalSortedData;
 
-    // let jVarLocalSortedData = _.sortBy(jVarLocalFilteredData, "Date");
+    LocalChangeTableColumns({ inTableColumns: jVarLocalNewData[0].KData.TableColumns });
 
-    // jVarLocalNewData[0].KData.TableData = jVarLocalSortedData;
+    let jVarLocalFromCondition = jFConditionsShowData({ inData: jVarLocalNewData });
 
-
-
-    // LocalChangeTableColumns({ inTableColumns: jVarLocalNewData[0].KData.TableColumns });
-
-    // let jVarLocalToShowData = KeshavSoftCrud.BuildFromArray(jVarLocalNewData);
-
-    let jVarLocalToShowData = [];
-
-    jVarLocalToShowData.push({
-        HTMLControlType: "TableFromData",
-        KData: {
-            TableData: jVarLocalPickData
-        }
-    });
-    console.log("jVarLocalNewData : ", jVarLocalFilteredData);
+    let jVarLocalToShowData = KeshavSoftCrud.BuildFromArray(jVarLocalFromCondition);
+    
     jVarGlobalKeshavSoftLocalFuncsObject.AppendToDOM.RequiredHtml({
         inData: jVarLocalToShowData,
         inHtmlParent: jVarLocalFilteredTableId
@@ -92,6 +71,11 @@ let LocalChangeTableColumns = ({ inTableColumns }) => {
 
         LocalFind.ShowInTable = jVarLocalChecks[i].checked;
     }
+};
+
+let StartFunc = () => {
+    let jVarLocalFilerButton = document.getElementById("FilterDataId");
+    jVarLocalFilerButton.addEventListener("click", LocalShowData);
 };
 
 export { StartFunc }

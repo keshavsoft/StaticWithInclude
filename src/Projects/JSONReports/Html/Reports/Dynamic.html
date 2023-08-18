@@ -218,6 +218,7 @@
 
         </div>
 
+       
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Filters</button>
@@ -232,6 +233,9 @@
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Filtered
                     Data</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="Immute-tab" data-bs-toggle="tab" data-bs-target="#Immute-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Immute Data</button>
             </li>
         </ul>
         <div class="tab-content" id="myTabContent">
@@ -303,7 +307,7 @@
 
                 <button type="button" id="ConditionsButtonId" onclick="jFConditionsShowData(event)" class="btn btn-primary">Filter Data</button>
             </div>
-            <div class="tab-pane fade show active" id="Columns-tab-pane" role="tabpanel" aria-labelledby="Columns-tab" tabindex="0">
+            <div class="tab-pane fade" id="Columns-tab-pane" role="tabpanel" aria-labelledby="Columns-tab" tabindex="0">
                 <table class="table">
                     <thead>
                         <tr>
@@ -326,7 +330,16 @@
 
                 </div>
             </div>
-            <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">...</div>
+            <div class="tab-pane fade" id="Immute-tab-pane" role="tabpanel" aria-labelledby="Immute-tab" tabindex="0">
+                <div class="row">
+                    <div class="col">
+                        <button type="button" id="ImmuteShowButtonId" class="btn btn-primary">Show Immute Data</button>
+                    </div>
+                </div>
+                <div id="ImmuteTableId">
+
+                </div>
+            </div>
         </div>
 
     </div>
