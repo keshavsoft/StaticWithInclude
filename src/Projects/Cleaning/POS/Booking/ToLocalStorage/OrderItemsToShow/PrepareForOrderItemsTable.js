@@ -22,6 +22,4 @@ let LocalFuncClubData = () => {
     localStorage.setItem(jVarLocalStorageKey, JSON.stringify(jVarLocalToShowData));
 };
 
-
-
 export { StartFunc };

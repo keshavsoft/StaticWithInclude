@@ -1,8 +1,10 @@
 import CommonKeys from "../Keys.json" assert { type: "json" };
+import { StartFunc as StartFuncOrderItemsToShow } from "../OrderItemsToShow/PrepareForOrderItemsTable.js";
 
 let StartFunc = ({ inData }) => {
-    console.log("inData99",inData);
     localStorage.setItem(CommonKeys.ItemsInOrder, JSON.stringify(inData));
+
+    StartFuncOrderItemsToShow();
 };
 
 export { StartFunc };
