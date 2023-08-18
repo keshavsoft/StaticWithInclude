@@ -1,4 +1,4 @@
-const StartFunc = ({ inData }) => {
+const StartFunc = ({ inData, inPk }) => {
     let jVarLocalData = inData;
 
     jFLocalCustomerName({ inOrderInfoCustomerNameId: jVarLocalData.CustomerData.CustomerName });

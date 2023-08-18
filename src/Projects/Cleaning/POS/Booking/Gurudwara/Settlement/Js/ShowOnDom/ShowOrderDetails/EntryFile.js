@@ -12,7 +12,7 @@ const StartFunc = ({ inPk }) => {
     });
 
     StartFuncOrderAmount();
-    StartFuncCommonDetails({ inData: jVarLocalData });
+    StartFuncCommonDetails({ inData: jVarLocalData, inPk });
 };
 
 export { StartFunc };
