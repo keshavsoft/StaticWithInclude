@@ -1,7 +1,9 @@
 // import { StartFunc as StartFuncFromLocalStorage } from "../../../../../../../../../../FromLocalStorage/OrdersData/FromPk.js";
-import { StartFunc as StartFuncFromLocalStorage } from "../../../../../FromLocalStorage/OrdersData/FromPk.js";
+// import { StartFunc as StartFuncFromLocalStorage } from "../../../../../FromLocalStorage/OrdersData/FromPk.js";
+import { StartFunc as StartFuncFromLocalStorage } from "../../../../../FromLocalStorage/OrdersData/FromPkToLocalStorage.js";
+
 import ApiConfigJson from "../../../../ApiConfig.json" assert { type: "json" };
-import { StartFunc as StartFuncPrepareForOrderItemsTable } from "../../../../../ToLocalStorage/OrderItemsToShow/PrepareForOrderItemsTable.js";
+// import { StartFunc as StartFuncPrepareForOrderItemsTable } from "../../../../../ToLocalStorage/OrderItemsToShow/PrepareForOrderItemsTable.js";
 import { StartFunc as StartFuncFromLocalStorageOrderItemsToShow } from "../../../../../FromLocalStorage/OrderItemsToShow/Bulk.js";
 
 const StartFunc = ({ inPk }) => {
@@ -9,17 +11,17 @@ const StartFunc = ({ inPk }) => {
         inPk,
         inBranchName: ApiConfigJson.BranchName
     });
-    StartFuncPrepareForOrderItemsTable();
+    // StartFuncPrepareForOrderItemsTable();
     let jVarLocalDataNeeded = StartFuncFromLocalStorageOrderItemsToShow();
 
-    jFLocalCustomerName({ inOrderInfoCustomerNameId: jVarLocalData.JsonData.CustomerData.CustomerName });
-    jFLocalOrderInfoCustomerMobileId({ inOrderInfoCustomerMobileId: jVarLocalData.JsonData.CustomerData.CustomerMobile });
+    jFLocalCustomerName({ inOrderInfoCustomerNameId: jVarLocalData.CustomerData.CustomerName });
+    jFLocalOrderInfoCustomerMobileId({ inOrderInfoCustomerMobileId: jVarLocalData.CustomerData.CustomerMobile });
     // jFLocalOrderAmount({ inData: jVarLocalData.JsonData });
    
     jFLocalOrderAmount({ inData: jVarLocalDataNeeded.BodyData });
 
-    jFLocalBranchNameId({ inOrderInfoCustomerBranchId: jVarLocalData.JsonData.OrderData.BranchName });
-    jFLocalToInputOrderDate({ inOrderDate: jVarLocalData.JsonData.OrderData.Currentdateandtime });
+    jFLocalBranchNameId({ inOrderInfoCustomerBranchId: jVarLocalData.OrderData.BranchName });
+    jFLocalToInputOrderDate({ inOrderDate: jVarLocalData.OrderData.Currentdateandtime });
     jFLocalOrderNumberId({ inOrderNumberId: inPk });
 };
 
