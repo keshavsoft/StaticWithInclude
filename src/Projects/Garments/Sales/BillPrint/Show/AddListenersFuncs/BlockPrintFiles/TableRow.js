@@ -1,10 +1,6 @@
-const jfInsertToPreDiv = () => {
+const StartFunc = () => {
     let jVarLocalInventoryData = localStorage.getItem("InventoryData");
     let jVarLocalInventoryDataAsJson = JSON.parse(jVarLocalInventoryData);
-
-    // let localTotalAmountId = document.getElementById("TotalAmountId")
-    // let localTotalDiscountId = document.getElementById("TotalDiscountId")
-    // let localTotalNettAmountId = document.getElementById("TotalNettAmountId")
 
     let k1 = document.getElementById("PrintDiv");
     let k2 = document.getElementById("TemplateForGridHeader");
@@ -44,4 +40,4 @@ const jfInsertToPreDiv = () => {
 
 };
 
-export { jfInsertToPreDiv };
+export { StartFunc };
