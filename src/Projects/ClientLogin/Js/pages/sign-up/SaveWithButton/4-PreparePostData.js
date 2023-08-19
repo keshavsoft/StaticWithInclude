@@ -1,9 +1,12 @@
 let StartFunc = () => {
-    var form = document.getElementById("kform1");
-    let jVarLocalFetchPostData = serializeObject(form);
+
+    let jVarLocalShowProcessId = document.getElementById("ShowProcessId");
+    jVarLocalShowProcessId.classList.remove("d-none");
+    var form = document.getElementById('KForm1');
+    var data = serializeObject(form);
 
     return {
-        FormData: jVarLocalFetchPostData
+        data
     };
 };
 
