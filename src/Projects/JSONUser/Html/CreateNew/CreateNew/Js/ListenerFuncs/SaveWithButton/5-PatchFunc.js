@@ -6,7 +6,7 @@ const StartFunc = async ({ inFetchBody,inSubRoute }) => {
     let jFetchUrl = `/${inSubRoute}/Users/Api/Save`;
 
     let jLocalFetchConfig = {
-        method: "PATCH",
+        method: "post",
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
