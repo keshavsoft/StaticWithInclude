@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+	<meta name="generator" content="Hugo 0.88.1">
+	<title>Dashboard Template · Bootstrap v5.1</title>
+
+	<link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/dashboard/">
+
+    <include src="src/components/Projects/JSONUser/HtmlInclude/ToHead.html"></include>
+
+	<style>
+		.bd-placeholder-img {
+			font-size: 1.125rem;
+			text-anchor: middle;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			user-select: none;
+		}
+
+		@media (min-width: 768px) {
+			.bd-placeholder-img-lg {
+				font-size: 3.5rem;
+			}
+		}
+	</style>
+
+
+	<!-- Custom styles for this template -->
+	<link href="../../../css/dashboard.css" rel="stylesheet">
+</head>
+
+<body>
+	<include src="src/components/Projects/JSONUser/headerWithModals.html"></include>
+
+	<div class="container-fluid">
+		<div class="row">
+
+			<include src="src/components/Projects/JSONUser/BoilerPlate/sidebarMenu.html"></include>
+
+			<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+				<div id="KCont1">
+
+					<div class="card">
+						<div class="card-header">
+							<div class="row">
+								<div class="col-4 w-75">
+									<h4>setup Tally</h4>
+								</div>
+								<div class="col-3">
+									<input type="text" name="" id="" placeholder="Search" class="form-control"
+										onkeyup="jFTableSearch(event)">
+								</div>
+
+							</div>
+
+						</div>
+						<div class="card-body">
+							<table class="table">
+								<thead>
+									<tr>
+										<th>#</th>
+										<th>DataKey</th>
+										<th>UserName</th>
+										<th>Password</th>
+										<th>Setup</th>
+									</tr>
+								</thead>
+								<tbody id="KTableBodyId">
+
+								</tbody>
+							</table>
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="modal fade" id="SetupModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+					aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal"
+									aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+								Setup successfull.
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+		</div>
+	</div>
+
+	<script id="HbsTemplateForBody" type="text/x-handlebars">
+		{{#each this}}
+		<tr>
+			<td class="text-center">
+				{{Serial}}
+			</td>
+			<td>{{@key}}</td>
+			<td>{{UserName}}</td>
+			<td>{{PassWord}}</td>
+			<td class="text-right">
+				<button type="button" rel="tooltip" data-pk="{{@key}}"
+                 class="btn btn-outline-primary btn-sm SetupButtonClass">
+					<i class="bi bi-trash"> </i>Setup
+				</button>
+			</td>
+		</tr>
+		{{/each}}
+
+</script>
+
+	<script>
+		Handlebars.registerHelper('ForSNo', function (item) {
+			return item + 1;
+		});
+
+		feather.replace({ 'aria-hidden': 'true' });
+
+
+		let jFTableSearch = (inEvent) => {
+			let jVarLocalCurrentTarget = inEvent.currentTarget;
+			let jVarLocalClosestCard = jVarLocalCurrentTarget.closest(".card");
+			let jVarLocalTableBodyId = jVarLocalClosestCard.querySelector(".card-body table tbody");
+
+			var filter, table, tr, td, i;
+			filter = jVarLocalCurrentTarget.value;
+
+			for (var i = 0, row; row = jVarLocalTableBodyId.rows[i]; i++) {
+				jVarLocalTableBodyId.rows[i].classList.add("d-none");
+
+				for (var j = 0, col; col = row.cells[j]; j++) {
+					if (col.innerHTML.includes(filter)) {
+
+						jVarLocalTableBodyId.rows[i].classList.remove("d-none");
+
+						break;
+					};
+				}
+			}
+		};
+
+	</script>
+	<script src="../../../Js/ForUI/MenuActive.js" type="module"></script>
+	<script src="./Js/FoldersOnly.js" type="module"></script>
+
+</body>
+
+</html>
