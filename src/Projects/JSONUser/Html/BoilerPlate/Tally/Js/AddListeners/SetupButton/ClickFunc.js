@@ -4,7 +4,8 @@ let StartFunc = async (event) => {
     let jVarLocalCurrentTarget = event.currentTarget;
     let LocalDataPK = jVarLocalCurrentTarget.dataset.pk;
 
-    let jVarLocalUrl = `/JSONUser/Users/Api/Setup/FoldersOnly/${LocalDataPK}`;
+    // let jVarLocalUrl = `/JSONUser/Users/Api/Setup/FoldersOnly/${LocalDataPK}`;
+    let jVarLocalUrl = `/JSONUser/Users/Api/SetupByCopy/Tally/FromPk/${LocalDataPK}`;
     let response = await fetch(jVarLocalUrl);
     let data = await response.json();
 
@@ -13,7 +14,6 @@ let StartFunc = async (event) => {
             inPromiseData: data,
             inDataPk: LocalDataPK
         });
-
         // var myModal = new bootstrap.Modal(document.getElementById('SetupModal'), {
         //     keyboard: false
         // });
