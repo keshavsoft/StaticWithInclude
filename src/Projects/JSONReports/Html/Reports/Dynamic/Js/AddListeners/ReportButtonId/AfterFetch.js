@@ -19,6 +19,48 @@ let jFShowFilterTable = () => {
     });
 };
 
+let jFShowColumnOrderTable = () => {
+    let jVarLocalTemplateNewTab = document.getElementById("ColumnOrderTableRow");
+    let jVarLocalFilterTableBody = document.getElementById("ColumnOrderTableBody");
+
+    // let jVarLocalStorageDataAsJson = jVarGlobalPresentViewData;
+
+    // let jVarLocalTableColumns = jVarLocalStorageDataAsJson[0].KData.TableColumns;
+
+    let jVarLocalTableColumns = Object.keys(jVarGlobalPresentViewData[0]);
+
+    jVarLocalTableColumns.forEach((element, LoopIndex) => {
+        let jVarLocalHTMLContent = Handlebars.compile(jVarLocalTemplateNewTab.innerHTML)({
+            Name: element,
+            SNo: LoopIndex + 1,
+            DataAttribute: element
+        });
+
+        jVarLocalFilterTableBody.insertAdjacentHTML("beforeend", jVarLocalHTMLContent);
+    });
+};
+
+let jFShowColumnWidthsTable = () => {
+    let jVarLocalTemplateNewTab = document.getElementById("ColumnWidthsTableRow");
+    let jVarLocalFilterTableBody = document.getElementById("ColumnWidthsTableBody");
+
+    // let jVarLocalStorageDataAsJson = jVarGlobalPresentViewData;
+
+    // let jVarLocalTableColumns = jVarLocalStorageDataAsJson[0].KData.TableColumns;
+
+    let jVarLocalTableColumns = Object.keys(jVarGlobalPresentViewData[0]);
+
+    jVarLocalTableColumns.forEach((element, LoopIndex) => {
+        let jVarLocalHTMLContent = Handlebars.compile(jVarLocalTemplateNewTab.innerHTML)({
+            Name: element,
+            SNo: LoopIndex + 1,
+            DataAttribute: element
+        });
+
+        jVarLocalFilterTableBody.insertAdjacentHTML("beforeend", jVarLocalHTMLContent);
+    });
+};
+
 let jFShowColumnsTable = () => {
     let jVarLocalTemplateNewTab = document.getElementById("ColumnsTableRow");
     let jVarLocalFilterTableBody = document.getElementById("ColumnsTableBody");
@@ -98,6 +140,8 @@ let StartFunc = ({ inResponseAsJson }) => {
 
             jFShowFilterTable();
             jFShowColumnsTable();
+            jFShowColumnOrderTable();
+            jFShowColumnWidthsTable();
             jFShowColumnsInDropdown();
             jFFillDataListForFilters();
         };

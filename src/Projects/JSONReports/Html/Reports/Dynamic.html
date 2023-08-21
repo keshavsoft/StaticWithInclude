@@ -233,7 +233,10 @@
                 <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#ColumnOrder-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Column Order
                 </button>
             </li>
-          
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#ColumnWidths-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Column Widths
+                </button>
+            </li>
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Filtered
                     Data</button>
@@ -337,6 +340,19 @@
                     </tbody>
                 </table>
             </div>
+            <div class="tab-pane fade" id="ColumnWidths-tab-pane" role="tabpanel" aria-labelledby="Columns-tab" tabindex="0">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Column Name</th>
+                            <th scope="col">Column Width</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ColumnWidthsTableBody">
+                    </tbody>
+                </table>
+            </div>
             <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
                 <div class="row">
                     <div class="col">
@@ -412,7 +428,25 @@
     </template>
 
 
+    <template id="ColumnWidthsTableRow">
+        <tr>
+            <th scope="row">{{SNo}}</th>
+            <td>{{Name}}</td>
+            <td>
+                <input type="text" class="form-control SearchInput" aria-describedby="helpId" data-dataattribute="{{DataAttribute}}">
+            </td>
+        </tr>
+    </template>
 
+    <template id="ColumnOrderTableRow">
+        <tr>
+            <th scope="row">{{SNo}}</th>
+            <td>{{Name}}</td>
+            <td>
+                <input type="text" class="form-control SearchInput" aria-describedby="helpId" data-dataattribute="{{DataAttribute}}">
+            </td>
+        </tr>
+    </template>
 
     <footer class="footer mt-auto py-2 bg-light fixed-bottom">
         <div class="container">
