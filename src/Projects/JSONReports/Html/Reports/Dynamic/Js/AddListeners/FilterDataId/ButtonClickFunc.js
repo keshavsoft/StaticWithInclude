@@ -50,20 +50,13 @@ let StartFunc = () => {
     let jVarLocalNewData = JSON.parse(JSON.stringify(jVarGlobalPresentViewData));
 
     let jVarLocalFilteredData = jFLocalFiterData({ inData: jVarLocalNewData });
-
+    let jVarLocalShowColumnsArray = jFLocalShowColumnsArray();
+    console.log("jVarLocalShowColumnsArray",jVarLocalShowColumnsArray);
     let jVarLocalPickData = _.map(jVarLocalFilteredData, function (object) {
-        return _.pick(object, ['AccountName', 'Credit']);
+        // return _.pick(object, ['AccountName', 'Credit']);
+        return _.pick(object, jVarLocalShowColumnsArray);
+
     });
-
-    // let jVarLocalSortedData = _.sortBy(jVarLocalFilteredData, "Date");
-
-    // jVarLocalNewData[0].KData.TableData = jVarLocalSortedData;
-
-
-
-    // LocalChangeTableColumns({ inTableColumns: jVarLocalNewData[0].KData.TableColumns });
-
-    // let jVarLocalToShowData = KeshavSoftCrud.BuildFromArray(jVarLocalNewData);
 
     let jVarLocalToShowData = [];
 
@@ -73,7 +66,7 @@ let StartFunc = () => {
             TableData: jVarLocalPickData
         }
     });
-    console.log("jVarLocalNewData : ", jVarLocalFilteredData);
+
     jVarGlobalKeshavSoftLocalFuncsObject.AppendToDOM.RequiredHtml({
         inData: jVarLocalToShowData,
         inHtmlParent: jVarLocalFilteredTableId
@@ -92,6 +85,21 @@ let LocalChangeTableColumns = ({ inTableColumns }) => {
 
         LocalFind.ShowInTable = jVarLocalChecks[i].checked;
     }
+};
+
+let jFLocalShowColumnsArray = () => {
+    let jVarLocalReturnArray = [];
+    let jVarLocalHtmlId = "ColumnsTableBody";
+    let jVarLocalColumnsTableBody = document.getElementById(jVarLocalHtmlId);
+    let jVarLocalCheckBoxes = jVarLocalColumnsTableBody.querySelectorAll("input[type=checkbox]");
+    console.log("jVarLocalCheckBoxes:", jVarLocalCheckBoxes);
+    for (let i = 0; i < jVarLocalCheckBoxes.length; i++) {
+        if (jVarLocalCheckBoxes[i].checked) {
+            jVarLocalReturnArray.push(jVarLocalCheckBoxes[i].dataset.dataattribute);
+        };
+    }
+    return jVarLocalReturnArray;
+
 };
 
 export { StartFunc }
