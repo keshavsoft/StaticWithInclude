@@ -1,11 +1,11 @@
-import { StartFunc as StartFuncFilterTableBody } from "./FilterTableBody.js";
-import { StartFunc as StartFuncColumnsTableBody } from "./ColumnsTableBody.js";
-import { StartFunc as StartFuncColumnOrderTableBody } from "./ColumnOrderTableBody.js";
-import { StartFunc as StartFuncColumnWidthsTableBody } from "./ColumnWidthsTableBody.js";
-import { StartFunc as StartFuncShowColumnsInDropdown } from "./ShowColumnsInDropdown.js";
-import { StartFunc as StartFuncFillDataListForFilters } from "./FillDataListForFilters.js";
-import { StartFunc as StartFuncColumnDataSortBy } from "./ColumnDataSortBy.js";
-import { StartFunc as StartFuncChangeFunc } from "./ChangeFunc.js";
+import { StartFunc as StartFuncFilterTableBody } from "./FillTabs/FilterTableBody.js";
+import { StartFunc as StartFuncColumnsTableBody } from "./FillTabs/ColumnsTableBody.js";
+import { StartFunc as StartFuncColumnOrderTableBody } from "./FillTabs/ColumnOrderTableBody.js";
+import { StartFunc as StartFuncColumnWidthsTableBody } from "./FillTabs/ColumnWidthsTableBody.js";
+import { StartFunc as StartFuncShowColumnsInDropdown } from "./FillTabs/ShowColumnsInDropdown.js";
+import { StartFunc as StartFuncFillDataListForFilters } from "./FillTabs/FillDataListForFilters.js";
+import { StartFunc as StartFuncColumnDataSortBy } from "./FillTabs/ColumnDataSortBy.js";
+// import { StartFunc as StartFuncChangeFunc } from "./ChangeFunc.js";
 
 let StartFunc = ({ inResponseAsJson }) => {
     let jVarLocalResponseAsJson = inResponseAsJson;
