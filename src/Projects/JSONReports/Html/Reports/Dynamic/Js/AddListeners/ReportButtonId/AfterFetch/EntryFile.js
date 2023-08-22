@@ -4,7 +4,7 @@ import { StartFunc as StartFuncColumnOrderTableBody } from "./ColumnOrderTableBo
 import { StartFunc as StartFuncColumnWidthsTableBody } from "./ColumnWidthsTableBody.js";
 import { StartFunc as StartFuncShowColumnsInDropdown } from "./ShowColumnsInDropdown.js";
 import { StartFunc as StartFuncFillDataListForFilters } from "./FillDataListForFilters.js";
-
+import {StartFunc as StartFuncChangeFunc  } from "./ChangeFunc.js";
 let StartFunc = ({ inResponseAsJson }) => {
     let jVarLocalResponseAsJson = inResponseAsJson;
 
@@ -19,6 +19,7 @@ let StartFunc = ({ inResponseAsJson }) => {
             StartFuncColumnWidthsTableBody();
             StartFuncShowColumnsInDropdown();
             StartFuncFillDataListForFilters();
+            StartFuncChangeFunc();
         };
     };
 };
