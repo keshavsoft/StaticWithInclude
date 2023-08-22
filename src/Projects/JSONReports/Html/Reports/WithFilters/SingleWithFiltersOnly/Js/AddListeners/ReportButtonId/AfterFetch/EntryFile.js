@@ -12,16 +12,29 @@ let StartFunc = ({ inResponseAsJson }) => {
 
     if (jVarLocalResponseAsJson !== null) {
         if (jVarLocalResponseAsJson.KTF) {
+            let jVarLocalJsonToDom = [];
 
-            jVarGlobalPresentViewData = jVarLocalResponseAsJson.DataFromServer;
-            StartFuncFilterTableBody();
-            StartFuncColumnsTableBody();
-            StartFuncColumnOrderTableBody();
-            StartFuncColumnWidthsTableBody();
-            StartFuncColumnDataSortBy();
-            StartFuncShowColumnsInDropdown();
-            StartFuncFillDataListForFilters();
-            StartFuncChangeFunc();
+            jVarLocalJsonToDom.push({
+                HTMLControlType: "Table",
+                KData: jVarLocalResponseAsJson.DataFromServer.KData
+            });
+
+            jVarGlobalPresentViewData = jVarLocalJsonToDom;
+            let jVarLocalTableColumns = jVarGlobalPresentViewData[0].KData.TableColumns;
+            let jVarLocalTableData = jVarGlobalPresentViewData[0].KData.TableData;
+
+            // jVarGlobalPresentViewData = jVarLocalResponseAsJson.DataFromServer;
+            StartFuncFilterTableBody({ inTableColumns: jVarLocalTableColumns });
+            StartFuncColumnsTableBody({ inTableColumns: jVarLocalTableColumns });
+            StartFuncColumnOrderTableBody({ inTableColumns: jVarLocalTableColumns });
+            StartFuncColumnWidthsTableBody({ inTableColumns: jVarLocalTableColumns });
+            StartFuncColumnDataSortBy({ inTableColumns: jVarLocalTableColumns });
+            StartFuncShowColumnsInDropdown({ inTableColumns: jVarLocalTableColumns });
+            StartFuncFillDataListForFilters({
+                inTableColumns: jVarLocalTableColumns,
+                inTableData: jVarLocalTableData
+            });
+            // StartFuncChangeFunc();
         };
     };
 };

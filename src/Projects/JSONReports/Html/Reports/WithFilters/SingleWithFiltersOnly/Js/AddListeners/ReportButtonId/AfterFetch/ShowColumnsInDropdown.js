@@ -1,7 +1,8 @@
-let StartFunc = () => {
+let StartFunc = ({ inTableColumns }) => {
     let jVarLocalStorageDataAsJson = jVarGlobalPresentViewData;
 
-    let jVarLocalTableColumns = jVarLocalStorageDataAsJson.KData.TableColumns;
+    // let jVarLocalTableColumns = jVarLocalStorageDataAsJson.KData.TableColumns;
+    let jVarLocalTableColumns = inTableColumns;
 
     let str = '';
 

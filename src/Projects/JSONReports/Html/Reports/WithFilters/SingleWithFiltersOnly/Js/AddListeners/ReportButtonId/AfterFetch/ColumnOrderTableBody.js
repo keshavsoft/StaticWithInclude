@@ -1,9 +1,11 @@
-let StartFunc = () => {
+let StartFunc = ({ inTableColumns }) => {
     let jVarLocalTemplateNewTab = document.getElementById("ColumnOrderTableRow");
     let jVarLocalFilterTableBody = document.getElementById("ColumnOrderTableBody");
-    let jVarLocalStorageDataAsJson = jVarGlobalPresentViewData;
+    // let jVarLocalStorageDataAsJson = jVarGlobalPresentViewData;
 
-    let jVarLocalTableColumns = jVarLocalStorageDataAsJson.KData.TableColumns;
+    // let jVarLocalTableColumns = jVarLocalStorageDataAsJson.KData.TableColumns;
+
+    let jVarLocalTableColumns = inTableColumns;
 
     jVarLocalTableColumns.forEach((element, LoopIndex) => {
         let jVarLocalHTMLContent = Handlebars.compile(jVarLocalTemplateNewTab.innerHTML)({

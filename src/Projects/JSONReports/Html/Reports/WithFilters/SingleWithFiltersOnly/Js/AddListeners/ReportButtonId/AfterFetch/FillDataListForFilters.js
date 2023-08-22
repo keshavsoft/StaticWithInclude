@@ -1,9 +1,12 @@
-let StartFunc = () => {
+let StartFunc = ({ inTableColumns, inTableData }) => {
 
-    let jVarLocalStorageDataAsJson = jVarGlobalPresentViewData;
+    // let jVarLocalStorageDataAsJson = jVarGlobalPresentViewData;
 
-    let jVarLocalTableColumns = jVarLocalStorageDataAsJson.KData.TableColumns;
-    let jVarLocalTableData = jVarLocalStorageDataAsJson.KData.TableData;
+    // let jVarLocalTableColumns = jVarLocalStorageDataAsJson.KData.TableColumns;
+    // let jVarLocalTableData = jVarLocalStorageDataAsJson.KData.TableData;
+
+    let jVarLocalTableColumns = inTableColumns;
+    let jVarLocalTableData = inTableData;
 
     jVarLocalTableColumns.forEach((element, LoopIndex) => {
         let LoopInsideDataListId = document.getElementById(`DataListForFilter-${LoopIndex + 1}`);
