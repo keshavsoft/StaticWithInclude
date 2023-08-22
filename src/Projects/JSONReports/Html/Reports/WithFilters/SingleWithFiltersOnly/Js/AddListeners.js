@@ -2,7 +2,12 @@
 // import { ReportDetails } from "./ShowOnDom.js";
 //FilterTableBody
 import { StartFunc as StartFuncFilterDataId } from "./AddListeners/FilterDataId/AddListeners.js";
-import { StartFunc as StartFuncReportButtonId } from "./AddListeners/ReportButtonId/AddListeners.js";
+import { StartFunc as StartFuncReportButtonId } from "./AddListeners/ReportButtonId/EntryFile.js";
+
+let StartFunc = () => {
+    StartFuncFilterDataId();
+    StartFuncReportButtonId();
+};
 
 let jFConditionsShowData = ({ inData }) => {
     let jVarLocalFilteredTableId = document.getElementById("FilteredTableId");
@@ -196,7 +201,7 @@ let jFPullFromServerInsertToLocalStorage = (inEvent) => {
 };
 
 
-let StartFunc = () => {
+let StartFunc1 = () => {
     // let jVarLocalFilerButton = document.getElementById("FiterDataId");
     // jVarLocalFilerButton.addEventListener("click", LocalShowData);
 

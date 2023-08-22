@@ -19,6 +19,60 @@ let jFShowFilterTable = () => {
     });
 };
 
+let jFShowColumnOrder = () => {
+    let jVarLocalTemplateNewTab = document.getElementById("ColumnOrderTableRow");
+    let jVarLocalFilterTableBody = document.getElementById("ColumnOrderTableBody");
+    let jVarLocalStorageDataAsJson = jVarGlobalPresentViewData;
+
+    let jVarLocalTableColumns = jVarLocalStorageDataAsJson[0].KData.TableColumns;
+
+    jVarLocalTableColumns.forEach((element, LoopIndex) => {
+        let jVarLocalHTMLContent = Handlebars.compile(jVarLocalTemplateNewTab.innerHTML)({
+            Name: element.DisplayName,
+            SNo: LoopIndex + 1,
+            DataAttribute: element.DataAttribute,
+            ShowInTable: element.ShowInTable
+        });
+        jVarLocalFilterTableBody.insertAdjacentHTML("beforeend", jVarLocalHTMLContent);
+    });
+};
+
+let jFShowColumnWidth = () => {
+    let jVarLocalTemplateNewTab = document.getElementById("ColumnWidthsTableRow");
+    let jVarLocalFilterTableBody = document.getElementById("ColumnWidthsTableBody");
+    let jVarLocalStorageDataAsJson = jVarGlobalPresentViewData;
+
+    let jVarLocalTableColumns = jVarLocalStorageDataAsJson[0].KData.TableColumns;
+
+    jVarLocalTableColumns.forEach((element, LoopIndex) => {
+        let jVarLocalHTMLContent = Handlebars.compile(jVarLocalTemplateNewTab.innerHTML)({
+            Name: element.DisplayName,
+            SNo: LoopIndex + 1,
+            DataAttribute: element.DataAttribute,
+            ShowInTable: element.ShowInTable
+        });
+        jVarLocalFilterTableBody.insertAdjacentHTML("beforeend", jVarLocalHTMLContent);
+    });
+};
+
+let jFShowDataSortBy = () => {
+    let jVarLocalTemplateNewTab = document.getElementById("ColumnWidthsTableRow");
+    let jVarLocalFilterTableBody = document.getElementById("ColumnWidthsTableBody");
+    let jVarLocalStorageDataAsJson = jVarGlobalPresentViewData;
+
+    let jVarLocalTableColumns = jVarLocalStorageDataAsJson[0].KData.TableColumns;
+
+    jVarLocalTableColumns.forEach((element, LoopIndex) => {
+        let jVarLocalHTMLContent = Handlebars.compile(jVarLocalTemplateNewTab.innerHTML)({
+            Name: element.DisplayName,
+            SNo: LoopIndex + 1,
+            DataAttribute: element.DataAttribute,
+            ShowInTable: element.ShowInTable
+        });
+        jVarLocalFilterTableBody.insertAdjacentHTML("beforeend", jVarLocalHTMLContent);
+    });
+};
+
 let jFShowColumnsTable = () => {
     let jVarLocalTemplateNewTab = document.getElementById("ColumnsTableRow");
     let jVarLocalFilterTableBody = document.getElementById("ColumnsTableBody");
@@ -106,6 +160,9 @@ let jFPullFromServerInsertToLocalStorage = (inEvent) => {
                 jFShowColumnsTable();
                 jFShowColumnsInDropdown();
                 jFFillDataListForFilters();
+                jFShowColumnOrder();
+                jFShowColumnWidth();
+                jFShowDataSortBy();
             };
         };
     });
