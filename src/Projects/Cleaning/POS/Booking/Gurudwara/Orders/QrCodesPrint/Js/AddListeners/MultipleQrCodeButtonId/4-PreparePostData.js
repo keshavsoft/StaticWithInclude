@@ -1,4 +1,5 @@
 import PrepareKeysJson from "./PrepareKeys.json" assert {type: 'json'};
+import ApiConfigJson from "../../../../../ApiConfig.json" assert {type: 'json'};
 
 const StartFunc = ({inCurrentTarget}) => {
     let jVarLocalCurrentTarget = inCurrentTarget;
@@ -6,8 +7,9 @@ const StartFunc = ({inCurrentTarget}) => {
         ...PrepareKeysJson
     };
     let jVarLocalRowPk = jVarLocalCurrentTarget.dataset.rowpk;
-    console.log("jVarLocalRowPk",jVarLocalRowPk);
+    let jVarLocalFileNameOnly = ApiConfigJson.JsonFileNameOnly
     jVarLocalBodyData.inValueToCheck.GenerateReference.ReferncePk = jVarLocalRowPk;
+    jVarLocalBodyData.inValueToCheck.GenerateReference.FileNameOnly = jVarLocalFileNameOnly;
 
     return jVarLocalBodyData;
 };

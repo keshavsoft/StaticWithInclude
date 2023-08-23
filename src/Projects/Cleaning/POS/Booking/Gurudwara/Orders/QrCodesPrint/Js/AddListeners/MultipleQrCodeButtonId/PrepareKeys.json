@@ -5,7 +5,8 @@
     "inColumnName": "GenerateReference['ReferncePk']",
     "inValueToCheck": {
         "GenerateReference": {
-            "ReferncePk": ""
+            "ReferncePk": "",
+            "FileNameOnly": ""
         }
     }
 }
