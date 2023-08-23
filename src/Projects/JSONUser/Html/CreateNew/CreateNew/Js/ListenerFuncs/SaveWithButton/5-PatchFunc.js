@@ -11,7 +11,7 @@ const StartFunc = async ({ inFetchBody,inSubRoute }) => {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(inFetchBody)
+        body: JSON.stringify(inFetchBody.FormData)
     };
 
     let response = await fetch(jFetchUrl, jLocalFetchConfig);
