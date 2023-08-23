@@ -1,7 +1,7 @@
 let StartFunc = () => {
     let jVarLocalColumnOrderObject = {};
     // let jVarLocalReturnArray = [];
-    let jVarLocalColumnOrderTableBody = document.getElementById("ColumnOrderTableBody");
+    let jVarLocalColumnOrderTableBody = document.getElementById("DataSortByTableBody");
     let jVarCheckBoxes = jVarLocalColumnOrderTableBody.querySelectorAll('input[type="text"]');
 
     for (let i = 0; i < jVarCheckBoxes.length; i++) {

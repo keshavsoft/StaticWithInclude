@@ -34,7 +34,7 @@ let StartFunc = () => {
     let jVarLocalFilterObject = StartFuncFilterTableBody();
     let jVarLocalColumnsArray = StartFuncShowColumnsArray();
     let jVarLocalColumnOrder = StartFuncColumnOrder();
-
+    console.log("jVarLocalColumnOrder : ", jVarLocalColumnOrder);
     let jVarLocalNewData = JSON.parse(JSON.stringify(jVarGlobalPresentViewData));
 
     let jVarlocalTableData = jVarLocalNewData[0].KData.TableData;
