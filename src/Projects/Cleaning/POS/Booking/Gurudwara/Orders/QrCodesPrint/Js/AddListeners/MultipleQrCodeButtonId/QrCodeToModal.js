@@ -1,13 +1,8 @@
-let jFLocalPullHtml = async () => {
-    let jVarLocalFetchUrl = "./QrCode/Html/QrCodeModalPopUp.html";
-    let response = await fetch(jVarLocalFetchUrl);
-    let data = await response.text();
-    return await data;
-};
 let jFLocalPullHtmlForSingleColumn = async () => {
     let jVarLocalFetchUrl = "./ForHbs/QrCodeModalPopUp.html";
     let response = await fetch(jVarLocalFetchUrl);
     let data = await response.text();
+
     return await data;
 };
 
@@ -16,7 +11,7 @@ let StartFunc = async ({ inData }) => {
     try {
         if (jVarLocalDataNeeded) {
             let jVarLocalModalBody = document.getElementById("ModalBody");
-console.log("jVarLocalModalBody: ",jVarLocalModalBody);
+
             let jVarLocalFromTemplate = await jFLocalPullHtmlForSingleColumn();
 
             var template = Handlebars.compile(jVarLocalFromTemplate);
