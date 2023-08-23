@@ -1,8 +1,11 @@
 import { StartFunc as StartFuncSettlementButtonClass } from "./SettlementButtonClass/EntryFile.js";
-import { StartFunc as StartFuncQRGenerateClass } from "./QRGenerateClass/1-ClickAssign.js";
+import { StartFunc as StartFuncMultipleQrCodeButtonClass } from "./MultipleQrCodeButtonId/EntryFile.js";
+
 let StartFunc = () => {
     StartFuncSettlementButtonClass();
-    StartFuncQRGenerateClass();
+    StartFuncMultipleQrCodeButtonClass();
+    // StartFuncQRGenerateClass();
+
     // let jVarLocalClassName = document.getElementsByClassName("SettlementButtonClass");
 
     // for (let i = 0; i < jVarLocalClassName.length; i++) {
