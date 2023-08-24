@@ -1,7 +1,5 @@
 {{#each this}}
-{{log "this" this}}
-
-<div style="width: 100%; height: 200px;">
+<div style="width: 100%; height: 250px;">
     <div style="text-align: center;" class="col">
         <canvas id="CanvasId-{{@key}}" width="1" height="1" style="border:1px solid #fff;visibility:hidden"></canvas>
     </div>
@@ -12,7 +10,7 @@
     </div>
     <div class="row">
         <div style="text-align: center;" class="col">
-            {{GenerateReference.ReferncePk}}
+           {{pk}}-{{GenerateReference.ReferncePk}}
         </div>
     </div>
     <div class="row">
@@ -22,9 +20,16 @@
     </div>
     <div class="row">
         <div style="text-align: center;" class="col">
-            {{WashType}}@{{@key}}
+            {{WashType}}@{{ItemSerial}}/{{Pcs}}/{{TotalQrCodes}}
         </div>
     </div>
+    <div class="row">
+        <div style="text-align: center;" class="col">
+            {{AddOnDataAsString}}
+        </div>
+    </div>
+
+    
     <div class="row">
         <div style="text-align: center;" class="col">
             {{BookingData.OrderData.Currentdateandtime}}
