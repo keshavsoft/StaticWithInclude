@@ -9,8 +9,6 @@ let StartFunc = ({ inCustomerName, inCustomerMobile}) => {
 
     myUrlWithParams.searchParams.append("CustomerName", inCustomerName);
     myUrlWithParams.searchParams.append("CustomerMobile", inCustomerMobile);
-    myUrlWithParams.searchParams.append("BranchName", inBranchName);
-    myUrlWithParams.searchParams.append("AddNew", jVarLocalAddNew);
 
     window.location.href = myUrlWithParams.href;
 };
