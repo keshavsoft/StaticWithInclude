@@ -1,8 +1,8 @@
 let StartFunc = () => {
     let jVarLocalBody = {
-        inFolderName: "Transactions",
-        inFileNameOnly: "Gurudwara",
-        inItemName: "Orders",
+        FolderName: "Transactions",
+        FileNameOnly: "Gurudwara",
+        ItemName: "Orders",
     };
 
     return jVarLocalBody;
