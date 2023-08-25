@@ -2,9 +2,9 @@ import ApiConfigJson from "./../../../ApiConfig.json" assert {type: 'json'};
 
 let StartFunc = ({ inFromFetch }) => {
     if (inFromFetch.KTF === true) {
-        let MaxOrder = Object.keys(inFromFetch.JsonData)[0];
+        let MaxOrder = inFromFetch.JsonData;
         Swal.fire({
-            title: `Max Order Number is: `,
+            title: `Total Qr Codes is: `,
             text: `${MaxOrder}`
         })
     } else {
