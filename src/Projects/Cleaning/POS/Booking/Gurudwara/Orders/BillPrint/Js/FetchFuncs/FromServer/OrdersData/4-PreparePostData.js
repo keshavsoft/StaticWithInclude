@@ -8,8 +8,8 @@ const StartFunc = () => {
     };
     let jVarLocalRowPk = jFLocalOrderNumber;
     let jVarLocalFileNameOnly = ApiConfigJson.JsonFileNameOnly
-    jVarLocalBodyData.inValueToCheck.GenerateReference.ReferncePk = jVarLocalRowPk;
-    jVarLocalBodyData.inValueToCheck.GenerateReference.FileNameOnly = jVarLocalFileNameOnly;
+    jVarLocalBodyData.inRowPk = jVarLocalRowPk;
+    jVarLocalBodyData.inFileNameOnly = jVarLocalFileNameOnly;
 
     return jVarLocalBodyData;
 };
