@@ -22,3 +22,5 @@ const StartFunc = () => {
 
     jFDeleteCookie(jVarLocalTokenName);
 };
+
+export { StartFunc };
