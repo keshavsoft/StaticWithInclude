@@ -4,7 +4,7 @@ let StartFunc = async ({ inBodyData }) => {
     let jVarLocalBodyData = inBodyData;
 
     // let jVarLocalFetchUrl = `/${ApiConfigJson.ProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/AsObjectWithPK`;
-    let jVarLocalFetchUrl = `/${ApiConfigJson.ProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/FilterData/ByColumn/IsEqual`;
+    let jVarLocalFetchUrl = `/${ApiConfigJson.ProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/FilterData/ByPk/InputPK`;
     let jVarLocalFetchHeaderObject = {
         method: "post",
         headers: {
