@@ -2,13 +2,13 @@
     "TokenName": "KToken",
     "LocalStorageKeyName": "kUserName",
     "ProjectName": "JSONApi",
-    "JsonFileName": "Gurudwara.json",
-    "JsonFileNameOnly": "Gurudwara",
-    "BranchName": "Gurudwara",
+    "JsonFileName": "Kakinada.json",
+    "JsonFileNameOnly": "Kakinada",
+    "BranchName": "Kakinada",
     "ForFetch":{
         "FolderName": "Transactions",
-        "FileNameOnly": "Gurudwara",
-        "JsonFileName": "Gurudwara.json",
+        "FileNameOnly": "Kakinada",
+        "JsonFileName": "Kakinada.json",
         "ItemName": "Orders"
     }
 }

@@ -4,8 +4,6 @@ const StartFunc = async ({ inFetchBody }) => {
     let jVarLocalSubRoute = "JSONUser";
     let jVarLocalFetchBody = inFetchBody;
 
-    console.log("jVarLocalFetchBody : ", jVarLocalFetchBody);
-
     let jVarLocalUserName = jVarLocalFetchBody.FormData.UserName;
     let jVarLocalPassWord = jVarLocalFetchBody.FormData.PassWord;
 
