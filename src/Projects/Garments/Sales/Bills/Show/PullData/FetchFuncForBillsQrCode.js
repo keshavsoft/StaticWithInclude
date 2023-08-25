@@ -9,7 +9,7 @@ let FromNode = async ({ inFolderName, inFileName, inItemName, inRowPK, inProject
             inFileNameOnly: inFileName,
             inItemName: "BillsQrCode",
             inColumnName: "BillPk",
-            inValueToCheck: inRowPK
+            inValueToCheck: { "BillPk": inRowPK }
         };
 
         // let jVarLocalFetchUrl = `/${inProjectName}/API/Data/FromFolder/FromFile/Items/FromDataFolder/AsArrayWithPK`;
