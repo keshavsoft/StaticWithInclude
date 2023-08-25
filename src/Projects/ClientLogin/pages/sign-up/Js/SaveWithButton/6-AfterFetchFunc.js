@@ -1,4 +1,5 @@
 let StartFunc = ({ inFetchData }) => {
+    console.log("inFetchData : ", inFetchData, typeof inFetchData);
     let jVarLocalErrorAlertDiv = document.getElementById("ErrorAlertDiv");
 
     switch (typeof inFetchData) {
@@ -21,13 +22,19 @@ let StartFunc = ({ inFetchData }) => {
                     //      window.location = `/${inSubRoute}/Html/UserData/FromFolders.html`;
                 };
             } else {
-                jVarLocalErrorAlertDiv.innerHTML = jVarLocalErrorAlertDiv.innerHTML = inFetchData.KReason;
+                jVarLocalErrorAlertDiv.innerHTML = inFetchData.KReason;
 
                 jVarLocalErrorAlertDiv.style.display = "";
-                jVarLocalUserName.focus();
+                jFLocalHtmlFocusUserNameId();
             };
             break;
     };
+};
+
+let jFLocalHtmlFocusUserNameId = () => {
+   let jVarLocalHtmlId = 'UserNameId';
+   let jVarLocalUserNameId = document.getElementById(jVarLocalHtmlId);
+   jVarLocalUserNameId.focus();
 };
 
 export { StartFunc };

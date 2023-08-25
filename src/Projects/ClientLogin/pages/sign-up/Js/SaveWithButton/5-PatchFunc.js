@@ -1,8 +1,6 @@
 import { StartFunc as StartFuncAfterFetchFunc } from "./6-AfterFetchFunc.js";
 
-
 const StartFunc = ({ inFetchBody, inProjectName }) => {
-
     let jFetchUrl = `/${inProjectName}/Admin/Api/Create/WithOutPassword`;
 
     let jLocalFetchConfig = {
@@ -25,18 +23,11 @@ const StartFunc = ({ inFetchBody, inProjectName }) => {
                 break;
         };
     }).then(FetchData => {
+        let jVarLocalShowProcessId = document.getElementById("ShowProcessId");
         jVarLocalShowProcessId.classList.add("d-none");
 
         StartFuncAfterFetchFunc({ inFetchData: FetchData });
     });
-
-
-
-
-    // StartFuncAfterFetchFunc({ inFetchData: jVarLocalResponseData });
-
-    // return await response.status;
-
 }
 
 export { StartFunc };

@@ -1,7 +1,7 @@
 let StartFunc = () => {
 
 
-    return false;
+    return true;
 };
 
 export { StartFunc };

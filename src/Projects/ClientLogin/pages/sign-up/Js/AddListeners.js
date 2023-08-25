@@ -4,6 +4,4 @@ const StartFunc = ({ inProjectName }) => {
     StartFuncClickFunc({ inProjectName });
 };
 
-
-
 export { StartFunc };

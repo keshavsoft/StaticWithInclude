@@ -1,12 +1,12 @@
 let StartFunc = () => {
-
     let jVarLocalShowProcessId = document.getElementById("ShowProcessId");
     jVarLocalShowProcessId.classList.remove("d-none");
+
     var form = document.getElementById('KForm1');
     var data = serializeObject(form);
 
     return {
-        data
+        ...data
     };
 };
 

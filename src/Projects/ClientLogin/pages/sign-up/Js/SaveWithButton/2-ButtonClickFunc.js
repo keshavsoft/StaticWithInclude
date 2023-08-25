@@ -3,11 +3,12 @@ import { StartFunc as StartFuncPreparePostData } from "./4-PreparePostData.js";
 import { StartFunc as StartFuncPatchFunc } from "./5-PatchFunc.js";
 
 let StartFunc = ({ inProjectName }) => {
+    let jFLocalFromCheck = StartFuncCheckBeforeFetch();
 
-    if (StartFuncCheckBeforeFetch) {
+    if (jFLocalFromCheck) {
         let jVarLocalPreparePostData = StartFuncPreparePostData();
-        StartFuncPatchFunc({ inFetchBody: jVarLocalPreparePostData, inProjectName });
 
+        StartFuncPatchFunc({ inFetchBody: jVarLocalPreparePostData, inProjectName });
     };
 };
 
