@@ -1,0 +1,45 @@
+{{#each this}}
+<div style="width: 100%; height: 250px;">
+    <div style="text-align: center;" class="col">
+        <canvas id="CanvasId-{{@key}}" width="1" height="1" style="border:1px solid #fff;visibility:hidden"></canvas>
+    </div>
+    <div class="row">
+        <div style="text-align: center;" class="col">
+            {{BookingData.OrderData.BranchName}}-{{location}}
+        </div>
+    </div>
+    <div class="row">
+        <div style="text-align: center;" class="col">
+           {{pk}}-{{GenerateReference.ReferncePk}}
+        </div>
+    </div>
+    <div class="row">
+        <div style="text-align: center;" class="col">
+            {{ItemName}}
+        </div>
+    </div>
+    <div class="row">
+        <div style="text-align: center;" class="col">
+            {{WashType}}@{{ItemSerial}}/{{Pcs}}/{{TotalQrCodes}}
+        </div>
+    </div>
+    <div class="row">
+        <div style="text-align: center;" class="col">
+            {{AddOnDataAsString}}
+        </div>
+    </div>
+
+    
+    <div class="row">
+        <div style="text-align: center;" class="col">
+            {{BookingData.OrderData.Currentdateandtime}}
+        </div>
+    </div>
+    <div class="row">
+        <div style="text-align: center;" class="col">
+            {{DeliveryDateTime}}
+        </div>
+    </div>
+
+</div>
+{{/each}}
