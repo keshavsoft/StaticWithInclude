@@ -8,11 +8,19 @@ const StartFunc = () => {
     StartFuncFormLoadBeforeAdmin();
 
     let jVarLocalFromAdmin = StartFuncAdminData();
-
-    if (jVarLocalFromAdmin) {
-        StartFuncFormLoad();
-        StartFuncAddListeners();
+    
+    if (jVarLocalFromAdmin === false) {
+        return;
+        // jFLocalHtmlFocusKPasswordInput();
     };
+
+    StartFuncFormLoad();
+    StartFuncAddListeners();
+
+    // if (jVarLocalFromAdmin) {
+    //     StartFuncFormLoad();
+    //     StartFuncAddListeners();
+    // };
 };
 
 StartFunc();
