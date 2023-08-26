@@ -7,7 +7,8 @@ let FromNode = async ({ inProjectName, inValueToCheck }) => {
             inFileNameOnly: "Generate",
             inItemName: "Barcodes",
             inColumnName: "PurchasePk",
-            inValueToCheck
+            inValueToCheck: {"pk": inValueToCheck}
+            // inValueToCheck
         };
 
         // let jVarLocalFetchUrl = `/${inProjectName}/API/Data/FromFolder/FromFile/Items/FromDataFolder/RowData`;
