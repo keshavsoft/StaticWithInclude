@@ -64,76 +64,76 @@
 
     <main>
         <div id="KCont1" class="container">
-
             <div class="container">
-                <div style="width: 100%; height: 1000px;">
-                    <div style="text-align: center;" class="col">
-                        <canvas id="CanvasId-{{@key}}" width="1" height="1"
-                            style="border:1px solid #fff;visibility:hidden"></canvas>
-                    </div>
-                    <div class="row">
+                <div class="row">
+                    <div class="col">
                         <div style="text-align: center;" class="col">
-                            Ultra Washtex Pvt Ltd
+                            <canvas id="CanvasId-{{@key}}" width="1" height="1"
+                                style="border:1px solid #fff;visibility:hidden"></canvas>
                         </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div style="text-align: left;" class="col">
-                            Store Contact: 8790902823
-                        </div>
-                        <div style="text-align: right;" class="col">
-                            GSTIN: 37AABCU0026A1Z2
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col">
-                            <div class="row">
-                                <div class="col">BillNumber:</div>
-                                <div class="col"><label id="BillNumberid">0</label></div>
-                            </div>
-                            <div class="row">
-                                <div class="col">Name:</div>
-                                <div class="col"><label id="CustomerNameid">Name</label></div>
-                            </div>
-                            <div class="row">
-                                <div class="col">Mobile Number:</div>
-                                <div class="col"><label id="MobileNumberid">Mobile</label></div>
-                            </div>
-                            <div class="row">
-                                <div class="col">GST No:</div>
-                                <div class="col"><label id="GSTNo">No GST Number</label></div>
+                        <div class="row">
+                            <div style="text-align: center;" class="col">
+                                Ultra Washtex Pvt Ltd
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="row">
-                                <div class="col">Booking Date: </div>
-                                <div class="col"><label id="BookingDateid">Booking Date</label></div>
+                        <hr>
+                        <div class="row">
+                            <div style="text-align: left;" class="col">
+                                Store Contact: 8790902823
                             </div>
-                            <div class="row">
-                                <div class="col">Payment:</div>
-                                <div class="col"><label id="Paymentid">Google Pay</label></div>
+                            <div style="text-align: right;" class="col">
+                                GSTIN: 37AABCU0026A1Z2
                             </div>
                         </div>
-                    </div>
-                    <hr>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>ItemName@Service@Remarks</th>
-                                <th>Quantity</th>
-                                <th>Total Amount</th>
-                                <th>Delivery Date</th>
-                            </tr>
-                        </thead>
-                        <tbody id="ItemNamesBodyId">
-                            <tr>
+                        <hr>
+                        <div class="row">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">BillNumber:</div>
+                                    <div class="col"><label id="BillNumberid">0</label></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">Name:</div>
+                                    <div class="col"><label id="CustomerNameid">Name</label></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">Mobile Number:</div>
+                                    <div class="col"><label id="MobileNumberid">Mobile</label></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">GST No:</div>
+                                    <div class="col"><label id="GSTNo">No GST Number</label></div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">Booking Date: </div>
+                                    <div class="col"><label id="BookingDateid">Booking Date</label></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">Payment:</div>
+                                    <div class="col"><label id="Paymentid">Google Pay</label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>ItemName@Service@Remarks</th>
+                                    <th>Quantity</th>
+                                    <th>Total Amount</th>
+                                    <th>Delivery Date</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ItemNamesBodyId">
+                                <tr>
 
-                            </tr>
-                        </tbody>
+                                </tr>
+                            </tbody>
 
-                    </table>
-                    <!-- <div class="row">
+                        </table>
+                        <!-- <div class="row">
                         <div class="col">
                             <div class="row">
                                 <div style="text-align: center;" class="col">
@@ -171,74 +171,45 @@
                             </div>
                         </div>
                     </div> -->
-                    <hr>
-                    <div class="row">
-                        <div class="col">
-                            <div class="row">
-                                <div class="col">Total Pieces:</div>
-                                <div class="col"><label id="TotalPiecesid">Total Pieces</label></div>
-                            </div>
-                            <div class="row">
-                                <div class="col">Total Price:</div>
-                                <div class="col"><label id="TotalPriceid">Total Price</label></div>
-                            </div>
-                            <div class="row">
-                                <div class="col">Discount Amount</div>
-                                <div class="col"><label id="DiscountAmountId">Discount Amount</label></div>
-                            </div>
-                            <div class="row">
-                                <div class="col">Net Price:</div>
-                                <div class="col"><label id="NetPriceid">Net Price:</label></div>
-                            </div>
-                            <div class="row">
-                                <div class="col">CGST (9%)</div>
-                                <div class="col"><label id="CGSTid">CGST (9%)</label></div>
-                            </div>
-                            <div class="row">
-                                <div class="col">SGST (9%)</div>
-                                <div class="col"><label id="SGSTid">SGST (9%)</label></div>
-                            </div>
-                            <div class="row">
-                                <div class="col">RoundOff</div>
-                                <div class="col"><label id="RoundOffid">RoundOff</label></div>
-                            </div>
-                            <div class="row">
-                                <div class="col">Grand Total:</div>
-                                <div class="col"><label id="GrandTotalid">Grand Total:</label></div>
+                        <hr>
+                        <div class="row">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">Total Pieces:</div>
+                                    <div class="col"><label id="TotalPiecesid">Total Pieces</label></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">Total Price:</div>
+                                    <div class="col"><label id="TotalPriceid">Total Price</label></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">Discount Amount</div>
+                                    <div class="col"><label id="DiscountAmountId">Discount Amount</label></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">Net Price:</div>
+                                    <div class="col"><label id="NetPriceid">Net Price:</label></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">CGST (9%)</div>
+                                    <div class="col"><label id="CGSTid">CGST (9%)</label></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">SGST (9%)</div>
+                                    <div class="col"><label id="SGSTid">SGST (9%)</label></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">RoundOff</div>
+                                    <div class="col"><label id="RoundOffid">RoundOff</label></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">Grand Total:</div>
+                                    <div class="col"><label id="GrandTotalid">Grand Total:</label></div>
+                                </div>
                             </div>
                         </div>
+
                     </div>
-                    <!-- <div class="col">
-                        <div style="text-align: right;" class="row">
-                            Total Pieces: {{TotalQrCodes}}
-                        </div>
-                        <div style="text-align: right;" class="row">
-                            Total Price: {{BookingData.CheckOutData.CardAmount}} +
-                            {{BookingData.CheckOutData.CashAmount}} +
-                            {{BookingData.CheckOutData.UPIAmount}}
-                        </div>
-                        <div style="text-align: right;" class="row">
-                            Discount: {{BookingData.CheckOutData.GstData.DiscountAmount}}
-                        </div>
-                        <div style="text-align: right;" class="row">
-                            Net Price: {{BookingData.CheckOutData.CardAmount}} + {{BookingData.CheckOutData.CashAmount}}
-                            +
-                            {{BookingData.CheckOutData.UPIAmount}}
-                        </div>
-                        <div style="text-align: right;" class="row">
-                            CGST (9%): {{BookingData.CheckOutData.GstData.CGST}}
-                        </div>
-                        <div style="text-align: right;" class="row">
-                            SGST (9%): {{BookingData.CheckOutData.GstData.SGST}}
-                        </div>
-                        <div style="text-align: right;" class="row">
-                            Grand Total: {{BookingData.CheckOutData.CardAmount}} +
-                            {{BookingData.CheckOutData.CashAmount}} +
-                            {{BookingData.CheckOutData.UPIAmount}}
-                        </div>
-
-                    </div> -->
-
                 </div>
             </div>
 
@@ -247,127 +218,6 @@
 
 
         </div>
-
-        <!-- <div class="container">
-            <div style="width: 100%; height: 1000px;">
-                <div style="text-align: center;" class="col">
-                    <canvas id="CanvasId-{{@key}}" width="1" height="1"
-                        style="border:1px solid #fff;visibility:hidden"></canvas>
-                </div>
-                <div class="row">
-                    <div style="text-align: center;" class="col">
-                        Ultra Washtex Pvt Ltd
-                    </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div style="text-align: left;" class="col">
-                        Store Contact: 8790902823
-                    </div>
-                    <div style="text-align: right;" class="col">
-                        GSTIN: 37AABCU0026A1Z2
-                    </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col">
-                        <div style="text-align: left;" class="row">
-                            BillNumber: {{GenerateReference.ReferncePk}}
-                        </div>
-                        <div style="text-align: left;" class="row">
-                            Name: {{BookingData.CustomerData.CustomerName}}
-                        </div>
-                        <div style="text-align: left;" class="row">
-                            Mobile Number: {{BookingData.CustomerData.CustomerMobile}}
-                        </div>
-                        <div style="text-align: left;" class="row">
-                            GST No: No GST Number
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div style="text-align: left;" class="row">
-                            Booking Date: {{BookingData.OrderData.Currentdateandtime}}
-                        </div>
-                        <div style="text-align: left;" class="row">
-                            Delivery Date: {{DeliveryDateTime}}
-                        </div>
-                        <div style="text-align: left;" class="row">
-                            Payment: Google Pay
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col">
-                        <div class="row">
-                            <div style="text-align: center;" class="col">
-                                ItemName@Service@Remarks
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div style="text-align: center;" class="col">
-                                {{ItemName}}@{{Rate}}@{{AddOnDataAsString}}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="row">
-                            <div style="text-align: center;" class="col">
-                                Quantity
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div style="text-align: center;" class="col">
-                                {{Pcs}}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="row">
-                            <div style="text-align: center;" class="col">
-                                Total Amount
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div style="text-align: center;" class="col">
-                                {{Total}}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <div class="col">
-                    <div style="text-align: right;" class="row">
-                        Total Pieces: {{TotalQrCodes}}
-                    </div>
-                    <div style="text-align: right;" class="row">
-                        Total Price: {{BookingData.CheckOutData.CardAmount}} + {{BookingData.CheckOutData.CashAmount}} +
-                        {{BookingData.CheckOutData.UPIAmount}}
-                    </div>
-                    <div style="text-align: right;" class="row">
-                        Discount: {{BookingData.CheckOutData.GstData.DiscountAmount}}
-                    </div>
-                    <div style="text-align: right;" class="row">
-                        Net Price: {{BookingData.CheckOutData.CardAmount}} + {{BookingData.CheckOutData.CashAmount}} +
-                        {{BookingData.CheckOutData.UPIAmount}}
-                    </div>
-                    <div style="text-align: right;" class="row">
-                        CGST (9%): {{BookingData.CheckOutData.GstData.CGST}}
-                    </div>
-                    <div style="text-align: right;" class="row">
-                        SGST (9%): {{BookingData.CheckOutData.GstData.SGST}}
-                    </div>
-                    <div style="text-align: right;" class="row">
-                        Grand Total: {{BookingData.CheckOutData.CardAmount}} + {{BookingData.CheckOutData.CashAmount}} +
-                        {{BookingData.CheckOutData.UPIAmount}}
-                    </div>
-
-                </div>
-
-            </div>
-        </div> -->
-
-
     </main>
 
 
@@ -418,66 +268,7 @@
             </td>
         </tr>
     </template>
-    <script id="HbsTemplateForTableRowId" type="text/x-handlebars">
-                {{#each this}}
-                {{log "this" this}}
-
-                <tr class="{{RowClass}}" data-foldername="{{FolderName}}">
-                    <td class="text-center">
-                        {{ForSNo @index}}
-                    </td>
-                    <td>
-                        {{ForSNo @index}}
-                    </td>
-                    <td>
-                        {{CustomerData.CustomerName}}
-                    </td>
-                    <td>
-                        {{OrderData.BranchName}}
-                    </td>
-                    <td>
-                        {{CustomerData.CustomerMobile}}
-                    </td>
-                    <td>
-                        {{OrderData.Currentdateandtime}}
-                    </td>
-                    <td>
-                        <a href="../../OrderWithoutCheckout/OrderWithoutCheckout.html?OrderNumber={{@key}}" class="btn btn-success" >Show Order</a>
-                    </td>
-                    <td>
-                        <a href="#" data-ordernumber="{{@key}}" class="btn btn-danger SettlementButtonClass" >Settlement</a>
-                    </td>
-                    <td>
-                        <a href="#" data-rowpk="{{@key}}" class="btn btn-primary MultipleQrCodeButtonClass">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-printer-fill" viewBox="0 0 16 16">
-                                <path d="M5 1a2 2 0 0 0-2 2v1h10V3a2 2 0 0 0-2-2H5zm6 8H5a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1z"/>
-                                <path d="M0 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-1v-2a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2H2a2 2 0 0 1-2-2V7zm2.5 1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
-                              </svg>
-                            </a>
-                    </td>
-                   
-                    <td style="text-align:right">
-                        {{DryWashRate}}
-                    </td>
-                <td  style="text-align:right">
-                    {{Pcs}}
-                </td>
-                </tr>
-
-               
-                </tr>
-                {{/each}}
-</script>
-    <script id="HbsTemplateForFoldersOnly" type="text/x-handlebars">
-        {{#each this}}
-       
-   
-    {{log "this::" this}}
-
-        
-    {{/each}}
-</script>
-
+    
     <script>
 
 
