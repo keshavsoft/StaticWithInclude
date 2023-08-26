@@ -7,7 +7,8 @@ let FromNode = async ({ inRowPK, inProjectName }) => {
             inFolderName: "Sales",
             inItemName: "BillsQrCode",
             inColumnName: "pk",
-            inValueToCheck: inRowPK
+            inValueToCheck: {"pk": inRowPK}
+            // inValueToCheck: inRowPK
         };
 
         let jVarLocalFetchUrl = `/${inProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/FilterData/ByColumn/IsEqual`;
