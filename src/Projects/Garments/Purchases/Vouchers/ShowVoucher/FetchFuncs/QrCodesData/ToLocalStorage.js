@@ -10,7 +10,7 @@ let StartFunc = async ({ inProjectName }) => {
         inFileNameOnly: "Generate",
         inItemName: "Barcodes",
         inColumnName: "PurchasePk",
-        inValueToCheck: localurlSearchParams
+        inValueToCheck: {"PurchasePk": localurlSearchParams}
     });
 
     if (jVarLocalData.KTF) {
