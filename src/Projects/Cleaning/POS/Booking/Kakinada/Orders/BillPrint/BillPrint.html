@@ -65,8 +65,8 @@
     <main>
         <div id="KCont1" class="container">
             <div class="container">
-                <div class="row">
-                    <div class="col">
+                <div class="row" id="KCont1RowId">
+                    <div class="col" id="KCont1ColId">
                         <div style="text-align: center;" class="col">
                             <canvas id="CanvasId-{{@key}}" width="1" height="1"
                                 style="border:1px solid #fff;visibility:hidden"></canvas>
@@ -210,6 +210,8 @@
                         </div>
 
                     </div>
+
+
                 </div>
             </div>
 
@@ -219,7 +221,18 @@
 
         </div>
     </main>
-
+    <script>
+        let StartFunc = () =>{
+        let OriginalColId = document.getElementById("KCont1ColId");
+        let OriginalInner = OriginalColId.innerHTML;
+        let DupplicateColId = document.createElement("div");
+        DupplicateColId.setAttribute('class', 'col');
+        DupplicateColId.setAttribute('id', 'KCont2ColId');
+        DupplicateColId.innerHTML = OriginalInner;
+        let MainRowId = document.getElementById("KCont1RowId");
+        MainRowId.appendChild(DupplicateColId);
+        };
+    </script>
 
     <div class="modal fade" id="ModalForQrCode" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
         style="display: none;">
@@ -268,7 +281,7 @@
             </td>
         </tr>
     </template>
-    
+
     <script>
 
 
