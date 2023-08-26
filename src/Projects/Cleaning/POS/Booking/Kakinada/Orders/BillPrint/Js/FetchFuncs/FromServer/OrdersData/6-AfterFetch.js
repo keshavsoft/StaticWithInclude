@@ -34,5 +34,17 @@ let StartFunc = ({ inFromFetch }) => {
         inCardAmount: CardAmount,
         inUPIAmount: UPIAmount
     });
+    jFLocalDuplicateBillOnDom();
 };
+
+let jFLocalDuplicateBillOnDom = () =>{
+    let OriginalColId = document.getElementById("KCont1ColId");
+    let OriginalInner = OriginalColId.innerHTML;
+    let DupplicateColId = document.createElement("div");
+    DupplicateColId.setAttribute('class', 'col');
+    DupplicateColId.setAttribute('id', 'KCont2ColId');
+    DupplicateColId.innerHTML = OriginalInner;
+    let MainRowId = document.getElementById("KCont1RowId");
+    MainRowId.appendChild(DupplicateColId);
+    };
 export { StartFunc };
