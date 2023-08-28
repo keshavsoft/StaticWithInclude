@@ -30,6 +30,7 @@
     </svg>
 
     <include src="./src/components/Cleaning/POS/Booking/Orders/OrdersShowTemplate.html"></include>
+    
 
     <div class="modal fade" id="LoginModalId" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -66,7 +67,7 @@
         <div id="KCont1" class="container">
             <div class="container">
                 <div class="row" id="KCont1RowId">
-                    <div class="col" id="KCont1ColId">
+                    <div class="col-6" id="KCont1ColId">
                         <div style="text-align: center;" class="col">
                             <canvas id="CanvasId-{{@key}}" width="1" height="1"
                                 style="border:1px solid #fff;visibility:hidden"></canvas>
@@ -120,10 +121,10 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>ItemName@Service@Remarks</th>
-                                    <th>Quantity</th>
-                                    <th>Total Amount</th>
-                                    <th>Delivery Date</th>
+                                    <th width="50%">ItemName</th>
+                                    <th width="10%">Quantity</th>
+                                    <th width="20%">Total Amount</th>
+                                    <th width="20%">Delivery Date</th>
                                 </tr>
                             </thead>
                             <tbody id="ItemNamesBodyId">
@@ -222,15 +223,15 @@
         </div>
     </main>
     <script>
-        let StartFunc = () =>{
-        let OriginalColId = document.getElementById("KCont1ColId");
-        let OriginalInner = OriginalColId.innerHTML;
-        let DupplicateColId = document.createElement("div");
-        DupplicateColId.setAttribute('class', 'col');
-        DupplicateColId.setAttribute('id', 'KCont2ColId');
-        DupplicateColId.innerHTML = OriginalInner;
-        let MainRowId = document.getElementById("KCont1RowId");
-        MainRowId.appendChild(DupplicateColId);
+        let StartFunc = () => {
+            let OriginalColId = document.getElementById("KCont1ColId");
+            let OriginalInner = OriginalColId.innerHTML;
+            let DupplicateColId = document.createElement("div");
+            DupplicateColId.setAttribute('class', 'col');
+            DupplicateColId.setAttribute('id', 'KCont2ColId');
+            DupplicateColId.innerHTML = OriginalInner;
+            let MainRowId = document.getElementById("KCont1RowId");
+            MainRowId.appendChild(DupplicateColId);
         };
     </script>
 
