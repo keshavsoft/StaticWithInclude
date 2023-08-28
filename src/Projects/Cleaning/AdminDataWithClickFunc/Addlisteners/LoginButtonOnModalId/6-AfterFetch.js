@@ -1,7 +1,7 @@
 // import { StartFunc as StartFuncFormLoad } from "../../../FormLoad/StartFunc.js";
-let StartFunc = ({ inFromFetch, inFormLoadFuncToRun }) => {
+let StartFunc = ({ inFromFetch, inFormLoadFuncToRun, inBodyData }) => {
     if (inFromFetch.KTF) {
-        let inUserName = inFromFetch.inUserName;
+        let inUserName = inBodyData.inUserName;
 
         var myModalEl = document.getElementById('LoginModalId');
 

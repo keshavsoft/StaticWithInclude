@@ -9,7 +9,7 @@ let StartFunc = async ({ inFormLoadFuncToRun }) => {
 
         let response = await StartFuncFetchFunc({ inBodyData: jVarLocalBodyData });
 
-        StartFuncAfterFetch({ inFromFetch: response, inFormLoadFuncToRun });
+        StartFuncAfterFetch({ inFromFetch: response, inFormLoadFuncToRun, inBodyData: jVarLocalBodyData  });
     };
 };
 
