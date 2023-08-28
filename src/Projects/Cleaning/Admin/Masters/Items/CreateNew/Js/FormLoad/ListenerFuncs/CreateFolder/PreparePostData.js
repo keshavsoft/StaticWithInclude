@@ -1,4 +1,16 @@
+import PrepareBodyJson from "./PrepareBody.json" assert {type: 'json'};
+
 let StartFunc = () => {
+    
+    let jVarLocalBodyData = {};
+    jVarLocalBodyData ={
+        ...PrepareBodyJson
+    }
+
+    return jVarLocalBodyData;
+};
+
+let StartFunc1 = () => {
     let jVarLocalHtmlId = "CreateFolderInputId";
     let jVarCreateFolderInputId = document.getElementById(jVarLocalHtmlId);
 
