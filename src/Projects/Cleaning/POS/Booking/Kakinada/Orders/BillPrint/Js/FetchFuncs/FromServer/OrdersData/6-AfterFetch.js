@@ -41,7 +41,7 @@ let jFLocalDuplicateBillOnDom = () =>{
     let OriginalColId = document.getElementById("KCont1ColId");
     let OriginalInner = OriginalColId.innerHTML;
     let DupplicateColId = document.createElement("div");
-    DupplicateColId.setAttribute('class', 'col');
+    DupplicateColId.setAttribute('class', 'col-6');
     DupplicateColId.setAttribute('id', 'KCont2ColId');
     DupplicateColId.innerHTML = OriginalInner;
     let MainRowId = document.getElementById("KCont1RowId");
