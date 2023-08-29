@@ -3,6 +3,7 @@ import { StartFunc as StartFuncShowColumnsArray } from "./ShowColumnsArray.js";
 import { StartFunc as StartFuncColumnOrder } from "./ColumnOrder.js";
 
 let StartFunc = () => {
+    jFLocalShowFilters();
     let jVarLocalFilteredTableId = document.getElementById("FilteredTableId");
 
     let jVarLocalNewData = JSON.parse(JSON.stringify(jVarGlobalPresentViewData));
@@ -21,14 +22,10 @@ let StartFunc = () => {
 
     let jVarLocalFromColumnOrder = StartFuncColumnOrder();
 
-    console.log("jVarLocalShowColumnsArray : ", jVarLocalShowColumnsArray, jVarLocalFromColumnOrder, _.difference(jVarLocalShowColumnsArray, jVarLocalFromColumnOrder));
-
-
     let jVarLocalPickData = _.map(jVarLocalFilteredData, function (object) {
         return _.pick(object, [...jVarLocalFromColumnOrder, ..._.difference(jVarLocalShowColumnsArray, jVarLocalFromColumnOrder)]);
     });
 
-    // console.log("jVarLocalFromColumnOrder : ", jVarLocalFromColumnOrder);
     let jVarLocalToShowData = [];
 
     jVarLocalToShowData.push({
@@ -42,6 +39,36 @@ let StartFunc = () => {
         inData: jVarLocalToShowData,
         inHtmlParent: jVarLocalFilteredTableId
     });
+};
+
+let jFLocalShowFilters = () => {
+    let jVarLocalHtmlIdFilterTableBody = 'FilterTableBody';
+    let jVarLocalFilterTableBody = document.getElementById(jVarLocalHtmlIdFilterTableBody);
+
+    let jVarLocalHtmlId = 'FilterFormId';
+    let jVarLocalFilterFormId = document.getElementById(jVarLocalHtmlId);
+    let jVarLocalFromData = serializeObject(jVarLocalFilterFormId);
+    console.log("jVarLocalFromData : ", jVarLocalFromData, JSON.stringify(jVarLocalFromData));
+
+    let jVarLocalShowFiltersIdHtmlId = 'ShowFiltersId';
+    let jVarLocalShowFiltersId = document.getElementById(jVarLocalShowFiltersIdHtmlId);
+    jVarLocalShowFiltersId.innerHTML = JSON.stringify(_.omitBy(jVarLocalFromData, _.isEmpty));
+};
+
+let serializeObject = (form) => {
+    // Create a new FormData object
+    const formData = new FormData(form);
+
+    // Create an object to hold the name/value pairs
+    const pairs = {};
+
+    // Add each name/value pair to the object
+    for (const [name, value] of formData) {
+        pairs[name] = value;
+    }
+
+    // Return the object
+    return pairs;
 };
 
 export { StartFunc }
