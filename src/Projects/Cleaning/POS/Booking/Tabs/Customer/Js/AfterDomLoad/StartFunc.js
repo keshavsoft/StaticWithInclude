@@ -1,17 +1,20 @@
-import { StartFunc as StartFuncAddlisteners } from "./Addlisteners.js";
+const StartFunc = () => {
+    let jVarLocalFromSave = getUrlQueryParams({ inGetKey: "FromSave" });
+    let jVarLocalSavedPk = getUrlQueryParams({ inGetKey: "SavedPk" });
 
-const StartFunc = ({inProjectName}) => {
-    let jVarLocalFolderCreated = getUrlQueryParams({ inGetKey: "NewFolderName" });
+    if (jVarLocalFromSave) {
+        let jVarLocalHtmlId = "KCont1";
+        let jVarLocalKCont1 = document.getElementById(jVarLocalHtmlId);
+        let jVarLocalFindRow = jVarLocalKCont1.querySelector(`tr[data-pk='${jVarLocalSavedPk}']`);
 
-    let jVarLocalHtmlId = "KCont1";
-    let jVarLocalKCont1 = document.getElementById(jVarLocalHtmlId);
-    let jVarLocalFindRow = jVarLocalKCont1.querySelector(`tr[data-foldername='${jVarLocalFolderCreated}']`);
+        let jVarLocalHtmlSuccessId = 'AlertSuccessId';
+        let jVarLocalAlertSuccessId = document.getElementById(jVarLocalHtmlSuccessId);
 
-    if (jVarLocalFindRow === null === false) {
-        jVarLocalFindRow.classList.add("table-success");
+        if (jVarLocalFindRow === null === false) {
+            jVarLocalFindRow.classList.add("table-success");
+            jVarLocalAlertSuccessId.style.display = "";
+        };
     };
-
-    StartFuncAddlisteners({inProjectName});
 };
 
 let getUrlQueryParams = ({ inGetKey }) => {
