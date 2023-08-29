@@ -30,8 +30,8 @@ const StartFunc = () => {
     let jVarLoopInsideDisCount = jVarLocalInventoryDataAsJson.map(element => {
         return element.DisRate;
     });
-    let jvarLocaltoatalUnitRate = jVarLoopInsideUnitRate.reduce((a, b) => a = b, 0)
-    let jvarLocaltoatalDisRate = jVarLoopInsideDisCount.reduce((a, b) => a = b, 0)
+    let jvarLocaltoatalUnitRate = jVarLoopInsideUnitRate.reduce((a, b) => a + b, 0)
+    let jvarLocaltoatalDisRate = jVarLoopInsideDisCount.reduce((a, b) => a + b, 0)
     let localNetAmount = jvarLocaltoatalUnitRate - jvarLocaltoatalDisRate;
 
     k1.innerHTML += `                     Gross Amount    :   ${jvarLocaltoatalUnitRate}\n`;
