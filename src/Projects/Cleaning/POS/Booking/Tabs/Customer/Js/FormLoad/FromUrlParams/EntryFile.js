@@ -1,10 +1,12 @@
+import { StartFunc as StartFuncFromSave } from "./FromSave/ChangeRowColour/EntryFile.js";
+
 let StartFunc = () => {
-    let jVarLocalCustomer = getUrlQueryParams({ inGetKey: "FromSave"})
+    let jVarLocalCustomer = getUrlQueryParams({ inGetKey: "FromSave" })
 
     if (jVarLocalCustomer === "true") {
         console.log("Hai");
-    }
-
+        StartFuncFromSave({});
+    };
 };
 
 let getUrlQueryParams = ({ inGetKey }) => {
