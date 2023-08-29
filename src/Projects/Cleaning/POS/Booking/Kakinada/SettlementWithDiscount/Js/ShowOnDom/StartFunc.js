@@ -1,9 +1,12 @@
 // import { StartFunc as StartFuncFromLocalStorage } from "../../../../../../../../../FromLocalStorage/OrdersData/FromPk.js";
 // import { StartFunc as StartFuncShowOrderDetails } from "./ShowOrderDetails/StartFunc.js";
 import { StartFunc as StartFuncShowOrderDetails } from "./ShowOrderDetails/EntryFile.js";
+import { StartFunc as StartFuncShowSettlementDetails } from "./ShowSettlementDetails/StartFunc.js";
 
 const StartFunc = ({ inPk }) => {
     StartFuncShowOrderDetails({ inPk });
+    StartFuncShowSettlementDetails({ inPk });
+
 };
 
 const StartFunc1 = ({ inPk }) => {
