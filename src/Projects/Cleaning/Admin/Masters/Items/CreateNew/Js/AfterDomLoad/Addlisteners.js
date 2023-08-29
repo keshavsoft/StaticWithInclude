@@ -1,4 +1,7 @@
-let StartFunc = ({ inProjectName }) => {
+import ApiConfigJson from "../../../../../ApiConfig.json" assert {type: 'json'};
+
+let StartFunc = () => {
+    let inProjectName = ApiConfigJson.ProjectName;
     let jVarLocalDeleteButtonClass = document.getElementsByClassName("DeleteButtonClass");
 
     for (let i = 0; i < jVarLocalDeleteButtonClass.length; i++) {
