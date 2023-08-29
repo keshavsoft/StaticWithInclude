@@ -6,25 +6,21 @@ let StartFunc = () => {
     jVarLocalBodyData ={
         ...PrepareBodyJson
     }
+    jVarLocalBodyData.inDataToSave.Category = jFLocalCategory();
+    jVarLocalBodyData.inDataToSave.ItemName = jFLocalItemName();
+    jVarLocalBodyData.inDataToSave.DryWashRate = jFLocalRate();
+    jVarLocalBodyData.inDataToSave.Pcs = jFLocalPcs();
 
     return jVarLocalBodyData;
 };
 
-let StartFunc1 = () => {
+let jFLocalItemName = () => {
     let jVarLocalHtmlId = "CreateFolderInputId";
     let jVarCreateFolderInputId = document.getElementById(jVarLocalHtmlId);
 
     let jVarLocalFolderName = jVarCreateFolderInputId.value.trim();
 
-    return {
-        // Category: jVarLocalFolderName,
-        ItemName: jVarLocalFolderName,
-        // DryWashRate: jFLocalRate.jVarLocalFolderName,
-        // Pcs: jVarLocalFolderName
-        ...jFLocalCategory(),
-        ...jFLocalRate(),
-        ...jFLocalPcs()
-    };
+    return jVarLocalFolderName
 };
 
 let jFLocalCategory = () => {
@@ -33,9 +29,7 @@ let jFLocalCategory = () => {
 
     let jVarLocalFolderName = jVarCreateFolderInputId.value.trim();
 
-    return {
-        Category: jVarLocalFolderName
-    };
+    return jVarLocalFolderName;
 };
 
 let jFLocalRate = () => {
@@ -44,9 +38,7 @@ let jFLocalRate = () => {
 
     let jVarLocalFolderName = parseInt(jVarCreateFolderInputId.value.trim());
 
-    return {
-        DryWashRate: jVarLocalFolderName
-    };
+    return jVarLocalFolderName
 };
 
 
@@ -56,9 +48,7 @@ let jFLocalPcs = () => {
 
     let jVarLocalFolderName = parseInt(jVarCreateFolderInputId.value.trim());
 
-    return {
-        Pcs: jVarLocalFolderName
-    };
+    return jVarLocalFolderName
 };
 
 export { StartFunc };
