@@ -25,6 +25,8 @@ const StartFunc = ({ inPk }) => {
     jFLocalToInputCashAmountId({ inCashAmountId: jVarLocalData.JsonData.CheckOutData.CashAmount });
     jFLocalToInputUPIAmountId({ inCashAmountId: jVarLocalData.JsonData.CheckOutData.UPIAmount });
     jFLocalToInputCardAmountId({ inCashAmountId: jVarLocalData.JsonData.CheckOutData.CardAmount });
+    jFLocalToInputDiscountPerId({ inDiscountPerId: jVarLocalData.JsonData.CheckOutData.DiscountPer});
+
 };
 
 let jFLocalToInputCashAmountId = ({ inCashAmountId }) => {
@@ -43,6 +45,12 @@ let jFLocalToInputCardAmountId = ({ inCashAmountId }) => {
     let jVarLocalHtmlId = 'CardAmountId';
     let jVarLocalCardAmountId = document.getElementById(jVarLocalHtmlId);
     jVarLocalCardAmountId.value = inCashAmountId;
+};
+
+let jFLocalToInputDiscountPerId = ({ inDiscountPerId }) => {
+    let jVarLocalHtmlId = 'DiscountPerId';
+   let jVarLocalDiscountPerId = document.getElementById(jVarLocalHtmlId);
+   jVarLocalDiscountPerId.value = inDiscountPerId;
 };
 
 export { StartFunc };
