@@ -171,17 +171,31 @@
                         <thead>
                             <tr>
                                 <th width="5%">#</th>
-                                <th width="15%">Category</th>
-                                <th width="35%">Item Name</th>
+                                <th width="20%">Category</th>
+                                <th width="30%">Item Name</th>
                                 <th width="15%" style="text-align:right">Rate</th>
                                 <th width="15%" style="text-align:right">Pcs</th>
                                 <th width="15%"></th>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>
+                                <!-- <td>
                                     <div class="form-group">
                                         <input class="form-control" type="text" id="CategoryInputId" placeholder="Enter Category" autofocus="" value="">
+                                        <div class="invalid-feedback">
+                                            Should not be empty!
+                                        </div>
+                                    </div>
+                                </td> -->
+                                <td>
+                                    <div class="form-group">
+                                        <select class="form-select" id="CategoryInputId" aria-label="Floating label select example" name="Category" autofocus="" value="">
+                                            <option value="Men">Men</option>
+                                            <option value="Women">Women</option>
+                                            <option value="Kids">Kids</option>
+                                            <option value="Household">Household</option>
+                                            <option value="Others">Others</option>
+                                        </select>
                                         <div class="invalid-feedback">
                                             Should not be empty!
                                         </div>
@@ -247,13 +261,11 @@
 
     <script id="HbsTemplateForFoldersOnly" type="text/x-handlebars">
                 {{#each this}}
-                {{log "inside" this}}
                 <tr class="{{RowClass}}" data-pk="{{pk}}">
                     <td class="text-center">
                         {{ForSNo @index}}
                     </td>
                     <td>
-                        {{log "outside" this}}
                         {{Category}}
                     </td>
                     <td>
