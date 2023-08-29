@@ -1,5 +1,5 @@
 // import { StartFunc as StartFuncToLocalStorage } from "../../../../../../../../../../../ToLocalStorage/Items/Single.js";
-import { StartFunc as StartFuncToLocalStorage } from "../../../../../../../../POS/Booking/ToLocalStorage/Items/Single.js";
+// import { StartFunc as StartFuncToLocalStorage } from "../../../../../../../../POS/Booking/ToLocalStorage/Items/Single.js";
 
 import ApiConfigJson from "./../../../../../../../ApiConfig.json" assert {type: 'json'};
 
@@ -22,14 +22,6 @@ let StartFunc = async ({ inBodyData }) => {
     let jVarLocalResponse = await response.json();
 
     return jVarLocalResponse;
-};
-
-let StartFunc1 = ({ inBodyData }) => {
-    return jFToLocalStorage({ inBodyData });
-};
-
-const jFToLocalStorage = ({ inBodyData }) => {
-    return StartFuncToLocalStorage({ inEntry: inBodyData });
 };
 
 export { StartFunc };

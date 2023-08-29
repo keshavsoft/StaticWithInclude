@@ -1,9 +1,15 @@
+import PrepareBodyJson from "./PrepareBody.json" assert {type: 'json'};
+
 let StartFunc = () => {
-    return {
-        ...jFLocalCustomerName(),
-        ...jFLocalMobile(),
-        City: jFLocalCityId()
-    };
+    let jVarLocalBodyData = {};
+    jVarLocalBodyData ={
+        ...PrepareBodyJson
+    }
+    jVarLocalBodyData.inDataToSave.CustomerName = jFLocalCustomerName();
+    jVarLocalBodyData.inDataToSave.Mobile = jFLocalMobile();
+    jVarLocalBodyData.inDataToSave.City = jFLocalCityId();
+
+    return jVarLocalBodyData;
 };
 
 let jFLocalCustomerName = () => {
@@ -12,9 +18,7 @@ let jFLocalCustomerName = () => {
 
     let jVarLocalFolderName = jVarCreateFolderInputId.value.trim();
 
-    return {
-        CustomerName: jVarLocalFolderName
-    };
+    return jVarLocalFolderName
 };
 
 let jFLocalMobile = () => {
@@ -23,9 +27,7 @@ let jFLocalMobile = () => {
 
     let jVarLocalFolderName = jVarCreateFolderInputId.value.trim();
 
-    return {
-        Mobile: jVarLocalFolderName
-    };
+    return jVarLocalFolderName;
 };
 
 let jFLocalCityId = () => {
@@ -33,14 +35,6 @@ let jFLocalCityId = () => {
    let jVarHtmlCityId = document.getElementById(jVarLocalHtmlCityId);
    let jVarHtmlCityIdValue = jVarHtmlCityId.value.trim();
    return jVarHtmlCityIdValue;
-};
-
-let jFLocalCityId1 = () => {
-    let jVarLocalHtmlCityId = "CityId";
-    let jVarHtmlCityId = document.getElementById(jVarLocalHtmlCityId);
-    let jVarHtmlCityIdValue = jVarHtmlCityId.value.trim();
-
-    return jVarHtmlCityIdValue;
 };
 
 export { StartFunc };

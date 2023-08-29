@@ -10,7 +10,6 @@ let StartFunc = async ({ inProjectName }) => {
         let response = await StartFuncFetchFunc({
             inBodyData: jVarLocalBodyData
         });
-        console.log("response90", response);
         StartFuncAfterFetch({ inResponse: response });
 
         // if (response.KTF) {
