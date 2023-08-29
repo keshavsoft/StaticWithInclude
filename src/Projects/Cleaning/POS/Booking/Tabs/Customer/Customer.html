@@ -253,7 +253,7 @@
     <script id="HbsTemplateForFoldersOnly" type="text/x-handlebars">
                 {{#each CustomerNames}}
                 {{log "inside" this}}
-                <tr class="{{RowClass}}" data-foldername="{{FolderName}}">
+                <tr class="{{RowClass}}" data-pk="{{pk}}">
                     <td class="text-center">
                         {{ForSNo @index}}
                     </td>
