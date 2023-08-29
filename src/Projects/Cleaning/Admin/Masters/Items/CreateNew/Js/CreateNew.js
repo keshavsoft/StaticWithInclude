@@ -14,10 +14,8 @@ const StartFunc = () => {
     if (jVarLocalFromAdmin) {
         StartFuncFormLoad({ inProjectName: jVarCommonProjectName });
 
-        StartFuncShowOnDom({ inProjectName: jVarCommonProjectName }).then(() => {
-            // StartFuncAddlisteners({ inProjectName: jVarCommonProjectName });
-
-            // StartFuncAfterDomLoad({ inProjectName: jVarCommonProjectName });
+        StartFuncShowOnDom({ inProjectName: jVarCommonProjectName }).then(() =>{
+            StartFuncAfterDomLoad();
         });
     };
 };
