@@ -45,6 +45,8 @@ let LocalStartFunc = ({ inFolderName, inFileNameWithExtension, inFilesObjects })
     let jVarLocalFolderName = inFolderName;
     let jVarLocalFileNameWithExtension = inFileNameWithExtension;
     let jVarLocalFilesObjects = inFilesObjects;
+    let parts = inFileNameWithExtension.split(".");
+    let inFileName = parts[0];
 
     let jVarLocalKCont1 = document.getElementById("KCont1");
     let jVarLocalNewRow = document.createElement("div");
@@ -58,7 +60,7 @@ let LocalStartFunc = ({ inFolderName, inFileNameWithExtension, inFilesObjects })
 
             let jVarLocalFromLoop = template({
                 inFolderName: jVarLocalFolderName,
-                inFileNameWithExtension: jVarLocalFileNameWithExtension,
+                inFileNameWithExtension: inFileName,
                 inItemName: value.ItemName,
                 inRowCount: value.RowCount,
                 inScreenCount: value.ScreenCount
