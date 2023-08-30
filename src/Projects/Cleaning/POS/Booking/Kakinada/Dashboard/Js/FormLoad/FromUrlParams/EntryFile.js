@@ -1,9 +1,14 @@
 let StartFunc = () => {
-    let jVarLocalUserName = getUrlQueryParams({ inGetKey: "UserName" })
+    let jVarLocalFromCreate = getUrlQueryParams({ inGetKey: "FromCreate" })
+    console.log("jVarLocalFromCreate : ", jVarLocalFromCreate);
 
-    jFLocalToInputKUserNameInput({ inKUserNameInput: jVarLocalUserName });
-    jFLocalHtmlFocusKPasswordInput();
+    if (jVarLocalFromCreate) {
+        let jVarLocalHtmlId = 'AlertSuccessId';
+        let jVarLocalAlertSuccessId = document.getElementById(jVarLocalHtmlId);
+        jVarLocalAlertSuccessId.style.display = "";
+    };
 };
+
 
 let jFLocalToInputKUserNameInput = ({ inKUserNameInput }) => {
     let jVarLocalHtmlId = 'KUserNameInput';
