@@ -4,11 +4,10 @@ import { StartFunc as StartFuncFromUrlParams } from "./FromUrlParams/EntryFile.j
 
 const StartFunc = () => {
     StartFuncFromUrlParams();
-    
-    StartFuncFetchFuncs().then(()=>{
+
+    StartFuncFetchFuncs().then(() => {
         StartFuncLoadToDataList()
-    }
-    );
+    });
 };
 
 export { StartFunc };
