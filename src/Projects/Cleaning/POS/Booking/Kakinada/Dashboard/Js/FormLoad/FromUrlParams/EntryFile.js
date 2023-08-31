@@ -1,14 +1,22 @@
 let StartFunc = () => {
     let jVarLocalFromCreate = getUrlQueryParams({ inGetKey: "FromCreate" })
-    console.log("jVarLocalFromCreate : ", jVarLocalFromCreate);
 
     if (jVarLocalFromCreate) {
+        let jVarLocalUserName = getUrlQueryParams({ inGetKey: "UserName" })
+
         let jVarLocalHtmlId = 'AlertSuccessId';
         let jVarLocalAlertSuccessId = document.getElementById(jVarLocalHtmlId);
         jVarLocalAlertSuccessId.style.display = "";
+
+        jFLocalToInnerHtmlAlertSuccessIdUserName({ inAlertSuccessIdUserName: jVarLocalUserName });
     };
 };
 
+let jFLocalToInnerHtmlAlertSuccessIdUserName = ({ inAlertSuccessIdUserName }) => {
+    let jVarLocalHtmlId = 'AlertSuccessIdUserName';
+    let jVarLocalAlertSuccessIdUserName = document.getElementById(jVarLocalHtmlId);
+    jVarLocalAlertSuccessIdUserName.innerHTML = inAlertSuccessIdUserName;
+};
 
 let jFLocalToInputKUserNameInput = ({ inKUserNameInput }) => {
     let jVarLocalHtmlId = 'KUserNameInput';

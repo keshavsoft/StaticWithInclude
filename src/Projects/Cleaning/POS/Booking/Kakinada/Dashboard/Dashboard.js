@@ -25,11 +25,6 @@ const StartFunc = () => {
 
     StartFuncFormLoad();
     StartFuncAddListeners();
-
-    // if (jVarLocalFromAdmin) {
-    //     StartFuncFormLoad();
-    //     StartFuncAddListeners();
-    // };
 };
 
 StartFunc();
