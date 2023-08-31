@@ -1,26 +1,15 @@
+import { StartFunc as StartFuncFetchHeaders } from "./FetchHeaders/EntryFile.js";
+
 let StartFunc = async () => {
-    let jVarLocalFetchUrl = "http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/ScreensFromDisplayJson/MainTable/WithSelectedColumns";
+    // let jVarLocalFetchUrl = "http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/ScreensFromDisplayJson/MainTable/WithSelectedColumns";
+    let jVarLocalFetchHeaders = StartFuncFetchHeaders();
+    let jVarLocalFetchUrl = "http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/Items/FromDataFolder/AsObjectWithPK";
 
-    let jVarLocalBody = {
-        inFolderName: "Masters",
-        inFileName: "CRM.json",
-        inItemName: "CustomerNames",
-        inScreenName: "Create"
-    };
+    // POST http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/Items/FromDataFolder/AsArrayWithPK
 
-    let jVarLocalFetchHeaderObject = {
-        method: "post",
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(jVarLocalBody)
-    };
-
-    let response = await fetch(jVarLocalFetchUrl, jVarLocalFetchHeaderObject);
+    let response = await fetch(jVarLocalFetchUrl, jVarLocalFetchHeaders);
     let data = await response.json();
 
-    console.log("ssssssssss : ", data);
     return await data;
 };
 

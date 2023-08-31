@@ -1,27 +1,16 @@
 import { StartFunc as StartFuncFetchFuncs } from "./FetchFuncs/PostFetch.js";
+import { StartFunc as StartFuncToLocalStorage } from "../../../ToLocalStorage/Customers/BulkWithSubKey.js";
+import { StartFunc as StartFuncAfterFetch } from "./FetchFuncs/AfterFetch/EntryFile.js";
 
 let StartFunc = async () => {
     let jVarLocalDataNeeded = await StartFuncFetchFuncs();
-
+    
     if (jVarLocalDataNeeded !== null) {
         if (jVarLocalDataNeeded.KTF) {
-            let jVarLocalToHbs = {
-                CustomerNames: jVarLocalDataNeeded.DataFromServer[0].KData.TableData
-            };
+            StartFuncToLocalStorage({ inData: jVarLocalDataNeeded.JsonData });
 
-            console.log("jVarLocalToHbs : ", jVarLocalToHbs);
-            let jVarLocalRawTemplate = document.getElementById("HbsTemplateForFoldersOnly").innerHTML;
-            document.getElementById("KCont1").innerHTML = Handlebars.compile(jVarLocalRawTemplate)(jVarLocalToHbs);
+            StartFuncAfterFetch();
         };
-    };
-};
-
-let StartFunc1 = async () => {
-    let jVarLocalDataNeeded = StartFuncFetchFuncs();
-
-    if (jVarLocalDataNeeded !== null) {
-        let jVarLocalRawTemplate = document.getElementById("HbsTemplateForFoldersOnly").innerHTML;
-        document.getElementById("KCont1").innerHTML = Handlebars.compile(jVarLocalRawTemplate)(jVarLocalDataNeeded);
     };
 };
 

@@ -6,11 +6,11 @@ const StartFunc = () => {
     let jVarLocalFromAdmin = true;
 
     if (jVarLocalFromAdmin) {
-
         StartFuncFormLoad();
 
         StartFuncShowOnDom({}).then(() => {
             StartFuncAfterDomLoad();
+            // var $table = $('#table');
         });
     };
 };
