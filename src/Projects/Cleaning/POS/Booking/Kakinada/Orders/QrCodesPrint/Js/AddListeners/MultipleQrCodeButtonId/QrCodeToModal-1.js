@@ -16,19 +16,16 @@ let StartFunc = async ({ inData }) => {
 
             var template = Handlebars.compile(jVarLocalFromTemplate);
             let LocalQrCodesData = jVarLocalDataNeeded;
-            console.log("LocalQrCodesData::", LocalQrCodesData);
 
             jVarLocalModalBody.innerHTML = template(LocalQrCodesData);
 
             Object.entries(LocalQrCodesData).forEach(
                 ([key, value]) => {
-                    let jVarLocalQrDataKey = key;
-                    let jVarLocalQrData = value;
+                    let jVarLocalQrData = key;
 
-                    let jVarLocalHtmlQrId = document.getElementById(`CanvasId-${jVarLocalQrDataKey}`);
+                    let jVarLocalHtmlQrId = document.getElementById(`CanvasId-${jVarLocalQrData}`);
 
                     GenerateQrCodeOnModal({
-                        QrDataKey: jVarLocalQrDataKey,
                         inQrData: jVarLocalQrData,
                         inCanvasId: jVarLocalHtmlQrId
                     });
@@ -46,7 +43,7 @@ let StartFunc = async ({ inData }) => {
     };
 };
 
-let GenerateQrCodeOnModal = ({ QrDataKey, inQrData = "", inCanvasId }) => {
+let GenerateQrCodeOnModal = ({ inQrData = "", inCanvasId }) => {
     var canvas = inCanvasId;
     canvas.height = 1;
     canvas.width = 1;
@@ -55,15 +52,8 @@ let GenerateQrCodeOnModal = ({ QrDataKey, inQrData = "", inCanvasId }) => {
     // Convert the options to an object.
     let opts = {};
 
-    // Finish up the options GenerateReference
-    opts.text = `${inQrData.GenerateReference.FileNameOnly}-${inQrData.location}
-${inQrData.pk}-${inQrData.GenerateReference.ReferncePk}
-${inQrData.ItemName}
-${inQrData.WashType}@${inQrData.ItemSerial}/${inQrData.Pcs}/${inQrData.TotalQrCodes}
-${inQrData.AddOnDataAsString}
-${inQrData.BookingData.OrderData.Currentdateandtime}
-${inQrData.DeliveryDateTime}`;
-    // opts.text = "100";
+    // Finish up the options
+    opts.text = inQrData;
     opts.bcid = "qrcode";
     opts.scaleX = 1;
     opts.scaleY = 1;
