@@ -5,8 +5,12 @@ const StartFunc = () => {
     let k1 = document.getElementById("PrintDiv");
     let k2 = document.getElementById("TemplateForGridHeader");
 
-    k1.innerHTML += k2.innerHTML;
-
+    // k1.innerHTML += k2.innerHTML;
+    k1.innerHTML += `---------------------------------------------\n`
+    k1.innerHTML += ` <span style="font-size: 13px;">#   Code/ItemName                       Rate</span>\n`
+    k1.innerHTML += `---------------------------------------------\n`
+    k1.innerHTML += `         <span style="font-size: 13px;">GST%       Discount           G-Rate</span>\n`
+    k1.innerHTML += `---------------------------------------------\n`
     jVarLocalInventoryDataAsJson.forEach(element => {
         let jVarLoopInsideItem = `M-${element.pk}/${element.ProductName}`;
         let jVarLoopInsideRate = `${element.UnitRate}`;
@@ -14,14 +18,14 @@ const StartFunc = () => {
         let jVarLoopInsideDisPercentage = `${element.DisPercentage}%-${element.DisRate}`;
         let jVarLoopInsideGrossAmout = `${element.GrossAmout}`;
 
-        k1.innerHTML += `${element.sno.toString().padStart(2, " ")}`;
-        k1.innerHTML += `${" ".repeat(4)}${jVarLoopInsideItem.padEnd(24)}`;
-        k1.innerHTML += `${jVarLoopInsideRate.padStart(15)}\n`;
-        k1.innerHTML += `${jVarLoopInsideGST.padStart(10)}`;
-        k1.innerHTML += `${jVarLoopInsideDisPercentage.padStart(17)}`;
-        k1.innerHTML += `${jVarLoopInsideGrossAmout.padStart(18)}\n`;
+        k1.innerHTML += `<span style="font-size: 13px;">${element.sno.toString().padStart(2, " ")}</span>`;
+        k1.innerHTML += `<span style="font-size: 13px;">${" ".repeat(4)}${jVarLoopInsideItem.padEnd(24)}</span>`;
+        k1.innerHTML += `<span style="font-size: 13px;">${jVarLoopInsideRate.padStart(15)}</span>\n`;
+        k1.innerHTML += `<span style="font-size: 13px;">${jVarLoopInsideGST.padStart(10)}</span>`;
+        k1.innerHTML += `<span style="font-size: 13px;">${jVarLoopInsideDisPercentage.padStart(17)}</span>`;
+        k1.innerHTML += `<span style="font-size: 13px;">${jVarLoopInsideGrossAmout.padStart(18)}</span>\n`;
         k1.innerHTML += `---------------------------------------------\n`
-       
+
     });
 
     let jVarLoopInsideUnitRate = jVarLocalInventoryDataAsJson.map(element => {
@@ -34,9 +38,9 @@ const StartFunc = () => {
     let jvarLocaltoatalDisRate = jVarLoopInsideDisCount.reduce((a, b) => a + b, 0)
     let localNetAmount = jvarLocaltoatalUnitRate - jvarLocaltoatalDisRate;
 
-    k1.innerHTML += `                     Gross Amount    :   ${jvarLocaltoatalUnitRate}\n`;
-    k1.innerHTML += `                   Total Discount    :    ${jvarLocaltoatalDisRate}\n`;
-    k1.innerHTML += `                          Net Amt    :   ${localNetAmount}\n`;
+    k1.innerHTML += `                     <span style="font-size: 13px;">Gross Amount    :   ${jvarLocaltoatalUnitRate}</span>\n`;
+    k1.innerHTML += `                   <span style="font-size: 13px;">Total Discount    :    ${jvarLocaltoatalDisRate}</span>\n`;
+    k1.innerHTML += `                          <span style="font-size: 13px;">Net Amt    :   ${localNetAmount}</span>\n`;
 
 };
 

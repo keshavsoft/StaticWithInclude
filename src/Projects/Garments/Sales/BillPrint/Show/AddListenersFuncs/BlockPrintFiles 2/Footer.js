@@ -6,7 +6,11 @@ const StartFunc = () => {
     let k2 = document.getElementById("TemplateForGridFooter");
     let k3 = document.getElementById("TemplateForTerms");
 
-    k1.innerHTML += k2.innerHTML;
+    // k1.innerHTML += k2.innerHTML;
+    // k1.innerHTML += k2.innerHTML;
+    k1.innerHTML += `----------------------------------------------\n`
+    k1.innerHTML += `<span style="font-size: 13px;">GST%  BasicRate  CGST%  CGST    SGST%    SGST</span>\n`
+    k1.innerHTML += `----------------------------------------------\n`
     jVarLocalInventoryDataAsJson.forEach(element => {
         let jVarLoopInsideGST = `${element.GST}%`;
         let jVarLoopInsideGstAmount = `${element.GstAmount}`;
@@ -17,12 +21,12 @@ const StartFunc = () => {
 
         // k1.innerHTML +=` ${jVarLoopInsideGST}    ${jVarLoopInsideGstAmount}      ${jVarLoopInsideCGSTKey}   ${jVarLoopInsideCGSTValue}   ${jVarLoopInsideSGSTKey}    ${jVarLoopInsideSGSTValue}\n`;
 
-        k1.innerHTML += `${jVarLoopInsideGST.toString().padStart(2, " ")}`;
-        k1.innerHTML += `${" ".repeat(6)}${jVarLoopInsideGstAmount.padEnd(4, " ")}`;
-        k1.innerHTML += `${jVarLoopInsideCGSTKey.padStart(9)}`;
-        k1.innerHTML += `${jVarLoopInsideCGSTValue.padStart(7)}`;
-        k1.innerHTML += `${jVarLoopInsideSGSTKey.padStart(9)}`;
-        k1.innerHTML += `${jVarLoopInsideSGSTValue.padStart(9)}\n`;
+        k1.innerHTML += `<span style="font-size: 13px;">${jVarLoopInsideGST.toString().padStart(2, " ")}</span>`;
+        k1.innerHTML += `<span style="font-size: 13px;">${" ".repeat(6)}${jVarLoopInsideGstAmount.padEnd(4, " ")}</span>`;
+        k1.innerHTML += `<span style="font-size: 13px;">${jVarLoopInsideCGSTKey.padStart(9)}</span>`;
+        k1.innerHTML += `<span style="font-size: 13px;">${jVarLoopInsideCGSTValue.padStart(7)}</span>`;
+        k1.innerHTML += `<span style="font-size: 13px;">${jVarLoopInsideSGSTKey.padStart(9)}</span>`;
+        k1.innerHTML += `<span style="font-size: 13px;">${jVarLoopInsideSGSTValue.padStart(8)}</span>\n`;
     });
 
     let jVarLocalGST = jVarLocalInventoryDataAsJson.map((element) => {
@@ -45,13 +49,19 @@ const StartFunc = () => {
     // k1.innerHTML += `----------------------------------------------\n`
 
     k1.innerHTML += `----------------------------------------------\n`
-    k1.innerHTML += `Total:  ${jvarLocalGstTaxaBleAmount.padStart(5)}`;
-    k1.innerHTML += `${jvarLocalTotalCGSTValue.padStart(13)}`;
-    k1.innerHTML += `${jvarLocalTotalSGSTValue.padStart(18)}\n`;
+    k1.innerHTML += `<span style="font-size: 13px;">Total:  ${jvarLocalGstTaxaBleAmount.padStart(5)}</span>`;
+    k1.innerHTML += `<span style="font-size: 13px;">${jvarLocalTotalCGSTValue.padStart(13)}</span>`;
+    k1.innerHTML += `<span style="font-size: 13px;">${jvarLocalTotalSGSTValue.padStart(18)}</span>\n`;
     k1.innerHTML += `----------------------------------------------\n`
 
 
-    k1.innerHTML += k3.innerHTML;
+    k1.innerHTML +=
+        `<span style="font-size: 16px;">* Terms And Conditions *
+Exchange Time Between 1-4PM,
+Goods Will Be Exchanged WithIn 7Days 
+of Purchase Date,No Colour Guarantee
+Thank you for your visit        
+Have a nice day</span> `;
 
 
 
