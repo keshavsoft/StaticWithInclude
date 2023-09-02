@@ -56,7 +56,8 @@ let GenerateQrCodeOnModal = ({ QrDataKey, inQrData = "", inCanvasId }) => {
     let opts = {};
 
     // Finish up the options GenerateReference
-    opts.text = `${inQrData.GenerateReference.FileNameOnly}-${inQrData.location}
+    opts.text = `${inQrData.pk}
+${inQrData.GenerateReference.FileNameOnly}-${inQrData.location}
 ${inQrData.pk}-${inQrData.GenerateReference.ReferncePk}
 ${inQrData.ItemName}
 ${inQrData.WashType}@${inQrData.ItemSerial}/${inQrData.Pcs}/${inQrData.TotalQrCodes}
