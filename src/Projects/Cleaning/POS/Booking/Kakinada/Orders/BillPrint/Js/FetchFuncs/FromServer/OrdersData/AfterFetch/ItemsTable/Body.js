@@ -11,7 +11,7 @@ let StartFunc = ({ inItemData }) => {
         let td = clone.querySelectorAll("td");
         td[0].textContent = value.ItemName+'@'+value.Rate;
         td[1].textContent = value.Pcs;
-        td[2].textContent = (value.Total)*(value.Pcs);
+        td[2].textContent = (value.Rate)*(value.Pcs);
         td[3].textContent = value.DeliveryDateTime;
         jVarLocalItemNamesBodyId.appendChild(clone);
     });
