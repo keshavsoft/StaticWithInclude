@@ -1,5 +1,5 @@
 import { StartFunc as StartFuncFetchFunc } from "./5-FetchFunc.js";
-import { StartFunc as StartFuncAfterFetch } from "./6-AfterFetch.js";
+// import { StartFunc as StartFuncAfterFetch } from "./6-AfterFetch.js";
 
 let StartFunc = async () => {
     let jVarLocalFolderName = getUrlQueryParams({ inGetKey: "FolderName" });
@@ -11,8 +11,11 @@ let StartFunc = async () => {
         inFileNameOnly: jVarLocalFileNameOnly,
         inItemName: jVarLocalItemName
     });
+    jFLocalPrepareHeader();
+    var $table = $('#table');
 
-    StartFuncAfterFetch();
+    $table.bootstrapTable({ data: Object.values(jVarLocalPresentViewData.JsonData) });
+    // StartFuncAfterFetch();
 };
 
 let getUrlQueryParams = ({ inGetKey }) => {
@@ -21,5 +24,17 @@ let getUrlQueryParams = ({ inGetKey }) => {
     const value = parameters.get(inGetKey);
     return value;
 };
+
+let jFLocalPrepareHeader = () =>{
+    let jVarLocalHtmlId = 'tableHeadRow';
+    let jVarLocaltableHeadRow = document.getElementById(jVarLocalHtmlId);
+    let jVarLocalColumns = Object.keys(Object.values(jVarLocalPresentViewData.JsonData)[0]);
+    jVarLocalColumns.forEach(element => {
+        let jVarLocalNewTh = document.createElement("th");
+        jVarLocalNewTh.innerHTML = element;
+        jVarLocalNewTh.dataset.field = element;
+        jVarLocaltableHeadRow.appendChild(jVarLocalNewTh);
+    });
+}  
 
 export { StartFunc };
