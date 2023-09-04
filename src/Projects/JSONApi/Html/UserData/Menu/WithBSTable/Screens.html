@@ -207,8 +207,10 @@
         </symbol>
     </svg>
 
+
     
     <include src="./src/components/Projects/JSONApi/UserData/Header.html"></include>
+
 
 
     <!-- <nav id="NavBarId" class="navbar navbar-expand-md navbar-dark bg-dark d-print-none" aria-label="KeshavSoft">
@@ -313,12 +315,13 @@
         </div>
     </nav> -->
 
-
+    
     <div class="container">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb p-2 border">
                 <li class="breadcrumb-item"><a href="#" id="BreadcrumbFolderNameId">FolderName</a></li>
-                <li class="breadcrumb-item active" aria-current="page" id="BreadcrumbFileNameId">FileName</li>
+                <li class="breadcrumb-item"><a href="#" id="BreadcrumbFileNameId">FileName</a></li>
+                <li class="breadcrumb-item active" aria-current="page" id="BreadcrumbItemNameId">ItemName</li>
             </ol>
         </nav>
 
@@ -401,33 +404,33 @@
         </li>
     </template>
 
-    
-    <template id="TemplateForMenuItemLoop">
-        {{#each this}}
-     
-        <li class="UserLiClass">
-            <a href="Files.html?FolderName={{FolderName}}" keshavsoftfoldername="{{FolderName}}" class="nav-link {{MenuClass}}">
-
-                <svg class="bi d-block mx-auto mb-1 d-none d-md-block" width="24" height="24">
-                    <use xlink:href="#{{IconClass}}"></use>
-                </svg>
-
-                {{FolderName}}
-            </a>
-        </li>
-        
-      {{/each}}
-
+    <template id="TemplateForScreens1">
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-body">
+                        <h5 class="card-title d-none">{{inFileNameWithExtension}}</h5>
+                        <h6 class="card-title d-none">{{inItemName}}</h6>
+                        <h7 class="card-title">{{inScreenName}}</h7>
+                        <p>Rows : <span class="RowCountClass">{{inRowCount}}</span> </p>
+                        <a href="../../ForCrud/Table.html?FolderName={{inFolderName}}&FileName={{inFileNameWithExtension}}&ItemName={{inItemName}}&ScreenName={{inScreenName}}"
+                            keshavsoftItemName="{{ItemName}}" class="btn btn-primary keshavsoftItemclick">Screens :
+                            <span class="ScreenCountClass">{{ScreenCount}}</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </template>
-    
-    <template id="TemplateForItemCard">
+
+    <template id="TemplateForScreens">
         <div class="col-lg-3 col-md-4 col-sm-6">
             <div class="card">
                 <div class="card-header">
                     <div class="card-body">
-                        <h4 class="card-title">{{inItemName}}</h4>
-                        <p>Screens : <span class="RowCountClass">{{inScreenCount}}</span> </p>
-                        <a href="Screens.html?FolderName={{inFolderName}}&FileName={{inFileNameWithExtension}}&ItemName={{inItemName}}&RowCount={{inRowCount}}" keshavsoftItemName="{{ItemName}}" class="btn btn-primary keshavsoftItemclick">Show :
+                        <h5 class="card-title">{{inItemName}}</h5>
+                        <h6 class="card-title">{{inScreenName}}</h6>
+                        <a href="./Tree/AsTree.html?FolderName={{inFolderName}}&FileName={{inFileNameWithExtension}}&ItemName={{inItemName}}&ScreenName={{inScreenName}}" keshavsoftItemName="{{ItemName}}" class="btn btn-success keshavsoftItemclick">Show :
                             <span class="ScreenCountClass">{{inRowCount}}</span>
                         </a>
                     </div>
@@ -435,10 +438,9 @@
             </div>
         </div>
     </template>
-    
-    <script src="./Items.js" type="module"></script>
 
 
+    <script src="/JSONApi/Js/KeshavSoft/Menu/AsCards/Screens.js" type="module"></script>
 </body>
 
 </html>
