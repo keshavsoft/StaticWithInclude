@@ -1,7 +1,7 @@
 let StartFunc = ({ inFromFetch }) => {
     let jVarLocalData = inFromFetch.JsonData;
     console.log("inFromFetch", inFromFetch);
-    var $table = $('#table1')
+    var $table = $('#FrequentCustomersTable')
     $table.bootstrapTable({ data: jVarLocalData });
 };
 
