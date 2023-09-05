@@ -5,19 +5,17 @@ let StartFunc = async () => {
     let jVarLocalFolderName = getUrlQueryParams({ inGetKey: "FolderName" });
     let jVarLocalFileNameOnly = getUrlQueryParams({ inGetKey: "FileName" });
     let jVarLocalItemName = getUrlQueryParams({ inGetKey: "ItemName" });
-    let jVarLocalScreenName = getUrlQueryParams({ inGetKey: "ScreenName" });
 
 
     await StartFuncFetchFunc({
         inFolderName: jVarLocalFolderName,
-        inFileName: `${jVarLocalFileNameOnly}.json`,
+        inFileNameOnly: jVarLocalFileNameOnly,
         inItemName: jVarLocalItemName,
-        inScreenName: jVarLocalScreenName
     });
-    jFLocalPrepareHeader();
+    jFLocalPrepareHeaderForDataOnly();
     var $table = $('#table');
 
-    $table.bootstrapTable({ data: jVarLocalPresentViewData.DataFromServer[0].KData.TableData });
+    $table.bootstrapTable({ data: Object.values(jVarLocalPresentViewData.JsonData) });
     // StartFuncAfterFetch();
 };
 
@@ -28,28 +26,19 @@ let getUrlQueryParams = ({ inGetKey }) => {
     return value;
 };
 
-let jFLocalPrepareHeaderForDataOnly = () =>{
+let jFLocalPrepareHeaderForDataOnly = () => {
     let jVarLocalHtmlId = 'tableHeadRow';
     let jVarLocaltableHeadRow = document.getElementById(jVarLocalHtmlId);
-        let jVarLocalColumns = Object.keys(Object.values(jVarLocalPresentViewData.JsonData)[0]);
+    let jVarLocalColumns = Object.keys(Object.values(jVarLocalPresentViewData.JsonData)[0]);
     jVarLocalColumns.forEach(element => {
         let jVarLocalNewTh = document.createElement("th");
         jVarLocalNewTh.innerHTML = element;
         jVarLocalNewTh.dataset.field = element;
         jVarLocaltableHeadRow.appendChild(jVarLocalNewTh);
     });
-} 
+}
 
-let jFLocalPrepareHeader = () =>{
-    let jVarLocalHtmlId = 'tableHeadRow';
-    let jVarLocaltableHeadRow = document.getElementById(jVarLocalHtmlId);
-    let jVarLocalColumns = jVarLocalPresentViewData.DataFromServer[0].KData.TableColumns;
-    jVarLocalColumns.forEach(element => {
-        let jVarLocalNewTh = document.createElement("th");
-        jVarLocalNewTh.innerHTML = element.DataAttribute;
-        jVarLocalNewTh.dataset.field = element.DataAttribute;
-        jVarLocaltableHeadRow.appendChild(jVarLocalNewTh);
-    });
-}  
+
+
 
 export { StartFunc };
