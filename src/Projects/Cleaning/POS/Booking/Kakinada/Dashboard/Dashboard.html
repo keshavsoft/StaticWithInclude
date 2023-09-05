@@ -92,14 +92,20 @@
                         </li>
 
                         <li class="nav-item Bookings">
-                            <a class="nav-link active" aria-current="page" href="../QrCode/QrCode.html" id="BookingHomeId">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
-                                    <path d="M0 .5A.5.5 0 0 1 .5 0h3a.5.5 0 0 1 0 1H1v2.5a.5.5 0 0 1-1 0v-3Zm12 0a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0V1h-2.5a.5.5 0 0 1-.5-.5ZM.5 12a.5.5 0 0 1 .5.5V15h2.5a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5v-3a.5.5 0 0 1 .5-.5Zm15 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1 0-1H15v-2.5a.5.5 0 0 1 .5-.5ZM4 4h1v1H4V4Z"/>
-                                    <path d="M7 2H2v5h5V2ZM3 3h3v3H3V3Zm2 8H4v1h1v-1Z"/>
-                                    <path d="M7 9H2v5h5V9Zm-4 1h3v3H3v-3Zm8-6h1v1h-1V4Z"/>
-                                    <path d="M9 2h5v5H9V2Zm1 1v3h3V3h-3ZM8 8v2h1v1H8v1h2v-2h1v2h1v-1h2v-1h-3V8H8Zm2 2H9V9h1v1Zm4 2h-1v1h-2v1h3v-2Zm-4 2v-1H8v1h2Z"/>
-                                    <path d="M12 9h2V8h-2v1Z"/>
-                                  </svg>
+                            <a class="nav-link active" aria-current="page" href="../QrCode/QrCode.html"
+                                id="BookingHomeId">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                    class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
+                                    <path
+                                        d="M0 .5A.5.5 0 0 1 .5 0h3a.5.5 0 0 1 0 1H1v2.5a.5.5 0 0 1-1 0v-3Zm12 0a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0V1h-2.5a.5.5 0 0 1-.5-.5ZM.5 12a.5.5 0 0 1 .5.5V15h2.5a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5v-3a.5.5 0 0 1 .5-.5Zm15 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1 0-1H15v-2.5a.5.5 0 0 1 .5-.5ZM4 4h1v1H4V4Z">
+                                    </path>
+                                    <path d="M7 2H2v5h5V2ZM3 3h3v3H3V3Zm2 8H4v1h1v-1Z"></path>
+                                    <path d="M7 9H2v5h5V9Zm-4 1h3v3H3v-3Zm8-6h1v1h-1V4Z"></path>
+                                    <path
+                                        d="M9 2h5v5H9V2Zm1 1v3h3V3h-3ZM8 8v2h1v1H8v1h2v-2h1v2h1v-1h2v-1h-3V8H8Zm2 2H9V9h1v1Zm4 2h-1v1h-2v1h3v-2Zm-4 2v-1H8v1h2Z">
+                                    </path>
+                                    <path d="M12 9h2V8h-2v1Z"></path>
+                                </svg>
                                 Qr Code
                             </a>
                         </li>
@@ -181,12 +187,12 @@
                     <div class="input-group mt-3 mb-3">
                         <input type="text" class="form-control" placeholder="Scan Qrcode or Search Customer"
                             aria-label="Input" aria-describedby="GoButtonid" id="ScanId" list="CustomerDataListId"
-                            autofocus>
+                            autofocus="">
                         <button class="btn btn-outline-secondary" type="button" id="GoButtonid">GO</button>
                     </div>
                 </div>
             </div>
-
+            
             <datalist id="CustomerDataListId">
                 <option value="Keshav">
                 </option>
@@ -201,46 +207,15 @@
                             New Customers
                         </div>
                         <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr class="table-primary">
-                                            <th scope="col">#</th>
-                                            <th scope="col">Name</th>
-                                            <th scope="col">Mobile</th>
-                                            <th scope="col">+</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="">
-                                            <td>1</td>
-                                            <td scope="row">keshav</td>
-                                            <td>9848163021</td>
-                                            <td>
-                                                <a href="../NewOrder/NewOrder.html?CustomerName=Keshav&CustomerMobile=9848163021" class="btn btn-primary">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                        fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
-                                                    </svg></a>
-                                            </td>
-                                        </tr>
-                                        <tr class="">
-                                            <td>2</td>
-                                            <td scope="row">Chakri</td>
-                                            <td>1234567890</td>
-                                            <td>
-                                                <a href="../NewOrder/NewOrder.html?CustomerName=Chakri&CustomerMobile=9848163021" class="btn btn-primary">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                        fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
-                                                    </svg></a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                            <table id="table">
+                                <thead>
+                                    <tr>
+                                        <th data-field="id">ID</th>
+                                        <th data-field="CustomerName">CustomerName</th>
+                                        <th data-field="Mobile">Mobile</th>
+                                    </tr>
+                                </thead>
+                            </table>
                         </div>
                     </div>
 
@@ -394,7 +369,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"
         integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+        <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+        <script src="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.js"></script>
     <script>
         let jFSearchInputKeyPress = (event) => {
             if (event.key === 'Enter') { // key code of the keybord key
