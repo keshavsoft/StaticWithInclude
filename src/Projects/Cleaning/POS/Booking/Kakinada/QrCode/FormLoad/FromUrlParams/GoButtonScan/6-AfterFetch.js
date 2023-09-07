@@ -46,7 +46,7 @@ let jFLoop = ({ inDataValue, inText }) => {
     return LoopObject;
 };
 
-const StartFuncForTree1 = async ({ inFromFetch }) => {
+const StartFuncForTree = async ({ inFromFetch }) => {
     let data = jFPrepareDataForTree({ inFromFetch });
 
     let NewData = Object.keys(data).map(element => {
@@ -86,7 +86,7 @@ let jFLocalToInputScanId = ({ inScanId }) => {
     jVarLocalScanId.value = inScanId;
 };
 
-const StartFuncForTree = async ({ inFromFetch }) => {
+const StartFuncForTree1 = async ({ inFromFetch }) => {
     let data = jFPrepareDataForTree({ inFromFetch });
 
     let NewData = Object.keys(data).map(element => {
