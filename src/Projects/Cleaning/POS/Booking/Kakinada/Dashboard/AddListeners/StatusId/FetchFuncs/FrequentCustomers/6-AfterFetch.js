@@ -1,8 +1,10 @@
 let StartFunc = ({ inFromFetch }) => {
     let jVarLocalData = inFromFetch.JsonData;
-    console.log("inFromFetch", inFromFetch);
+    const entries = Object.entries(jVarLocalData).map((element)=>{
+        return {element};
+    });
     var $table = $('#FrequentCustomersTable')
-    $table.bootstrapTable({ data: jVarLocalData });
+    $table.bootstrapTable({ data: entries });
 };
 
 export { StartFunc };
