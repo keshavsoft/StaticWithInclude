@@ -4,8 +4,6 @@ let StartFunc = async () => {
     let jVarLocalDataNeeded = await StartFuncButtonClickFunc();
 
     if (jVarLocalDataNeeded !== null) {
-        // let jVarLocalRawTemplate = document.getElementById("HbsTemplateForFoldersOnly").innerHTML;
-        // document.getElementById("KCont1").innerHTML = Handlebars.compile(jVarLocalRawTemplate)(jVarLocalDataNeeded);
     };
 };
 
