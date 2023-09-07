@@ -1,5 +1,14 @@
 let StartFunc = async ({inFromFetch}) => {
+    if (inFromFetch.KTF === false) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Qr Code Not Raised',
+            text: inFromFetch.KReason
+        });
+    }
+    else{
     await StartFuncForTree({inFromFetch});
+    }
 };
 
 let jFPrepareDataForTree = ({inFromFetch}) => {
