@@ -1,8 +1,9 @@
 const StartFunc = () => {
     let jVarLocalToLocalStorage = {};
-
-    let jVarLocalScanId = jFLocalFromDomScanId();
-    let jVarLocalArray = jVarLocalScanId.split("~");
+    let jVarLocalHtmlId = "ScanId";
+    let jVarLocalScanId = document.getElementById(jVarLocalHtmlId);
+    let jVarLocalScanIdValue = jVarLocalScanId.value;
+    let jVarLocalArray = jVarLocalScanIdValue.split(" ");
     let jVarLocalJsonPk = jVarLocalArray[0].trim();
 
     jVarLocalToLocalStorage.FolderName = "QrCodes";
@@ -11,13 +12,6 @@ const StartFunc = () => {
     jVarLocalToLocalStorage.JsonPk = jVarLocalJsonPk;
 
     return jVarLocalToLocalStorage;
-};
-
-let jFLocalFromDomScanId = () => {
-    let jVarLocalHtmlScanId = 'ScanId';
-   let jVarHtmlScanId = document.getElementById(jVarLocalHtmlScanId);
-   let jVarHtmlScanIdValue = jVarHtmlScanId.value.trim();
-   return jVarHtmlScanIdValue;
 };
 
 export { StartFunc };

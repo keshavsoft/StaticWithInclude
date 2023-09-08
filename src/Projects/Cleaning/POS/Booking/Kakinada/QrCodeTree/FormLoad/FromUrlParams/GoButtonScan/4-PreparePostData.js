@@ -1,9 +1,7 @@
 const StartFunc = () => {
     let jVarLocalToLocalStorage = {};
 
-    let jVarLocalScanId = jFLocalFromDomScanId();
-    let jVarLocalArray = jVarLocalScanId.split("~");
-    let jVarLocalJsonPk = jVarLocalArray[0].trim();
+    let jVarLocalJsonPk = jFLocalFromDomScanId();
 
     jVarLocalToLocalStorage.FolderName = "QrCodes";
     jVarLocalToLocalStorage.FileNameOnly = "Generate";
