@@ -1,11 +1,10 @@
 import KeysJson from './Keys.json' assert {type: 'json'};
 import BodyKeysJson from './BodyKeys.json' assert {type: 'json'};
 
-let StartFunc = ({ inFolderName, inFileName, inItemName, inScreenName }) => {
+let StartFunc = ({ inFolderName, inFileNameOnly, inItemName }) => {
     BodyKeysJson.inFolderName = inFolderName;
-    BodyKeysJson.inFileName = inFileName;
+    BodyKeysJson.inFileNameOnly = inFileNameOnly;
     BodyKeysJson.inItemName = inItemName;
-    BodyKeysJson.inScreenName = inScreenName;
 
     KeysJson.body = JSON.stringify(BodyKeysJson);
 
