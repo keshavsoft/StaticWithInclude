@@ -15,10 +15,7 @@ let StartFunc = async () => {
 
         // StartFuncAfterFetch({ inFromFetch: response });
     // };
-    let QrCodeValue = jFLocalFromDomScanId();
-
-    let jVarLocalArray = QrCodeValue.split("~");
-    let QrCodeNumber = jVarLocalArray[0].trim();
+    let QrCodeNumber = jFLocalFromDomScanId();
 
     const myUrlWithParams = new URL(`${window.location.origin}${window.location.pathname}`);
 
