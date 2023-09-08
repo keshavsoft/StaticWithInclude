@@ -100,7 +100,7 @@
                                     <path d="M12 9h2V8h-2v1Z"></path>
                                   </svg>
                                   <svg xmlns="http://www.w3.org/2000/svg" width="30" height="12" fill="currentColor" class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
-                                    <path d="M8.416.223a.5.5 0 0 0-.832 0l-3 4.5A.5.5 0 0 0 5 5.5h.098L3.076 8.735A.5.5 0 0 0 3.5 9.5h.191l-1.638 3.276a.5.5 0 0 0 .447.724H7V16h2v-2.5h4.5a.5.5 0 0 0 .447-.724L12.31 9.5h.191a.5.5 0 0 0 .424-.765L10.902 5.5H11a.5.5 0 0 0 .416-.777l-3-4.5zM6.437 4.758A.5.5 0 0 0 6 4.5h-.066L8 1.401 10.066 4.5H10a.5.5 0 0 0-.424.765L11.598 8.5H11.5a.5.5 0 0 0-.447.724L12.69 12.5H3.309l1.638-3.276A.5.5 0 0 0 4.5 8.5h-.098l2.022-3.235a.5.5 0 0 0 .013-.507z"/>
+                                    <path d="M8.416.223a.5.5 0 0 0-.832 0l-3 4.5A.5.5 0 0 0 5 5.5h.098L3.076 8.735A.5.5 0 0 0 3.5 9.5h.191l-1.638 3.276a.5.5 0 0 0 .447.724H7V16h2v-2.5h4.5a.5.5 0 0 0 .447-.724L12.31 9.5h.191a.5.5 0 0 0 .424-.765L10.902 5.5H11a.5.5 0 0 0 .416-.777l-3-4.5zM6.437 4.758A.5.5 0 0 0 6 4.5h-.066L8 1.401 10.066 4.5H10a.5.5 0 0 0-.424.765L11.598 8.5H11.5a.5.5 0 0 0-.447.724L12.69 12.5H3.309l1.638-3.276A.5.5 0 0 0 4.5 8.5h-.098l2.022-3.235a.5.5 0 0 0 .013-.507z"></path>
                                   </svg>
                                 Qr Code Tree
                             </a>
@@ -188,15 +188,19 @@
                             New Customers
                         </div>
                         <div class="card-body">
-                            <table id="NewCustomersTable">
+                            <table id="NewCustomersTable" class="table">
                                 <thead>
                                     <tr>
-                                        <th data-field="pk">pk</th>
+                                        <th data-field="pk" data-checkbox="true">pk</th>
                                         <th data-field="CustomerName">Customer Name</th>
                                         <th data-field="Mobile">Mobile</th>
                                         <th data-field="City">City</th>
+                                        <th>Booking</th>
                                     </tr>
                                 </thead>
+                                <tbody>
+
+                                </tbody>
                             </table>
                         </div>
                     </div>
@@ -311,7 +315,22 @@
         <div id="AlertWarningMessageId"><strong>Sorry!</strong> Data not saved</div>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-
+<template id="NewCustomerTemplateRow">
+    {{#each this}}
+    <tr class="">
+        <td>{{pk}}</td>
+        <td scope="row">{{CustomerName}}</td>
+        <td>{{Mobile}}</td>
+        <td>{{City}}</td>
+        <td>
+            <a href="../NewOrder/NewOrder.html?CustomerName={{CustomerName}}&CustomerMobile={{Mobile}}" class="btn btn-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path>
+                </svg></a>
+        </td>
+    </tr>
+    {{/each}}
+</template>
     <footer class="footer mt-auto py-2 bg-light fixed-bottom">
         <div class="container">
             <div class="bg-light d-flex justify-content-between">
