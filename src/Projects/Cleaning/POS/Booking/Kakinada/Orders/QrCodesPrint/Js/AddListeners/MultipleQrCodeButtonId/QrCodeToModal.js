@@ -54,16 +54,23 @@ let GenerateQrCodeOnModal = ({ QrDataKey, inQrData = "", inCanvasId }) => {
 
     // Convert the options to an object.
     let opts = {};
-
+    // opts.text1 = `${inQrData.pk}
+    // ${inQrData.GenerateReference.FileNameOnly}-${inQrData.location}
+    // ${inQrData.pk}-${inQrData.GenerateReference.ReferncePk}
+    // ${inQrData.ItemName}
+    // ${inQrData.WashType}@${inQrData.ItemSerial}/${inQrData.Pcs}/${inQrData.TotalQrCodes}
+    // ${inQrData.AddOnDataAsString}
+    // ${inQrData.BookingData.OrderData.Currentdateandtime}
+    // ${inQrData.DeliveryDateTime}`;
     // Finish up the options GenerateReference
-    opts.text = `${inQrData.pk}
-${inQrData.GenerateReference.FileNameOnly}-${inQrData.location}
-${inQrData.pk}-${inQrData.GenerateReference.ReferncePk}
-${inQrData.ItemName}
-${inQrData.WashType}@${inQrData.ItemSerial}/${inQrData.Pcs}/${inQrData.TotalQrCodes}
-${inQrData.AddOnDataAsString}
-${inQrData.BookingData.OrderData.Currentdateandtime}
-${inQrData.DeliveryDateTime}`;
+    opts.text = `${inQrData.pk}~`
+    opts.text = `${inQrData.GenerateReference.FileNameOnly}-${inQrData.location}~`
+    opts.text = `${inQrData.pk}-${inQrData.GenerateReference.ReferncePk}~`
+    opts.text = `${inQrData.ItemName}~`
+    opts.text = `${inQrData.WashType}@${inQrData.ItemSerial}/${inQrData.Pcs}/${inQrData.TotalQrCodes}~`
+    opts.text = `${inQrData.AddOnDataAsString}~`
+    opts.text = `${inQrData.BookingData.OrderData.Currentdateandtime}~`
+    opts.text = `${inQrData.DeliveryDateTime}`;
     // opts.text = "100";
     opts.bcid = "qrcode";
     opts.scaleX = 1;
