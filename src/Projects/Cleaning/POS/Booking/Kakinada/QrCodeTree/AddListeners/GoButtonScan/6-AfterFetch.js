@@ -46,7 +46,7 @@ let jFLoop = ({ inDataValue, inText }) => {
     return LoopObject;
 };
 
-const StartFuncForTree1 = async ({ inFromFetch }) => {
+const StartFuncForTree = async ({ inFromFetch }) => {
     let data = jFPrepareDataForTree({ inFromFetch });
 
     let NewData = Object.keys(data).map(element => {
@@ -64,7 +64,8 @@ const StartFuncForTree1 = async ({ inFromFetch }) => {
         parentsMarginLeft: '1.25rem',
         openNodeLinkOnNewTab: true
     });
-    
+    jFLocalHtmlFocusScanId();
+    jFLocalToInputScanId({ inScanId: "" });
 };
 
 let jFLocalFromDomScanId = () => {
@@ -86,7 +87,7 @@ let jFLocalToInputScanId = ({ inScanId }) => {
     jVarLocalScanId.value = inScanId;
 };
 
-const StartFuncForTree = async ({ inFromFetch }) => {
+const StartFuncForTree1 = async ({ inFromFetch }) => {
     let data = jFPrepareDataForTree({ inFromFetch });
 
     let NewData = Object.keys(data).map(element => {
