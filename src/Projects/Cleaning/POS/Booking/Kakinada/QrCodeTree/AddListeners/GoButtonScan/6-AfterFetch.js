@@ -1,3 +1,5 @@
+import { StartFunc as StartFuncForTree } from "./../../Js/ForTree/EntryFileForObject.js";
+
 let StartFunc = async ({ inFromFetch }) => {
     if (inFromFetch.KTF === false) {
         Swal.fire({
@@ -7,7 +9,9 @@ let StartFunc = async ({ inFromFetch }) => {
         });
     }
     else {
-        await StartFuncForTree({ inFromFetch });
+        StartFuncForTree({ inFromFetch });
+
+        // await StartFuncForTree({ inFromFetch });
     }
 };
 
@@ -46,7 +50,7 @@ let jFLoop = ({ inDataValue, inText }) => {
     return LoopObject;
 };
 
-const StartFuncForTree = async ({ inFromFetch }) => {
+const StartFuncForTree11 = async ({ inFromFetch }) => {
     let data = jFPrepareDataForTree({ inFromFetch });
 
     let NewData = Object.keys(data).map(element => {
