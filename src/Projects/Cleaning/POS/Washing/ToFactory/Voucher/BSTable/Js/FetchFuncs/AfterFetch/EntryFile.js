@@ -2,10 +2,22 @@ import { StartFunc as StartFuncFromLocalStorage } from "../../../../../../../Boo
 
 let StartFunc = () => {
     let jVarLocalDataToShow = StartFuncFromLocalStorage();
-    console.log("------- : ", jVarLocalDataToShow);
+    jFLocalPrepareHeaderForDataOnly({ data: jVarLocalDataToShow })
     var $table = $('#table');
-
-    $table.bootstrapTable({ data: jVarLocalDataToShow });
+    $table.bootstrapTable({ data: jVarLocalDataToShow});
+    
 };
+
+let jFLocalPrepareHeaderForDataOnly = ({data}) => {
+    let jVarLocalHtmlId = 'tableHeadRow';
+    let jVarLocaltableHeadRow = document.getElementById(jVarLocalHtmlId);
+    let jVarLocalColumns = Object.keys(data[0]);
+    jVarLocalColumns.forEach(element => {
+        let jVarLocalNewTh = document.createElement("th");
+        jVarLocalNewTh.innerHTML = element;
+        jVarLocalNewTh.dataset.field = element;
+        jVarLocaltableHeadRow.appendChild(jVarLocalNewTh);
+    });
+}
 
 export { StartFunc }
