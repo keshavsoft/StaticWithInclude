@@ -1,6 +1,6 @@
-// import { StartFunc as StartFuncLoopInputs } from "./../../CommonFuncs/Htmlnputs/LoopInputs.js";
-
 import { StartFunc as StartFuncLoopInputs } from "../../CommonFuncs/HtmlInputs/LoopInputs.js";
+
+import { StartFunc as StartFuncFetchFunc } from "./FetchFunc.js";
 
 import { StartFunc as StartFuncAfterFetch } from "./AfterFetch.js";
 
@@ -8,17 +8,16 @@ import ApiConfigJson from '../../../../../../../../ApiConfig.json' assert {type:
 
 let StartFunc = async () => {
     let jVarLocalFind = document.querySelectorAll(".KVerticalFooterSaveButtonClass");
-    //MainTable Body Row Options Print
     jVarLocalFind.forEach((spanElement) => {
         spanElement.addEventListener("click", async (inEvent) => {
-            Vertical.SaveFuncs.StartFunc({ inEvent });
+            await Vertical.SaveFuncs.StartFunc({ inEvent });
         });
     });
 };
 
 let Vertical = {
     SaveFuncs: {
-        StartFunc: ({ inEvent }) => {
+        StartFunc: async ({ inEvent }) => {
             let jVarLocalCurrentTarget = inEvent.currentTarget;
             let jVarLocalKCont1 = document.getElementById("KCont1");
 
@@ -28,22 +27,17 @@ let Vertical = {
             let jVarLocalKCardBody = jVarClosestKTableDivClass.querySelector(".KCardBody");
 
             if (Vertical.SaveFuncs.CommonFuncs.CheckBeforeSave(jVarLocalHtmlCardBody)) {
-                // let jVarLocalFetchPostData = VerticalCommonFuncs.PreparePostData.ForSave({ jVarHtmlCardBody: jVarLocalHtmlCardBody });
 
                 let jVarLocalFetchPostData = StartFuncLoopInputs({ jVarHtmlCardBody: jVarLocalHtmlCardBody });
+                let jVarLocalJsonConfigAndItemConfig = Vertical.CommonFuncs.PullCardDataAttributes.JsonConfigAndItemConfig({ inHtmlCard: jVarLocalHtmlCard });
 
-                Vertical.SaveFuncs.CommonFuncs.SaveOnlyFetch({
-                    inHtmlCard: jVarLocalHtmlCard,
-                    inCardBodyForItems: jVarLocalKCardBody,
-                    inFetchPostData: jVarLocalFetchPostData,
-                    inKCont1: jVarLocalKCont1
-                }).then(PromiseData => {
-                    if (PromiseData.KTF) {
-                        //  window.location.href = `Show.html${window.location.search}&JsonPk=${PromiseData.kPK}`;
-                        StartFuncAfterFetch();
-                    };
-                    // console.log("ssssssssss : ", PromiseData);
+                jVarLocalJsonConfigAndItemConfig.inDataToSave = jVarLocalFetchPostData;
+
+                let jVarLocalFromFetch = await StartFuncFetchFunc({
+                    inBodyData: jVarLocalJsonConfigAndItemConfig
                 });
+                StartFuncAfterFetch({ inFetchPostData: jVarLocalFromFetch, inHtmlCard: jVarLocalHtmlCard });
+
             };
         },
         CommonFuncs: {
