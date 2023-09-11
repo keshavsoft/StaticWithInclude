@@ -12,9 +12,16 @@ const StartFunc = () => {
         StartFuncShowOnDom({}).then(() => {
             StartFuncAfterDomLoad();
             StartFuncAddListenersFuncs();
+            jFLocalSetFocus();
             // var $table = $('#table');
         });
     };
 };
+
+let jFLocalSetFocus = () => {
+    let jVarLocalKCont1 = document.getElementById("KCont1");
+    let jVarLocalFirstInput = jVarLocalKCont1.querySelector("input");
+    jVarLocalFirstInput.focus();
+}
 
 StartFunc();
