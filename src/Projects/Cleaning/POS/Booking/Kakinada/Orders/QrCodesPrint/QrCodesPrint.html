@@ -157,10 +157,10 @@
                         {{OrderData.Currentdateandtime}}
                     </td>
                     <td>
-                        <a href="../../OrderWithoutCheckout/OrderWithoutCheckout.html?OrderNumber={{@key}}" class="btn btn-success" >Show Order</a>
+                        <a href="../../OrderWithoutCheckout/OrderWithoutCheckout.html?OrderNumber={{@key}}" class="btn btn-success" >{{AggValues.ItemDetails}}</a>
                     </td>
                     <td>
-                        <a href="#" data-ordernumber="{{@key}}" class="btn btn-danger SettlementButtonClass" >Settlement</a>
+                        <a href="#" data-ordernumber="{{@key}}" class="btn btn-danger SettlementButtonClass" >{{AggValues.SettlementAmount}}</a>
                     </td>
                     <td>
                         <a href="#" data-rowpk="{{@key}}" class="btn btn-primary MultipleQrCodeButtonClass">
