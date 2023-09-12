@@ -12,7 +12,7 @@ const StartFunc = () => {
         StartFuncShowOnDom({}).then(() => {
             StartFuncAfterDomLoad();
             StartFuncAddListenersFuncs();
-            jFLocalSetFocus();
+            // jFLocalSetFocus();
             // var $table = $('#table');
         });
     };
