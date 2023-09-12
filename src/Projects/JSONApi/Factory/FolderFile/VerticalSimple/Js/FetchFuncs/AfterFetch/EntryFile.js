@@ -1,4 +1,12 @@
 let StartFunc = ({ inFetchData }) => {
+    if (inFetchData.KTF === false) {
+        Swal.fire({
+            title: 'Error',
+            text: "inItemName Not Found",
+            icon: 'error',
+        });
+        return;
+    }
     let jVarCardBody = document.getElementById("KCont1");
     
     if (inFetchData.KTF) {

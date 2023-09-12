@@ -1,8 +1,8 @@
-import ApiConfigJson from "./../../../../../../../../../ApiConfig.json" assert {type: 'json'};
+import ProjectKeys from "../../../../../ConfigKeys/ProjectKeys.json" assert {type: 'json'};
 
 let StartFunc = async ({ inBodyData }) => {
     let jVarLocalBodyData = inBodyData;
-    let jVarLocalFetchUrl = `/${ApiConfigJson.ProjectName}/Api/Data/FromFolder/FromFile/ScreensFromDisplayJson/Tabular/Footer/KeyPress/EnterToServer`;
+    let jVarLocalFetchUrl = `/${ProjectKeys.ProjectName}/Api/Data/FromFolder/FromFile/ScreensFromDisplayJson/Tabular/Footer/KeyPress/EnterToServer`;
 
     let jVarLocalFetchHeaderObject = {
         method: "post",

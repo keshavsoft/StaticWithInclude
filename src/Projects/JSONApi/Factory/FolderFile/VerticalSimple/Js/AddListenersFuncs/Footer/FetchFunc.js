@@ -1,7 +1,7 @@
-import ApiConfigJson from '../../../../../../../../ApiConfig.json' assert {type: 'json'};
+import ProjectKeys from "../../../../ConfigKeys/ProjectKeys.json" assert {type: 'json'};
 
 let StartFunc1 = async ({ inFetchPostData }) => {
-    let jVarLocalRoute = ApiConfigJson.ProjectName;
+    let jVarLocalRoute = ProjectKeys.ProjectName;
     let jVarLocalSubRoute = "Api";
 
     let jVarLocalFetchUrl = `/${jVarLocalRoute}/${jVarLocalSubRoute}/Data/FromFolder/FromFile/ScreensFromDisplayJson/Vertical/HtmlCreate/Save`;
@@ -25,7 +25,7 @@ let StartFunc1 = async ({ inFetchPostData }) => {
 
 let StartFunc = async ({ inBodyData }) => {
     let jVarLocalBodyData = inBodyData;
-    let jVarLocalRoute = ApiConfigJson.ProjectName;
+    let jVarLocalRoute = ProjectKeys.ProjectName;
     let jVarLocalSubRoute = "Api";
 
     let jVarLocalFetchUrl = `/${jVarLocalRoute}/${jVarLocalSubRoute}/Data/FromFolder/FromFile/ScreensFromDisplayJson/Vertical/HtmlCreate/Save`;

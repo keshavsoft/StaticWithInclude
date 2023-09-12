@@ -1,5 +1,4 @@
 let StartFunc = ({ inDataToShow }) => {
-    console.log("guggj")
     if (inDataToShow.KTF === false) {
         Swal.fire({
             title: 'Error',
