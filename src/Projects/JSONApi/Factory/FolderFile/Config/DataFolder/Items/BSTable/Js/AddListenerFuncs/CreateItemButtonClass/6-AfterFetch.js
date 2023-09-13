@@ -10,10 +10,11 @@ let StartFunc = ({ inDataToShow }) => {
     // }
 
     let jVarLocalDataToShow = jFLocalToArray({ inDataToShow: inDataToShow.JsonData });
-    jFLocalPrepareHeaderForDataOnly({ data: jVarLocalDataToShow })
+    // jFLocalPrepareHeaderForDataOnly({ data: jVarLocalDataToShow })
     var $table = $('#table');
     console.log("jVarLocalDataToShow",jVarLocalDataToShow);
     $table.bootstrapTable({ data: jVarLocalDataToShow });
+    window.location.href = ""
 
 };
 let jFLocalToArray = ({ inDataToShow }) => {
