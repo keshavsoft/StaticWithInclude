@@ -12,12 +12,13 @@ let StartFunc = async ({ inEvent }) => {
 
     return {
         ...jVarLocalFromButtonData,
-        NewData: jvarLocalJSONData
+        ScreenNewData: jvarLocalJSONData
     };
 };
 
 const jFLocalFromButton = ({ inCurrentTarget }) => {
     let jVarLocalCurrentTarget = inCurrentTarget;
+
     let jVarLocalFolderName = jVarLocalCurrentTarget.dataset.foldername;
     let jVarLocalFileName = jVarLocalCurrentTarget.dataset.filename;
     let jVarLocalItemName = jVarLocalCurrentTarget.dataset.itemname;
@@ -29,7 +30,7 @@ const jFLocalFromButton = ({ inCurrentTarget }) => {
         FolderName: jVarLocalFolderName,
         FileName: jVarLocalFileName,
         ItemName: jVarLocalItemName,
-        NewScreenName:jVarLocalScreenNameValue
+        ScreenName:jVarLocalScreenNameValue,
     };
 };
 let fileValidation = (file) => {
