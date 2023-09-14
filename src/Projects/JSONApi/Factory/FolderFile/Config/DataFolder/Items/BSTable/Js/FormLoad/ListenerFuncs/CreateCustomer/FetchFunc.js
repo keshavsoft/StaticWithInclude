@@ -1,4 +1,4 @@
-import ProjectKeys from "../../../../../ConfigKeys/ProjectKeys.json" assert {type: 'json'};
+import ProjectKeys from "../../../../../../../../ConfigKeys/ProjectKeys.json" assert {type: 'json'};
 
 
 let StartFunc = async ({ inBodyData }) => {
