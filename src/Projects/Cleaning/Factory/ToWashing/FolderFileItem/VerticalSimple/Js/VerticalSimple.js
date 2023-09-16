@@ -13,6 +13,7 @@ const StartFunc = () => {
             StartFuncAfterDomLoad();
             StartFuncAddListenersFuncs();
             jFLocalSetFocus();
+            // var $table = $('#table');
         });
     };
 };

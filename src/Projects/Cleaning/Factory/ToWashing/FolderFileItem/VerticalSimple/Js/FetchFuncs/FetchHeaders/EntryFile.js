@@ -21,7 +21,7 @@ let StartFunc = () => {
             icon: 'error',
         });
     }
-
+    
     KeysJson.body = JSON.stringify(jVarLocalBodyKeys);
 
     return KeysJson;
@@ -33,5 +33,4 @@ let getUrlQueryParams = ({ inGetKey }) => {
     const value = parameters.get(inGetKey);
     return value;
 };
-
 export { StartFunc }
