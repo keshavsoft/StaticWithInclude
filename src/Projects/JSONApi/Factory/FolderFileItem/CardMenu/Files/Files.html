@@ -388,74 +388,23 @@
         });
     </script>
 
-    <template id="TemplateForMenuItem">
-        <li>
-            <a href="Files.html?FolderName={{MenuName}}" keshavsoftfoldername="{{MenuName}}"
-                class="nav-link {{MenuClass}}">
-
-                <svg class="bi d-block mx-auto mb-1 d-none d-md-block" width="24" height="24">
-                    <use xlink:href="#{{IconClass}}"></use>
-                </svg>
-
-                {{MenuName}}
-            </a>
-        </li>
-    </template>
-
-    
-    
-    <template id="TemplateForMenuItemLoop">
-        {{#each this}}
-     
-        <li class="UserLiClass">
-            <a href="Files.html?FolderName={{FolderName}}" keshavsoftfoldername="{{FolderName}}" class="nav-link {{MenuClass}}">
-
-                <svg class="bi d-block mx-auto mb-1 d-none d-md-block" width="24" height="24">
-                    <use xlink:href="#{{IconClass}}"></use>
-                </svg>
-
-                {{FolderName}}
-            </a>
-        </li>
-        
-      {{/each}}
-
-    </template>
-    
-
-    <template id="TemplateForFiles">
-        <div class="col-lg-3 col-md-4 col-sm-6">
-            <div class="card mb-3">
-                <div class="card-header">
-                    <div class="card-body">
-                        <h5 class="card-title">{{FileName}}</h5>
-                        <a href="Items.html?FolderName={{FolderName}}&FileName={{FileName}}" keshavsoftfilename="{{FileName}}" class="btn btn-primary keshavsoftfilesclick">Items -
-                            {{ItemCount}}</a>
-                    </div>
+<template id="TemplateForFiles">
+    <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="card mb-3">
+            <div class="card-header">
+                <div class="card-body">
+                    <h5>{{FolderName}}</h5>
+                    <a href="../Items/Items.html?inFolderName={{FolderName}}&inFileName={{FileName}}" class="btn btn-primary">
+                        {{FileName}}</a>
                 </div>
             </div>
         </div>
-    </template>
-    
-    <template id="TemplateForFiles1">
-        <div class="col-4">
-            <div class="card mb-3">
-                <div class="card-header">
-                    <div class="card-body">
-                        <h5 class="card-title">{{FileName}}</h5>
-                        <a href="/Tree/AsTree.html?FolderName={{FolderName}}&FileName={{FileName}}"
-                            keshavsoftfilename="{{FileName}}" class="btn btn-primary keshavsoftfilesclick">Items -
-                            {{ItemCount}}</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </template>
- 
-<script type="module" src="../../../../Js/KeshavSoft/CommonFuncs/FetchFuncs/ForHeader/ForFolders.js"></script>
-    <script type="module" src="../../ToLocalStorage/FromPreload.js"></script>
-    
-    <script src="./Files.js" type="module"></script>
+    </div>
+</template>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+<script src="./Js/Files.js" type="module"></script>
 
 </body>
 

@@ -388,21 +388,23 @@
         });
     </script>
 
-<template id="TemplateForFolders">
+<template id="TemplateForItems">
     <div class="col-lg-3 col-md-4 col-sm-6">
         <div class="card mb-3">
             <div class="card-header">
                 <div class="card-body">
-                    <a href="../Files/Files.html?inFolderName={{FolderName}}" class="btn btn-primary">
-                        {{FolderName}}</a>
+                    <h5>{{FileName}}</h5>
+                    <a href="../Items/Items.html?inFolderName={{FolderName}}&inFileName={{FileName}}&ItemName={{ItemName}}" class="btn btn-primary">
+                        {{ItemName}}</a>
                 </div>
             </div>
         </div>
     </div>
 </template>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
-<script src="./Js/Folders.js" type="module"></script>
+<script src="./Js/Items.js" type="module"></script>
 
 </body>
 
