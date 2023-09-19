@@ -388,15 +388,16 @@
         });
     </script>
 
-<template id="TemplateForItems">
+<template id="TemplateForScreens">
     <div class="col-lg-3 col-md-4 col-sm-6">
         <div class="card mb-3">
             <div class="card-header">
                 <div class="card-body">
                     <h4>{{FolderName}}</h4>
                     <h5>{{FileName}}</h5>
+                    <h6>{{ItemName}}</h6>
                     <a href="../Screens/Screens.html?inFolderName={{FolderName}}&inFileName={{FileName}}&inItemName={{ItemName}}" class="btn btn-primary">
-                        {{ItemName}}</a>
+                        {{ScreenName}}</a>
                 </div>
             </div>
         </div>
@@ -405,7 +406,7 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
-<script src="./Js/Items.js" type="module"></script>
+<script src="./Js/Screens.js" type="module"></script>
 
 </body>
 
