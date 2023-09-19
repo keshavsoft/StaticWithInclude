@@ -1,0 +1,14 @@
+{
+    "TokenName": "KToken",
+    "LocalStorageKeyName": "kUserName",
+    "ProjectName": "JSONApi",
+    "JsonFileName": "Vzm.json",
+    "JsonFileNameOnly": "Vzm",
+    "BranchName": "Vzm",
+    "ForFetch":{
+        "FolderName": "Transactions",
+        "FileNameOnly": "Vzm",
+        "JsonFileName": "Vzm.json",
+        "ItemName": "Orders"
+    }
+}
