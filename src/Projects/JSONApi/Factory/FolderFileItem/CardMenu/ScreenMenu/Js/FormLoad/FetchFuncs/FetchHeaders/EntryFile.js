@@ -1,52 +1,39 @@
 import KeysJson from './Keys.json' assert {type: 'json'};
+// import BodyKeysJson from './BodyKeys.json' assert {type: 'json'};
+// import ConfigKeys from '../../../../../../ConfigKeys/FetchKeys/ForPostKeys.json' assert {type: 'json'};
 
 let StartFunc = () => {
-    let jVarLocalBodyKeys = {};
-    jVarLocalBodyKeys = {};
-
-    let jVarLocalBodyKeysJson = jVarLocalBodyKeys;
-
+    let jVarLocalBodyKeysJson = {};
+    
     let jVarLocalFolderValue = getUrlQueryParams({ inGetKey: "inFolderName" });
     let jVarLocalFileValue = getUrlQueryParams({ inGetKey: "inFileName" });
     let jVarLocalItemValue = getUrlQueryParams({ inGetKey: "inItemName" });
-    let jVarLocalScreenValue = getUrlQueryParams({ inGetKey: "inScreenName" });
-    if (jVarLocalFolderValue === null ) {
+
+    jVarLocalBodyKeysJson.inFolderName = jVarLocalFolderValue;
+    jVarLocalBodyKeysJson.inFileNameWithExtension = jVarLocalFileValue;
+    jVarLocalBodyKeysJson.inItemName = jVarLocalItemValue;
+    if (jVarLocalBodyKeysJson.inFolderName === null ) {
         Swal.fire({
             title: 'inFolderName Not Found',
             text: "inFolderName Not Found in Params",
             icon: 'error',
         });
-        return;
-    };
-    if (jVarLocalFileValue === null ) {
+    }
+    else if (jVarLocalBodyKeysJson.inFileNameWithExtension === null ) {
         Swal.fire({
             title: 'inFileName Not Found',
             text: "inFileName Not Found in Params",
             icon: 'error',
         });
-        return;
     }
-    if (jVarLocalItemValue === null ) {
+    else if (jVarLocalBodyKeysJson.inItemName === null ) {
         Swal.fire({
             title: 'inItemName Not Found',
             text: "inItemName Not Found in Params",
             icon: 'error',
         });
-        return;
-    }
-    if (jVarLocalScreenValue === null ) {
-        Swal.fire({
-            title: 'inScreenName Not Found',
-            text: "inScreenName Not Found in Params",
-            icon: 'error',
-        });
-        return;
-    }
-    jVarLocalBodyKeysJson.inFolderName = jVarLocalFolderValue;
-    jVarLocalBodyKeysJson.inFileName = jVarLocalFileValue.search(".") === -1 ? jVarLocalFileValue : jVarLocalFileValue.split(".")[0]
-    jVarLocalBodyKeysJson.inItemName = jVarLocalItemValue;
-    jVarLocalBodyKeysJson.inScreenName = jVarLocalScreenValue;
-    
+    };
+
     KeysJson.body = JSON.stringify(jVarLocalBodyKeysJson);
 
     return KeysJson;
@@ -58,4 +45,5 @@ let getUrlQueryParams = ({ inGetKey }) => {
     const value = parameters.get(inGetKey);
     return value;
 };
+
 export { StartFunc }
