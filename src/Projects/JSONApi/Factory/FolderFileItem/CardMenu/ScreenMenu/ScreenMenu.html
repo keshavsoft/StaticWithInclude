@@ -388,16 +388,17 @@
         });
     </script>
 
-<template id="TemplateForScreens">
+<template id="TemplateForScreenMenu">
     <div class="col-lg-3 col-md-4 col-sm-6">
         <div class="card mb-3">
             <div class="card-header">
                 <div class="card-body">
-                    <h4>{{FolderName}}</h4>
-                    <h5>{{FileName}}</h5>
-                    <h6>{{ItemName}}</h6>
-                    <a href="../ScreenMenu/ScreenMenu.html?inFolderName={{FolderName}}&inFileName={{FileName}}&inItemName={{ItemName}}&inScreenName={{ScreenName}}" class="btn btn-primary">
-                        {{ScreenName}}</a>
+                    <h3>{{FolderName}}</h3>
+                    <h4>{{FileName}}</h4>
+                    <h5>{{ItemName}}</h5>
+                    <h6>{{ScreenName}}</h6>
+                    <a href="{{AnchorLink}}?inFolderName={{FolderName}}&inFileName={{FileName}}&inItemName={{ItemName}}&inScreenName={{ScreenName}}" class="btn btn-primary">
+                        {{MenuName}}</a>
                 </div>
             </div>
         </div>
@@ -406,7 +407,7 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
-<script src="./Js/Screens.js" type="module"></script>
+<script src="./Js/ScreenMenu.js" type="module"></script>
 
 </body>
 

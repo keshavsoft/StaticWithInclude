@@ -43,7 +43,7 @@ let StartFunc = () => {
         return;
     }
     jVarLocalBodyKeysJson.inFolderName = jVarLocalFolderValue;
-    jVarLocalBodyKeysJson.inFileName = jVarLocalFileValue.search(".") === -1 ? jVarLocalFileValue : jVarLocalFileValue.split(".")[0]
+    jVarLocalBodyKeysJson.inFileNameOnly = jVarLocalFileValue.search(".") === -1 ? jVarLocalFileValue : jVarLocalFileValue.split(".")[0]
     jVarLocalBodyKeysJson.inItemName = jVarLocalItemValue;
     jVarLocalBodyKeysJson.inScreenName = jVarLocalScreenValue;
     
