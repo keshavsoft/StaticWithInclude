@@ -15,7 +15,7 @@ let jVarLocalPrepareObject = () => {
     let jVarLocalDataNeeded = {};
     jVarLocalDataNeeded.BSTable = {};
 
-    jVarLocalDataNeeded.BSTable.AnchorLink = "../../BSTable/BSTable.html";
+    jVarLocalDataNeeded.BSTable.AnchorLink = "../../BSTableSubMenu/BSTableFromParams/BSTableFromParams.html";
     jVarLocalDataNeeded = {
         ...jVarLocalDataNeeded,
         ...jVarLocalVerticalFromParams()
