@@ -1,12 +1,15 @@
-let StartFunc = ({ inFromFetch }) => {
+let StartFunc = ({ inFromFetch, inQrCodeData }) => {
     let jVarLocalData = inFromFetch.JsonData;
+    let jVarLocalQrCodesData = inQrCodeData.JsonData;
     var template = Handlebars.compile(jFLocalFromDomLatestOrdersTableTemplateRow());
 
     let jVarLocalHtmlId = 'LatestOrdersTable';
     let jVarLocalLatestOrdersTable = document.getElementById(jVarLocalHtmlId);
     let jVarLocalTransformedData = jFLocalInsertAggValues({ inData: jVarLocalData });
+    let jVarWithQrCodeData = jFLocalInsertQrCodeData({ inData: jVarLocalTransformedData, inQrCodeData: jVarLocalQrCodesData });
+
     console.log("jVarLocalTransformedData : ", jVarLocalTransformedData);
-    jVarLocalLatestOrdersTable.querySelector('tbody').innerHTML = template(jVarLocalTransformedData);
+    jVarLocalLatestOrdersTable.querySelector('tbody').innerHTML = template(jVarWithQrCodeData);
 };
 
 let jFLocalFromDomLatestOrdersTableTemplateRow = () => {
@@ -15,6 +18,23 @@ let jFLocalFromDomLatestOrdersTableTemplateRow = () => {
     let jVarLatestOrdersTableTemplateRowValue = jVarLatestOrdersTableTemplateRow.innerHTML.trim();
     return jVarLatestOrdersTableTemplateRowValue;
 };
+
+let jFLocalInsertQrCodeData = ({ inData , inQrCodeData }) => {
+    let jVarLocalReturnArray = [];
+
+    jVarLocalReturnArray = inData.map(element => {
+
+        element.QrCodes = inQrCodeData[element.pk];
+        element.IsQrCodesRaised = false;
+        if (element.pk in inQrCodeData) {
+            element.IsQrCodesRaised = true;
+        };
+
+        return element;
+    });
+    return jVarLocalReturnArray;
+};
+
 
 let jFLocalInsertAggValues = ({ inData }) => {
     let jVarLocalReturnObject = [];
