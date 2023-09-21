@@ -1,0 +1,81 @@
+<header id="NavBarId" class="navbar navbar-expand-md navbar-dark bg-dark d-print-none" aria-label="KeshavSoft">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">KeshavSoft</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#MenuNavItems"
+            aria-controls="MenuNavItems" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="MenuNavItems">
+            <ul class="navbar-nav me-auto">
+                <li>
+                    <a href="/JSONApi/Html/UserData/Menu/AsCards/Files.html" class="nav-link text-white">
+                        <svg class="bi d-block mx-auto mb-1 d-none d-md-block" width="24" height="24">
+                            <use xlink:href="#speedometer2"></use>
+                        </svg>
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="/JSONReports/Html/Reports/WithOutFiltersAndTabs/WithOutFiltersAndTabs.html"
+                        class="nav-link WithOutFiltersAndTabsAClass text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"   class="bi d-block mx-auto mb-1 d-none d-md-block" viewBox="0 0 16 16">
+                            <path d="M8.098 5.013a.144.144 0 0 1 .202.134V6.3a.5.5 0 0 0 .5.5c.667 0 2.013.005 3.3.822.984.624 1.99 1.76 2.595 3.876-1.02-.983-2.185-1.516-3.205-1.799a8.74 8.74 0 0 0-1.921-.306 7.404 7.404 0 0 0-.798.008h-.013l-.005.001h-.001L8.8 9.9l-.05-.498a.5.5 0 0 0-.45.498v1.153c0 .108-.11.176-.202.134L4.114 8.254a.502.502 0 0 0-.042-.028.147.147 0 0 1 0-.252.497.497 0 0 0 .042-.028l3.984-2.933zM9.3 10.386c.068 0 .143.003.223.006.434.02 1.034.086 1.7.271 1.326.368 2.896 1.202 3.94 3.08a.5.5 0 0 0 .933-.305c-.464-3.71-1.886-5.662-3.46-6.66-1.245-.79-2.527-.942-3.336-.971v-.66a1.144 1.144 0 0 0-1.767-.96l-3.994 2.94a1.147 1.147 0 0 0 0 1.946l3.994 2.94a1.144 1.144 0 0 0 1.767-.96v-.667z"/>
+                            <path d="M5.232 4.293a.5.5 0 0 0-.7-.106L.54 7.127a1.147 1.147 0 0 0 0 1.946l3.994 2.94a.5.5 0 1 0 .593-.805L1.114 8.254a.503.503 0 0 0-.042-.028.147.147 0 0 1 0-.252.5.5 0 0 0 .042-.028l4.012-2.954a.5.5 0 0 0 .106-.699z"/>
+                          </svg>
+                        Parent
+                    </a>
+                </li>
+                <li>
+                    <a href="/JSONReports/Html/Reports/Dynamic/WithDataColumns/WithDataColumns.html"
+                        class="nav-link DynamicAClass text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                            class="bi d-block mx-auto mb-1 d-none d-md-block" viewBox="0 0 16 16">
+                            <path
+                                d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2h-11z" />
+                        </svg>
+                        WithDataColumns
+                    </a>
+                </li>
+                <li>
+                    <a href="/JSONReports/Html/Reports/Dynamic/WithConfigColumns/WithConfigColumns.html"
+                        class="nav-link text-white WithFiltersAndTabsAClass">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                            class="bi d-block mx-auto mb-1 d-none d-md-block" viewBox="0 0 16 16">
+                            <path
+                                d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2z">
+                            </path>
+                        </svg>
+                        WithConfigColumns
+                    </a>
+                </li>
+                
+            </ul>
+            <ul class="navbar-nav">
+                <li id="HeaderLoginButtonId">
+                    <a href="#" class="nav-link text-white" onclick="jVarGlobalClientObject.UI.ModalFuncs.Show()">
+                        <svg class="bi d-block mx-auto mb-1 d-none d-md-block" width="24" height="24">
+                            <use xlink:href="#person-x-fill" />
+                        </svg>
+                        Login
+                    </a>
+                </li>
+                <li id="HeaderUserIdLi" class="visually-hidden nav-item dropdown">
+                    <a href="#" id="HeaderUserIdDropDown" data-bs-toggle="dropdown" aria-expanded="false"
+                        class="nav-link text-white dropdown-toggle">
+                        <svg class="bi d-block mx-auto mb-1 d-none d-md-block" width="24" height="24">
+                            <use xlink:href="#people-circle" />
+                        </svg>
+                        UserName
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="HeaderUserIdDropDown">
+                        <li><a class="dropdown-item" href="#" onclick="jVarGlobalClientObject.UI.ModalFuncs.Show()">
+                                <i class="bi bi-power" style="font-size: 1.3rem; color:orangered"></i>
+                                logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</header>
