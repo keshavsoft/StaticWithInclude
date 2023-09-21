@@ -394,6 +394,13 @@
                             Data with Filters</button>
                     </div>
                 </div>
+                <table id="FilterDataTable">
+                    <thead>
+                        <tr id="FiltertableHeadRow">
+
+                        </tr>
+                    </thead>
+                </table>
                 <div id="FilteredTableId">
 
                 </div>
@@ -447,7 +454,7 @@
             <td>{{Name}}</td>
             <td>
                 <input type="text" class="form-control SearchInput" aria-describedby="helpId"
-                 list="DataListForFilter-{{SNo}}" data-dataattribute="{{DataAttribute}}"  name="{{DataAttribute}}">
+                    list="DataListForFilter-{{SNo}}" data-dataattribute="{{DataAttribute}}"  name="{{DataAttribute}}">
                 <datalist id="DataListForFilter-{{SNo}}">
                 </datalist>
             </td>
@@ -913,6 +920,8 @@
         jFChangeHeaderActiveClass()
 
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.js"></script>
 
     <script src="./Js/BsTableColumns.js" type="module"></script>
 
