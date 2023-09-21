@@ -2,13 +2,13 @@
     "TokenName": "KToken",
     "LocalStorageKeyName": "kUserName",
     "ProjectName": "JSONApi",
-    "JsonFileName": "Kakinada.json",
-    "JsonFileNameOnly": "Kakinada",
-    "BranchName": "Kakinada",
+    "JsonFileName": "Vzm.json",
+    "JsonFileNameOnly": "Vzm",
+    "BranchName": "Vzm",
     "ForFetch":{
         "FolderName": "Transactions",
-        "FileNameOnly": "Kakinada",
-        "JsonFileName": "Kakinada.json",
+        "FileNameOnly": "Vzm",
+        "JsonFileName": "Vzm.json",
         "ItemName": "Orders"
     }
 }

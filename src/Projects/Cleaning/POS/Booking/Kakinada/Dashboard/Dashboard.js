@@ -29,6 +29,4 @@ const StartFunc = () => {
     jVarLocalStatusId.click();
 };
 
-
-
 StartFunc();
