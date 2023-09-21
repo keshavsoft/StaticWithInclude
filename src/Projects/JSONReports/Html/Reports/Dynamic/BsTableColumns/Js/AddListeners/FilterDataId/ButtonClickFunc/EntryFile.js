@@ -4,25 +4,16 @@ import { StartFunc as StartFuncColumnOrder } from "./ColumnOrder.js";
 
 let StartFunc = () => {
     jFLocalShowFilters();
-    let jVarLocalFilteredTableId = document.getElementById("FilteredTableId");
 
     let jVarLocalNewData = JSON.parse(JSON.stringify(jVarGlobalPresentViewData.KData.TableData));
 
     let jVarLocalFilteredData = StartFuncFilterData({ inData: jVarLocalNewData });
     let jVarLocalShowColumnsArray = StartFuncShowColumnsArray();
 
-    // let jVarLocalPickData = _.map(jVarLocalFilteredData, function (object) {
-    //     return _.pick(object, jVarLocalShowColumnsArray);
-    // });
-
-    // let jVarLocalPickData = _.map(jVarGlobalPresentViewData, function (object) {
-    //     return _.pick(object, ['AccountName', 'Credit']);
-    // });
-
 
     let jVarLocalFromColumnOrder = StartFuncColumnOrder();
 
-    let jVarLocalPickData = _.map(jVarLocalFilteredData, function (object) {
+    let jVarLocalPickData = _.map(jVarLocalNewData, function (object) {
         return _.pick(object, [...jVarLocalFromColumnOrder, ..._.difference(jVarLocalShowColumnsArray, jVarLocalFromColumnOrder)]);
     });
 
@@ -34,21 +25,18 @@ let StartFunc = () => {
             TableData: jVarLocalPickData
         }
     });
+    jFLocalPrepareHeaderForDataOnly({data:jVarLocalShowColumnsArray})
+    var $table = $('#FilterDataTable');
 
-    jVarGlobalKeshavSoftLocalFuncsObject.AppendToDOM.RequiredHtml({
-        inData: jVarLocalToShowData,
-        inHtmlParent: jVarLocalFilteredTableId
-    });
+    $table.bootstrapTable({ data: jVarLocalFilteredData});
+
 };
 
 let jFLocalShowFilters = () => {
-    let jVarLocalHtmlIdFilterTableBody = 'FilterTableBody';
-    let jVarLocalFilterTableBody = document.getElementById(jVarLocalHtmlIdFilterTableBody);
 
     let jVarLocalHtmlId = 'FilterFormId';
     let jVarLocalFilterFormId = document.getElementById(jVarLocalHtmlId);
     let jVarLocalFromData = serializeObject(jVarLocalFilterFormId);
-    console.log("jVarLocalFromData : ", jVarLocalFromData, JSON.stringify(jVarLocalFromData));
 
     let jVarLocalShowFiltersIdHtmlId = 'ShowFiltersId';
     let jVarLocalShowFiltersId = document.getElementById(jVarLocalShowFiltersIdHtmlId);
@@ -70,5 +58,17 @@ let serializeObject = (form) => {
     // Return the object
     return pairs;
 };
+
+let jFLocalPrepareHeaderForDataOnly = ({data}) => {
+    let jVarLocalHtmlId = 'FiltertableHeadRow';
+    let jVarLocaltableHeadRow = document.getElementById(jVarLocalHtmlId);
+    let jVarLocalColumns = data;
+    jVarLocalColumns.forEach(element => {
+        let jVarLocalNewTh = document.createElement("th");
+        jVarLocalNewTh.innerHTML = element;
+        jVarLocalNewTh.dataset.field = element;
+        jVarLocaltableHeadRow.appendChild(jVarLocalNewTh);
+    });
+}
 
 export { StartFunc }
