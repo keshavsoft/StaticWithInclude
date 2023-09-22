@@ -4,9 +4,11 @@ import BodyKeysJson from './BodyKeys.json' assert {type: 'json'};
 let StartFunc = () => {
     let jVarLocalBodyKeysJson = BodyKeysJson;
     let jVarLocalReferncePk = getUrlQueryParams({ inGetKey: "OrderNumber" });
+    let jVarLocalBranchName = getUrlQueryParams({ inGetKey: "Branch" });
 
     // jVarLocalBodyKeysJson.FilterString=`value.GenerateReference.ReferncePk === '${jVarLocalReferncePk}'`;
     jVarLocalBodyKeysJson.FilterString = jVarLocalBodyKeysJson.FilterString.replace("{{OrderNumber}}",jVarLocalReferncePk);
+    jVarLocalBodyKeysJson.FilterString = jVarLocalBodyKeysJson.FilterString.replace("{{Branch}}",jVarLocalBranchName);
 
     KeysJson.body = JSON.stringify(jVarLocalBodyKeysJson);
 
