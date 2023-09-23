@@ -394,7 +394,7 @@
                             Data with Filters</button>
                     </div>
                 </div>
-                <table id="FilterDataTable">
+                <table id="FilterDataTable" data-show-footer="true">
                     <thead>
                         <tr id="FiltertableHeadRow">
 
@@ -454,7 +454,7 @@
             <td>{{Name}}</td>
             <td>
                 <input type="text" class="form-control SearchInput" aria-describedby="helpId"
-                    list="DataListForFilter-{{SNo}}" data-dataattribute="{{DataAttribute}}"  name="{{DataAttribute}}">
+                    list="DataListForFilter-{{SNo}}" data-dataattribute="{{DataAttribute}}" name="{{DataAttribute}}">
                 <datalist id="DataListForFilter-{{SNo}}">
                 </datalist>
             </td>
@@ -919,6 +919,16 @@
         };
         jFChangeHeaderActiveClass()
 
+    </script>
+    <script>
+        function priceFormatter(data) {
+            var field = this.field
+            return data.map(function (row) {
+                return +row[field]
+            }).reduce(function (sum, i) {
+                return sum + i
+            }, 0)
+        }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
     <script src="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.js"></script>

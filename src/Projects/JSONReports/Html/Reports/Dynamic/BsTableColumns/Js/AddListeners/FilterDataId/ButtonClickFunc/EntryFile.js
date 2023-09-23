@@ -6,6 +6,11 @@ let StartFunc = () => {
     jFLocalShowFilters();
 
     let jVarLocalNewData = JSON.parse(JSON.stringify(jVarGlobalPresentViewData.KData.TableData));
+    
+    let jVarLocalTableColumns = Object.entries(jVarGlobalPresentViewData.KData.TableColumns).map(element => {
+        return element[1]
+    });
+
 
     let jVarLocalFilteredData = StartFuncFilterData({ inData: jVarLocalNewData });
     let jVarLocalShowColumnsArray = StartFuncShowColumnsArray();
@@ -25,10 +30,10 @@ let StartFunc = () => {
             TableData: jVarLocalPickData
         }
     });
-    jFLocalPrepareHeaderForDataOnly({data:jVarLocalShowColumnsArray})
+    jFLocalPrepareHeaderForDataOnly({ data: jVarLocalTableColumns })
     var $table = $('#FilterDataTable');
 
-    $table.bootstrapTable({ data: jVarLocalFilteredData});
+    $table.bootstrapTable({ data: jVarLocalFilteredData });
 
 };
 
@@ -59,15 +64,20 @@ let serializeObject = (form) => {
     return pairs;
 };
 
-let jFLocalPrepareHeaderForDataOnly = ({data}) => {
+let jFLocalPrepareHeaderForDataOnly = ({ data }) => {
     let jVarLocalHtmlId = 'FiltertableHeadRow';
     let jVarLocaltableHeadRow = document.getElementById(jVarLocalHtmlId);
     let jVarLocalColumns = data;
     jVarLocalColumns.forEach(element => {
         let jVarLocalNewTh = document.createElement("th");
-        jVarLocalNewTh.innerHTML = element;
-        jVarLocalNewTh.dataset.field = element;
+        jVarLocalNewTh.innerHTML = element.DataAttribute;
+        jVarLocalNewTh.dataset.field = element.DataAttribute;
         jVarLocaltableHeadRow.appendChild(jVarLocalNewTh);
+        console.log("element:", element);
+        if (element.ShowTotal) {
+            jVarLocalNewTh.setAttribute("data-footer-formatter", "priceFormatter");
+            
+        }
     });
 }
 
