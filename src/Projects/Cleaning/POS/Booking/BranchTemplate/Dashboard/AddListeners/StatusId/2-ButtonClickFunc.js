@@ -4,11 +4,13 @@ import { StartFunc as StartFuncTodayCustomers } from "./FetchFuncs/TodayCustomer
 import { StartFunc as StartFuncLatestOrders } from "./FetchFuncs/LatestOrders/EntryFile.js";
 import { StartFunc as StartFuncQrCodes } from "./FetchFuncs/QrCodes/EntryFile.js";
 import { StartFunc as StartFuncLatestOrdersAfterFetch } from "./FetchFuncs/LatestOrders/6-AfterFetch.js";
+import { StartFunc as StartFuncLatestQrCodes } from "./FetchFuncs/LatestQrCodes/EntryFile.js";
 
 let StartFunc = () => {
     StartFuncNewCustomers();
     StartFuncFrequentCustomers().then();
     StartFuncTodayCustomers();
+    StartFuncLatestQrCodes();
     StartFuncLatestOrders().then(OrdersData =>{
         StartFuncQrCodes().then(QrCodesData =>{
             StartFuncLatestOrdersAfterFetch({inFromFetch: OrdersData, inQrCodeData: QrCodesData});
