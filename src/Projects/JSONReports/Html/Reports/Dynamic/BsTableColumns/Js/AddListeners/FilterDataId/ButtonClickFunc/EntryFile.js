@@ -6,14 +6,16 @@ let StartFunc = () => {
     jFLocalShowFilters();
 
     let jVarLocalNewData = JSON.parse(JSON.stringify(jVarGlobalPresentViewData.KData.TableData));
-    
+
     let jVarLocalTableColumns = Object.entries(jVarGlobalPresentViewData.KData.TableColumns).map(element => {
         return element[1]
     });
 
+    let jVarLocalShowColumnsArray = StartFuncShowColumnsArray();
+
+    let localColumnsData = LocalInsertFunc({ jVarLocalTableColumns, jVarLocalShowColumnsArray });
 
     let jVarLocalFilteredData = StartFuncFilterData({ inData: jVarLocalNewData });
-    let jVarLocalShowColumnsArray = StartFuncShowColumnsArray();
 
 
     let jVarLocalFromColumnOrder = StartFuncColumnOrder();
@@ -30,7 +32,7 @@ let StartFunc = () => {
             TableData: jVarLocalPickData
         }
     });
-    jFLocalPrepareHeaderForDataOnly({ data: jVarLocalTableColumns })
+    jFLocalPrepareHeaderForDataOnly({ data: localColumnsData })
     var $table = $('#FilterDataTable');
 
     $table.bootstrapTable({ data: jVarLocalFilteredData });
@@ -70,15 +72,28 @@ let jFLocalPrepareHeaderForDataOnly = ({ data }) => {
     let jVarLocalColumns = data;
     jVarLocalColumns.forEach(element => {
         let jVarLocalNewTh = document.createElement("th");
-        jVarLocalNewTh.innerHTML = element.DataAttribute;
-        jVarLocalNewTh.dataset.field = element.DataAttribute;
+        jVarLocalNewTh.innerHTML = element[0].DataAttribute;
+        jVarLocalNewTh.dataset.field = element[0].DataAttribute;
         jVarLocaltableHeadRow.appendChild(jVarLocalNewTh);
         console.log("element:", element);
-        if (element.ShowTotal) {
+        if (element[0].ShowTotal) {
             jVarLocalNewTh.setAttribute("data-footer-formatter", "priceFormatter");
-            
+
         }
     });
 }
+
+let LocalInsertFunc = ({ jVarLocalTableColumns, jVarLocalShowColumnsArray }) => {
+
+    let jVarLocalNewArray = jVarLocalShowColumnsArray.map(element => {
+
+        let jVarLoopInsideFilter = jVarLocalTableColumns.filter(e => e.DisplayName === element);
+        element = jVarLoopInsideFilter;
+        return element;
+
+    });
+
+    return [...jVarLocalNewArray];
+};
 
 export { StartFunc }
