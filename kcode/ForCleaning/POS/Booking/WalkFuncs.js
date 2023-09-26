@@ -4,18 +4,18 @@ var path = require('path');
 const posthtml = require('posthtml');
 const include = require('posthtml-include');
 
-var walk = function (dir, inFolderPath, inDestinationPath, done) {
+var walk = function (dir, inFolderPath, inDestinationPath, inBranchName, done) {
     var results = [];
     fs.readdir(dir, function (err, list) {
         if (err) return done(err);
         var i = 0;
         (function next() {
             var file = list[i++];
-            if (!file) return done(null, inFolderPath, inDestinationPath, results);
+            if (!file) return done(null, inFolderPath, inDestinationPath, inBranchName, results);
             file = path.resolve(dir, file);
             fs.stat(file, function (err, stat) {
                 if (stat && stat.isDirectory()) {
-                    walk(file, inFolderPath, inDestinationPath, function (err, inFolderPath, inDestinationPath, res) {
+                    walk(file, inFolderPath, inDestinationPath, inBranchName, function (err, inFolderPath, inDestinationPath, inBranchName, res) {
                         results = results.concat(res);
                         next();
                     });
@@ -28,9 +28,9 @@ var walk = function (dir, inFolderPath, inDestinationPath, done) {
     });
 };
 
-let CallBackFunc = (err, inFolderPath, inDestinationPath, results) => {
+let CallBackFunc = (err, inFolderPath, inDestinationPath, inBranchName, results) => {
     if (err) throw err;
-
+    console.log("results : ", results);
     results.forEach(element => {
         console.log("element : ", element);
         const html = fs.readFileSync(element);
@@ -44,8 +44,18 @@ let CallBackFunc = (err, inFolderPath, inDestinationPath, results) => {
                         fs.createFileSync(element.replace(inFolderPath, inDestinationPath));
                     };
 
+                    if (element.endsWith("\\Dashboard\\Dashboard.html")) {
+                        console.log("aaaaaaaa : ", element);
+
+                        fs.writeFileSync(element.replace(inFolderPath, inDestinationPath), result.html.replace("{{Branch}}", inBranchName));
+
+                    } else {
+                        fs.writeFileSync(element.replace(inFolderPath, inDestinationPath), result.html);
+
+                    };
+                    // console.log("LoopInsideJson : ", LoopInsideJson);
                     // fs.writeFileSync(element.replace(inFolderPath, inDestinationPath), result.html);
-                    fs.writeFileSync(element.replace(inFolderPath, inDestinationPath), result.html.replace("{{Branch}}", "Kakinada"));
+                    // fs.writeFileSync(element.replace(inFolderPath, inDestinationPath), result.html.replace("{{Branch}}", "Kakinada"));
 
                 });
         } else {
