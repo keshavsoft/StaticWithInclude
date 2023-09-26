@@ -6,11 +6,13 @@ const StartFunc = () => {
     let jVarLocalScanIdValue = jVarLocalScanId.value;
     let jVarLocalArray = jVarLocalScanIdValue.split("~");
     let jVarLocalQrCode = jVarLocalArray[0].trim();
-    
 
-    StartFuncToUrl({
-        inQrCode: jVarLocalQrCode
-    });
+    if (jVarLocalQrCode === "" === false) {
+        StartFuncToUrl({
+            inQrCode: jVarLocalQrCode
+        });
+    };
+
 };
 
 export { StartFunc };

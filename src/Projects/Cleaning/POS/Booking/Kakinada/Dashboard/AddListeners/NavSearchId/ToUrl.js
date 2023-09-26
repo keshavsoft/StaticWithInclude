@@ -2,7 +2,7 @@ import ApiConfigJson from "../../../ApiConfig.json" assert {type: 'json'};
 
 let StartFunc = ({ inQrCode }) => {
     let inBranchName = ApiConfigJson.BranchName;
-    let jVarLocalToUrl = `/Cleaning/POS/Booking/${inBranchName}/QrCodeMenu/QrCode/QrCode.html`;
+    let jVarLocalToUrl = `/Cleaning/POS/Booking/${inBranchName}/QrCodeMenu/QrCodeTree/QrCodeTree.html`;
 
     const myUrlWithParams = new URL(`${window.location.origin}${jVarLocalToUrl}`);
 
