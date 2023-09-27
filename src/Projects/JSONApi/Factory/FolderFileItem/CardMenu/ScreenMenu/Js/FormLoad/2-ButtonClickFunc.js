@@ -27,7 +27,7 @@ let jVarLocalVerticalFromParams = () => {
     let jVarLocalDataNeeded = {};
     jVarLocalDataNeeded.VerticalFromParams = {};
 
-    jVarLocalDataNeeded.VerticalFromParams.AnchorLink = "../../VerticalSubMenu/VerticalFromParams/VerticalFromParams.html";
+    jVarLocalDataNeeded.VerticalFromParams.AnchorLink = "../../VerticalSubMenu/FromScreen/VerticalFromParams/VerticalFromParams.html";
     return jVarLocalDataNeeded;
 };
 
