@@ -10,11 +10,7 @@ let StartFunc = async () => {
     let jVarLocalFind = document.querySelectorAll(".KVerticalFooterSaveButtonClass");
     jVarLocalFind.forEach((spanElement) => {
         spanElement.addEventListener("click", (inEvent) => {
-            let jVarLocalFromClick = Vertical.SaveFuncs.StartFunc({ inEvent }).then(PromiseData=>{
-                console.log("jVarLocalFromClick",jVarLocalFromClick);
-                let jVarLocalpkInput = document.getElementById("pk");
-                jVarLocalpkInput.focus();
-            });
+            Vertical.SaveFuncs.StartFunc({ inEvent });
             
         });
     });
@@ -41,7 +37,7 @@ let Vertical = {
                 let jVarLocalFromFetch = await StartFuncFetchFunc({
                     inBodyData: jVarLocalJsonConfigAndItemConfig
                 });
-                return await StartFuncAfterFetch({ inFetchPostData: jVarLocalFromFetch, inHtmlCard: jVarLocalHtmlCard });
+                StartFuncAfterFetch({ inFetchPostData: jVarLocalFromFetch, inHtmlCard: jVarLocalHtmlCard });
 
             };
         },
