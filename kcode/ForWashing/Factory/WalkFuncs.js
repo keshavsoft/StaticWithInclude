@@ -51,11 +51,11 @@ let CallBackFunc = (err, inFolderPath, inDestinationPath, inBranchName, results)
                     let LoopInsideJson = JSON.parse(html);
                     LoopInsideJson.inFileNameOnly = inBranchName;
                     LoopInsideJson.inFileName = inBranchName;
-                    console.log("LoopInsideJson",LoopInsideJson);
+                    console.log("LoopInsideJson", LoopInsideJson);
                     fs.createFileSync(element.replace(inFolderPath, inDestinationPath));
                     fs.writeFileSync(element.replace(inFolderPath, inDestinationPath), JSON.stringify(LoopInsideJson));
                 }
-            }else{
+            } else {
                 fs.copySync(element, element.replace(inFolderPath, inDestinationPath));
             }
         };
