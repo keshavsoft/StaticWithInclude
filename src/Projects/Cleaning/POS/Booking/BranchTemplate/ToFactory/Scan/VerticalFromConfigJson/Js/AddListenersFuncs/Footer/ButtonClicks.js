@@ -9,8 +9,13 @@ import ApiConfigJson from '../../../ConfigKeys/ProjectKeys.json' assert {type: '
 let StartFunc = async () => {
     let jVarLocalFind = document.querySelectorAll(".KVerticalFooterSaveButtonClass");
     jVarLocalFind.forEach((spanElement) => {
-        spanElement.addEventListener("click", async (inEvent) => {
-            await Vertical.SaveFuncs.StartFunc({ inEvent });
+        spanElement.addEventListener("click", (inEvent) => {
+            let jVarLocalFromClick = Vertical.SaveFuncs.StartFunc({ inEvent }).then(PromiseData=>{
+                console.log("jVarLocalFromClick",jVarLocalFromClick);
+                let jVarLocalpkInput = document.getElementById("pk");
+                jVarLocalpkInput.focus();
+            });
+            
         });
     });
 };
@@ -36,7 +41,7 @@ let Vertical = {
                 let jVarLocalFromFetch = await StartFuncFetchFunc({
                     inBodyData: jVarLocalJsonConfigAndItemConfig
                 });
-                StartFuncAfterFetch({ inFetchPostData: jVarLocalFromFetch, inHtmlCard: jVarLocalHtmlCard });
+                return await StartFuncAfterFetch({ inFetchPostData: jVarLocalFromFetch, inHtmlCard: jVarLocalHtmlCard });
 
             };
         },
