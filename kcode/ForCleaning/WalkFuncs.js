@@ -4,18 +4,18 @@ var path = require('path');
 const posthtml = require('posthtml');
 const include = require('posthtml-include');
 
-var walk = function (dir, inFolderPath, inDestinationPath, done) {
+var walk = function (dir, inFolderPath, inDestinationPath, inArrayHtml, done) {
     var results = [];
     fs.readdir(dir, function (err, list) {
         if (err) return done(err);
         var i = 0;
         (function next() {
             var file = list[i++];
-            if (!file) return done(null, inFolderPath, inDestinationPath, results);
+            if (!file) return done(null, inFolderPath, inDestinationPath, inArrayHtml, results);
             file = path.resolve(dir, file);
             fs.stat(file, function (err, stat) {
                 if (stat && stat.isDirectory()) {
-                    walk(file, inFolderPath, inDestinationPath, function (err, inFolderPath, inDestinationPath, res) {
+                    walk(file, inFolderPath, inDestinationPath, inArrayHtml, function (err, inFolderPath, inDestinationPath, inArrayHtml, res) {
                         results = results.concat(res);
                         next();
                     });
@@ -28,11 +28,10 @@ var walk = function (dir, inFolderPath, inDestinationPath, done) {
     });
 };
 
-let CallBackFunc = (err, inFolderPath, inDestinationPath, results) => {
+let CallBackFunc = (err, inFolderPath, inDestinationPath, inArrayHtml, results) => {
     if (err) throw err;
 
     results.forEach(element => {
-        console.log("element : ", element);
         const html = fs.readFileSync(element);
         let LoopInsidePath = path.parse(element);
 
@@ -44,12 +43,11 @@ let CallBackFunc = (err, inFolderPath, inDestinationPath, results) => {
                         fs.createFileSync(element.replace(inFolderPath, inDestinationPath));
                     };
 
-                    // fs.writeFileSync(element.replace(inFolderPath, inDestinationPath), result.html);
-                    fs.writeFileSync(element.replace(inFolderPath, inDestinationPath), result.html.replace("{{Branch}}", "Kakinada"));
+                    // fs.writeFileSync(element.replace(inFolderPath, inDestinationPath), result.html.replace("{{Branch}}", "Kakinada"));
+                    fs.writeFileSync(element.replace(inFolderPath, inDestinationPath), result.html.replace("{{BranchArray}}", inArrayHtml));
 
                 });
         } else {
-            // console.log("vLoopInsidePath : ", element);
             fs.copySync(element, element.replace(inFolderPath, inDestinationPath));
         };
     });
