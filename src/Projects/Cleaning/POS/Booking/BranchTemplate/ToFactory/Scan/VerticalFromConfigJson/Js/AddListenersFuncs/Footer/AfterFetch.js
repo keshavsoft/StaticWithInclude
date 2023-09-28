@@ -1,8 +1,8 @@
-let StartFunc = async({ inFetchPostData, inHtmlCard }) => {
+let StartFunc = ({ inFetchPostData, inHtmlCard }) => {
     let jVarLocalFetchData = inFetchPostData;
     console.log("jVarLocalFetchData000", jVarLocalFetchData);
     if (jVarLocalFetchData.KTF === false) {
-        return await jFLocalForFailure({ inFetchPostData, inHtmlCard });
+        jFLocalForFailure({ inFetchPostData, inHtmlCard });
     } else {
         jFLocalForSuccess();
     };
@@ -16,32 +16,30 @@ let jFLocalForSuccess = () => {
     window.location.href = new_url.href;
 };
 
-let jFLocalForFailure = async ({ inFetchPostData, inHtmlCard }) => {
+let jFLocalForFailure = ({ inFetchPostData, inHtmlCard }) => {
     switch (inFetchPostData.ColumnDataAttribute) {
         case "VoucherRef":
             inHtmlCard.classList.remove("border-success");
             inHtmlCard.classList.add("border-danger");
-            Swal.fire({
-                title: `${inFetchPostData.ColumnDataAttribute} Not Found`,
-                text: `${inFetchPostData.KReason}`,
-                icon: 'error',
-            }).then(function () {
-                let jVarLocalVoucherInput = document.getElementById("VoucherRef");
-                jVarLocalVoucherInput.focus();
-            });
+            let jVarLocalVoucherInput = document.getElementById("VoucherRef");
+            let jVarLocalParentElement = jVarLocalVoucherInput.parentElement;
+            let jVarLocalErrorVoucher = jVarLocalParentElement.querySelector(".invalid-feedback");
+            jVarLocalErrorVoucher.innerHTML = `Invalid DC`
+            jVarLocalVoucherInput.classList.add("is-invalid");
+            jVarLocalVoucherInput.focus();
 
             break;
         case "pk":
             inHtmlCard.classList.remove("border-success");
             inHtmlCard.classList.add("border-danger");
-            Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: 'Your work has been saved',
-                showConfirmButton: false,
-                timer: 1500
-              });
-            return await false;
+            let jVarLocalpkInput = document.getElementById("pk");
+            let jVarLocalParent = jVarLocalpkInput.parentElement;
+            console.log("jVarLocalParent", jVarLocalParent);
+            let jVarLocalError = jVarLocalParent.querySelector(".invalid-feedback");
+            console.log("jVarLocalError", jVarLocalError);
+            jVarLocalError.innerHTML = `Invalid QrCode`
+            jVarLocalpkInput.classList.add("is-invalid");
+            jVarLocalpkInput.focus();
             // {
             //     title: `${inFetchPostData.ColumnDataAttribute} Not Found`,
             //     text: `${inFetchPostData.KReason}`,
@@ -54,10 +52,10 @@ let jFLocalForFailure = async ({ inFetchPostData, inHtmlCard }) => {
 };
 
 // inHtmlCard.classList.remove("border-success");
-    // inHtmlCard.classList.add("border-danger");
-    // let jVarLocalShowFailure = inHtmlCard.querySelector("#ShowFailure");
-    // jVarLocalShowFailure.classList.remove("visually-hidden");
-    // let jVarLocalFirstInput = inHtmlCard.querySelector("input");
-    // jVarLocalFirstInput.focus();
+// inHtmlCard.classList.add("border-danger");
+// let jVarLocalShowFailure = inHtmlCard.querySelector("#ShowFailure");
+// jVarLocalShowFailure.classList.remove("visually-hidden");
+// let jVarLocalFirstInput = inHtmlCard.querySelector("input");
+// jVarLocalFirstInput.focus();
 
 export { StartFunc };
