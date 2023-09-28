@@ -30,9 +30,7 @@ var walk = function (dir, inFolderPath, inDestinationPath, inBranchName, done) {
 
 let CallBackFunc = (err, inFolderPath, inDestinationPath, inBranchName, results) => {
     if (err) throw err;
-    console.log("results : ", results);
     results.forEach(element => {
-        console.log("element : ", element);
         const html = fs.readFileSync(element);
         let LoopInsidePath = path.parse(element);
 
@@ -43,24 +41,33 @@ let CallBackFunc = (err, inFolderPath, inDestinationPath, inBranchName, results)
                     if (fs.existsSync(element.replace(inFolderPath, inDestinationPath)) === false) {
                         fs.createFileSync(element.replace(inFolderPath, inDestinationPath));
                     };
-
-                    if (element.endsWith("\\Dashboard\\Dashboard.html")) {
-                        console.log("aaaaaaaa : ", element);
-
-                        fs.writeFileSync(element.replace(inFolderPath, inDestinationPath), result.html.replace("{{Branch}}", inBranchName));
-
-                    } else {
-                        fs.writeFileSync(element.replace(inFolderPath, inDestinationPath), result.html);
-
-                    };
-                    // console.log("LoopInsideJson : ", LoopInsideJson);
-                    // fs.writeFileSync(element.replace(inFolderPath, inDestinationPath), result.html);
-                    // fs.writeFileSync(element.replace(inFolderPath, inDestinationPath), result.html.replace("{{Branch}}", "Kakinada"));
-
+                    fs.writeFileSync(element.replace(inFolderPath, inDestinationPath), result.html.replace("{{Branch}}", inBranchName));
                 });
         } else {
-            // console.log("vLoopInsidePath : ", element);
-            fs.copySync(element, element.replace(inFolderPath, inDestinationPath));
+            if (LoopInsidePath.ext === ".json") {
+                if (element.endsWith("\\ConfigKeys\\FetchKeys\\ForPostKeys.json")) {
+                    let LoopInsideJson = JSON.parse(html);
+                    LoopInsideJson.inFileNameOnly = inBranchName;
+                    LoopInsideJson.inFileName = inBranchName;
+                    fs.createFileSync(element.replace(inFolderPath, inDestinationPath));
+                    fs.writeFileSync(element.replace(inFolderPath, inDestinationPath), JSON.stringify(LoopInsideJson));
+                } else {
+                    if (element.endsWith("\\ApiConfig.json")) {
+                        let LoopInsideJson = JSON.parse(html);
+                        LoopInsideJson.ForFetch.FileNameOnly = inBranchName;
+                        LoopInsideJson.ForFetch.JsonFileName = `${inBranchName}.json`;
+                        LoopInsideJson.JsonFileName = `${inBranchName}.json`;
+                        LoopInsideJson.JsonFileNameOnly = inBranchName;
+                        LoopInsideJson.BranchName = inBranchName;
+                        fs.createFileSync(element.replace(inFolderPath, inDestinationPath));
+                        fs.writeFileSync(element.replace(inFolderPath, inDestinationPath), JSON.stringify(LoopInsideJson));
+                    } else {
+                        fs.copySync(element, element.replace(inFolderPath, inDestinationPath));
+                    };
+                };
+            } else {
+                fs.copySync(element, element.replace(inFolderPath, inDestinationPath));
+            }
         };
     });
 };
