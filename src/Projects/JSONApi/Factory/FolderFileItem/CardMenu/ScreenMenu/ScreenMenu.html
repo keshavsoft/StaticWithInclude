@@ -207,8 +207,8 @@
         </symbol>
     </svg>
 
-    
-    
+
+
     <!-- <include src="./src/components/Projects/JSONApi/UserData/Header.html"></include> -->
 
     <header>
@@ -238,8 +238,7 @@
                         </li>
 
                         <li>
-                            <a href="../Menu.html"
-                                class="nav-link DashboardAClass text-white">
+                            <a href="../Menu.html" class="nav-link DashboardAClass text-white">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                                     class="bi bi-gear mx-auto mb-1 d-none d-md-block" viewBox="0 0 16 16">
                                     <path
@@ -391,7 +390,10 @@
     <div class="container">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb p-2 border">
-                <li class="breadcrumb-item" id="BreadcrumbFolderNameId">FolderName</li>
+                <li class="breadcrumb-item"><a href="#" id="BreadcrumbFolderNameId">FolderName</a></li>
+                <li class="breadcrumb-item"><a href="#" id="BreadcrumbFileNameId">FileName</a></li>
+                <li class="breadcrumb-item"><a href="#" id="BreadcrumbItemNameId">ItemName</a></li>
+                <li class="breadcrumb-item active" id="BreadcrumbScreenNameId">ScreenName</li>
             </ol>
         </nav>
 
@@ -459,28 +461,29 @@
             jVarLocalSubmitButton.focus();
         });
     </script>
-    <a href = "../../VerticalSubMenu/FromScreen/VerticalFromParams/VerticalFromParams.html";></a>
+    <a href="../../VerticalSubMenu/FromScreen/VerticalFromParams/VerticalFromParams.html" ;></a>
 
-<template id="TemplateForScreenMenu">
-    <div class="col-lg-3 col-md-4 col-sm-6">
-        <div class="card mb-3">
-            <div class="card-header">
-                <div class="card-body">
-                    <h3>{{FolderName}}</h3>
-                    <h4>{{FileName}}</h4>
-                    <h5>{{ItemName}}</h5>
-                    <h6>{{ScreenName}}</h6>
-                    <a href="{{AnchorLink}}?inFolderName={{FolderName}}&inFileName={{FileName}}&inItemName={{ItemName}}&inScreenName={{ScreenName}}" class="btn btn-primary">
-                        {{MenuName}}</a>
+    <template id="TemplateForScreenMenu">
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    <div class="card-body">
+                        <h3>{{FolderName}}</h3>
+                        <h4>{{FileName}}</h4>
+                        <h5>{{ItemName}}</h5>
+                        <h6>{{ScreenName}}</h6>
+                        <a href="{{AnchorLink}}?inFolderName={{FolderName}}&inFileName={{FileName}}&inItemName={{ItemName}}&inScreenName={{ScreenName}}"
+                            class="btn btn-primary">
+                            {{MenuName}}</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</template>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </template>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
-<script src="./Js/ScreenMenu.js" type="module"></script>
+    <script src="./Js/ScreenMenu.js" type="module"></script>
 
 </body>
 

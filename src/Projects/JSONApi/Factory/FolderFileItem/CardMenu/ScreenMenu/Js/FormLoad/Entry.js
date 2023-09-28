@@ -1,4 +1,5 @@
 import { StartFunc as StartFuncAfterFetch } from "./FetchFuncs/AfterFetch/EntryFile.js";
+import { StartFunc as StartFuncForBradCamp } from "./Breadcrumb/Entery.js";
 
 let StartFunc = async () => {
     let jVarLocalDataNeeded = jVarLocalPrepareObject();
@@ -7,6 +8,7 @@ let StartFunc = async () => {
 
         StartFuncAfterFetch({ inFetchData: jVarLocalDataNeeded });
     };
+    StartFuncForBradCamp();
 };
 
 let jVarLocalPrepareObject = () => {
