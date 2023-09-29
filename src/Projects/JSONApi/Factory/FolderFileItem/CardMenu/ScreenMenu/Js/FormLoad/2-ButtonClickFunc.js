@@ -1,8 +1,7 @@
-import { StartFunc as StartFuncAfterFetch } from "../FetchFuncs/AfterFetch/EntryFile.js";
+import { StartFunc as StartFuncAfterFetch } from "./FetchFuncs/AfterFetch/EntryFile.js";
 
 let StartFunc = async () => {
     let jVarLocalDataNeeded = jVarLocalPrepareObject();
-    console.log("jVarLocalDataNeeded::",jVarLocalDataNeeded);
 
     if (jVarLocalDataNeeded !== null) {
 
@@ -18,7 +17,6 @@ let jVarLocalPrepareObject = () => {
     jVarLocalDataNeeded = {
         ...jVarLocalDataNeeded,
         ...jVarLocalVerticalFromParams(),
-        ...jVarLocalKSTableFromScreenParams(),
         ...jVarLocalTreeFromParams(),
         ...jVarLocalKSTreeFromParams()
     }
@@ -29,7 +27,7 @@ let jVarLocalVerticalFromParams = () => {
     let jVarLocalDataNeeded = {};
     jVarLocalDataNeeded.VerticalFromParams = {};
 
-    jVarLocalDataNeeded.VerticalFromParams.AnchorLink = "../../VerticalSubMenu/FromScreen/VerticalFromParams/VerticalFromParams.html";
+    jVarLocalDataNeeded.VerticalFromParams.AnchorLink = "../../VerticalSubMenu/VerticalFromParams/VerticalFromParams.html";
     return jVarLocalDataNeeded;
 };
 
@@ -46,14 +44,6 @@ let jVarLocalKSTreeFromParams = () => {
     jVarLocalDataNeeded.KSTreeFromParams = {};
 
     jVarLocalDataNeeded.KSTreeFromParams.AnchorLink = "../../TreeSubMenu/KSTreeFromParams/KSTreeFromParams.html";
-    return jVarLocalDataNeeded;
-};
-
-let jVarLocalKSTableFromScreenParams = () => {
-    let jVarLocalDataNeeded = {};
-    jVarLocalDataNeeded.BSScreenFromParams = {};
-
-    jVarLocalDataNeeded.BSScreenFromParams.AnchorLink = "../../BSTableSubMenu/BSTableFromScreen/BSTableFromScreen.html";
     return jVarLocalDataNeeded;
 };
 export { StartFunc }
