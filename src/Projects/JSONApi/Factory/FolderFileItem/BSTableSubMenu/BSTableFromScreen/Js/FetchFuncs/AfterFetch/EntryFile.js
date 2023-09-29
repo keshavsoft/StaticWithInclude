@@ -49,8 +49,7 @@ function operateFormatter(value, row, index) {
 };
 
 function kFormatter(value, row, index) {
-    console.log(value, row, index);
-    return `----- ${value}`;
+    return value;
 };
 
 let jFLocal1 = () => {
