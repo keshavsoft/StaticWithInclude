@@ -74,39 +74,18 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
 
-            <!-- <table id="table">
-                <thead>
-                  <tr>
-                    <th data-field="pk">ID</th>
-                    <th data-field="CustomerName" data-sortable="true">Customer Name</th>
-                    <th data-field="City">City</th>
-                    <th data-field="Mobile">Mobile</th>
-                  </tr>
-                </thead>
-              </table> -->
-
             <div class="card mt-3">
                 <div class="card-header text-bg-secondary">
-                    Customers
+                    Bootstrap Table
                 </div>
                 <div class="card-body">
-                    <table class="table">
-                        <table id="table">
-                            <thead>
-                                <tr id="tableHeadRow">
-                                    <!-- <th data-field="pk">ID</th>
-                                <th data-field="VoucherNumber" data-sortable="true">Voucher Number</th>
-                                <th data-field="DateTime">Date Time</th>
-                                <th data-field="Description">Description</th> -->
-                                </tr>
-                            </thead>
-                        </table>
-                        <tbody id="KCont1">
-
-                        </tbody>
-                        <tfoot>
-
-                        </tfoot>
+                    <table id="table" data-toolbar="#toolbar" data-search="true" data-show-refresh="true"
+                        data-show-toggle="true" data-show-fullscreen="true" data-show-columns="true"
+                        data-show-columns-toggle-all="true" data-detail-view="true" data-show-export="true"
+                        data-click-to-select="true" data-detail-formatter="detailFormatter"
+                        data-minimum-count-columns="2" data-show-pagination-switch="true" data-pagination="true"
+                        data-id-field="id" data-page-list="[10, 25, 50, 100, all]" data-show-footer="true"
+                        data-side-pagination="server">
                     </table>
                 </div>
             </div>

@@ -8,7 +8,7 @@ const StartFunc = () => {
     if (jVarLocalFromAdmin) {
         StartFuncFormLoad();
 
-        StartFuncShowOnDom({}).then(() => {
+        StartFuncShowOnDom().then(() => {
             StartFuncAfterDomLoad();
         });
     };
