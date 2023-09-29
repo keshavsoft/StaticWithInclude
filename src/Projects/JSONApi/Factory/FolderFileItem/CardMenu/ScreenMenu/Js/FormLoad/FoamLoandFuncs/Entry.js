@@ -12,13 +12,13 @@ let StartFunc = async () => {
 
 let jVarLocalPrepareObject = () => {
     let jVarLocalDataNeeded = {};
-    jVarLocalDataNeeded.BSTable = {};
+    jVarLocalDataNeeded.BSTableFromData = {};
 
-    jVarLocalDataNeeded.BSTable.AnchorLink = "../../BSTableSubMenu/BSTableFromParams/BSTableFromParams.html";
+    jVarLocalDataNeeded.BSTableFromData.AnchorLink = "../../BSTableSubMenu/BSTableFromParams/BSTableFromParams.html";
     jVarLocalDataNeeded = {
         ...jVarLocalDataNeeded,
-        ...jVarLocalVerticalFromParams(),
         ...jVarLocalKSTableFromScreenParams(),
+        ...jVarLocalVerticalFromParams(),
         ...jVarLocalTreeFromParams(),
         ...jVarLocalKSTreeFromParams()
     }
@@ -51,9 +51,9 @@ let jVarLocalKSTreeFromParams = () => {
 
 let jVarLocalKSTableFromScreenParams = () => {
     let jVarLocalDataNeeded = {};
-    jVarLocalDataNeeded.BSScreenFromParams = {};
+    jVarLocalDataNeeded.BSTableFromScreen = {};
 
-    jVarLocalDataNeeded.BSScreenFromParams.AnchorLink = "../../BSTableSubMenu/BSTableFromScreen/BSTableFromScreen.html";
+    jVarLocalDataNeeded.BSTableFromScreen.AnchorLink = "../../BSTableSubMenu/BSTableFromScreen/BSTableFromScreen.html";
     return jVarLocalDataNeeded;
 };
 export { StartFunc }
