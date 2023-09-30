@@ -2,7 +2,7 @@ import { StartFunc as StartFuncFilterData } from "./FilterData.js";
 import { StartFunc as StartFuncShowColumnsArray } from "./ShowColumnsArray.js";
 import { StartFunc as StartFuncColumnOrder } from "./ColumnOrder.js";
 
-let StartFunc = async() => {
+let StartFunc = () => {
     jFLocalShowFilters();
 
     let jVarLocalNewData = JSON.parse(JSON.stringify(jVarGlobalPresentViewData.KData.TableData));
@@ -32,14 +32,14 @@ let StartFunc = async() => {
             TableData: jVarLocalPickData
         }
     });
-    // jFLocalPrepareHeaderForDataOnly({ data: localColumnsData })
+    jFLocalPrepareHeaderForDataOnly({ data: localColumnsData })
     var $table = $('#FilterDataTable');
 
     $table.bootstrapTable({
-        data: jVarLocalFilteredData,
-        columns: jFLocalPrepareHeaderForDataOnly({ data: localColumnsData })
+         data: jVarLocalFilteredData ,
+         columns: jFLocalPrepareHeaderForDataOnly({ data: localColumnsData})
 
-    });
+        });
 
 };
 
@@ -70,6 +70,26 @@ let serializeObject = (form) => {
     return pairs;
 };
 
+let jFLocalPrepareHeaderForDataOnly1 = ({ data }) => {
+    let jVarLocalHtmlId = 'FiltertableHeadRow';
+    let jVarLocaltableHeadRow = document.getElementById(jVarLocalHtmlId);
+    let jVarLocalColumns = data;
+    jVarLocalColumns.forEach(element => {
+        let jVarLocalNewTh = document.createElement("th");
+        jVarLocalNewTh.innerHTML = element[0].DataAttribute;
+        jVarLocalNewTh.dataset.field = element[0].DataAttribute;
+        jVarLocaltableHeadRow.appendChild(jVarLocalNewTh);
+        console.log("element:", element);
+        if (element[0].ShowTotal) {
+            jVarLocalNewTh.setAttribute("data-footer-formatter", "priceFormatter");
+
+        }
+    });
+    let jVarLocalNewTh = document.createElement("th");
+    jVarLocalNewTh.innerHTML = "Delete";
+    jVarLocaltableHeadRow.appendChild(jVarLocalNewTh);
+
+}
 
 let LocalInsertFunc = ({ jVarLocalTableColumns, jVarLocalShowColumnsArray }) => {
 
@@ -86,25 +106,22 @@ let LocalInsertFunc = ({ jVarLocalTableColumns, jVarLocalShowColumnsArray }) => 
 
 
 let jFLocalPrepareHeaderForDataOnly = ({ data }) => {
-    let jVarLocalColumns = data;
+    console.log("data:::",...data);
+    // let data = jVarGlobalPresentViewData;
+    let jVarLocalColumns = Object.keys(data);
     let jVarLocalReturnArray = [];
-
     jVarLocalReturnArray = jVarLocalColumns.map(element => {
         return {
-
-            title: element[0].DataAttribute,
-            field: element[0].DisplayName,
-            formatter: kFormatter
+            title: element,
+            field: element
         };
     });
 
     jVarLocalReturnArray.push(
         {
-
             field: 'operate',
             title: 'Item Operate',
             align: 'center',
-            clickToSelect: false,
             clickToSelect: false,
             events: window.operateEvents,
             formatter: operateFormatter
@@ -112,21 +129,5 @@ let jFLocalPrepareHeaderForDataOnly = ({ data }) => {
 
     return jVarLocalReturnArray;
 };
-
-function operateFormatter(value, row, index) {
-    return [
-        `<a class="DeleteButtonClass" href="#" data-pk=${row.pk} title="Remove">`,
-        '<i class="fa fa-trash"></i>',
-        '</a>',
-    ].join('')
-};
-
-function kFormatter(value, row, index) {
-    return value
-};
-
-// function formatter (cell, row, rowIndex, formatExtraData) {
-//     return rowIndex + 1;
-//   }
 
 export { StartFunc }
