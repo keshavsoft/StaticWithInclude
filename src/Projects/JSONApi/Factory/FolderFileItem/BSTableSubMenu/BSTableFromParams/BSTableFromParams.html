@@ -71,8 +71,7 @@
                     Bs Table
                 </div>
                 <div class="card-body">
-                    <table class="table">
-                        <table id="table">
+                    <table class="table" id="table" data-toolbar="#toolbar" data-search="true" data-searchable="true">
                             <thead>
                                 <tr id="tableHeadRow">
                                     <!-- <th data-field="pk">ID</th>
@@ -357,6 +356,9 @@
             let jVarLocalSubmitButton = event.currentTarget.querySelector(".modal-body input[type='submit']");
             jVarLocalSubmitButton.focus();
         });
+        let jFLocal1 = () => {
+        console.log("ssssssss");
+        };
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
