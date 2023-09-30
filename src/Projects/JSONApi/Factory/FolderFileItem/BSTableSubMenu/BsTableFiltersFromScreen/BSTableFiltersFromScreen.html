@@ -217,25 +217,6 @@
 
     <div class="container">
 
-        <datalist id="ReportsList"> </datalist>
-        <div class="row">
-            <div class="col-2">Select Report Name</div>
-            <div class="col-6">
-                <div class="input-group mt-2 d-print-none mb-3">
-                    <input type="text" class="form-control ReportSelectedClass" list="ReportsList"
-                        placeholder="Select Report Name" autofocus="">
-
-                    <button class="btn btn-outline-secondary" type="button" id="ReportButtonId">
-                        <span class="spinner-border spinner-border-sm" style="display: none;" role="status"
-                            aria-hidden="true" id="ReportButtonShowProcessId"></span> Go</button>
-
-                </div>
-            </div>
-        </div>
-
-
-
-
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane"
@@ -5064,99 +5045,6 @@
         });
     </script>
 
-    <script>
-        let jVarGlobalProject = "JSONReports";
-        let jVarGlobalSubRoute = "Api";
-
-        let GlobalFuncsForLogin = new GlobalClassForLogin({ inProjectName: jVarGlobalProject });
-        let jVarGlobalClientObject = new PrepareClass({ inProjectName: jVarGlobalProject });
-
-        GlobalFuncsForLogin.Login.ClientSideCookieFuncs.CheckToken();
-
-        let jFShowReportsAsMenu = () => {
-            let jVarLocalRoute = jVarGlobalProject;
-            let jVarLocalSubRoute = jVarGlobalSubRoute;
-
-            let jVarLocalFetchUrl = `/${jVarLocalRoute}/${jVarLocalSubRoute}/Reports/Menu/WithOutFilters/AsArray`;
-
-            fetch(jVarLocalFetchUrl)
-                .then(response => {
-                    if (response.status === 403) {
-                        let jVarLocalModalId = this.Config.Ht.HtmlIds.Modals.LoginModalId;
-                        let jVarLocalLoginFormPopUpId = document.getElementById(jVarLocalModalId);
-
-                        if (jVarLocalLoginFormPopUpId !== null) {
-                            var myModal = new bootstrap.Modal(jVarLocalLoginFormPopUpId, { keyboard: false, focus: true });
-                            myModal.show();
-                        };
-                        return null;
-                    };
-
-                    return response.json();
-                })
-                .then(dataFromApi => {
-                    if (dataFromApi !== null) {
-                        if (dataFromApi.KTF) {
-                            let str = '';
-                            let htmlstring = dataFromApi.JsonData.forEach((name) => {
-                                str += '<option value="' + name + '" />';
-                            });
-
-                            document.getElementById("ReportsList").innerHTML = str;
-                        };
-                    };
-                });
-        };
-
-
-        let uuidv4 = () => {
-            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-                var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-                return v.toString(16);
-            });
-        };
-
-        // KSCommonFuncs.SelectionMenu.FillNavMenuWithValues();
-
-        jFShowReportsAsMenu();
-    </script>
-
-    <script>
-        class ForLocalStorageClass {
-            static jFDeleteuuidInLocalStorage = () => {
-                const re = /uuid-/g;
-
-                Object.keys(localStorage).forEach(function (key) {
-                    if (key.match(re)) {
-                        delete localStorage[key];
-                    }
-                });
-            };
-
-            static jFCreateuuid = () => {
-                return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-                    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-                    return v.toString(16);
-                });
-            };
-
-            static jFInsertToLocalStorage = ({ inData }) => {
-                let jVarLocalUUID = `uuid-${this.jFCreateuuid()}`;
-
-                inData.forEach((element, LoopIndex) => {
-                    if ("KData" in element) {
-                        if ("TableInfo" in element.KData) {
-                            element.KData.TableInfo.DataAttributes.localstorageid = jVarLocalUUID;
-                            element.KData.TableInfo.DataAttributes.localstoragearrayindex = LoopIndex;
-                        };
-                    };
-                });
-
-                localStorage.setItem(jVarLocalUUID, JSON.stringify(inData));
-                return jVarLocalUUID;
-            };
-        };
-    </script>
     <script>
         let jFChangeHeaderActiveClass = () => {
             let jVarLocalPathArray = window.location.pathname.split("/");
