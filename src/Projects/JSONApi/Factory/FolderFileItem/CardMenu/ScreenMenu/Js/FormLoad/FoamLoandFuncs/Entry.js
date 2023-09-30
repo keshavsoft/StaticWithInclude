@@ -2,7 +2,6 @@ import { StartFunc as StartFuncAfterFetch } from "../FetchFuncs/AfterFetch/Entry
 
 let StartFunc = async () => {
     let jVarLocalDataNeeded = jVarLocalPrepareObject();
-    console.log("jVarLocalDataNeeded::",jVarLocalDataNeeded);
 
     if (jVarLocalDataNeeded !== null) {
 
@@ -18,6 +17,7 @@ let jVarLocalPrepareObject = () => {
     jVarLocalDataNeeded = {
         ...jVarLocalDataNeeded,
         ...jVarLocalKSTableFromScreenParams(),
+        ...jVarLocalKSTableFiltersFromScreen(),
         ...jVarLocalVerticalFromParams(),
         ...jVarLocalTreeFromParams(),
         ...jVarLocalKSTreeFromParams()
@@ -54,6 +54,14 @@ let jVarLocalKSTableFromScreenParams = () => {
     jVarLocalDataNeeded.BSTableFromScreen = {};
 
     jVarLocalDataNeeded.BSTableFromScreen.AnchorLink = "../../BSTableSubMenu/BSTableFromScreen/BSTableFromScreen.html";
+    return jVarLocalDataNeeded;
+};
+
+let jVarLocalKSTableFiltersFromScreen = () => {
+    let jVarLocalDataNeeded = {};
+    jVarLocalDataNeeded.BSTableFiltersFromScreen = {};
+
+    jVarLocalDataNeeded.BSTableFiltersFromScreen.AnchorLink = "../../BSTableSubMenu/BSTableFiltersFromScreen/BSTableFiltersFromScreen.html";
     return jVarLocalDataNeeded;
 };
 export { StartFunc }
