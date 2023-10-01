@@ -1,4 +1,4 @@
-import ApiConfigJson from '../../../../../../ApiConfig.json' assert {type: 'json'};
+import ApiConfigJson from '../../../../../../../../Config.json' assert {type: 'json'};
 import { StartFunc as StartFuncAfterFetchFunc } from "./6-AfterFetchFunc.js";
 
 let StartFunc = async ({ inFetchBody }) => {
@@ -22,38 +22,17 @@ let StartFunc = async ({ inFetchBody }) => {
 };
 
 const localFetchFunc = async ({ inFetchBody }) => {
-    let jFetchUrl = `/${ApiConfigJson.ProjectName}/AdminApi/AsTree/Json/UserFolders/ScreensFromDisplayJson/TableColumns/SubKeys/ClientEval`;
 
-    let jLocalFetchConfig = {
-        method: "PATCH",
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(inFetchBody)
-    };
+    let jFetchUrl = `/${ApiConfigJson.Project}/${ApiConfigJson.SubRoute}/Data/FromFolder/FromFile/Items/FromDataFolder/MainTable/Delete`;
 
-    let response = await fetch(jFetchUrl, jLocalFetchConfig);
+    let response = await fetch(jFetchUrl, inFetchBody);
 
     let jVarLocalResponseData = await response.json();
 
-    StartFuncAfterFetchFunc({ inResponse: jVarLocalResponseData, inBodyData: inFetchBody });
-
-    // return await response.status;
+    StartFuncAfterFetchFunc({ inResponse: jVarLocalResponseData,inBodyData: inFetchBody });
 
 }
 
 export { StartFunc };
 
 
-// import { StartFunc as StartFuncFetchHeaders } from "./FetchHeaders/EntryFile.js";
-// import ProjectKeys from "../../../../../ConfigKeys/ProjectKeys.json" assert {type: 'json'};
-
-// let StartFunc2 = async ({ inCurrentTarget }) => {
-//     let jVarLocalFetchHeaders = StartFuncFetchHeaders({ inCurrentTarget });
-//     let jVarLocalFetchUrl = `/${ProjectKeys.ProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/MainTable/Delete`;
-//     let response = await fetch(jVarLocalFetchUrl, jVarLocalFetchHeaders);
-//     let data = await response.json();
-
-//     return await data;
-// };
