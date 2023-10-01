@@ -1,20 +1,29 @@
 let StartFunc = async ({ inResponse, inBodyData }) => {
 
-    let jVarLocalFolderName = inBodyData.folderName;
-    let jVarLocalfilename = inBodyData.FileName;
-    let jVarLocalitemname = inBodyData.ItemName;
-    let jVarLocalscreenname = inBodyData.ScreenName;
-    let jVarLocalDataAttributeValue = inBodyData.DataAttribute;
+    let localInJsonPk = JSON.parse(inBodyData.body).inJsonPK;
+
 
     switch (inResponse.KTF) {
         case true:
-            let jVarLocalNewLocation = "";
-            jVarLocalNewLocation += `?inFolderName=${jVarLocalFolderName}`
-            jVarLocalNewLocation += `&inFileName=${jVarLocalfilename}`
-            jVarLocalNewLocation += `&inItemName=${jVarLocalitemname}`
-            jVarLocalNewLocation += `&inScreenName=${jVarLocalscreenname}`
-            jVarLocalNewLocation += `&inColumnName=${jVarLocalDataAttributeValue}`;
-            window.location = jVarLocalNewLocation;
+
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-center',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+          })
+          
+          Toast.fire({
+            icon: 'error',
+            title: `Deleted successfully @RowPK${localInJsonPk}`
+          })
+
+            // window.location.href = "";
             break;
 
         case false:
