@@ -1,21 +1,24 @@
-let StartFunc = async ({ inFromFetch }) => {
-    console.log("inFromFetch999--------", inFromFetch);
+let StartFunc = async ({ inFromFetch, inPk }) => {
+    let jVarLocalinPk = inPk;
+
     if (inFromFetch.KTF === false) {
         Swal.fire({
             icon: 'error',
             title: 'Delete Unsucessfull',
         });
     } else {
-        Swal.fire({
-            icon: 'success',
-            title: 'Deleted sucessfully',
-            timer: 3000
-        }).then(() => {
-            let jVarLocalHtmlId = 'RefreshBSTableId';
-            let jVarLocalRefreshBSTableId = document.getElementById(jVarLocalHtmlId);
-            jVarLocalRefreshBSTableId.click();
-        });
+        let jVarLocalHtmlId = 'RefreshBSTableId';
+        let jVarLocalRefreshBSTableId = document.getElementById(jVarLocalHtmlId);
+        jVarLocalRefreshBSTableId.click();
+
+        let jVarLocalAlertDeleteIdHtmlId = 'AlertDeleteId';
+        let jVarLocalAlertDeleteId = document.getElementById(jVarLocalAlertDeleteIdHtmlId);
+        jVarLocalAlertDeleteId.style.display = "";
+        
+        let jVarLocalStrong = jVarLocalAlertDeleteId.querySelector("strong");
+        jVarLocalStrong.innerHTML = jVarLocalinPk;
     };
+
 
 };
 

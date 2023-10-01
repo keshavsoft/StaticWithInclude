@@ -2,9 +2,7 @@ import KeysJson from './Keys.json' assert {type: 'json'};
 import BodyKeysJson from './BodyKeys.json' assert {type: 'json'};
 
 let StartFunc = ({ inCurrentTarget }) => {
-    console.log("inCurrentTarget",inCurrentTarget);
     let jVarLocalJsonPk = inCurrentTarget.dataset.pk;
-    console.log("jVarLocalJsonPk",jVarLocalJsonPk);
 
     let jVarLocalFolderValue = getUrlQueryParams({ inGetKey: "inFolderName" });
     let jVarLocalFileValue = getUrlQueryParams({ inGetKey: "inFileName" });

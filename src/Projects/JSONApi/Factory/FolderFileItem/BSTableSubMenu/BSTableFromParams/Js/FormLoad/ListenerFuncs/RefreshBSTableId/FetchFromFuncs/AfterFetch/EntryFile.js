@@ -2,19 +2,12 @@ import { StartFunc as StartFuncKSMainTableRowDeleteClass } from "./KSMainTableRo
 
 let StartFunc = ({ inDataToShow }) => {
     let jVarLocalDataToShow = jFLocalToArray({ inDataToShow });
-    // jFLocalPrepareHeaderForDataOnly({ data: jVarLocalDataToShow })
     var $table = $('#table');
-    // $table.bootstrapTable(
-    //     {
-    //         data: jVarLocalDataToShow,
-    //         columns: jFLocalPrepareHeaderForDataOnly({ data: jVarLocalDataToShow[0] })
-    //     });
 
     $table.bootstrapTable("destroy").bootstrapTable({
         data: jVarLocalDataToShow,
         columns: jFLocalPrepareHeaderForDataOnly({ data: jVarLocalDataToShow[0] })
     });
-
 
     StartFuncKSMainTableRowDeleteClass();
 };
@@ -59,7 +52,6 @@ let jFLocalPrepareHeaderForDataOnly = ({ data }) => {
 };
 
 function operateFormatter(value, row, index) {
-    console.log("row", row);
     return [
         '<a class="like" href="#" onclick="jFLocal1()" title="Like">',
         '<i class="fa fa-heart">Show</i>',
