@@ -65,6 +65,4 @@ function operateFormatter(value, row, index) {
 function kFormatter(value, row, index) {
     return value;
 };
-
-
 export { StartFunc }
