@@ -81,12 +81,31 @@
               </table> -->
 
             <div class="card mt-3">
-                <div class="card-header text-bg-secondary">
-                    Customers
+                <div class="card-header">
+                    <div class="clearfix">
+                        <div class="float-start">Bs Table</div>
+                        <div class="float-end">
+                            <a id="RefreshBSTableId" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                    class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"></path>
+                                    <path
+                                        d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z">
+                                    </path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-body">
-                    <table class="table">
-                        <table id="table">
+                    <div id="AlertDeleteId" class="alert alert-danger alert-dismissible fade show" role="alert"
+                        style="display: none;">
+                        <strong></strong> Deleted Successfully
+                        <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
+                        </button>
+                    </div>
+                    <table id="table" data-toolbar="#toolbar" data-search="true" data-searchable="true">
                             <thead>
                               <tr id="tableHeadRow">
                                 <!-- <th data-field="pk">ID</th>
@@ -166,7 +185,7 @@
 <script src="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.js"></script>
 
     <script src="../../Js/headerChange.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="./Js/BSTableFromScreen.js" type="module"></script>
 </body>
