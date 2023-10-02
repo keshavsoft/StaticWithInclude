@@ -74,23 +74,11 @@
                         </button>
                     </div>
 
-                    <table class="table" id="table" data-toolbar="#toolbar" data-search="true" data-searchable="true">
-                        <thead>
-                            <tr id="tableHeadRow">
-                                <!-- <th data-field="pk">ID</th>
-                                <th data-field="VoucherNumber" data-sortable="true">Voucher Number</th>
-                                <th data-field="DateTime">Date Time</th>
-                                <th data-field="Description">Description</th> -->
-                            </tr>
-                        </thead>
+                    <table id="table" data-toolbar="#toolbar" data-search="true" data-searchable="true"
+                        data-show-columns="true" data-show-columns-toggle-all="true" data-show-export="true"
+                        data-detail-view="true" data-detail-formatter="detailFormatter" data-id-field="pk"
+                        data-show-toggle="true">
                     </table>
-                    <tbody id="KCont1">
-
-                    </tbody>
-                    <tfoot>
-
-                    </tfoot>
-
                 </div>
             </div>
         </div>
@@ -317,13 +305,22 @@
             jVarLocalSubmitButton.focus();
         });
     </script>
-
+ <script>
+    function detailFormatter(index, row) {
+        var html = []
+        $.each(row, function (key, value) {
+            html.push('<p><b>' + key + ':</b> ' + value + '</p>')
+        })
+        return html.join('')
+    };
+</script>
     <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
 
     <script src="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    <script src="https://unpkg.com/tableexport.jquery.plugin/tableExport.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.22.1/dist/extensions/export/bootstrap-table-export.min.js"></script>
     <script src="./Js/NaBarFuncs/EntryFile.js" type="module"></script>
 
     <script src="../../Js/headerChange.js"></script>
