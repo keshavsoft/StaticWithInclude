@@ -1,13 +1,13 @@
 let StartFunc = ({ inDataToShow }) => {
-    console.log("inDataToShow:", inDataToShow);
+    // console.log("inDataToShow:", inDataToShow);
 
     let localmapData = inDataToShow.map((ele) => {
-        return ele.Data
+        return { ...ele.DataConfig,  ...ele.Data}
     });
-    console.log('localmapData::', localmapData);
+    // console.log('localmapData::', localmapData);
 
 
-    let jVarLocalDataToShow = inDataToShow;
+    let jVarLocalDataToShow = localmapData;
     var $table = $('#table');
 
     $table.bootstrapTable("destroy").bootstrapTable({
@@ -19,13 +19,16 @@ let StartFunc = ({ inDataToShow }) => {
 
 
 let jFLocalPrepareHeaderForDataOnly = ({ data }) => {
-    let jVarLocalColumns = data;
+    let jVarLocalColumns =Object.keys( data[0]);
+   
+    console.log("jVarLocalColumns::", jVarLocalColumns);
+   
+
     let jVarLocalReturnArray = [];
     jVarLocalReturnArray = jVarLocalColumns.map(element => {
-        console.log("element::", Object.keys(element));
         return {
-            title: Object.keys(element),
-            field: Object.keys(element)
+            title: element,
+            field: element
         };
     });
 
