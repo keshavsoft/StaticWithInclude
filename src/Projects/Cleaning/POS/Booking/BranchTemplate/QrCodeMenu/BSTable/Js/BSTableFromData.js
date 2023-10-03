@@ -10,7 +10,6 @@ const StartFunc = () => {
 
         StartFuncShowOnDom({}).then(() => {
             StartFuncAfterDomLoad();
-            // var $table = $('#table');
         });
     };
 };

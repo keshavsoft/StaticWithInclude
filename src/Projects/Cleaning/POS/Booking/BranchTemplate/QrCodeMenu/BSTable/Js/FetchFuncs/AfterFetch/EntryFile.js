@@ -1,33 +1,21 @@
 let StartFunc = ({ inDataToShow }) => {
-    let jVarLocalDataToShow = jFLocalToArray({ inDataToShow });
+    let jVarLocalDataToShow = inDataToShow;
+
     jFLocalPrepareHeaderForDataOnly({ data: jVarLocalDataToShow })
     var $table = $('#table');
-    $table.bootstrapTable({ data: jVarLocalDataToShow });
+    $table.bootstrapTable({ data: jVarLocalDataToShow.DataFromServer[0].KData.TableData });
 
-};
-let jFLocalToArray = ({ inDataToShow }) => {
-    let jVarLocalArray = [];
-    Object.entries(inDataToShow).forEach(
-        ([key, value]) => {
-            jVarLocalArray.push({
-                ...value,
-                pk: key
-            });
-        }
-    );
-
-    return jVarLocalArray;
 };
 
 let jFLocalPrepareHeaderForDataOnly = ({ data }) => {
-    console.log("data", data[0]);
+    console.log("data", data);
     let jVarLocalHtmlId = 'tableHeadRow';
     let jVarLocaltableHeadRow = document.getElementById(jVarLocalHtmlId);
-    let jVarLocalColumns = Object.keys(data[0]);
+    let jVarLocalColumns = data.DataFromServer[0].KData.TableColumns;
     jVarLocalColumns.forEach(element => {
         let jVarLocalNewTh = document.createElement("th");
-        jVarLocalNewTh.innerHTML = element;
-        jVarLocalNewTh.dataset.field = element;
+        jVarLocalNewTh.innerHTML = element.DisplayName;
+        jVarLocalNewTh.dataset.field = element.DataAttribute;
         jVarLocaltableHeadRow.appendChild(jVarLocalNewTh);
     });
 }
