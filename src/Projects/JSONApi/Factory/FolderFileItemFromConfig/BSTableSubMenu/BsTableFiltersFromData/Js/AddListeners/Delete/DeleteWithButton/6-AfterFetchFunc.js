@@ -6,24 +6,24 @@ let StartFunc = async ({ inResponse, inBodyData }) => {
     switch (inResponse.KTF) {
         case true:
 
-        const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-center',
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.addEventListener('mouseenter', Swal.stopTimer)
-              toast.addEventListener('mouseleave', Swal.resumeTimer)
-            }
-          })
+        // const Toast = Swal.mixin({
+        //     toast: true,
+        //     position: 'top-center',
+        //     showConfirmButton: false,
+        //     timer: 3000,
+        //     timerProgressBar: true,
+        //     didOpen: (toast) => {
+        //       toast.addEventListener('mouseenter', Swal.stopTimer)
+        //       toast.addEventListener('mouseleave', Swal.resumeTimer)
+        //     }
+        //   })
           
-          Toast.fire({
-            icon: 'error',
-            title: `Deleted successfully @RowPK${localInJsonPk}`
-          })
+        //   Toast.fire({
+        //     icon: 'error',
+        //     title: `Deleted successfully @RowPK${localInJsonPk}`
+        //   })
 
-            // window.location.href = "";
+            window.location.href = "";
             break;
 
         case false:

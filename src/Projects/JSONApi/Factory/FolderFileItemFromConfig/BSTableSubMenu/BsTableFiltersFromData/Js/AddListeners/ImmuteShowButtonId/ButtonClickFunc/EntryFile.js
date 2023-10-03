@@ -1,13 +1,9 @@
-import { StartFunc as StartFuncFilterData } from "./FilterData.js";
 import { StartFunc as StartFuncShowColumnsArray } from "./ShowColumnsArray.js";
-import { StartFunc as StartFuncColumnOrder } from "./ColumnOrder.js";
 import { StartFunc as StartFuncTableColumns } from "./BsTableFuncs/TableColumns.js";
 
 let StartFunc = async () => {
     jFLocalShowFilters();
-
     let jVarLocalData = jVarGlobalPresentViewData.JsonData;
-    let jVarLocalNewData = JSON.parse(JSON.stringify(jVarLocalData));
     let jVarLocalDataToShow = jFLocalToArray({ jVarLocalData });
 
     let jVarLocalTableColumns = Object.keys(jVarLocalDataToShow[0]).map(element => {
@@ -17,28 +13,10 @@ let StartFunc = async () => {
 
     let localColumnsData = LocalInsertFunc({ jVarLocalTableColumns, jVarLocalShowColumnsArray });
     
-    let jVarLocalFilteredData = StartFuncFilterData({ inData: jVarLocalNewData });
-
-
-    let jVarLocalFromColumnOrder = StartFuncColumnOrder();
-
-    let jVarLocalPickData = _.map(jVarLocalNewData, function (object) {
-        return _.pick(object, [...jVarLocalFromColumnOrder, ..._.difference(jVarLocalShowColumnsArray, jVarLocalFromColumnOrder)]);
-    });
-
-    let jVarLocalToShowData = [];
-
-    jVarLocalToShowData.push({
-        HTMLControlType: "TableFromData",
-        KData: {
-            TableData: jVarLocalPickData
-        }
-    });
-    // jFLocalPrepareHeaderForDataOnly({ data: localColumnsData })
-    var $table = $('#FilterDataTable');
+    var $table = $('#ImmuteDataTable');
 
     $table.bootstrapTable('destroy').bootstrapTable({
-        data: jVarLocalFilteredData,
+        data: jVarLocalDataToShow,
         columns: StartFuncTableColumns({ data: localColumnsData })
     });
 };
