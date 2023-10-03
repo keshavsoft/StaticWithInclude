@@ -207,6 +207,41 @@
       </a>
     </li>
   </template>
+  <script>
+    let jFChangeHeaderActiveClass = () => {
+    let jVarLocalPathArray = window.location.pathname.split("/");
+    let jVarLocalHTMLName = jVarLocalPathArray[jVarLocalPathArray.length - 1];
+    jFChangeNavAnchorClass({ inClassName: jVarLocalHTMLName.split(".")[0] });
+};
+
+let jFChangeNavAnchorClass = ({ inClassName }) => {
+    console.log("inClassName:",inClassName);
+    let jVarLocalId = "NavBarId";
+    let jVarLocalNavBarId = document.getElementById(jVarLocalId);
+
+    jFLocalRemoveActiveClassForAllATags({ inHtmlId: jVarLocalNavBarId });
+    jFLocalAddActiveClassToPresentHtml({ inHtmlId: jVarLocalNavBarId, inClassName });
+};
+
+let jFLocalRemoveActiveClassForAllATags = ({ inHtmlId }) => {
+    let jVarLocalA = inHtmlId.querySelectorAll("a");
+
+    for (let i = 0; i < jVarLocalA.length; i++) {
+        jVarLocalA[i].classList.remove("text-info");
+    };
+};
+
+let jFLocalAddActiveClassToPresentHtml = ({ inHtmlId, inClassName }) => {
+    let jVarLocalA = inHtmlId.querySelector(`[href*="${inClassName}"]`);
+
+    if (jVarLocalA === null === false) {
+        jVarLocalA.classList.remove("text-white");
+        jVarLocalA.classList.add("text-info");
+    };
+};
+
+jFChangeHeaderActiveClass();
+  </script>
 
   <script src="/JSONApi/Js/handlebars/handlebars.min-v4.7.7.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
