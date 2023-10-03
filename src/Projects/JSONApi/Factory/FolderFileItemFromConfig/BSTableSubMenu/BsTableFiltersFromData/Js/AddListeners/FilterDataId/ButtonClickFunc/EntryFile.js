@@ -1,11 +1,11 @@
 import { StartFunc as StartFuncFilterData } from "./FilterData.js";
 import { StartFunc as StartFuncShowColumnsArray } from "./ShowColumnsArray.js";
 import { StartFunc as StartFuncColumnOrder } from "./ColumnOrder.js";
-import { StartFunc as StartFuncTableColumns  } from "./BsTableFuncs/TableColumns.js";
+import { StartFunc as StartFuncTableColumns } from "./BsTableFuncs/TableColumns.js";
 
-let StartFunc = async() => {
+let StartFunc = async () => {
     jFLocalShowFilters();
-console.log("jVarGlobalPresentViewData",jVarGlobalPresentViewData);
+
     let jVarLocalData = jVarGlobalPresentViewData.JsonData
     let jVarLocalNewData = JSON.parse(JSON.stringify(jVarLocalData));
     let jVarLocalDataToShow = jFLocalToArray({ jVarLocalData });
@@ -13,11 +13,11 @@ console.log("jVarGlobalPresentViewData",jVarGlobalPresentViewData);
     let jVarLocalTableColumns = Object.keys(jVarLocalDataToShow[0]).map(element => {
         return element
     });
+    console.log("jVarLocalTableColumns : ", jVarLocalTableColumns);
     let jVarLocalShowColumnsArray = StartFuncShowColumnsArray();
 
     let localColumnsData = LocalInsertFunc({ jVarLocalTableColumns, jVarLocalShowColumnsArray });
-    console.log("localColumnsData",localColumnsData);
-
+    console.log("localColumnsData : ", localColumnsData);
     let jVarLocalFilteredData = StartFuncFilterData({ inData: jVarLocalNewData });
 
 
@@ -38,12 +38,10 @@ console.log("jVarGlobalPresentViewData",jVarGlobalPresentViewData);
     // jFLocalPrepareHeaderForDataOnly({ data: localColumnsData })
     var $table = $('#FilterDataTable');
 
-    $table.bootstrapTable({
+    $table.bootstrapTable('destroy').bootstrapTable({
         data: jVarLocalFilteredData,
         columns: StartFuncTableColumns({ data: localColumnsData })
-
     });
-
 };
 
 let jFLocalToArray = ({ jVarLocalData }) => {
@@ -87,19 +85,15 @@ let serializeObject = (form) => {
     return pairs;
 };
 
-
 let LocalInsertFunc = ({ jVarLocalTableColumns, jVarLocalShowColumnsArray }) => {
 
     let jVarLocalNewArray = jVarLocalShowColumnsArray.map(element => {
-
-        let jVarLoopInsideFilter = jVarLocalTableColumns.filter(e => e.DisplayName === element);
+        let jVarLoopInsideFilter = jVarLocalTableColumns.filter(e => e === element);
         element = jVarLoopInsideFilter;
         return element;
-
     });
 
     return [...jVarLocalNewArray];
 };
-
 
 export { StartFunc }

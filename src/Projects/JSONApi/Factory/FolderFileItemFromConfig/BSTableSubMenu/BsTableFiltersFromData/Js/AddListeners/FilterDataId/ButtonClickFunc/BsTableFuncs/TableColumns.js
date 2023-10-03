@@ -3,7 +3,6 @@ let StartFunc = ({ data }) => {
     let jVarLocalReturnArray = [];
 
     jVarLocalReturnArray = jVarLocalColumns.map(element => {
-        console.log("element",element);
         return {
 
             title: element,
@@ -14,7 +13,6 @@ let StartFunc = ({ data }) => {
 
     jVarLocalReturnArray.push(
         {
-
             field: 'operate',
             title: 'Item Operate',
             align: 'center',
