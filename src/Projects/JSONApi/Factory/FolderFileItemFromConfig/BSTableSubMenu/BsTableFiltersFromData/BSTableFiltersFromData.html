@@ -258,6 +258,12 @@
                     type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Immute Data</button>
             </li>
         </ul>
+        <div id="AlertDeleteId" class="alert alert-danger alert-dismissible fade show" role="alert"
+                        style="display: none;">
+                <strong></strong> Deleted Successfully
+                <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
+                    </button>
+        </div>
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab"
                 tabindex="0">
@@ -410,6 +416,12 @@
                 <div id="ImmuteTableId">
 
                 </div>
+                <table id="ImmuteDataTable" data-toolbar="#toolbar" data-search="true" data-searchable="true"
+                data-show-columns="true" data-show-columns-toggle-all="true" data-show-export="true"
+                data-detail-view="true" data-detail-formatter="detailFormatter" data-id-field="pk"
+                data-show-toggle="true">
+
+                </table>
             </div>
         </div>
     </div>
