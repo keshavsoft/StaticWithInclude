@@ -554,7 +554,7 @@
             </td>
             <td style="text-align:center">
                 {{#if IsQrCodesRaised}}
-                <a href="../QrCodeMenu/FromOrders/FromOrders.html?OrderNumber={{pk}}&Branch={{OrderData.BranchName}}"
+                <a href="../QrCodeMenu/FromOrders/FromOrdersTree/FromOrdersTree.html?OrderNumber={{pk}}&Branch={{OrderData.BranchName}}"
                     data-ordernumber="{{@key}}" class="btn btn-primary">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-qr-code" viewBox="0 0 16 16">
@@ -599,7 +599,7 @@
                     class="btn btn-success">{{GenerateReference.ReferncePk}}</a>
             </td>
             <td style="text-align:center">
-                <a href="../QrCodeMenu/FromOrders/FromOrders.html?OrderNumber={{GenerateReference.ReferncePk}}&Branch={{GenerateReference.FileNameOnly}}"
+                <a href="../QrCodeMenu/FromOrders/FromOrdersTree/FromOrdersTree.html?OrderNumber={{GenerateReference.ReferncePk}}&Branch={{GenerateReference.FileNameOnly}}"
                     class="btn btn-primary">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-qr-code" viewBox="0 0 16 16">
