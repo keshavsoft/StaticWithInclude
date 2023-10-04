@@ -3,14 +3,20 @@ let StartFunc = ({ data }) => {
     let jVarLocalReturnArray = [];
     
     jVarLocalReturnArray.push(jFLocalFirstValue());
-    jVarLocalReturnArray.push(...jVarLocalColumns.map(element => {
-        return {
-            title: element,
-            field: element
-        };
-    }));
+    jVarLocalReturnArray.push(jFLocalQrCodeColumn());
+    jVarLocalReturnArray.push(jFLocalItemSerialColumn());
+    jVarLocalReturnArray.push(jFLocalItemNameColumn());
+    jVarLocalReturnArray.push(jFLocalRateColumn());
+    jVarLocalReturnArray.push(jFLocalPcsColumn());
+
+    // jVarLocalReturnArray.push(...jVarLocalColumns.map(element => {
+    //     return {
+    //         title: element,
+    //         field: element
+    //     };
+    // }));
     
-    jVarLocalReturnArray.push(jFLocalLastValue());
+    // jVarLocalReturnArray.push(jFLocalLastValue());
     return jVarLocalReturnArray;
 };
 
@@ -18,6 +24,41 @@ let jFLocalFirstValue = () => {
     return {
         title: '#',
         formatter: SerialFormatter
+    }
+};
+
+let jFLocalQrCodeColumn = () => {
+    return {
+        title: 'QrCode',
+        field: 'pk'
+    }
+};
+
+let jFLocalItemSerialColumn = () => {
+    return {
+        title: 'ItemSerial',
+        field: 'ItemSerial'
+    }
+};
+
+let jFLocalItemNameColumn = () => {
+    return {
+        title: 'ItemName',
+        field: 'ItemName'
+    }
+};
+
+let jFLocalPcsColumn = () => {
+    return {
+        title: 'Pcs',
+        field: 'Pcs'
+    }
+};
+
+let jFLocalRateColumn = () => {
+    return {
+        title: 'Rate',
+        field: 'Rate'
     }
 };
 

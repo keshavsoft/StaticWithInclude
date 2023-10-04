@@ -25,8 +25,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 
 
 <link rel="stylesheet" href="./css/sidebar.menu.css">
@@ -212,7 +211,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                          <a href="#" id="FromOrdersTreeId"class="nav-link text-white">
+                          <a href="#" id="FromOrdersTreeId" class="nav-link text-white">
                               <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
                                           <path d="M8.416.223a.5.5 0 0 0-.832 0l-3 4.5A.5.5 0 0 0 5 5.5h.098L3.076 8.735A.5.5 0 0 0 3.5 9.5h.191l-1.638 3.276a.5.5 0 0 0 .447.724H7V16h2v-2.5h4.5a.5.5 0 0 0 .447-.724L12.31 9.5h.191a.5.5 0 0 0 .424-.765L10.902 5.5H11a.5.5 0 0 0 .416-.777l-3-4.5zM6.437 4.758A.5.5 0 0 0 6 4.5h-.066L8 1.401 10.066 4.5H10a.5.5 0 0 0-.424.765L11.598 8.5H11.5a.5.5 0 0 0-.447.724L12.69 12.5H3.309l1.638-3.276A.5.5 0 0 0 4.5 8.5h-.098l2.022-3.235a.5.5 0 0 0 .013-.507z"></path>
                               </svg>
@@ -220,7 +219,7 @@
                           </a>
                       </li>
                         <li class="nav-item">
-                          <a href="#" id="FromOrdersBSTableId"class="nav-link text-white">
+                          <a href="#" id="FromOrdersBSTableId" class="nav-link text-white">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
                               <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z"></path>
                           </svg>
@@ -275,7 +274,7 @@
     <h5 style="display: inline;">Branch Name: </h5>
     <p style="display: inline;" id="BranchNameTextId">Not found in Params</p>
   </div>
-  <br/>
+  <br>
     <div class="container">
 
       <div class="card mt-3">
@@ -285,18 +284,23 @@
             </div>
         </div>
         <div class="card-body">
-            <table id="table" data-toolbar="#toolbar" data-search="true" data-searchable="true"
-                data-show-columns="true" data-show-columns-toggle-all="true" data-show-export="true"
-                data-detail-view="true" data-detail-formatter="detailFormatter" data-id-field="pk"
-                data-show-toggle="true">
+            <table id="table" data-toolbar="#toolbar" data-search="true" data-searchable="true" data-show-columns="true" data-show-columns-toggle-all="true" data-filter-control="true" data-show-export="true" data-detail-view="true" data-detail-formatter="detailFormatter" data-id-field="pk" data-show-toggle="true">
+            <thead>
+              <tr id="tableHeadRow">
+
+              </tr>
+              <!-- <tr>
+                  <th data-field="ItemName" data-filter-control="select">ItemName</th>
+              </tr> -->
+            </thead>
             </table>
         </div>
     </div>
     </div>
     
 
-      </div>
-    </div>
+      
+    
     <div class="container">
       <ul class="list list-unstyled list-bg-white list-icon-red mb-0" style="width: 30rem;">
           <li class="list-item" id="KCont1">
@@ -346,10 +350,8 @@
 <script src="https://unpkg.com/tableexport.jquery.plugin/tableExport.min.js"></script>
 <script src="https://unpkg.com/bootstrap-table@1.22.1/dist/extensions/export/bootstrap-table-export.min.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-    crossorigin="anonymous"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/bootstrap-table@1.22.1/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="./Js/NaBarFuncs/EntryFile.js" type="module"></script>
 
