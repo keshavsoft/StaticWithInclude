@@ -5,7 +5,7 @@ let StartFunc = async () => {
 
     await StartFuncFetchFunc();
 
-    StartFuncAfterFetch({ inFromFetch: jVarLocalPresentViewData });
+    StartFuncAfterFetch({ inFromFetch: jVarLocalPresentViewData.JsonData });
 };
 
 export { StartFunc };

@@ -1,7 +1,7 @@
 import { StartFunc as StartFuncPrepareColumns } from "./PrepareColumns.js";
 
 let StartFunc = ({ inFromFetch }) => {
-    let jVarLocalDataToShow = jFLocalToArray({ inFromFetch });
+    let jVarLocalDataToShow = jFLocalToArray({ inDataToShow: inFromFetch });
     var $table = $('#table');
 
     $table.bootstrapTable("destroy").bootstrapTable({
