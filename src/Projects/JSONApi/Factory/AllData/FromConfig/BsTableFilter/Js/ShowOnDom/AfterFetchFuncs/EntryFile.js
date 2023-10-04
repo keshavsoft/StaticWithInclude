@@ -9,10 +9,24 @@ let StartFunc = async ({ inDataToShow }) => {
     var $table = $('#table');
 
     $table.bootstrapTable("destroy").bootstrapTable({
-        data: jVarLocalDataToShow
-        // columns: jFLocalPrepareHeaderForDataOnly({ data: jVarLocalDataToShow })
+        data: jVarLocalDataToShow,
+        columns: jFLocalPrepareHeaderForDataOnly({ inDataToShow })
+
     });
 
 };
+let jFLocalPrepareHeaderForDataOnly = (inDataToShow) => {
+    let jVarLocalHtmlId = 'tableHeadRow';
+    let jVarLocaltableHeadRow = document.getElementById(jVarLocalHtmlId);
+
+    let jVarLocalColumns = Object.keys(inDataToShow.inDataToShow[0].DataConfig);
+
+    jVarLocalColumns.forEach(element => {
+        let jVarLocalNewTh = document.createElement("th");
+        jVarLocalNewTh.innerHTML = element;
+        jVarLocalNewTh.dataset.field = element;
+        jVarLocaltableHeadRow.appendChild(jVarLocalNewTh);
+    });
+}
 
 export { StartFunc };
