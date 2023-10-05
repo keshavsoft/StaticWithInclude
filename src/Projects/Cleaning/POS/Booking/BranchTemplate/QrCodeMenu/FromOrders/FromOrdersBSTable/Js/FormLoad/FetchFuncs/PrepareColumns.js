@@ -1,13 +1,19 @@
-let StartFunc = ({ data }) => {
-    let jVarLocalColumns = Object.keys(data);
+let StartFunc = () => {
     let jVarLocalReturnArray = [];
-    
-    jVarLocalReturnArray.push(jFLocalFirstValue());
-    jVarLocalReturnArray.push(jFLocalQrCodeColumn());
-    jVarLocalReturnArray.push(jFLocalItemSerialColumn());
-    jVarLocalReturnArray.push(jFLocalItemNameColumn());
-    jVarLocalReturnArray.push(jFLocalRateColumn());
-    jVarLocalReturnArray.push(jFLocalPcsColumn());
+    let jVarLocalHtmlId = 'tableHeadRow';
+    let jVarLocaltableHeadRow = document.getElementById(jVarLocalHtmlId);
+    jVarLocaltableHeadRow.appendChild(jFLocalQrCodeColumn());
+    jVarLocaltableHeadRow.appendChild(jFLocalItemSerialColumn());
+    jVarLocaltableHeadRow.appendChild(jFLocalItemNameColumn());
+    jVarLocaltableHeadRow.appendChild(jFLocalRateColumn());
+    jVarLocaltableHeadRow.appendChild(jFLocalPcsColumn());
+
+    // jVarLocalReturnArray.push(jFLocalFirstValue());
+    // jVarLocalReturnArray.push(jFLocalQrCodeColumn());
+    // jVarLocalReturnArray.push(jFLocalItemSerialColumn());
+    // jVarLocalReturnArray.push(jFLocalItemNameColumn());
+    // jVarLocalReturnArray.push(jFLocalRateColumn());
+    // jVarLocalReturnArray.push(jFLocalPcsColumn());
 
     // jVarLocalReturnArray.push(...jVarLocalColumns.map(element => {
     //     return {
@@ -28,38 +34,48 @@ let jFLocalFirstValue = () => {
 };
 
 let jFLocalQrCodeColumn = () => {
-    return {
-        title: 'QrCode',
-        field: 'pk'
-    }
+    
+        let jVarLocalNewTh = document.createElement("th");
+        jVarLocalNewTh.innerHTML = "QrCode";
+        jVarLocalNewTh.dataset.field = "pk";
+        jVarLocalNewTh.setAttribute("data-filter-control", "input")
+        return jVarLocalNewTh;
 };
 
 let jFLocalItemSerialColumn = () => {
-    return {
-        title: 'ItemSerial',
-        field: 'ItemSerial'
-    }
+    
+    let jVarLocalNewTh = document.createElement("th");
+    jVarLocalNewTh.innerHTML = "ItemSerial";
+    jVarLocalNewTh.dataset.field = "ItemSerial";
+    jVarLocalNewTh.setAttribute("data-filter-control", "select")
+    return jVarLocalNewTh;
 };
 
 let jFLocalItemNameColumn = () => {
-    return {
-        title: 'ItemName',
-        field: 'ItemName'
-    }
+    
+    let jVarLocalNewTh = document.createElement("th");
+    jVarLocalNewTh.innerHTML = "ItemName";
+    jVarLocalNewTh.dataset.field = "ItemName";
+    jVarLocalNewTh.setAttribute("data-filter-control", "select")
+    return jVarLocalNewTh;
 };
 
 let jFLocalPcsColumn = () => {
-    return {
-        title: 'Pcs',
-        field: 'Pcs'
-    }
+    
+    let jVarLocalNewTh = document.createElement("th");
+    jVarLocalNewTh.innerHTML = "Pcs";
+    jVarLocalNewTh.dataset.field = "Pcs";
+    jVarLocalNewTh.setAttribute("data-filter-control", "input")
+    return jVarLocalNewTh;
 };
 
 let jFLocalRateColumn = () => {
-    return {
-        title: 'Rate',
-        field: 'Rate'
-    }
+   
+    let jVarLocalNewTh = document.createElement("th");
+    jVarLocalNewTh.innerHTML = "Rate";
+    jVarLocalNewTh.dataset.field = "Rate";
+    jVarLocalNewTh.setAttribute("data-filter-control", "input")
+    return jVarLocalNewTh;
 };
 
 let jFLocalLastValue = () => {
