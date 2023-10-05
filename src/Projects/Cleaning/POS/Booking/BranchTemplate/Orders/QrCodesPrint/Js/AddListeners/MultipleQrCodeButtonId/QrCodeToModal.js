@@ -16,7 +16,6 @@ let StartFunc = async ({ inData }) => {
 
             var template = Handlebars.compile(jVarLocalFromTemplate);
             let LocalQrCodesData = jVarLocalDataNeeded;
-            console.log("LocalQrCodesData::", LocalQrCodesData);
 
             jVarLocalModalBody.innerHTML = template(LocalQrCodesData);
 

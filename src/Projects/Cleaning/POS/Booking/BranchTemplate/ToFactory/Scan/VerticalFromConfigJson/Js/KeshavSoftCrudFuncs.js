@@ -84,7 +84,6 @@ let HandleBarsHelpers = () => {
             let jVarLocalFileNameOnly = jVarLocalJsonConfig.inJsonFileName.replace(/\.[^/.]+$/, "");
 
             let queryString = `${window.location.origin}/${jVarPublicConfig.AdminFolder}/Html/Admin/Columns/Tabular/Alter/Toggles.html`;
-            console.log("pppppppppp : ", queryString, jVarLocalItemConfig.inItemName, jVarLocalItemConfig.inScreenName);
             const myUrlWithParams = new URL(queryString);
 
             myUrlWithParams.searchParams.append("inFolderName", jVarLocalJsonConfig.inFolderName);
@@ -107,7 +106,6 @@ let HandleBarsHelpers = () => {
             let jVarLocalFileNameOnly = jVarLocalJsonConfig.inJsonFileName.replace(/\.[^/.]+$/, "");
 
             let queryString = `${window.location.origin}/${jVarPublicConfig.AdminFolder}/Html/Admin/SubTableColumns/Tabular/Alter/Toggles.html`;
-            console.log("kkkkkkkkkkkkkkkkk : ", queryString, jVarLocalItemConfig.inItemName, jVarLocalItemConfig.inScreenName);
             const myUrlWithParams = new URL(queryString);
 
             myUrlWithParams.searchParams.append("inFolderName", jVarLocalJsonConfig.inFolderName);
@@ -183,7 +181,6 @@ let HandleBarsHelpers = () => {
     });
 
     Handlebars.registerHelper('HrefToSubTableToggles2', function (inDataAttributes) {
-        console.log("qqqqqqqq : ", inDataAttributes, typeof inDataAttributes);
         if (jVarGlobalPublicConfig === undefined === false) {
             let jVarPublicConfig = jVarGlobalPublicConfig;
             let LocalFolderName = "";
@@ -2010,5 +2007,3 @@ class KeshavSoftCrud {
 
 HandleBarsHelpers();
 jVarHbsTemplatesFill();
-
-console.log("KeshavSoftCrudFuncs----------");

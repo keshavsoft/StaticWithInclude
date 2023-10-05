@@ -1,7 +1,5 @@
 let StartFunc = async ({ inFromFetch }) => {
-    console.log("inFromFetch999--------",inFromFetch);
     let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
-    console.log("inFromFetch:", inFromFetch);
     if (inFromFetch.KTF === false) {
         // LocalReturnObject.KReason = data.KReason;
         // return await LocalReturnObject;
@@ -14,7 +12,6 @@ let StartFunc = async ({ inFromFetch }) => {
         // LocalReturnObject.JsonData = data.JsonData;
         // LocalReturnObject.KTF = true;
         let raised = inFromFetch.QrCodesRaised;
-        console.log("inFromFetch.QrCodesRaised", raised);
         if (raised === 0) {
             // LocalReturnObject.KReason = data.KReason;
             // return await LocalReturnObject;

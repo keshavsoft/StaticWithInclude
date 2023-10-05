@@ -7,7 +7,6 @@ let StartFunc = ({ inFromFetch }) => {
     if (data) {
         let jVarLocalBranchName = ApiConfigJson.BranchName;
         let jVarLocalRawTemplate = document.getElementById("HbsTemplateForFoldersOnly").innerHTML;
-        console.log("data : ", data.JsonData);
 
 
         document.getElementById("KCont1").innerHTML = Handlebars.compile(jVarLocalRawTemplate)(jFLocalInsertAggValues({ inData: data.JsonData }));

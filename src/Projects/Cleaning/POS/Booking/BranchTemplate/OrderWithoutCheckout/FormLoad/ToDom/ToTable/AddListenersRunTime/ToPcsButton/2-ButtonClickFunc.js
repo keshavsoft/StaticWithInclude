@@ -35,7 +35,6 @@ const jFLocalSwal = ({ inItemSerial, inPcs }) => {
                 }
             });
             
-            console.log("jVarLocalFromChange : ", response);
         }
     });
 };

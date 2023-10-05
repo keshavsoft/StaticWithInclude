@@ -11,7 +11,6 @@ let StartFunc = ({ inItemSerial, inNewPk }) => {
     jVarLocalHtmlTableBody.innerHTML = "";
 
     let jVarLocaljVarLocalItemsInOrderJson = jFLocalFromAddOns({ inItemSerial });
-console.log("jVarLocaljVarLocalItemsInOrderJson",jVarLocaljVarLocalItemsInOrderJson);
     jVarLocaljVarLocalItemsInOrderJson.forEach(
         LoopItem => {
             StartFuncInsertRowFunc({

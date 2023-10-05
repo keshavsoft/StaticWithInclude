@@ -42,7 +42,6 @@ let jFLocalAddAddOnData = () => {
         inPk: jFLocalOrderNumber,
         inBranchName: ApiConfigJson.BranchName
     });
-    console.log("jVarLocalFromLocalStorage99", jVarLocalFromLocalStorage);
     if (jVarLocalFromLocalStorage.KTF === false) {
         return false;
     };
