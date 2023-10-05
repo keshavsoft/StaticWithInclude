@@ -1,6 +1,9 @@
 const StartFunc = () => {
     let jVarLocalFromSave = getUrlQueryParams({ inGetKey: "FromSave" });
     let jVarLocalSavedPk = getUrlQueryParams({ inGetKey: "SavedPk" });
+    let jVarLocalVoucherRef = getUrlQueryParams({ inGetKey: "VoucherRef" });
+    console.log("jVarLocalVoucherRef",jVarLocalVoucherRef);
+    jFLocalToInputVoucherRef({inVoucherRef: jVarLocalVoucherRef});
 
     if (jVarLocalFromSave) {
         let jVarLocalHtmlId = "KCont1";
@@ -29,6 +32,12 @@ let jFLocalToInnerHtmlRowPkInsertSuccessStrongId = ({ inRowPkInsertSuccessStrong
     let jVarLocalHtmlId = 'RowPkInsertSuccessStrongId';
    let jVarLocalRowPkInsertSuccessStrongId = document.getElementById(jVarLocalHtmlId);
    jVarLocalRowPkInsertSuccessStrongId.innerHTML = inRowPkInsertSuccessStrongId;
+};
+
+let jFLocalToInputVoucherRef = ({ inVoucherRef }) => {
+    let jVarLocalHtmlId = 'VoucherRef';
+   let jVarLocalVoucherRef = document.getElementById(jVarLocalHtmlId);
+   jVarLocalVoucherRef.value = inVoucherRef;
 };
 
 export { StartFunc };

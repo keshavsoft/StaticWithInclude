@@ -1,3 +1,5 @@
+import { StartFunc as StartFuncPrepareColumns } from "./PrepareColumns.js";
+
 let StartFunc = ({ inFromFetch }) => {
     let jVarLocalinDataToShow = jFLocalToArray({ inDataToShow: inFromFetch });
     let localmapData = jVarLocalinDataToShow.map((ele) => {
@@ -6,8 +8,8 @@ let StartFunc = ({ inFromFetch }) => {
     console.log("localmapData", localmapData);
 
     let jVarLocalDataToShow = localmapData;
-
-    jFLocalPrepareHeaderForDataOnly({ inDataToShow: jVarLocalDataToShow });
+    StartFuncPrepareColumns();
+    // jFLocalPrepareHeaderForDataOnly({ inDataToShow: jVarLocalDataToShow });
 
     var $table = $('#table');
 
