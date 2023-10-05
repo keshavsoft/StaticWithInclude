@@ -25,6 +25,7 @@ let jFLocalPrepareHeaderForDataOnly = (inDataToShow) => {
         let jVarLocalNewTh = document.createElement("th");
         jVarLocalNewTh.innerHTML = element;
         jVarLocalNewTh.dataset.field = element;
+        jVarLocalNewTh.setAttribute("data-filter-control", "select")
         jVarLocaltableHeadRow.appendChild(jVarLocalNewTh);
     });
 }
