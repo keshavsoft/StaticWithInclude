@@ -14,7 +14,6 @@ let jFLocalItemSerialButtonClickFunc = (event) => {
     let jVarLocalDataFromrow = jFLocalFromRowTable({ inJVarClosestTr: jVarLocalClosestTr });
 
     jFLocalShowOnAbove({ inDataToShow: jVarLocalDataFromrow, inRowSelected: jVarLocalRowSelected });
-console.log("kkkkkkkkkkkkkkk");
     StartFuncToAddOns({ inItemSerial: jVarLocalRowSelected });
     
 };
@@ -123,7 +122,6 @@ let jFLocalFromRowTable = ({ inJVarClosestTr }) => {
     // let jVarLocalOrderItemsOrderItemsItemPcsClass = clone.querySelector(".OrderItemsItemPcsClass");
     // jVarLocalOrderItemsOrderItemsItemPcsClass.innerHTML = inPcs;
 
-    //  console.log("jVarLocalCurrentTarget : ", jVarLocalOrderItemsCategoryClass.innerHTML);
     //  StartFuncToAddOns({ inItemSerial: jVarLocalCurrentTarget.value });
 };
 

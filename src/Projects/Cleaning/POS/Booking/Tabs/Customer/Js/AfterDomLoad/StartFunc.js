@@ -1,6 +1,6 @@
 const StartFunc = () => {
     let jVarLocalFromSave = getUrlQueryParams({ inGetKey: "FromSave" });
-    let jVarLocalSavedPk = getUrlQueryParams({ inGetKey: "SavedPk" });
+    let jVarLocalSavedPk = getUrlQueryParams({ inGetKey: "CustomerName" });
 
     if (jVarLocalFromSave) {
         let jVarLocalHtmlId = "KCont1";

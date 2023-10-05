@@ -2,7 +2,6 @@ const StartFunc = () => {
     let jVarLocalFromSave = getUrlQueryParams({ inGetKey: "FromSave" });
     let jVarLocalSavedPk = getUrlQueryParams({ inGetKey: "SavedPk" });
     let jVarLocalVoucherRef = getUrlQueryParams({ inGetKey: "VoucherRef" });
-    console.log("jVarLocalVoucherRef",jVarLocalVoucherRef);
     jFLocalToInputVoucherRef({inVoucherRef: jVarLocalVoucherRef});
 
     if (jVarLocalFromSave) {

@@ -8,7 +8,6 @@ let StartFunc = async () => {
 
     if (StartFuncCheckBeforeFetch({ inCurrentTarget: jVarLocalCurrentTarget })) {
         let jVarLocalBodyData = StartFuncPreparePostData();
-        console.log("jVarLocalBodyData", jVarLocalBodyData);
 
         let response = await StartFuncFetchFunc({
             inBodyData: jVarLocalBodyData

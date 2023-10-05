@@ -52,7 +52,6 @@ let jFLocalCurrentDateTimeToday = () => {
     let jVarLocalHtmlId= "Currentdateandtime";
     let jVarLocalDateId = document.getElementById(jVarLocalHtmlId);
     let jVarLocalDateValue = jFLocalCurrentDateTime1();
-    console.log("gggfddtfyg", jVarLocalDateValue);
     jVarLocalDateId.value = jVarLocalDateValue;
 };
 

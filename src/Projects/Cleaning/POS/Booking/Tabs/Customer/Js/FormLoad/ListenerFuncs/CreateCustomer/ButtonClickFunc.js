@@ -12,7 +12,7 @@ let StartFunc = async () => {
         });
 
         StartFuncAfterFetch({
-            inFromFetch: response, inCustomerName: jVarLocalBodyData.CustomerName
+            inFromFetch: response, inCustomerName: jVarLocalBodyData.inDataToSave.CustomerName
         });
     };
 };
