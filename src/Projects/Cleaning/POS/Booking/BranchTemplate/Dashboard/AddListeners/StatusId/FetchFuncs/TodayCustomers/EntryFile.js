@@ -8,7 +8,6 @@ let StartFunc = async () => {
     let response = await StartFuncFetchFunc({
         inBodyData: jVarLocalBodyData
     });
-    console.log("response", Object.keys(response.JsonData)[0]);
     StartFuncAfterFetch({ inFromFetch: response });
 };
 

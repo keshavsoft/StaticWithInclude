@@ -1,14 +1,9 @@
 let StartFunc = ({ inFromFetch }) => {
     let jVarLocalData = inFromFetch.JsonData;
-    // let jVarLocalQrCodesData = inQrCodeData.JsonData;
     var template = Handlebars.compile(jFLocalFromDomLatestOrdersTableTemplateRow());
 
     let jVarLocalHtmlId = 'LatestQrCodesTable';
     let jVarLocalLatestOrdersTable = document.getElementById(jVarLocalHtmlId);
-    // let jVarLocalTransformedData = jFLocalInsertAggValues({ inData: jVarLocalData });
-    // let jVarWithQrCodeData = jFLocalInsertQrCodeData({ inData: jVarLocalTransformedData, inQrCodeData: jVarLocalQrCodesData });
-
-    // console.log("jVarLocalTransformedData : ", jVarLocalTransformedData);
     jVarLocalLatestOrdersTable.querySelector('tbody').innerHTML = template(jVarLocalData);
 };
 

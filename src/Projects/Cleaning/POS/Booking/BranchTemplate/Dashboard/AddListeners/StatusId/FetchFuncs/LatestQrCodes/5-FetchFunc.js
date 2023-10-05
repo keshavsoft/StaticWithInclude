@@ -17,7 +17,6 @@ let StartFunc = async ({ inBodyData }) => {
     let response = await fetch(jVarLocalFetchUrl, jVarLocalFetchHeaderObject);
     let jVarLocalResponse = await response.json();
 
-    console.log("jVarLocalResponse80",jVarLocalResponse);
     return jVarLocalResponse;
 };
 
