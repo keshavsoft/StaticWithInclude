@@ -8,7 +8,6 @@ let StartFunc = ({ inFromFetch, inQrCodeData }) => {
     let jVarLocalTransformedData = jFLocalInsertAggValues({ inData: jVarLocalData });
     let jVarWithQrCodeData = jFLocalInsertQrCodeData({ inData: jVarLocalTransformedData, inQrCodeData: jVarLocalQrCodesData });
 
-    console.log("jVarLocalTransformedData : ", jVarLocalTransformedData);
     jVarLocalLatestOrdersTable.querySelector('tbody').innerHTML = template(jVarWithQrCodeData);
 };
 

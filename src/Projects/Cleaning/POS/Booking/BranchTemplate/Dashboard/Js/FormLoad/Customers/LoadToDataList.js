@@ -1,9 +1,7 @@
-// import { StartFunc as StartFuncFromLocalStorage } from "../../../FromLocalStorage/Customers.js";
 import { StartFunc as StartFuncFromLocalStorage } from "../../../../../FromLocalStorage/Customers.js";
 
 const StartFunc = () => {
     let jVarLocalDataNeeded = StartFuncFromLocalStorage();
-    console.log("jVarLocalDataNeeded",jVarLocalDataNeeded);
     let jVarLocalHtmlId = "CustomerDataListId";
     let jVarLocalCustomerDataListId = document.getElementById(jVarLocalHtmlId);
 
