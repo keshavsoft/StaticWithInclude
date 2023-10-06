@@ -69,7 +69,11 @@
                 Sucessfully.
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-
+            <div id="AlertCreateId" class="alert alert-success alert-dismissible fade show mt-2" role="alert" style="display: none;">
+                <strong></strong> Customer Created Successfully
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                </button>
+            </div>
             <!-- <table id="table">
                 <thead>
                   <tr>
@@ -167,7 +171,6 @@
 
     <script id="HbsTemplateForFoldersOnly" type="text/x-handlebars">
                 {{#each CustomerNames}}
-                {{log "inside" this}}
                 <tr class="{{RowClass}}" data-pk="{{pk}}">
                     <td class="text-center">
                         {{ForSNo @index}}
