@@ -86,12 +86,9 @@
                         <div class="float-start">Bs Table</div>
                         <div class="float-end">
                             <a id="RefreshBSTableId" href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                    class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd"
-                                        d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"></path>
-                                    <path
-                                        d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"></path>
+                                    <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z">
                                     </path>
                                 </svg>
                             </a>
@@ -100,14 +97,16 @@
                 </div>
                 <div class="card-body">
 
-                    <div id="AlertDeleteId" class="alert alert-danger alert-dismissible fade show mt-2" role="alert"
-                        style="display: none;">
+                    <div id="AlertDeleteId" class="alert alert-danger alert-dismissible fade show mt-2" role="alert" style="display: none;">
                         <strong></strong> Deleted Successfully
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                         </button>
                     </div>
-                    <table class="table" id="table" data-toolbar="#toolbar" data-search="true" data-searchable="true">
-                            <thead>
+                    <table class="table" id="table" data-toolbar="#toolbar" data-search="true" 
+                    data-searchable="true" data-show-columns="true" data-show-columns-toggle-all="true" 
+                    data-click-to-select="true" data-filter-control="true" data-show-export="true" data-detail-view="true" 
+                    data-detail-formatter="detailFormatter" data-id-field="pk" data-show-toggle="true">
+                        <thead>
                               <tr id="tableHeadRow">
                                 <!-- <th data-field="pk">ID</th>
                                 <th data-field="VoucherNumber" data-sortable="true">Voucher Number</th>
@@ -122,7 +121,7 @@
                         <tfoot>
 
                         </tfoot>
-                    </table>
+                    
                 </div>
             </div>
         </div>
@@ -181,9 +180,28 @@
         });
 
     </script>
-
+<script>
+    function detailFormatter(index, row) {
+            var html = []
+            $.each(row, function (key, value) {
+                html.push('<p><b>' + key + ':</b> ' + value + '</p>')
+            })
+            return html.join('')
+        };
+        
+    function operateFormatter(value, row, index) {
+    return [
+        `<a class="KSMainTableRowDelete" data-pk=${row.pk} href="#" title="Remove">`,
+        '<i class="fa fa-trash">Delete</i>',
+        '</a>',
+    ].join('')
+};
+</script>
 <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
 <script src="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.js"></script>
+<script src="https://unpkg.com/tableexport.jquery.plugin/tableExport.min.js"></script>
+<script src="https://unpkg.com/bootstrap-table@1.22.1/dist/extensions/export/bootstrap-table-export.min.js"></script>
+<script src="https://unpkg.com/bootstrap-table@1.22.1/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
 
     <script src="../../Js/headerChange.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

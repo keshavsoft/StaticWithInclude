@@ -6,18 +6,14 @@ const StartFunc = () => {
     let jVarLocalSavedPk = getUrlQueryParams({ inGetKey: "SavedPk" });
 
     if (jVarLocalFromSave) {
-        let jVarLocalHtmlId = "KCont1";
-        let jVarLocalKCont1 = document.getElementById(jVarLocalHtmlId);
-        let jVarLocalFindRow = jVarLocalKCont1.querySelector(`tr[data-pk='${jVarLocalSavedPk}']`);
+        if (jVarLocalSavedPk === null === false) {
+            let jVarLocalAlertCreateIdHtmlId = 'AlertCreateId';
+            let jVarLocalAlertCreateId = document.getElementById(jVarLocalAlertCreateIdHtmlId);
+            jVarLocalAlertCreateId.style.display = "";
 
-        let jVarLocalHtmlSuccessId = 'AlertSuccessId';
-        let jVarLocalAlertSuccessId = document.getElementById(jVarLocalHtmlSuccessId);
-
-        if (jVarLocalFindRow === null === false) {
-            jVarLocalFindRow.classList.add("table-success");
-            jVarLocalAlertSuccessId.style.display = "";
-            jFLocalToInnerHtmlRowPkInsertSuccessStrongId({ inRowPkInsertSuccessStrongId: jVarLocalSavedPk });
-        };
+            let jVarLocalStrong = jVarLocalAlertCreateId.querySelector("strong");
+            jVarLocalStrong.innerHTML = jVarLocalSavedPk;
+        }
 
         StartFuncAddlisteners();
     };
@@ -27,12 +23,6 @@ const StartFunc = () => {
         const parameters = new URLSearchParams(queryString);
         const value = parameters.get(inGetKey);
         return value;
-    };
-
-    let jFLocalToInnerHtmlRowPkInsertSuccessStrongId = ({ inRowPkInsertSuccessStrongId }) => {
-        let jVarLocalHtmlId = 'RowPkInsertSuccessStrongId';
-        let jVarLocalRowPkInsertSuccessStrongId = document.getElementById(jVarLocalHtmlId);
-        jVarLocalRowPkInsertSuccessStrongId.innerHTML = inRowPkInsertSuccessStrongId;
     };
 
     export { StartFunc };

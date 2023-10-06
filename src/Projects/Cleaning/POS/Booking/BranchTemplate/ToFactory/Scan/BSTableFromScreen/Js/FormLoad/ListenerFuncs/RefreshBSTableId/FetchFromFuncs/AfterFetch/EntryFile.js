@@ -27,6 +27,37 @@ let jFLocalToArray = ({ inDataToShow }) => {
 };
 
 let jFLocalPrepareHeaderForDataOnly = ({ data }) => {
+    console.log("data", data);
+    let jVarLocalHtmlId = 'tableHeadRow';
+    let jVarLocaltableHeadRow = document.getElementById(jVarLocalHtmlId);
+    let jVarLocalColumns = Object.keys(data);
+    jVarLocalColumns.forEach(element => {
+        let jVarLocalNewTh = document.createElement("th");
+        jVarLocalNewTh.innerHTML = element;
+        jVarLocalNewTh.dataset.field = element;
+        jVarLocalNewTh.setAttribute("data-filter-control", "input")
+        jVarLocaltableHeadRow.appendChild(jVarLocalNewTh);
+    });
+    let jVarLocalNewTh = document.createElement("th");
+    jVarLocalNewTh.innerHTML = "Item Operate";
+    jVarLocalNewTh.dataset.field = "operate";
+    jVarLocalNewTh.setAttribute("data-formatter", "operateFormatter");
+    jVarLocaltableHeadRow.appendChild(jVarLocalNewTh);
+}
+
+function operateFormatter(value, row, index) {
+    return [
+        `<a class="KSMainTableRowDelete" data-pk=${row.pk} href="#" title="Remove">`,
+        '<i class="fa fa-trash">Delete</i>',
+        '</a>',
+    ].join('')
+};
+
+function kFormatter(value, row, index) {
+    return value;
+};
+
+let jFLocalPrepareHeaderForDataOnly1 = ({ data }) => {
     // let data = jVarGlobalPresentViewData;
     let jVarLocalColumns = Object.keys(data);
     let jVarLocalReturnArray = [];
@@ -34,7 +65,8 @@ let jFLocalPrepareHeaderForDataOnly = ({ data }) => {
         return {
             title: element,
             field: element,
-            formatter: kFormatter
+            formatter: kFormatter,
+
         };
     });
 
@@ -50,21 +82,4 @@ let jFLocalPrepareHeaderForDataOnly = ({ data }) => {
 
     return jVarLocalReturnArray;
 };
-
-function operateFormatter(value, row, index) {
-    return [
-        '<a class="like" href="#" onclick="jFLocal1()" title="Like">',
-        '<i class="fa fa-heart">Show</i>',
-        '</a>  ',
-        `<a class="KSMainTableRowDelete" data-pk=${row.pk} href="#" title="Remove">`,
-        '<i class="fa fa-trash">Delete</i>',
-        '</a>',
-    ].join('')
-};
-
-function kFormatter(value, row, index) {
-    return value;
-};
-
-
 export { StartFunc }
