@@ -6,12 +6,25 @@ let StartFunc = async () => {
     await StartFuncFetchFuncs();
 
     let jVarLocalDataNeeded = StartFuncFromLocalStorage();
+    let jVarLocalDataToShow = jFLocalToArray({ inDataToShow: jVarLocalDataNeeded });
+    var $table = $('#table');
 
-    if (jVarLocalDataNeeded !== null) {
-        let jVarLocalRawTemplate = document.getElementById("HbsTemplateForFoldersOnly").innerHTML;
-        document.getElementById("KCont1").innerHTML = Handlebars.compile(jVarLocalRawTemplate)(jVarLocalDataNeeded);
-    };
+    $table.bootstrapTable({ data: jVarLocalDataToShow });
 
+};
+
+let jFLocalToArray = ({ inDataToShow }) => {
+    let jVarLocalArray = [];
+    Object.entries(inDataToShow).forEach(
+        ([key, value]) => {
+            jVarLocalArray.push({
+                ...value,
+                pk: key
+            });
+        }
+    );
+
+    return jVarLocalArray;
 };
 
 export { StartFunc }
