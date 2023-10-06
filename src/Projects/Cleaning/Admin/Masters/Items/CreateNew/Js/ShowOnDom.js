@@ -12,7 +12,6 @@ let StartFunc = async () => {
         document.getElementById("KCont1").innerHTML = Handlebars.compile(jVarLocalRawTemplate)(jVarLocalDataNeeded);
     };
 
-    console.log("jVarLocalDataNeeded : ", jVarLocalDataNeeded);
 };
 
 export { StartFunc }

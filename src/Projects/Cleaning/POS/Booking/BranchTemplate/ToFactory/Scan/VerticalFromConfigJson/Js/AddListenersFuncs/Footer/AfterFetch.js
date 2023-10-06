@@ -1,6 +1,5 @@
 let StartFunc = ({ inFetchPostData, inHtmlCard }) => {
     let jVarLocalFetchData = inFetchPostData;
-    console.log("jVarLocalFetchData000", jVarLocalFetchData);
     if (jVarLocalFetchData.KTF === false) {
         jFLocalForFailure({ inFetchPostData, inHtmlCard });
     } else {
@@ -34,9 +33,7 @@ let jFLocalForFailure = ({ inFetchPostData, inHtmlCard }) => {
             inHtmlCard.classList.add("border-danger");
             let jVarLocalpkInput = document.getElementById("pk");
             let jVarLocalParent = jVarLocalpkInput.parentElement;
-            console.log("jVarLocalParent", jVarLocalParent);
             let jVarLocalError = jVarLocalParent.querySelector(".invalid-feedback");
-            console.log("jVarLocalError", jVarLocalError);
             jVarLocalError.innerHTML = `Invalid QrCode`
             jVarLocalpkInput.classList.add("is-invalid");
             jVarLocalpkInput.focus();

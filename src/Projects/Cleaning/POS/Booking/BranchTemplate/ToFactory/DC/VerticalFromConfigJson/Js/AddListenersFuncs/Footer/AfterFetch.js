@@ -1,6 +1,5 @@
 let StartFunc = ({ inFetchPostData, inHtmlCard }) => {
     let jVarLocalFetchData = inFetchPostData;
-    console.log("jVarLocalFetchData000",jVarLocalFetchData);
     if (jVarLocalFetchData.KTF === false) {
         jFLocalForFailure({ inHtmlCard });
     } else {
@@ -22,7 +21,6 @@ let jFLocalForFailure = ({ inHtmlCard }) => {
     let jVarLocalShowFailure = inHtmlCard.querySelector("#ShowFailure");
     jVarLocalShowFailure.classList.remove("visually-hidden");
     let jVarLocalFirstInput = inHtmlCard.querySelector("input");
-    console.log("jVarLocalFirstInput",jVarLocalFirstInput);
     jVarLocalFirstInput.focus();
 };
 

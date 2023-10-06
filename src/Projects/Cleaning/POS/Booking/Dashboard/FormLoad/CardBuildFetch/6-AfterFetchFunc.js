@@ -1,5 +1,4 @@
 let StartFunc = async ({ inResponse, inBodyData }) => {
-    console.log("inResponse::", inResponse,inBodyData);
     LocalStartFunc({
         inFilesObjects: inResponse,
         inFolderName: inBodyData.inFolderName

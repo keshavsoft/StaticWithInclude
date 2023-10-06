@@ -40,7 +40,6 @@ const StartFunc = ({ inLoopItem }) => {
     switch (jVarLocalItem.tagName) {
         case "INPUT":
             jVarLocalValue = LocalTypeFunc({ inLoopItem: jVarLocalItem });
-            console.log("bbbbbbbb : ", jVarLocalValue);
             break;
         default:
             switch (jVarLocalItem.type) {

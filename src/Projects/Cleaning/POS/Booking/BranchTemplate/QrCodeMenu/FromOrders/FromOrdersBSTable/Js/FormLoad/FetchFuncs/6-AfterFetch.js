@@ -5,7 +5,6 @@ let StartFunc = ({ inFromFetch }) => {
     let localmapData = jVarLocalinDataToShow.map((ele) => {
         return { ...Object.keys(ele) }
     });
-    console.log("localmapData", localmapData);
 
     let jVarLocalDataToShow = localmapData;
     StartFuncPrepareColumns();

@@ -1,6 +1,5 @@
 const StartFunc = () => {
     let jVarLocalLoginModalButtonId = document.getElementById("LoginButtonOnModalId");
-    console.log("jVarLocalLoginModalButtonId ", jVarLocalLoginModalButtonId);
 
     if (jVarLocalLoginModalButtonId === null === false) {
         jVarLocalLoginModalButtonId.addEventListener("click", jFLocalLoginButtonClick);

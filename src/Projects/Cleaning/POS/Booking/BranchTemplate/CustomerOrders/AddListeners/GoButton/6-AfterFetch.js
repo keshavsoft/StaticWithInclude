@@ -1,4 +1,3 @@
-// import { StartFunc as StartFuncToLocalStorage } from "../../../../../../../ToLocalStorage/OrdersData/ToBranch.js";
 import { StartFunc as StartFuncToLocalStorage } from "../../../../ToLocalStorage/OrdersData/ToBranch.js";
 
 import ApiConfigJson from '../../../ApiConfig.json' assert {type: 'json'};
@@ -9,8 +8,6 @@ let StartFunc = ({ inFromFetch }) => {
     if (data) {
         let jVarLocalBranchName = ApiConfigJson.BranchName;
         let jVarLocalRawTemplate = document.getElementById("HbsTemplateForFoldersOnly").innerHTML;
-        console.log("data : ", data.JsonData);
-
 
         document.getElementById("KCont1").innerHTML = Handlebars.compile(jVarLocalRawTemplate)(jFLocalInsertAggValues({ inData: data.JsonData }));
 
