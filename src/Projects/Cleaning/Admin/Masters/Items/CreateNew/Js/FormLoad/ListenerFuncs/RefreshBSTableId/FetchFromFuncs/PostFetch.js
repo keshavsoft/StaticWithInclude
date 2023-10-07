@@ -1,9 +1,10 @@
 import { StartFunc as StartFuncFetchHeaders } from "./FetchHeaders/EntryFile.js";
 import ProjectKeys from "../../../../../../../../ApiConfig.json" assert {type: 'json'};
 
-let     StartFunc = async ({ inCurrentTarget }) => {
-    let jVarLocalFetchHeaders = StartFuncFetchHeaders({ inCurrentTarget });
-    let jVarLocalFetchUrl = `/${ProjectKeys.ProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/MainTable/Delete`;
+let StartFunc = async () => {
+    let jVarLocalFetchHeaders = StartFuncFetchHeaders();
+    let jVarLocalFetchUrl = `/${ProjectKeys.ProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/AsObjectWithPK`;
+
     let response = await fetch(jVarLocalFetchUrl, jVarLocalFetchHeaders);
     let data = await response.json();
 
