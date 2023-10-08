@@ -1,48 +1,56 @@
-<div class="row mb-2">
-    <div class="col-2">
-        <button type="button" class="btn btn-danger mt-3" style="font-size: 50px;" id="OrderNumberId">OrderNumber</button>
+<div class="card mt-2">
+    <div class="card-header">
+        Order Info & Customer Details
     </div>
-    <div class="col">
-        <div class="row mt-2">
-            <div class="col-6">
-                <div class="row mb-3">
-                    <label for="OrderInfoCustomerNameId"
-                        class="col-sm-4 col-form-label col-form-label-lg">Customer</label>
-                    <div class="col-sm-8">
-                        <input type="email" class="form-control form-control-lg"
-                            id="OrderInfoCustomerNameId" disabled="">
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-4">
-                <div class="row mb-3">
-                    <label for="OrderInfoCustomerMobileId"
-                        class="col-sm-4 col-form-label col-form-label-lg">Mobile</label>
-                    <div class="col-sm-8">
-                        <input type="email" class="form-control form-control-lg"
-                            id="OrderInfoCustomerMobileId">
-                    </div>
-                </div>
-            </div>
-
+    <div class="card-body">
+        <div class="row mb-2">
             <div class="col-2">
-                <div class="row mb-3">
-                    <label for="BranchNameId"
-                        class="col-sm-5 col-form-label col-form-label-sm">Branch</label>
-                    <div class="col-sm-7">
-                        <input type="text" class="form-control form-control-sm" id="BranchNameId">
+                <input type="text" class="form-control form-control-sm" id="BranchNameId" disabled>
+                <button type="button" class="btn btn-danger mt-3" style="font-size: 50px;"
+                    id="OrderNumberId">OrderNumber</button>
+            </div>
+            <div class="col">
+                <div class="row mt-2">
+                    <div class="col-5">
+                        <div class="row mb-3">
+                            <label for="OrderInfoCustomerNameId"
+                                class="col-sm-4 col-form-label col-form-label-lg">Customer</label>
+                            <div class="col-sm-8">
+                                <input type="email" class="form-control form-control-lg" id="OrderInfoCustomerNameId"
+                                    disabled>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="row mb-3">
+                            <label for="OrderInfoCustomerMobileId"
+                                class="col-sm-4 col-form-label col-form-label-lg">Mobile</label>
+                            <div class="col-sm-8">
+                                <input type="email" class="form-control form-control-lg" id="OrderInfoCustomerMobileId"
+                                    disabled>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-3">
+                        <div class="row mb-3">
+                            <label for="BranchNameId" class="col-sm-5 col-form-label col-form-label-sm">Branch</label>
+                            <div class="col-sm-7">
+
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="row fs-3">
-            <div class="col"> <input class="form-control fs-4" tabindex="-1" type="datetime-local"
-                    id="Currentdateandtime"></div>
-            <div class="col">
-                <button type="button" class="btn btn-warning fs-4" id="CheckOutId">CheckOut</button>
-            </div>
-        </div>
+                <div class="row fs-3">
+                    <div class="col"> <input class="form-control fs-4" tabindex="-1" type="datetime-local"
+                            id="Currentdateandtime"></div>
+                    <div class="col">
+                        <button type="button" class="btn btn-warning fs-4" id="CheckOutId">CheckOut</button>
+                    </div>
+                </div>
 
+            </div>
+        </div>
     </div>
 </div>
