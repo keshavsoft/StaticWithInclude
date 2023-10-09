@@ -1,5 +1,5 @@
 import { StartFunc as StartFuncRefreshBSTableId } from "./RefreshBSTableId/EntryFile.js";
-
+import { StartFunc as StartFuncDCDetails } from "./RefreshBSTableId/FetchFromFuncs/DCDetails/Entry.js";
 let StartFunc = () => {
     let jVarLocalFilterString = getUrlQueryParams({ inGetKey: "VoucherRef"});
     if (jVarLocalFilterString === null) {
@@ -9,6 +9,7 @@ let StartFunc = () => {
             text: "VoucherRef not found in URL"
         }); 
     }else{
+        StartFuncDCDetails();
         StartFuncRefreshBSTableId();
     }
 
