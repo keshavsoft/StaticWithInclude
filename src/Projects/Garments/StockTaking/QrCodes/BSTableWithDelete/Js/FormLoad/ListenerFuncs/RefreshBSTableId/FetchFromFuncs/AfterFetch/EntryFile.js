@@ -1,3 +1,5 @@
+import { StartFunc as StartFuncKSMainTableRowDeleteClass } from "./KSMainTableRowDeleteClass/1-ClickAssign.js";
+
 let StartFunc = ({ inDataToShow }) => {
     let jVarLocalDataToShow = jFLocalToArray({ inDataToShow });
     var $table = $('#table');
@@ -7,6 +9,7 @@ let StartFunc = ({ inDataToShow }) => {
         columns: jFLocalPrepareHeaderForDataOnly({ data: jVarLocalDataToShow[0] })
     });
 
+    StartFuncKSMainTableRowDeleteClass();
 };
 
 let jFLocalToArray = ({ inDataToShow }) => {
@@ -35,7 +38,20 @@ let jFLocalPrepareHeaderForDataOnly = ({ data }) => {
         jVarLocalNewTh.setAttribute("data-filter-control", "input")
         jVarLocaltableHeadRow.appendChild(jVarLocalNewTh);
     });
+    let jVarLocalNewTh = document.createElement("th");
+    jVarLocalNewTh.innerHTML = "Item Operate";
+    jVarLocalNewTh.dataset.field = "operate";
+    jVarLocalNewTh.setAttribute("data-formatter", "operateFormatter");
+    jVarLocaltableHeadRow.appendChild(jVarLocalNewTh);
 }
+
+function operateFormatter(value, row, index) {
+    return [
+        `<a class="KSMainTableRowDelete" data-pk=${row.pk} href="#" title="Remove">`,
+        '<i class="fa fa-trash">Delete</i>',
+        '</a>',
+    ].join('')
+};
 
 function kFormatter(value, row, index) {
     return value;

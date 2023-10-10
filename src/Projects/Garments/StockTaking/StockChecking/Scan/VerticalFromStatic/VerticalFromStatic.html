@@ -28,7 +28,7 @@
         </symbol>
     </svg>
 
-    <include src="./src/components/Garments/StockChecking/Scan/ScanHeader.html"></include>
+    <include src="./src/components/Garments/StockTaking/StockChecking/ScanHeader.html"></include>
 
     <div class="modal fade" id="LoginModalId" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -68,11 +68,11 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
 
-            <div id="KCont1"></div>
-            <!-- 
+            <div id="KCont2"></div>
+            
             <div class="card mt-3">
-                <div class="card-header text-bg-secondary">
-                    Create New
+                <div class="card-header">
+                    Scan
                 </div>
                 <div class="card-body">
 
@@ -89,9 +89,9 @@
                                 </div>
                             </div>
                             <div class="col-md-12 form-group">
-                                <label class="col-md-4 col-form-label">City</label>
+                                <label class="col-md-4 col-form-label">ItemName</label>
                                 <div class="col-md-8">
-                                    <input class="form-control" type="text" name="City" id="CityId" placeholder=""
+                                    <input class="form-control" type="text" name="ItemName" id="ItemNameId" placeholder=""
                                         autofocus="" value="">
                                     <div class="invalid-feedback">
                                         Should not be empty!
@@ -99,9 +99,9 @@
                                 </div>
                             </div>
                             <div class="col-md-12 form-group">
-                                <label class="col-md-4 col-form-label">Mobile</label>
+                                <label class="col-md-4 col-form-label">VoucherRef</label>
                                 <div class="col-md-8">
-                                    <input class="form-control" type="number" name="Mobile" id="MobileId" placeholder=""
+                                    <input class="form-control" type="number" name="VoucherRef" id="VoucherRef" placeholder=""
                                         autofocus="" value="">
                                     <div class="invalid-feedback">
                                         Should not be empty!
@@ -111,8 +111,8 @@
 
                             <div class="col">
                                 <p></p>
-                                <button type="button" id="CreateCustomerButtonId" class="btn btn-outline-success">
-                                    Save
+                                <button type="button" id="CreateCustomerButtonId" class="btn btn-success">
+                                    Save New
                                 </button>
                             </div>
 
@@ -123,7 +123,7 @@
                         </tfoot>
                     </table>
                 </div>
-            </div> -->
+            </div>
         </div>
     </main>
 
@@ -3051,11 +3051,11 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
     <script src="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.js"></script>
 
-    <script src="./Js/headerChange.js"></script>
+    <script src="../../Js/headerChange.js"></script>
 
     <script src="./Js/KeshavSoftCrudFuncs.js"></script>
 
-    <script src="./Js/VerticalFromConfigJson.js" type="module"></script>
+    <script src="./Js/VerticalFromStatic.js" type="module"></script>
 </body>
 
 </html>

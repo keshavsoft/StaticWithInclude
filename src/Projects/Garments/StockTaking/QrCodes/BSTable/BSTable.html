@@ -106,7 +106,7 @@
                     <table class="table" id="table" data-toolbar="#toolbar" data-search="true" 
                     data-searchable="true" data-show-columns="true" data-show-columns-toggle-all="true" 
                     data-click-to-select="true" data-show-export="true" data-detail-view="true" 
-                    data-detail-formatter="detailFormatter" data-id-field="pk" data-show-toggle="true">
+                    data-detail-formatter="detailFormatter" data-id-field="pk" data-show-toggle="true" data-filter-control="true">
                         <thead>
                               <tr id="tableHeadRow">
                                 <!-- <th data-field="pk">ID</th>
@@ -190,13 +190,6 @@
             return html.join('')
         };
         
-    function operateFormatter(value, row, index) {
-    return [
-        `<a class="KSMainTableRowDelete" data-pk=${row.pk} href="#" title="Remove">`,
-        '<i class="fa fa-trash"></i>',
-        '</a>',
-    ].join('')
-};
 </script>
 <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
 <script src="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.js"></script>
