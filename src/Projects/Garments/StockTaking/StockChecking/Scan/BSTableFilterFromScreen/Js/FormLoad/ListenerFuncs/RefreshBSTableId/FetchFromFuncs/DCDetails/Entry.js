@@ -8,7 +8,7 @@ let StartFunc = async () => {
         Swal.fire({
             icon: "error",
             title: "Error",
-            text: "Items not found in DC"
+            text:  "No QrCodes found in this voucher"
         });
     }
     if (jVarLocalDataNeeded.JsonData !== null) {
