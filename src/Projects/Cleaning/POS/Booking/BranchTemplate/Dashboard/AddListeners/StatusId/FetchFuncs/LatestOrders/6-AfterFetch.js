@@ -1,5 +1,10 @@
 let StartFunc = ({ inFromFetch, inQrCodeData }) => {
     let jVarLocalData = inFromFetch.JsonData;
+
+    if (jVarLocalData.length === 0) {
+        return;
+    };
+
     let jVarLocalQrCodesData = inQrCodeData.JsonData;
     var template = Handlebars.compile(jFLocalFromDomLatestOrdersTableTemplateRow());
 
@@ -18,7 +23,7 @@ let jFLocalFromDomLatestOrdersTableTemplateRow = () => {
     return jVarLatestOrdersTableTemplateRowValue;
 };
 
-let jFLocalInsertQrCodeData = ({ inData , inQrCodeData }) => {
+let jFLocalInsertQrCodeData = ({ inData, inQrCodeData }) => {
     let jVarLocalReturnArray = [];
 
     jVarLocalReturnArray = inData.map(element => {

@@ -21,7 +21,7 @@ const StartFunc = () => {
         return;
     };
 
-    StartFuncFormLoad();
+    jFLocalAfterLoginSuccess();
     StartFuncAddListeners();
 
     let jVarLocalHtmlId = 'StatusId';
