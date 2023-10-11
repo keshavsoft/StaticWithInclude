@@ -1,0 +1,16 @@
+{
+    "JsonConfig": {
+        "inFolderName": "ToFactory",
+        "inJsonFileName": "Kakinada.json"
+    },
+    "ItemConfig": {
+        "inItemName": "QrCodeDetails",
+        "inScreenName": "Create"
+    },
+    "inDataToSave": {
+        "pk": "",
+        "ProductName": "",
+        "SalePrice": "",
+        "VoucherRef": ""
+    }
+}
