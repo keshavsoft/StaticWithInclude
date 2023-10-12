@@ -1,19 +1,14 @@
 import KeysJson from './Keys.json' assert {type: 'json'};
 import BodyKeysJson from './BodyKeys.json' assert {type: 'json'};
-import PostBodyKeysJson from '../../../../ConfigKeys/FetchKeys/ForPostKeys.json' assert {type: 'json'};
 
 let StartFunc = () => {
-
-    // BodyKeysJson.inJsonConfig.inFolderName = PostBodyKeysJson.inFolderName;
-    // BodyKeysJson.inJsonConfig.inJsonFileName = `${PostBodyKeysJson.inFileName}.json`;
-    // BodyKeysJson.inItemConfig.inItemName = PostBodyKeysJson.inItemName;
-    // BodyKeysJson.inItemConfig.inScreenName = PostBodyKeysJson.inScreenName;
 
     BodyKeysJson.inDataToInsert = {};
 
     BodyKeysJson.inDataToInsert.pk = jFLocalFromDomInputPkId();
-    BodyKeysJson.inDataToInsert.ItemName = jFLocalFromDomInputItemNameId();
-    BodyKeysJson.inDataToInsert.VoucherRef = jFLocalFromDomInputVoucherNumberId();
+    BodyKeysJson.inDataToInsert.ProductName = jFLocalFromDomInputProductNameId();
+    BodyKeysJson.inDataToInsert.SalePrice = jFLocalFromDomInputSalePriceId();
+    BodyKeysJson.inDataToInsert.VoucherRef = jFLocalFromDomInputVoucherRefId();
 
     KeysJson.body = JSON.stringify(BodyKeysJson);
 
@@ -27,18 +22,25 @@ let jFLocalFromDomInputPkId = () => {
    return jVarHtmlInputPkIdValue;
 };
 
-let jFLocalFromDomInputItemNameId = () => {
-    let jVarLocalHtmlInputItemNameId = 'InputItemNameId';
-   let jVarHtmlInputItemNameId = document.getElementById(jVarLocalHtmlInputItemNameId);
-   let jVarHtmlInputItemNameIdValue = jVarHtmlInputItemNameId.value.trim();
-   return jVarHtmlInputItemNameIdValue;
+let jFLocalFromDomInputProductNameId = () => {
+    let jVarLocalHtmlInputProductNameId = 'InputProductNameId';
+   let jVarHtmlInputProductNameId = document.getElementById(jVarLocalHtmlInputProductNameId);
+   let jVarHtmlInputProductNameIdValue = jVarHtmlInputProductNameId.value.trim();
+   return jVarHtmlInputProductNameIdValue;
 };
 
-let jFLocalFromDomInputVoucherNumberId = () => {
-    let jVarLocalHtmlInputVoucherNumberId = 'InputVoucherNumberId';
-   let jVarHtmlInputVoucherNumberId = document.getElementById(jVarLocalHtmlInputVoucherNumberId);
-   let jVarHtmlInputVoucherNumberIdValue = jVarHtmlInputVoucherNumberId.value.trim();
-   return jVarHtmlInputVoucherNumberIdValue;
+let jFLocalFromDomInputSalePriceId = () => {
+    let jVarLocalHtmlInputSalePriceId = 'InputSalePriceId';
+   let jVarHtmlInputSalePriceId = document.getElementById(jVarLocalHtmlInputSalePriceId);
+   let jVarHtmlInputSalePriceIdValue = jVarHtmlInputSalePriceId.value.trim();
+   return jVarHtmlInputSalePriceIdValue;
+};
+
+let jFLocalFromDomInputVoucherRefId = () => {
+    let jVarLocalHtmlInputVoucherRefId = 'InputVoucherRefId';
+   let jVarHtmlInputVoucherRefId = document.getElementById(jVarLocalHtmlInputVoucherRefId);
+   let jVarHtmlInputVoucherRefIdValue = jVarHtmlInputVoucherRefId.value.trim();
+   return jVarHtmlInputVoucherRefIdValue;
 };
 
 export { StartFunc }
