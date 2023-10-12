@@ -3,11 +3,11 @@ import BodyKeysJson from './BodyKeys.json' assert {type: 'json'};
 
 let StartFunc = () => {
 
-    BodyKeysJson.inDataToSave = {};
-    BodyKeysJson.inDataToSave.pk = jFLocalFromDomInputPkId();
-    BodyKeysJson.inDataToSave.ProductName = jFLocalFromDomInputProductNameId();
-    BodyKeysJson.inDataToSave.SalePrice = jFLocalFromDomInputSalePriceId();
-    BodyKeysJson.inDataToSave.VoucherRef = jFLocalFromDomInputVoucherRefId();
+    BodyKeysJson.inDataToInsert = {};
+    BodyKeysJson.inDataToInsert.pk = jFLocalFromDomInputPkId();
+    BodyKeysJson.inDataToInsert.ProductName = jFLocalFromDomInputProductNameId();
+    BodyKeysJson.inDataToInsert.SalePrice = jFLocalFromDomInputSalePriceId();
+    BodyKeysJson.inDataToInsert.VoucherRef = jFLocalFromDomInputVoucherRefId();
 
     KeysJson.body = JSON.stringify(BodyKeysJson);
 
