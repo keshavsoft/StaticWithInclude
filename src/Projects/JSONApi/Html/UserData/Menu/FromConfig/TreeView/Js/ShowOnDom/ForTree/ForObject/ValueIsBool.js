@@ -1,4 +1,4 @@
-let jFLocalForTagsASpanAndI = () => {
+let jFLocalATag = () => {
     let a1 = document.createElement("a");
     a1.setAttribute("href", "#");
 
@@ -9,31 +9,13 @@ let jFLocalForTagsASpanAndI = () => {
     jVarLocalSpan.classList.add("list-icon");
 
     let jVarLocalITag = document.createElement("i");
-    jVarLocalITag.classList.add("bi");
-    jVarLocalITag.classList.add("bi-check-lg");
+    jVarLocalITag.classList.add("fa-brands");
+    jVarLocalITag.classList.add("fa-patreon");
+
+    jVarLocalITag.setAttribute("style", "color: #1106b7");
 
     jVarLocalSpan.appendChild(jVarLocalITag);
-
-    a1.appendChild(jVarLocalSpan);
-
-    return a1;
-};
-
-let jFLocalForFalse = () => {
-    let a1 = document.createElement("a");
-    a1.setAttribute("href", "#");
-
-    a1.classList.add("list-link");
-    a1.classList.add("link-current");
-
-    let jVarLocalSpan = document.createElement("span");
-    jVarLocalSpan.classList.add("list-icon");
-
-    let jVarLocalITag = document.createElement("i");
-    jVarLocalITag.classList.add("bi");
-    jVarLocalITag.classList.add("bi-x-lg");
-
-    jVarLocalSpan.appendChild(jVarLocalITag);
+    // jVarLocalSpan.insertAdjacentHTML("beforeend", "kkkk");
 
     a1.appendChild(jVarLocalSpan);
 
@@ -42,17 +24,14 @@ let jFLocalForFalse = () => {
 
 let StartFunc = ({ inParentLiTag, inKey, inValue }) => {
     let jVarLocalValue = inValue;
-    if (jVarLocalValue) {
-    let a1 = jFLocalForTagsASpanAndI();
+    let a1 = jFLocalATag();
 
-    a1.insertAdjacentHTML("beforeend", `${inKey} : ${jVarLocalValue}`);
+    // a1.insertAdjacentHTML("beforeend", `${inKey} : ${jVarLocalValue}`);
+    // a1.insertAdjacentHTML("beforeend", `<span style="color:#1106b7;font-weight:normal">${inKey} : </span> ${jVarLocalValue}`);
+
+    a1.insertAdjacentHTML("beforeend", `<span font-weight:normal">${inKey} : </span><span style="color:#1106b7"> ${jVarLocalValue}</span>`);
+
     inParentLiTag.appendChild(a1);
-    }else{
-        let a1 = jFLocalForFalse();
-
-        a1.insertAdjacentHTML("beforeend", `${inKey} : ${jVarLocalValue}`);
-        inParentLiTag.appendChild(a1);
-    };
 };
 
 export { StartFunc };

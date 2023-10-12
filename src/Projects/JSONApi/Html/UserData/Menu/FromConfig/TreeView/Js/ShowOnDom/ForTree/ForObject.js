@@ -1,8 +1,8 @@
 import { StartFunc as StartFuncForObject } from "./ForObject/ValueIsObject.js";
-import { StartFunc as StartFuncForBool } from "./ForObject/ValueIsBool.js";
-import { StartFunc as StartFuncForString } from "./ForObject/ValueIsString.js";
-import { StartFunc as StartFuncForNumber } from "./ForObject/ValueIsNumber.js";
-import { StartFunc as StartFuncForArray } from "./ForObject/ValueIsArray.js";
+import { StartFunc as StartFuncValueIsArray } from "./ForObject/ValueIsArray.js";
+import { StartFunc as StartFuncValueIsString } from "./ForObject/ValueIsString.js";
+import { StartFunc as StartFuncValueIsNumber } from "./ForObject/ValueIsNumber.js";
+import { StartFunc as StartFuncValueIsBool } from "./ForObject/ValueIsBool.js";
 
 let StartFunc = ({ inObject, inParentUl }) => {
     let jVarLocalObject = inObject;
@@ -12,9 +12,8 @@ let StartFunc = ({ inObject, inParentUl }) => {
     jVarLocalUl.classList.add("list-unstyled");
 
     Object.entries(jVarLocalObject).forEach(([key, value]) => {
-        jFIsEntry({ inParentUl, inKey: key, inValue: value })
+        jFIsEntry({ inParentUl, inKey: key, inValue: value });
     });
-
 };
 
 let jFIsEntry = ({ inParentUl, inKey, inValue }) => {
@@ -22,20 +21,26 @@ let jFIsEntry = ({ inParentUl, inKey, inValue }) => {
 
     let l1 = document.createElement("li");
 
-    if (typeof jVarLocalValue === 'string' || jVarLocalValue instanceof String) {
-        StartFuncForString({ inParentLiTag: l1, inKey, inValue });
-    };
-
-    if (typeof jVarLocalValue === 'number' || jVarLocalValue instanceof String) {
-        StartFuncForNumber({ inParentLiTag: l1, inKey, inValue });
-    };
-
     if (typeof jVarLocalValue === 'boolean') {
-        StartFuncForBool({ inParentLiTag: l1, inKey, inValue });
+        StartFuncValueIsBool({ inParentLiTag: l1, inKey, inValue });
+        inParentUl.appendChild(l1);
+        return;
+    };
+
+    if (typeof jVarLocalValue === 'string' || jVarLocalValue instanceof String) {
+        StartFuncValueIsString({ inParentLiTag: l1, inKey, inValue });
+        inParentUl.appendChild(l1);
+        return;
+    };
+
+    if (Number.isInteger(jVarLocalValue)) {
+        StartFuncValueIsNumber({ inParentLiTag: l1, inKey, inValue });
+        inParentUl.appendChild(l1);
+        return;
     };
 
     if (Array.isArray(jVarLocalValue)) {
-        StartFuncForArray({ inParentLiTag: l1, inKey });
+        StartFuncValueIsArray({ inParentLiTag: l1, inKey });
 
         let jVarLocalUl = document.createElement("ul");
 
@@ -44,8 +49,10 @@ let jFIsEntry = ({ inParentUl, inKey, inValue }) => {
 
         l1.appendChild(jVarLocalUl);
 
-        StartFunc({ inObject: inValue, inParentUl: jVarLocalUl })
+        StartFunc({ inObject: inValue, inParentUl: jVarLocalUl });
 
+        inParentUl.appendChild(l1);
+        return;
     };
 
     if (typeof jVarLocalValue === 'object' && jVarLocalValue !== null) {
@@ -58,33 +65,11 @@ let jFIsEntry = ({ inParentUl, inKey, inValue }) => {
 
         l1.appendChild(jVarLocalUl);
 
-        StartFunc({ inObject: inValue, inParentUl: jVarLocalUl })
-
+        StartFunc({ inObject: inValue, inParentUl: jVarLocalUl });
+        inParentUl.appendChild(l1);
+        return;
     };
-    
-    inParentUl.appendChild(l1);
-};
 
-let jFLocalForTagsASpanAndI = () => {
-    let a1 = document.createElement("a");
-    a1.setAttribute("href", "#");
-
-    a1.classList.add("list-link");
-    a1.classList.add("link-current");
-
-    let jVarLocalSpan = document.createElement("span");
-    jVarLocalSpan.classList.add("list-icon");
-
-    let jVarLocalITag = document.createElement("i");
-    jVarLocalITag.classList.add("fa-solid");
-    jVarLocalITag.classList.add("fa-mug-hot");
-    jVarLocalITag.classList.add("bell");
-
-    jVarLocalSpan.appendChild(jVarLocalITag);
-
-    a1.appendChild(jVarLocalSpan);
-
-    return a1;
 };
 
 export { StartFunc };

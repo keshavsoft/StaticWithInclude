@@ -10,7 +10,7 @@ let jFLocalForTagsASpanAndI = () => {
 
     let jVarLocalITag = document.createElement("i");
     jVarLocalITag.classList.add("fa-solid");
-    jVarLocalITag.classList.add("fa-layer-group");
+    jVarLocalITag.classList.add("fa-bars-staggered");
 
     jVarLocalSpan.appendChild(jVarLocalITag);
 

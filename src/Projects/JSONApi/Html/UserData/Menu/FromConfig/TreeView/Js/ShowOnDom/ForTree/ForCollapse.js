@@ -41,6 +41,7 @@ let StartFunc = () => {
 
 
     let slideUp = (target, duration = 500) => {
+        console.log("uuuuuuu");
         target.style.transitionProperty = 'height, margin, padding';
         target.style.transitionDuration = duration + 'ms';
         target.style.boxSizing = 'border-box';
@@ -67,6 +68,8 @@ let StartFunc = () => {
 
 
     let slideDown = (target, duration = 500) => {
+        console.log("dddddddddd");
+
         target.style.removeProperty('display');
         let display = window.getComputedStyle(target).display;
 

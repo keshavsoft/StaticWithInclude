@@ -8,6 +8,7 @@ let StartFunc = ({ inData }) => {
     let jVarLocalMainUl = document.createElement("ul");
     jVarLocalMainUl.classList.add("list-unstyled");
     k1.appendChild(jVarLocalMainUl);
+    // console.log("inData : ", inData);
     StartFuncForObject({ inParentUl: jVarLocalMainUl, inObject: inData });
 
     StartFuncForCollapse();
@@ -34,5 +35,3 @@ let data1 = {
 };
 
 export { StartFunc };
-
-
