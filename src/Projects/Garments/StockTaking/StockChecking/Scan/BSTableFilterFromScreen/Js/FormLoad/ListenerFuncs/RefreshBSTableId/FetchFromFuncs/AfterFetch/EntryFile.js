@@ -1,4 +1,4 @@
-import { StartFunc as StartFuncKSMainTableRowDeleteClass } from "./KSMainTableRowDeleteClass/1-ClickAssign.js";
+// import { StartFunc as StartFuncKSMainTableRowDeleteClass } from "./KSMainTableRowDeleteClass/1-ClickAssign.js";
 
 let StartFunc = ({ inDataToShow }) => {
     let jVarLocalDataToShow = jFLocalToArray({ inDataToShow });
@@ -9,7 +9,7 @@ let StartFunc = ({ inDataToShow }) => {
         columns: jFLocalPrepareHeaderForDataOnly({ data: jVarLocalDataToShow[0] })
     });
 
-    StartFuncKSMainTableRowDeleteClass();
+    // StartFuncKSMainTableRowDeleteClass();
 };
 
 let jFLocalToArray = ({ inDataToShow }) => {
@@ -30,6 +30,13 @@ let jFLocalPrepareHeaderForDataOnly = ({ data }) => {
     let jVarLocalHtmlId = 'tableHeadRow';
     let jVarLocaltableHeadRow = document.getElementById(jVarLocalHtmlId);
     let jVarLocalColumns = Object.keys(data);
+
+    let jVarLocalNewThSno = document.createElement("th");
+    jVarLocalNewThSno.innerHTML = "#";
+    jVarLocalNewThSno.dataset.field = "operate";
+    jVarLocalNewThSno.setAttribute("data-formatter", "KsnoFormatter");
+    jVarLocaltableHeadRow.appendChild(jVarLocalNewThSno);
+
     jVarLocalColumns.forEach(element => {
         let jVarLocalNewTh = document.createElement("th");
         jVarLocalNewTh.innerHTML = element;
@@ -37,11 +44,11 @@ let jFLocalPrepareHeaderForDataOnly = ({ data }) => {
         jVarLocalNewTh.setAttribute("data-filter-control", "input")
         jVarLocaltableHeadRow.appendChild(jVarLocalNewTh);
     });
-    let jVarLocalNewTh = document.createElement("th");
-    jVarLocalNewTh.innerHTML = "Item Operate";
-    jVarLocalNewTh.dataset.field = "operate";
-    jVarLocalNewTh.setAttribute("data-formatter", "operateFormatter");
-    jVarLocaltableHeadRow.appendChild(jVarLocalNewTh);
+    // let jVarLocalNewTh = document.createElement("th");
+    // jVarLocalNewTh.innerHTML = "Item Operate";
+    // jVarLocalNewTh.dataset.field = "operate";
+    // jVarLocalNewTh.setAttribute("data-formatter", "operateFormatter");
+    // jVarLocaltableHeadRow.appendChild(jVarLocalNewTh);
 }
 
 function operateFormatter(value, row, index) {
@@ -54,6 +61,10 @@ function operateFormatter(value, row, index) {
 
 function kFormatter(value, row, index) {
     return value;
+};
+
+function KsnoFormatter(value, row, index) {
+    return index+1;
 };
 
 let jFLocalPrepareHeaderForDataOnly1 = ({ data }) => {

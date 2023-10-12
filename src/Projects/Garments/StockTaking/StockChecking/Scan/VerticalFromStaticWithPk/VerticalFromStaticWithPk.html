@@ -65,15 +65,19 @@
                 <div class="card-body">
                     <div class="mb-3">
                         <label for="InputPkId" class="form-label">Pk</label>
-                        <input type="text" class="form-control" id="InputPkId" placeholder="Scan QrCode" autofocus>
+                        <input type="text" class="form-control" id="InputPkId" placeholder="Scan QrCode" autofocus="">
                     </div>
                     <div class="mb-3">
-                        <label for="InputItemNameId" class="form-label">Item Name</label>
-                        <input type="text" class="form-control" id="InputItemNameId" placeholder="Enter Item Name" autofocus>
+                        <label for="InputProductNameId" class="form-label">Product Name</label>
+                        <input type="text" class="form-control" id="InputProductNameId" placeholder="Enter Product Name" autofocus="">
                     </div>
                     <div class="mb-3">
-                        <label for="InputVoucherNumberId" class="form-label">Voucher Number</label>
-                        <input type="text" class="form-control" id="InputVoucherNumberId" placeholder="Enter Voucher Number" autofocus>
+                        <label for="InputSalePriceId" class="form-label">Sale Price</label>
+                        <input type="text" class="form-control" id="InputSalePriceId" placeholder="Enter Sale Price" autofocus="">
+                    </div>
+                    <div class="mb-3">
+                        <label for="InputVoucherRefId" class="form-label">Voucher Ref</label>
+                        <input type="text" class="form-control" id="InputVoucherRefId" placeholder="Enter VoucherRef" autofocus="">
                     </div>
                 </div>
                 <div class="card-footer">
@@ -85,7 +89,6 @@
 
     <include src="./src/components/Garments/Footer.html"></include>
 
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
@@ -93,6 +96,8 @@
     <script>
         let jVarGlobalPresentViewData;
     </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="./Js/headerChange.js"></script>
 

@@ -3,7 +3,11 @@ let StartFunc = ({ inFromFetch }) => {
     if (jVarLocalFetchData.KTF === true) {
         jFLocalForSuccess();
     } else {
-        console.log("Error",inFromFetch.KReason);
+        Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: `${inFromFetch.KReason}`
+        });
     };
 };
 
