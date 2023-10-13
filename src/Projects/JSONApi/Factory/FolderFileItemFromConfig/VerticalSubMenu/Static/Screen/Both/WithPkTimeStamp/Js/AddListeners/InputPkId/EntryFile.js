@@ -1,7 +1,6 @@
 import { StartFunc as StartFuncKeyPress } from "./KeyPress/1-ClickAssign.js";
 
-let StartFunc = () =>{
-    
+let StartFunc = () => {
     StartFuncKeyPress();
 };
 

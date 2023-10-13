@@ -19,8 +19,10 @@ let StartFunc = ({ inFetchData }) => {
 let jFLocalToInputInputProductNameId = ({ inInputProductNameId }) => {
     let jVarLocalHtmlId = 'InputProductNameId';
     let jVarLocalInputProductNameId = document.getElementById(jVarLocalHtmlId);
-    console.log("jVarLocalInputProductNameId::", jVarLocalInputProductNameId);
-    jVarLocalInputProductNameId.value = inInputProductNameId;
+    
+    if (jVarLocalInputProductNameId === null === false) {
+        jVarLocalInputProductNameId.value = inInputProductNameId;
+    };
 };
 
 let jFLocalToInputInputSalePriceId = ({ inInputSalePriceId }) => {
