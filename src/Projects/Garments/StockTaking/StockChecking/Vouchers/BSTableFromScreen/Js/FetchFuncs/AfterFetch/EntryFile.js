@@ -77,7 +77,7 @@ let jFLocalScanColumn = () => {
 
 function operateFormatter(value, row, index) {
     return [
-        `<a class="like" href="../../Scan/VerticalFromConfigJson/VerticalFromConfigJson.html?VoucherRef=1" title="Like">`,
+        `<a class="like" href="../../Scan/NoAlert/NoAlert.html?VoucherRef=1" title="Like">`,
         '<i class="fa fa-heart">Save</i>',
         '</a>  ',
         '<a class="remove" href="javascript:void(0)" title="Remove">',
