@@ -10,6 +10,7 @@ let StartFunc = ({ inDataToShow }) => {
     });
 
     StartFuncKSMainTableRowDeleteClass();
+    jFLocalToSpinner();
 };
 
 let jFLocalToArray = ({ inDataToShow }) => {
@@ -24,6 +25,13 @@ let jFLocalToArray = ({ inDataToShow }) => {
     );
 
     return jVarLocalArray;
+};
+
+const jFLocalToSpinner = () => {
+    let jVarLocalHtmlId = 'SpinnerId';
+    let jVarLocalSpinnerId = document.getElementById(jVarLocalHtmlId);
+    jVarLocalSpinnerId.style.display = "none"
+
 };
 
 export { StartFunc }
