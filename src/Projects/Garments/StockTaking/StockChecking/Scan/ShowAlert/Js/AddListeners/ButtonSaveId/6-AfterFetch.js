@@ -17,7 +17,7 @@ let jFLocalForSuccess = (jVarLocalFetchData) => {
     const params1 = new URLSearchParams(url.search);
 
     params1.set("NewPk", jVarLocalFetchData.NewPk);
-
+    params1.set("ShowAlert", true);
     //  const new_url = new URL(`${url.pathname}?${params1}`);
 
     console.log("11111111111 : ", `${url.origin}${url.pathname}${params1}`, url, url.pathname, params1);
