@@ -76,7 +76,7 @@
                 <li class="breadcrumb-item"><a href="../../../../Menu.html">FromScreen</a></li>
                 <li class="breadcrumb-item"><a href="../../../Menu.html">SomeColumns</a></li>
                 <li class="breadcrumb-item"><a href="../../../Menu.html">ColumnFilter</a></li>
-                <li class="breadcrumb-item"><a href="../../Menu.html">ColumnAsTh</a></li>
+                <li class="breadcrumb-item"><a href="../../Menu.html">HtmlTh</a></li>
                 <li class="breadcrumb-item active" aria-current="page">BSTable</li>
             </ol>
         </nav>
@@ -121,13 +121,13 @@
                         <span class="visually-hidden">Loading...</span>
                     </div>
 
-                    <table id="table" data-toolbar="#toolbar" data-search="true" data-searchable="true"
-                        data-show-columns="true" data-show-columns-toggle-all="true" data-show-export="true"
-                        data-detail-view="true" data-detail-formatter="detailFormatter" data-id-field="pk"
-                        data-show-toggle="true" data-filter-control="true">
+                    <table id="table" data-toolbar="#toolbar" data-search="true" data-searchable="true" data-show-columns="true" data-show-columns-toggle-all="true" data-show-export="true" data-detail-view="true" data-detail-formatter="detailFormatter" data-id-field="pk" data-show-toggle="true" data-filter-control="true">
                         <thead>
                             <tr id="tableHeadRow">
-                                
+                                <th data-formatter="jFLocalSerialColumn">#</th>
+                                <th data-field="pk">pk</th>
+                                <th data-field="ProductName" data-filter-control="select">ProductName</th>
+                                <th data-field="SalePrice" data-filter-control="select">SalePrice</th>
                             </tr>
                         </thead>
                     </table>
