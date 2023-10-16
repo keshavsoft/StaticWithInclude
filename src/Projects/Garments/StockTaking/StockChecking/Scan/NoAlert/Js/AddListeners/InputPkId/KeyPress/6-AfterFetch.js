@@ -6,8 +6,14 @@ let StartFunc = ({ inFetchData }) => {
         jFLocalToInputInputPkId({ inInputPkId: jVarLocalFetchData.pk });
         jFLocalToInputInputProductNameId({ inInputProductNameId: jVarLocalFetchData.ProductName });
         jFLocalToInputInputSalePriceId({ inInputSalePriceId: jVarLocalFetchData.SalePrice });
-
+        jFLocalRunSaveClick();
     } else {
+
+        let jVarLocalHtmlId = 'InputPkId';
+        let jVarLocalInputPkId = document.getElementById(jVarLocalHtmlId);
+        let jVarLocalLength = jVarLocalInputPkId.value.trim().length;
+        jVarLocalInputPkId.setSelectionRange(0, jVarLocalLength);
+        
         Swal.fire({
             icon: "error",
             title: "Error",
@@ -16,10 +22,16 @@ let StartFunc = ({ inFetchData }) => {
     }
 };
 
+let jFLocalRunSaveClick = () => {
+    let jVarLocalHtmlId = 'ButtonSaveId';
+    let jVarLocalButtonSaveId = document.getElementById(jVarLocalHtmlId);
+    jVarLocalButtonSaveId.click();
+}
+
 let jFLocalToInputInputProductNameId = ({ inInputProductNameId }) => {
     let jVarLocalHtmlId = 'InputProductNameId';
     let jVarLocalInputProductNameId = document.getElementById(jVarLocalHtmlId);
-    
+
     if (jVarLocalInputProductNameId === null === false) {
         jVarLocalInputProductNameId.value = inInputProductNameId;
     };

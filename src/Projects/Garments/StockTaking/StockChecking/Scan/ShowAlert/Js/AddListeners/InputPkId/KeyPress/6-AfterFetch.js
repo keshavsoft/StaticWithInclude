@@ -6,7 +6,7 @@ let StartFunc = ({ inFetchData }) => {
         jFLocalToInputInputPkId({ inInputPkId: jVarLocalFetchData.pk });
         jFLocalToInputInputProductNameId({ inInputProductNameId: jVarLocalFetchData.ProductName });
         jFLocalToInputInputSalePriceId({ inInputSalePriceId: jVarLocalFetchData.SalePrice });
-
+        jFLocalRunSaveClick();
     } else {
         Swal.fire({
             icon: "error",
@@ -16,10 +16,16 @@ let StartFunc = ({ inFetchData }) => {
     }
 };
 
+let jFLocalRunSaveClick = () => {
+    let jVarLocalHtmlId = 'ButtonSaveId';
+    let jVarLocalButtonSaveId = document.getElementById(jVarLocalHtmlId);
+    jVarLocalButtonSaveId.click();
+}
+
 let jFLocalToInputInputProductNameId = ({ inInputProductNameId }) => {
     let jVarLocalHtmlId = 'InputProductNameId';
     let jVarLocalInputProductNameId = document.getElementById(jVarLocalHtmlId);
-    
+
     if (jVarLocalInputProductNameId === null === false) {
         jVarLocalInputProductNameId.value = inInputProductNameId;
     };
