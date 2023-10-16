@@ -32,7 +32,7 @@
         </symbol>
     </svg>
 
-    <include src="./src/components/Cleaning/POS/Booking/Tabs/CustomerInnerHeaders.html"></include>
+    <include src="./src/components/Cleaning/POS/Booking/BranchTemplate/Customers/CustomerInnerHeaders.html"></include>
     
     <div class="modal fade" id="LoginModalId" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -126,6 +126,7 @@
                                         Customer Name</th>
                                     <th data-field="City" data-filter-control="select">City</th>
                                     <th data-field="Mobile" data-filter-control="select">Mobile</th>
+                                    <th data-formatter="jFCustomerBooking">Booking</th>
                             </tr>
                         </thead>
                     </table>
@@ -157,9 +158,21 @@
             return index + 1;
         };
 
+        function jFCustomerBooking(value, row, index){
+            return [
+                `<a class="like btn btn-primary" href="../../NewOrder/NewOrder.html?CustomerName=${row.CustomerName}&CustomerMobile=${row.Mobile}" title="Like">`,
+                '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">',
+                '<path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"/>',
+                '<path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>',
+                '</svg>',
+                '</a>',
+                
+            ].join('')
+        }
+
        
     </script>
-
+<a href="../../NewOrder/NewOrder.html"></a>
     <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
     <script src="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.js"></script>
 
@@ -169,7 +182,7 @@
     <script
         src="https://unpkg.com/bootstrap-table@1.22.1/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
 
-    <!-- <script src="../../Js/headerChange.js"></script> -->
+    <script src="./Js/headerChange.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="./Js/BSTable.js" type="module"></script>
