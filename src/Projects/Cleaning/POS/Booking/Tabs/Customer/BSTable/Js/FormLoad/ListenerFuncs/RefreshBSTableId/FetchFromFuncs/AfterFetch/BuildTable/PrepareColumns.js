@@ -1,19 +1,16 @@
-import ColumnPk from "./TableColumns/ColumnPk.json" assert { type: "json" };
-import ColumnProductName from "./TableColumns/ColumnProductName.json" assert { type: "json" };
-import ColumnSalePrice from "./TableColumns/ColumnSalePrice.json" assert { type: "json" };
-import { StartFunc as StartFuncColumnSalePrice } from "./TableColumns/ColumnSalePrice.js";
-import { StartFunc as StartFuncColumnProductName } from "./TableColumns/ColumnProductName.js";
+import { StartFunc as StartFuncColumnCustomerName } from "./TableColumns/ColumnCustomerName.js";
+import { StartFunc as StartFuncColumnCustomerCity } from "./TableColumns/ColumnCustomerCity.js";
+import { StartFunc as StartFuncColumnCustomerMobile } from "./TableColumns/ColumnCustomerMobile.js";
 import { StartFunc as StartFuncColumnPk } from "./TableColumns/ColumnPk.js";
 import { StartFunc as StartFuncColumnSerialNumber } from "./TableColumns/ColumnSerialNumber.js";
 
 let StartFunc = () => {
-    let jVarLocalReturnArray = [];
-    console.log("ColumnPk : ", ColumnPk);
 
     StartFuncColumnSerialNumber();
     StartFuncColumnPk();
-    StartFuncColumnProductName();
-    StartFuncColumnSalePrice();
+    StartFuncColumnCustomerName();
+    StartFuncColumnCustomerCity();
+    StartFuncColumnCustomerMobile();
     
 };
 

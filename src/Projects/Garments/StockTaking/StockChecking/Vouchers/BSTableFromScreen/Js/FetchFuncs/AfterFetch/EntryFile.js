@@ -3,9 +3,11 @@ import { StartFunc as StartFuncItemDetails } from "../../FormLoad/ItemDetails/En
 let StartFunc = async({ inDataToShow }) => {
     let jVarLocalDataToShow = inDataToShow;
     jVarGlobalPresentViewData = await StartFuncItemDetails();
-
+    jFLocalHideSpinner();
     let jVarLocalHtmlId = 'tableHeadRow';
     let jVarLocaltableHeadRow = document.getElementById(jVarLocalHtmlId);
+
+    jVarLocaltableHeadRow.appendChild(jFLocalSerialNumberColumn());
     jVarLocaltableHeadRow.appendChild(jFLocalpkColumn());
     jVarLocaltableHeadRow.appendChild(jFLocalVoucherNumberColumn());
     jVarLocaltableHeadRow.appendChild(jFLocalDateColumn());
@@ -22,12 +24,26 @@ let StartFunc = async({ inDataToShow }) => {
     // });
 };
 
+let jFLocalHideSpinner=()=>{
+    let jVarLocalSpinnerId = document.getElementById("SpinnerId");
+    jVarLocalSpinnerId.style.display = "none";
+
+};
+
+let jFLocalSerialNumberColumn = () => {
+
+    let jVarLocalNewTh = document.createElement("th");
+    jVarLocalNewTh.innerHTML = "#";
+    jVarLocalNewTh.dataset.field = "#";
+    jVarLocalNewTh.setAttribute("data-formatter", "jFLocalSerialColumn")
+    return jVarLocalNewTh;
+};
+
 let jFLocalpkColumn = () => {
 
     let jVarLocalNewTh = document.createElement("th");
     jVarLocalNewTh.innerHTML = "pk";
     jVarLocalNewTh.dataset.field = "pk";
-    jVarLocalNewTh.setAttribute("data-filter-control", "input")
     return jVarLocalNewTh;
 };
 
@@ -84,6 +100,10 @@ function operateFormatter(value, row, index) {
         '<i class="fa fa-trash"></i>',
         '</a>'
     ].join('')
+};
+
+function jFLocalSerialColumn(value, row, index){
+    return index + 1;
 };
 
 export { StartFunc }
