@@ -88,6 +88,17 @@
 
     <main>
         <div class="container">
+            <div class="container mt-2">
+                <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../../../../Dashboard/Dashboard.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="../../../DashBoard.html">PurchaseReturns</a></li>
+                        <li class="breadcrumb-item"><a href="../../DashBoard.html">Vouchers</a></li>
+                        <li class="breadcrumb-item"><a href="../../Voucher/ShowAll/ShowAll.html">Show All</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Save</li>
+                    </ol>
+                </nav>
+            </div>
             <div id="AlertSuccessId" class="alert alert-success alert-dismissible fade show mt-2" role="alert"
                 style="display: none;">
                 <strong id="AlertSuccessIdUserName">SavedPk</strong> User created sucessfully.
@@ -137,7 +148,31 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script src="./Js/headerChange.js"></script>
+    <script>
+        let jFChangeHeaderActiveClass = () => {
+            let jVarLocalPathArray = window.location.pathname.split("/");
+            let jVarLocalHTMLName = jVarLocalPathArray[jVarLocalPathArray.length - 1];
+            jFChangeNavAnchorClass({ inClassName: jVarLocalHTMLName.split(".")[0] });
+        };
+
+        let jFChangeNavAnchorClass = ({ inClassName }) => {
+            let jVarLocalNavBarId = document.getElementById("NavBarId");
+            let jVarLocalAnchorNeeded = jVarLocalNavBarId.querySelector(`.${inClassName}AClass`);
+
+            if (jVarLocalAnchorNeeded !== null) {
+
+                if (jVarLocalAnchorNeeded.classList.contains("text-white")) {
+                    jVarLocalAnchorNeeded.classList.remove("text-white");
+                };
+
+                jVarLocalAnchorNeeded.classList.add("text-info");
+            };
+        };
+
+        jFChangeHeaderActiveClass();
+    </script>
+
+    <!-- <script src="./Js/headerChange.js"></script> -->
 
     <script src="./Js/ShowAlert.js" type="module"></script>
 </body>
