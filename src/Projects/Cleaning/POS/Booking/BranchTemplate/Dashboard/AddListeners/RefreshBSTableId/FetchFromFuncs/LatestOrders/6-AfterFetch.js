@@ -25,6 +25,7 @@ let StartFunc = ({ inFromFetch, inQrCodeData }) => {
 
     StartFuncQRGenerateClass();
     StartFuncSettlementButtonClass();
+
 };
 
 let jFLocalFromDomLatestOrdersTableTemplateRow = () => {
