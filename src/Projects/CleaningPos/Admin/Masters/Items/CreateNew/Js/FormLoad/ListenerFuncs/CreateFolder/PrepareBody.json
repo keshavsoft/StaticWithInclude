@@ -1,0 +1,18 @@
+{
+    "pk": "",
+    "insertkey": "",
+    "JsonConfig": {
+        "inFolderName": "Masters",
+        "inJsonFileName": "CRM.json"
+    },
+    "ItemConfig": {
+        "inItemName": "Items",
+        "inScreenName": "Create"
+    },
+    "inDataToSave": {
+        "Category": "Kids",
+        "ItemName": "K Tie DW",
+        "DryWashRate": 100,
+        "Pcs": "200"
+    }
+}

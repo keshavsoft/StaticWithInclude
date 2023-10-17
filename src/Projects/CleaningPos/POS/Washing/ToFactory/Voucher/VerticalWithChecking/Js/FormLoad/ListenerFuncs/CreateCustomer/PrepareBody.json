@@ -1,0 +1,9 @@
+{
+    "FileNameOnly": "Bills",
+    "FolderName": "Sales",
+    "ItemName": "BillsQrCode",
+    "ScreenName": "Create",
+    "inPostData": {
+        "pk": 16
+    }
+}

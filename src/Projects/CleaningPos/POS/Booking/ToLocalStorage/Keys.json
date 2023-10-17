@@ -1,0 +1,11 @@
+{
+    "ItemKey": "Items",
+    "Customers": "Customers",
+    "CustomersSubKey": "CustomerNames",
+    "OrdersData": "OrdersData",
+    "CheckOutData": "CheckOutData",
+    "ItemsInOrder": "ItemsInOrder",
+    "AddOnData": "AddOnData",
+    "BranchName": "BranchName",
+    "OrderItemsToShow": "OrderItemsToShow"
+}

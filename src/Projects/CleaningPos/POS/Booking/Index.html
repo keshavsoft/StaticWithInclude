@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Booking Customers Barcode</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- <link rel="stylesheet" href="./Laundry/css/bootstrap.min.css"> -->
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+
+    <link rel="stylesheet" href="./Index/css/header.css">
+</head>
+
+<body>
+    <include src="./src/components/Cleaning/POS/Booking/Header.html"></include>
+
+
+    <main>
+        <div class="container" id="KCont1">
+            <div class="input-group mt-3 mb-3">
+                <input type="text" class="form-control" placeholder="Scan Qrcode or Search Customer" aria-label="Input"
+                    aria-describedby="GoButtonid" id="ScanId" list="CustomerDataListId" autofocus="">
+                <button class="btn btn-outline-secondary" type="button" id="GoButtonid">GO</button>
+            </div>
+
+            <datalist id="CustomerDataListId">
+                <option value="Keshav">
+                </option>
+                <option value="9848163021">
+                </option>
+            </datalist>
+
+            <div class="alert alert-danger d-none" role="alert" id="DangerAlertId">
+                A simple danger alert—check it out!
+            </div>
+
+
+            <div class="alert alert-success d-none" role="alert" id="SuccessAlertId">
+                Success!
+            </div>
+
+            <div class="row">
+                <div class="col-6">.</div>
+
+                <div class="col-6 d-grid gap-2 col-6 mx-auto">
+                    <a name="" id="" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#ModalCreateCustomerId" role="button">Create Customer</a>
+                </div>
+            </div>
+
+
+        </div>
+    </main>
+
+    <div class="modal fade" id="LoginModalId" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Enter client user credentials</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="LoginFormPopUpId" class="" onsubmit="return false" novalidate="">
+                        <div class="mb-3 form-floating is-valid">
+                            <input type="text" class="form-control" id="KUserNameInput" required="">
+                            <label for="KUserNameInput">User Name</label>
+                            <div class="invalid-feedback">
+                                User Name cannot be empty.
+                            </div>
+                        </div>
+                        <div class="mb-3 form-floating">
+                            <input type="password" class="form-control" id="KPasswordInput" required="">
+                            <label for="KPasswordInput">Password</label>
+                            <div class="invalid-feedback">
+                                Password cannot be empty.
+                            </div>
+                        </div>
+                        <input id="LoginButtonOnModalId" type="submit" class=" btn btn-primary">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" tabindex="-1" id="ModalCreateCustomerId">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Under development.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="AlertWarningId" class="alert alert-warning alert-dismissible fade show" role="alert" style="display:none;">
+        <div id="AlertWarningMessageId"><strong>Sorry!</strong> Data not saved</div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <footer class="footer mt-auto py-2 bg-light fixed-bottom">
+        <div class="container">
+            <div class="bg-light d-flex justify-content-between">
+                <div>KeshavSoft v10.25</div>
+                <div data-BaseString="Last refresh : " id="KLastRefreshDT">Last refresh : </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"
+        integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        let jFSearchInputKeyPress = (event) => {
+            if (event.key === 'Enter') { // key code of the keybord key
+                event.preventDefault();
+                let jVarLocalCurrentTarget = event.currentTarget;
+                let jVarLocalClosestCard = jVarLocalCurrentTarget.closest(".card");
+                let jVarLocalTable = jVarLocalClosestCard.querySelector("table");
+
+                // your code to Run
+                LocalSearchTable({ inTable: jVarLocalTable });
+            };
+        };
+
+        let myFunction = () => {
+            var input, filter, table, tr, td, i;
+            input = document.getElementById("SearchQrCodeTable");
+            filter = input.value;
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+            console.log("1111111111 : ", input, filter);
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    console.log("222222 : ", td.innerHTML);
+
+                    if (td.innerHTML.indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        };
+
+        function LocalSearchTable({ inTable }) {
+            // Declare variables 
+            var input, filter, table, tr, td, i;
+            input = document.getElementById("SearchQrCodeTable");
+            filter = input.value.toUpperCase();
+            //table = document.getElementById("myTable");
+
+            table = inTable;
+            tr = table.getElementsByTagName("tr");
+
+            // Loop through all table rows, and hide those who don't match the search query
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td");
+                for (j = 0; j < td.length; j++) {
+                    let tdata = td[j];
+                    if (tdata) {
+                        if (tdata.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                            break;
+                        } else {
+                            tr[i].style.display = "none";
+                        }
+                    }
+                }
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script type="module" src="./Index/Index.js"></script>
+</body>
+
+</html>

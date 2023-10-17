@@ -1,0 +1,6 @@
+{
+    "FolderName": "QrCodes",
+    "FileNameOnly": "Generate",
+    "ItemName": "Barcodes",
+    "FilterString":"value.GenerateReference.ReferncePk === '{{OrderNumber}}' && value.GenerateReference.FileNameOnly === '{{Branch}}'"
+}
