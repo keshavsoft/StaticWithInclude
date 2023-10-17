@@ -4,13 +4,13 @@ import { StartFunc as StartFuncAddListeners } from "../../../../../AddListeners/
 
 let StartFunc = ({ inDataToShow, inQrCodeData }) => {
     jFLocalHideSpinner();
-    let jVarLocalDataToShow = jFLocalToArray({inDataToShow});
+    let jVarLocalDataToShow = jFLocalToArray({ inDataToShow });
 
     var $table = $('#table');
-    let jVarLocalTransformedData = jFLocalInsertAggValues({inData: jVarLocalDataToShow});
-    jFLocalInsertQrCodeData({inData: jVarLocalTransformedData, inQrCodeData: inQrCodeData});
+    let jVarLocalTransformedData = jFLocalInsertAggValues({ inData: jVarLocalDataToShow });
+    let jVarWithQrCodeData = jFLocalInsertQrCodeData({ inData: jVarLocalTransformedData, inQrCodeData: inQrCodeData });
     // StartFuncPrepareColumns({ data: jVarLocalDataToShow.DataFromServer[0].KData.TableColumns })
-
+    console.log("jVarWithQrCodeData : ", jVarWithQrCodeData);
     $table.bootstrapTable("destroy").bootstrapTable({
         data: jVarLocalDataToShow,
     });
@@ -33,7 +33,7 @@ let jFLocalToArray = ({ inDataToShow }) => {
     return jVarLocalArray;
 };
 
-let jFLocalHideSpinner=()=>{
+let jFLocalHideSpinner = () => {
     let jVarLocalSpinnerId = document.getElementById("SpinnerId");
     jVarLocalSpinnerId.style.display = "none";
 
@@ -65,7 +65,7 @@ let jFLocalInsertAggValues = ({ inData }) => {
         if (Object.keys(element[1].CheckOutData).length > 0) {
             element[1].IsSettled = true;
         };
-        
+
         return element[1];
     });
 
@@ -73,6 +73,8 @@ let jFLocalInsertAggValues = ({ inData }) => {
 };
 
 let jFLocalInsertQrCodeData = ({ inData, inQrCodeData }) => {
+    console.log("aaaaaaaaaa : ", inData, inQrCodeData);
+
     let jVarLocalReturnArray = [];
 
     jVarLocalReturnArray = inData.map(element => {

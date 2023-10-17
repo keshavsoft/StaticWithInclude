@@ -9,8 +9,8 @@ let StartFunc = async () => {
     let jVarLocalQrCodeData = await StartFuncQrCodesData();
 
     if (jVarLocalDataNeeded !== null) {
-        if (jVarLocalDataNeeded.KTF) {
-            StartFuncAfterFetch({ inDataToShow: jVarLocalDataNeeded.JsonData, inQrCodeData: jVarLocalQrCodeData });
+        if (jVarLocalDataNeeded.KTF && jVarLocalQrCodeData.KTF) {
+            StartFuncAfterFetch({ inDataToShow: jVarLocalDataNeeded.JsonData, inQrCodeData: jVarLocalQrCodeData.JsonData });
         };
     };
 };
