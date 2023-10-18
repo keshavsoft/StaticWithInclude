@@ -1,4 +1,4 @@
-import ApiConfigJson from "../../../../../../../ApiConfig.json" assert {type: 'json'};
+import ApiConfigJson from "../../../../../../../../../../ApiConfig.json" assert {type: 'json'};
 
 const StartFunc = ({jVarLocalCurrentTarget}) => {
     let jVarLocalBodyData = {};

@@ -6,9 +6,12 @@ import { StartFunc as StartFuncNavSearchId } from "./NavSearchId/StartFunc.js";
 const StartFunc = () => {
     StartFuncNavBar();
     StartFuncGoButton();
-    StartFuncStatusId();
+    
     // StartFuncRefreshBSTableId();
     StartFuncNavSearchId();
+    StartFuncStatusId();
+
+    
 };
 
 export { StartFunc }
