@@ -141,31 +141,7 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script>
-        let jFChangeHeaderActiveClass = () => {
-            let jVarLocalPathArray = window.location.pathname.split("/");
-            let jVarLocalHTMLName = jVarLocalPathArray[jVarLocalPathArray.length - 1];
-            jFChangeNavAnchorClass({ inClassName: jVarLocalHTMLName.split(".")[0] });
-        };
-
-        let jFChangeNavAnchorClass = ({ inClassName }) => {
-            let jVarLocalNavBarId = document.getElementById("NavBarId");
-            let jVarLocalAnchorNeeded = jVarLocalNavBarId.querySelector(`.${inClassName}AClass`);
-
-            if (jVarLocalAnchorNeeded !== null) {
-
-                if (jVarLocalAnchorNeeded.classList.contains("text-white")) {
-                    jVarLocalAnchorNeeded.classList.remove("text-white");
-                };
-
-                jVarLocalAnchorNeeded.classList.add("text-info");
-            };
-        };
-
-        jFChangeHeaderActiveClass();
-    </script>
-
-    <!-- <script src="./Js/headerChange.js"></script> -->
+    <script src="./Js/headerChange.js"></script>
 
     <script src="./Js/NoAlert.js" type="module"></script>
 </body>
