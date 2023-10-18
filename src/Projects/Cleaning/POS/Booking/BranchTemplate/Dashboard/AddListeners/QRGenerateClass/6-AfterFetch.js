@@ -26,10 +26,6 @@ let StartFunc = async ({ inFromFetch }) => {
                 title: 'Raised',
                 text: inFromFetch.QrCodesRaised + ' QrCodes raised successfully'
             });
-
-            let jVarLocalHtmlId = 'RefreshBSTableId';
-            let jVarLocalRefreshBSTableId = document.getElementById(jVarLocalHtmlId);
-            jVarLocalRefreshBSTableId.click();
             // title: 'QR Code Generatimg..!',
             // html: 'Generating QR <b></b>',
             // timer: 2000,
@@ -44,6 +40,9 @@ let StartFunc = async ({ inFromFetch }) => {
             // willClose: () => {
             //     clearInterval(timerInterval)
             // }
+            let jVarLocalHtmlId = 'RefreshBSTableId';
+            let jVarLocalRefreshBSTableId = document.getElementById(jVarLocalHtmlId);
+            jVarLocalRefreshBSTableId.click();
 
 
         };
