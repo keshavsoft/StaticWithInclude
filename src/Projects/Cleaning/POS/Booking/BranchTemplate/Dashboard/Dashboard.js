@@ -6,7 +6,7 @@ import { StartFunc as StartFuncFormLoadBeforeAdmin } from "./Js/FormLoadBeforeAd
 
 let jFLocalAfterLoginSuccess = () => {
     StartFuncFormLoad();
-    StartFuncAddListeners();
+    // StartFuncAddListeners();
 
     let jVarLocalHtmlId = 'AlertSuccessId';
     let jVarLocalAlertSuccessId = document.getElementById(jVarLocalHtmlId);
@@ -23,8 +23,8 @@ const StartFunc = () => {
     };
 
     jFLocalAfterLoginSuccess();
-    StartFuncAddListeners();
     StartFuncAddListenersFromJs();
+    StartFuncAddListeners();
 
     let jVarLocalHtmlId = 'StatusId';
     let jVarLocalStatusId = document.getElementById(jVarLocalHtmlId);

@@ -1,5 +1,4 @@
-import { StartFunc as StartFuncQRGenerateClass } from "../QRGenerateClass/1-ClickAssign.js";
-import { StartFunc as StartFuncSettlementButtonClass } from "../SettlementButtonClass/EntryFile.js";
+import { StartFunc as StartFuncAfterRender } from "../AfterRender/EntryFile.js";
 
 let StartFunc = ({ inFromFetch, inQrCodeData }) => {
     let jVarLocalData = inFromFetch.JsonData;
@@ -9,30 +8,18 @@ let StartFunc = ({ inFromFetch, inQrCodeData }) => {
     };
 
     let jVarLocalQrCodesData = inQrCodeData.JsonData;
-    // var template = Handlebars.compile(jFLocalFromDomLatestOrdersTableTemplateRow());
 
-    let jVarLocalHtmlId = 'LatestOrdersTable';
-    let jVarLocalLatestOrdersTable = document.getElementById(jVarLocalHtmlId);
     let jVarLocalTransformedData = jFLocalInsertAggValues({ inData: jVarLocalData });
     let jVarWithQrCodeData = jFLocalInsertQrCodeData({ inData: jVarLocalTransformedData, inQrCodeData: jVarLocalQrCodesData });
 
-    // jVarLocalLatestOrdersTable.querySelector('tbody').innerHTML = template(jVarWithQrCodeData);
     var $table = $('#LatestOrdersTable');
     
     $table.bootstrapTable("destroy").bootstrapTable({
         data: jVarWithQrCodeData,
     });
 
-    StartFuncQRGenerateClass();
-    StartFuncSettlementButtonClass();
+    StartFuncAfterRender();
 
-};
-
-let jFLocalFromDomLatestOrdersTableTemplateRow = () => {
-    let jVarLocalHtmlLatestOrdersTableTemplateRow = 'LatestOrdersTemplateRow';
-    let jVarLatestOrdersTableTemplateRow = document.getElementById(jVarLocalHtmlLatestOrdersTableTemplateRow);
-    let jVarLatestOrdersTableTemplateRowValue = jVarLatestOrdersTableTemplateRow.innerHTML.trim();
-    return jVarLatestOrdersTableTemplateRowValue;
 };
 
 let jFLocalInsertQrCodeData = ({ inData, inQrCodeData }) => {
@@ -64,8 +51,6 @@ let jFLocalInsertAggValues = ({ inData }) => {
         if (Object.keys(element[1].CheckOutData).length > 0) {
             element[1].IsSettled = true;
         };
-        // CheckOutData
-
 
         return element[1];
     });

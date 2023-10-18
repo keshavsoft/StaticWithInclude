@@ -1,5 +1,5 @@
 import { StartFunc as StartFuncAfterFetch } from "./6-AfterFetch.js";
-import ApiConfigJson from "../../../../../../../ApiConfig.json" assert {type: 'json'};
+import ApiConfigJson from "../../../../../../../../../../ApiConfig.json" assert {type: 'json'};
 
 const StartFunc = async ({ inBodyData }) => {
     let jVarLocalBodyData = inBodyData;

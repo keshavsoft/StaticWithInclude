@@ -1,5 +1,4 @@
 let StartFunc = async ({ inFromFetch }) => {
-    let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
     if (inFromFetch.KTF === false) {
         Swal.fire({
             icon: 'warning',
@@ -25,7 +24,6 @@ let StartFunc = async ({ inFromFetch }) => {
             let jVarLocalHtmlId = 'RefreshBSTableId';
             let jVarLocalRefreshBSTableId = document.getElementById(jVarLocalHtmlId);
             jVarLocalRefreshBSTableId.click();
-
 
         };
     };
