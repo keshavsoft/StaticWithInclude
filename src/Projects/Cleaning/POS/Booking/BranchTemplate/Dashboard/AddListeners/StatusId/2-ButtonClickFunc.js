@@ -5,7 +5,7 @@ import { StartFunc as StartFuncTodayCustomers } from "./FetchFuncs/TodayCustomer
 // import { StartFunc as StartFuncQrCodes } from "./FetchFuncs/QrCodes/EntryFile.js";
 // import { StartFunc as StartFuncLatestOrdersAfterFetch } from "./FetchFuncs/LatestOrders/6-AfterFetch.js";
 import { StartFunc as StartFuncLatestQrCodes } from "./FetchFuncs/LatestQrCodes/EntryFile.js";
-import { StartFunc as StartFuncTotalCount } from "./FetchFuncs/TotalCount/EntryFile.js";
+// import { StartFunc as StartFuncTotalCount } from "./FetchFuncs/TotalCount/EntryFile.js";
 import { StartFunc as StartFuncTodayCount } from "./FetchFuncs/TodayCount/EntryFile.js";
 
 let StartFunc = () => {
@@ -13,7 +13,7 @@ let StartFunc = () => {
     StartFuncFrequentCustomers().then();
     StartFuncTodayCustomers();
     StartFuncLatestQrCodes();
-    StartFuncTotalCount();
+    // StartFuncTotalCount();
     StartFuncTodayCount();
     // StartFuncLatestOrders().then(OrdersData => {
     //     StartFuncQrCodes().then(QrCodesData => {
@@ -23,6 +23,10 @@ let StartFunc = () => {
     let jVarLocalHtmlId = 'RefreshBSTableId';
     let jVarLocalRefreshBSTableId = document.getElementById(jVarLocalHtmlId);
     jVarLocalRefreshBSTableId.click();
+
+    let jVarLocalHtmlId1 = 'TotalCountLinkId';
+    let jVarLocalTotalCountLinkId = document.getElementById(jVarLocalHtmlId1);
+    jVarLocalTotalCountLinkId.click();
 };
 
 export { StartFunc };
