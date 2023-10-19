@@ -2,10 +2,12 @@ import { StartFunc as StartFuncColumnSalePrice } from "./TableColumns/ColumnSale
 import { StartFunc as StartFuncColumnProductName } from "./TableColumns/ColumnProductName.js";
 import { StartFunc as StartFuncColumnPk } from "./TableColumns/ColumnPk.js";
 import { StartFunc as StartFuncColumnSerialNumber } from "./TableColumns/ColumnSerialNumber.js";
+import { StartFunc as StartFuncColumnDateTime } from "./TableColumns/ColumnDateTime.js";
 
 let StartFunc = () => {
     StartFuncColumnSerialNumber();
     StartFuncColumnPk();
+    StartFuncColumnDateTime();
     StartFuncColumnProductName();
     StartFuncColumnSalePrice();
     
