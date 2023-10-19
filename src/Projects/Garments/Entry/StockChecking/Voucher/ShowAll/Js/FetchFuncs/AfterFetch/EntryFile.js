@@ -12,8 +12,10 @@ let StartFunc = async({ inDataToShow }) => {
     jVarLocaltableHeadRow.appendChild(jFLocalVoucherNumberColumn());
     jVarLocaltableHeadRow.appendChild(jFLocalDateColumn());
     jVarLocaltableHeadRow.appendChild(jFLocalDescriptionColumn());
+    jVarLocaltableHeadRow.appendChild(jFLocalDateTimeColumn());
     jVarLocaltableHeadRow.appendChild(jFLocalItemsColumn());
     jVarLocaltableHeadRow.appendChild(jFLocalScanColumn());
+    console.log("jVarLocalDataToShow.DataFromServer[0].KData.TableData:",jVarLocalDataToShow.DataFromServer[0].KData.TableData);
 
     var $table = $('#table');
     $table.bootstrapTable({
@@ -61,6 +63,15 @@ let jFLocalDateColumn = () => {
     let jVarLocalNewTh = document.createElement("th");
     jVarLocalNewTh.innerHTML = "Date";
     jVarLocalNewTh.dataset.field = "Date";
+    jVarLocalNewTh.setAttribute("data-filter-control", "select")
+    return jVarLocalNewTh;
+};
+
+let jFLocalDateTimeColumn = () => {
+
+    let jVarLocalNewTh = document.createElement("th");
+    jVarLocalNewTh.innerHTML = "DateTime";
+    jVarLocalNewTh.dataset.field = "DateTime";
     jVarLocalNewTh.setAttribute("data-filter-control", "select")
     return jVarLocalNewTh;
 };
