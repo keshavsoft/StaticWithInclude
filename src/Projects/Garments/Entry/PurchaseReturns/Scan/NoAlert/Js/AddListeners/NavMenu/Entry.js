@@ -1,19 +1,9 @@
+import { StartFunc as StartFuncBSTableURL } from "./BSTableURL/Entry.js";
+import { StartFunc as StartFuncShowAlertURL } from "./ShowAlertURL/Entry.js";
+
 const StartFunc = () => {
-    let jVarLocalHtmlId = 'ShowAlertIdId';
-    let jVarlocalBSTreeId = document.getElementById(jVarLocalHtmlId);
-
-    jVarlocalBSTreeId.addEventListener("click", (event) => {
-        jFLocalToURL();
-
-    });
-};
-let jFLocalToURL = () => {
-
-    const url = new URL(window.location.href);
-    const params1 = new URLSearchParams(url.search);
-    let NewURl = new URL("../ShowAlert/ShowAlert.html", url);
-    const new_url = new URL(`${NewURl.href}?${params1}`);
-    window.location.href = new_url.href;
+    StartFuncBSTableURL();
+    StartFuncShowAlertURL();
 };
 
 export { StartFunc };
