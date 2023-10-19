@@ -206,24 +206,38 @@
                 <div class="col-12 mb-3">
                     <div class="card text-start">
                         <div class="card-header text-bg-success">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cart" viewBox="0 0 20 20">
-                                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z">
-                                </path>
-                            </svg> Latest Orders
+                            <div class="clearfix">
+                                <div class="float-start">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cart" viewBox="0 0 20 20">
+                                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z">
+                                    </path>
+                                    </svg> 
+                                    Latest Orders
+                                </div>
+                                <div class="float-end">
+                                    <a id="RefreshBSTableId" href="#">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"></path>
+                                            <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z">
+                                            </path>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                         <div class="card-body">
                             <table class="table" id="LatestOrdersTable">
                                 <thead>
                                     <tr>
-                                        <th width="5%" style="text-align:center">#</th>
-                                        <th width="10%" style="text-align:center">Order#</th>
-                                        <th width="20%">Customer Name</th>
-                                        <th width="10%" style="text-align:center">Branch</th>
-                                        <th width="10%" style="text-align:center">Mobile</th>
-                                        <th width="20%" style="text-align:center">Date</th>
-                                        <th width="10%" style="text-align: center">Garments</th>
-                                        <th width="5%" style="text-align: center">Settlement</th>
-                                        <th width="10%" style="text-align: center">Qr Details</th>
+                                        <th data-formatter="jFLocalSerialColumn">#</th>
+                                        <th data-field="pk">Order Number</th>
+                                        <th data-field="CustomerData.CustomerName">Customer Name</th>
+                                        <th data-field="OrderData.BranchName">Branch</th>
+                                        <th data-field="CustomerData.CustomerMobile">Mobile</th>
+                                        <th data-field="OrderData.Currentdateandtime">Date</th>
+                                        <th data-formatter="jFLocalOrderDetails">Order Details</th>
+                                        <th data-formatter="jFLocalSettlementDetails">Settlement</th>
+                                        <th data-formatter="jFLocalQrCodeDetails">QrCodes</th>
                                     </tr>
 
                                 </thead>
@@ -519,7 +533,7 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
 
-    <template id="LatestOrdersTemplateRow">
+    <template id="LatestOrdersTemplateRow1">
         {{#each this}}
         <tr class="{{RowClass}}" data-foldername="{{FolderName}}">
             <td class="text-center">
@@ -557,7 +571,7 @@
             </td>
             <td style="text-align:center">
                 {{#if IsQrCodesRaised}}
-                <a href="../QrCodeMenu/FromOrders/FromOrdersTree/FromOrdersTree.html?OrderNumber={{pk}}&Branch={{OrderData.BranchName}}" data-ordernumber="{{@key}}" class="btn btn-primary">
+                <a href="../QrCodeMenu/FromOrders/FromOrdersBSTable/FromOrdersBSTable.html?OrderNumber={{pk}}&Branch={{OrderData.BranchName}}" data-ordernumber="{{pk}}" class="btn btn-primary">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-qr-code" viewBox="0 0 16 16">
                         <path d="M2 2h2v2H2V2Z"></path>
                         <path d="M6 0v6H0V0h6ZM5 1H1v4h4V1ZM4 12H2v2h2v-2Z"></path>
@@ -568,7 +582,7 @@
                     </svg>
                     {{QrCodes}}</a>
                 {{else}}
-                <a href="../Orders/QrCodes/QrCodes.html" data-ordernumber="{{@key}}" class="btn btn-outline-primary">
+                <a href="#" data-ordernumber="{{pk}}" class="btn btn-outline-primary QRGenerateClass">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-qr-code" viewBox="0 0 16 16">
                         <path d="M2 2h2v2H2V2Z"></path>
                         <path d="M6 0v6H0V0h6ZM5 1H1v4h4V1ZM4 12H2v2h2v-2Z"></path>
@@ -578,10 +592,11 @@
                         <path d="M7 12h1v3h4v1H7v-4Zm9 2v2h-3v-1h2v-1h1Z"></path>
                     </svg>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
-                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-                      </svg>
-                    </a>
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z">
+                        </path>
+                    </svg>
+                </a>
                 {{/if}}
             </td>
         </tr>
@@ -729,6 +744,88 @@
         Handlebars.registerHelper('ForSNo', function (item) {
             return item + 1;
         });
+
+        function detailFormatter(index, row) {
+            var html = []
+            $.each(row, function (key, value) {
+                html.push('<p><b>' + key + ':</b> ' + value + '</p>')
+            })
+            return html.join('')
+        };
+
+        function jFLocalSerialColumn(value, row, index){
+            return index + 1;
+        };
+
+        function jFLocalOrderDetails(value, row, index){
+            return [
+                `<a href="../OrderWithoutCheckout/OrderWithoutCheckout.html?OrderNumber=${row.pk}" class="btn btn-success" >${row.AggValues.ItemDetails}</a>`,
+            ].join('')
+        }
+
+        function jFLocalSettlementDetails(value, row, index) {
+            if (row.IsSettled) {
+                return [
+                    `<a href="#" data-ordernumber="${row.pk}" data-IsSettled="${row.IsSettled}" class="btn btn-danger SettlementButtonClass" >`,
+                    `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">`,
+                    `<path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4v1.06Z" />`,
+                    `</svg>`,
+                    ` `,
+                    `${row.AggValues.SettlementAmount}</a>`
+                ].join('')
+            }
+            else {
+                return [
+                    `<a href="#" data-ordernumber="${row.pk}" data-IsSettled="${row.IsSettled}" class="btn btn-outline-danger SettlementButtonClass" >`,
+                    `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">`,
+                    `<path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4v1.06Z" />`,
+                    `</svg>`,
+                    ` `,
+                    `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">`,
+                    `<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>`,
+                    `<path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"></path>`,
+                    `</svg>`,
+                    `</a>`
+                ].join('')
+            }
+        }
+
+        function jFLocalQrCodeDetails(value, row, index){
+            if(row.IsQrCodesRaised){
+            return [
+                `<a href="../QrCodeMenu/FromOrders/FromOrdersBSTable/FromOrdersBSTable.html?OrderNumber=${row.pk}&Branch=${row.OrderData.BranchName}" data-ordernumber="${row.pk}" class="btn btn-primary">`,
+                    `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-qr-code" viewBox="0 0 16 16">`,
+                        `<path d="M2 2h2v2H2V2Z"></path>`,
+                        `<path d="M6 0v6H0V0h6ZM5 1H1v4h4V1ZM4 12H2v2h2v-2Z"></path>`,
+                        `<path d="M6 10v6H0v-6h6Zm-5 1v4h4v-4H1Zm11-9h2v2h-2V2Z"></path>`,
+                        `<path d="M10 0v6h6V0h-6Zm5 1v4h-4V1h4ZM8 1V0h1v2H8v2H7V1h1Zm0 5V4h1v2H8ZM6 8V7h1V6h1v2h1V7h5v1h-4v1H7V8H6Zm0 0v1H2V8H1v1H0V7h3v1h3Zm10 1h-1V7h1v2Zm-1 0h-1v2h2v-1h-1V9Zm-4 0h2v1h-1v1h-1V9Zm2 3v-1h-1v1h-1v1H9v1h3v-2h1Zm0 0h3v1h-2v1h-1v-2Zm-4-1v1h1v-2H7v1h2Z">`,
+                        `</path>`,
+                        `<path d="M7 12h1v3h4v1H7v-4Zm9 2v2h-3v-1h2v-1h1Z"></path>`,
+                   `</svg>`,
+                   ` `,
+                   `${row.QrCodes}`,
+                    `</a>`
+            ].join('')
+            }else{
+                return [
+                `<a href="#" data-ordernumber="${row.pk}" class="btn btn-outline-primary QRGenerateClass">`,
+                    `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-qr-code" viewBox="0 0 16 16">`,
+                        `<path d="M2 2h2v2H2V2Z"></path>`,
+                        `<path d="M6 0v6H0V0h6ZM5 1H1v4h4V1ZM4 12H2v2h2v-2Z"></path>`,
+                        `<path d="M6 10v6H0v-6h6Zm-5 1v4h4v-4H1Zm11-9h2v2h-2V2Z"></path>`,
+                        `<path d="M10 0v6h6V0h-6Zm5 1v4h-4V1h4ZM8 1V0h1v2H8v2H7V1h1Zm0 5V4h1v2H8ZM6 8V7h1V6h1v2h1V7h5v1h-4v1H7V8H6Zm0 0v1H2V8H1v1H0V7h3v1h3Zm10 1h-1V7h1v2Zm-1 0h-1v2h2v-1h-1V9Zm-4 0h2v1h-1v1h-1V9Zm2 3v-1h-1v1h-1v1H9v1h3v-2h1Zm0 0h3v1h-2v1h-1v-2Zm-4-1v1h1v-2H7v1h2Z">`,
+                        `</path>`,
+                        `<path d="M7 12h1v3h4v1H7v-4Zm9 2v2h-3v-1h2v-1h1Z"></path>`,
+                   `</svg>`,
+                   ` `,
+                   `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">`,
+                        `<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>`,
+                        `<path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"></path>`,
+                      `</svg>`,
+                    `</a>`
+            ].join('')
+            }
+        }
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
