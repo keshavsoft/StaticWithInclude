@@ -1,5 +1,5 @@
 import { StartFunc as StartFuncKSMainTableRowDeleteClass } from "./KSMainTableRowDeleteClass/1-ClickAssign.js";
-import { StartFunc as StartFuncPrepareColumns } from "./BuildTable/PrepareColumns.js";
+// import { StartFunc as StartFuncPrepareColumns } from "./BuildTable/PrepareColumns.js";
 
 let StartFunc = ({ inDataToShow }) => {
     jFLocalHideSpinner();
@@ -7,7 +7,7 @@ let StartFunc = ({ inDataToShow }) => {
 
     var $table = $('#table');
 
-    StartFuncPrepareColumns();
+    // StartFuncPrepareColumns();
 
     $table.bootstrapTable("destroy").bootstrapTable({
         data: jVarLocalDataToShow,

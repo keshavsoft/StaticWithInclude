@@ -152,10 +152,12 @@
                         data-id-field="pk" data-show-toggle="true" data-filter-control="true">
                         <thead>
                             <tr id="tableHeadRow">
-                                <!-- <th data-field="pk">ID</th>
-                                <th data-field="VoucherNumber" data-sortable="true">Voucher Number</th>
-                                <th data-field="DateTime">Date Time</th>
-                                <th data-field="Description">Description</th> -->
+                                <th data-formatter="jFLocalSerialColumn">#</th>
+                                <th data-field="pk">pk</th>
+                                <th data-field="DateTime" data-filter-control="select">DateTime</th>
+                                <th data-field="VoucherRef" data-filter-control="select">VoucherRef</th>
+                                <th data-field="ProductName" data-filter-control="select">ProductName</th>
+                                <th data-field="SalePrice" data-filter-control="select">SalePrice</th>
                             </tr>
                         </thead>
                     </table>
