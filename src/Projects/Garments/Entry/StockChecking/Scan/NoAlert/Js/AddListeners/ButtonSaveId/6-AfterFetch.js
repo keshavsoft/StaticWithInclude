@@ -6,7 +6,7 @@ let StartFunc = ({ inFromFetch }) => {
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: `${inFromFetch.KReason}`
+            text: `${inFromFetch.KReason},${JSON.stringify(inFromFetch.ServerSideCheck[0])}`
         })
         console.log("Error", inFromFetch.KReason);
     };
