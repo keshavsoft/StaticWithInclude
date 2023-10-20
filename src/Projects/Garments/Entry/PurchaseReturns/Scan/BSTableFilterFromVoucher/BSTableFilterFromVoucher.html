@@ -77,7 +77,8 @@
             </div>
 
             <div class="container mt-2">
-                <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
+                    aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="../../../../Dashboard/Dashboard.html">Home</a></li>
                         <li class="breadcrumb-item"><a href="../../../DashBoard.html">PurchaseReturns</a></li>
@@ -154,10 +155,10 @@
                             <tr id="tableHeadRow">
                                 <th data-formatter="jFLocalSerialColumn">#</th>
                                 <th data-field="pk">pk</th>
-                                <th data-field="DateTime" data-filter-control="select">DateTime</th>
                                 <th data-field="VoucherRef" data-filter-control="select">VoucherRef</th>
                                 <th data-field="ProductName" data-filter-control="select">ProductName</th>
                                 <th data-field="SalePrice" data-filter-control="select">SalePrice</th>
+                                <th data-field="DateTime" data-filter-control="select">DateTime</th>
                             </tr>
                         </thead>
                     </table>
@@ -173,16 +174,7 @@
         </div>
     </main>
 
-    <footer class="footer mt-auto py-3 bg-light fixed-bottom">
-        <div class="container">
-            <div class="bg-light d-flex justify-content-between">
-                <div>KeshavSoft v4.17</div>
-
-                <div data-BaseString="Last refresh : " id="KLastRefreshDT">Last refresh : </div>
-            </div>
-        </div>
-    </footer>
-
+    <include src="./src/components/Garments/Footer.html"></include>
 
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
 
@@ -228,7 +220,7 @@
     </script>
     <script>
 
-        function jFLocalSerialColumn(value, row, index){
+        function jFLocalSerialColumn(value, row, index) {
             return index + 1;
         };
         function detailFormatter(index, row) {
@@ -245,11 +237,11 @@
                 '<i class="fa fa-trash"></i>',
                 '</a>',
             ].join('')
-            
+
         };
 
         function KsnoFormatter(value, row, index) {
-            return index+1;
+            return index + 1;
         };
     </script>
     <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
