@@ -32,7 +32,7 @@
         </symbol>
     </svg>
 
-    <include src="./src/components/Garments/Entry/PurchaseReturns/Scan/Header.html"></include>
+    <include src="./src/components/Garments/Entry/StockChecking/Scan/Header.html"></include>
     
     <div class="modal fade" id="LoginModalId" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -119,10 +119,10 @@
                             <tr id="tableHeadRow">
                                 <th data-formatter="jFLocalSerialColumn">#</th>
                                 <th data-field="pk">pk</th>
-                                <th data-field="DateTime" data-filter-control="select">DateTime</th>
                                 <th data-field="VoucherRef" data-filter-control="select">VoucherRef</th>
                                 <th data-field="ProductName" data-filter-control="select">ProductName</th>
                                 <th data-field="SalePrice" data-filter-control="select">SalePrice</th>
+                                <th data-field="DateTime" data-filter-control="select">DateTime</th>
                             </tr>
                         </thead>
                     </table>
@@ -131,15 +131,8 @@
         </div>
     </main>
 
-    <footer class="footer mt-auto py-3 bg-light fixed-bottom">
-        <div class="container">
-            <div class="bg-light d-flex justify-content-between">
-                <div>KeshavSoft v4.17</div>
+    <include src="./src/components/Garments/Footer.html"></include>
 
-                <div data-BaseString="Last refresh : " id="KLastRefreshDT">Last refresh : </div>
-            </div>
-        </div>
-    </footer>
 
     <script>
         function detailFormatter(index, row) {
