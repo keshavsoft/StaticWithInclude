@@ -155,6 +155,11 @@
 
     </script>
     <script>
+
+        function jFGlobalSerialColumn(value, row, index){
+            return index + 1;
+        };
+        
         function operateFormatter(value, row, index) {
             return [
                 `<a class="like" href="../../Scan/VerticalFromConfigJson/VerticalFromConfigJson.html?VoucherRef=${row.pk}" title="Like">`,
@@ -221,7 +226,7 @@
     <script src="../../Js/headerChange.js"></script>
 <a href="../../Scan/BSTableFilterFromScreen/BSTableFilterFromScreen.html"></a>
 
-    <script src="./Js/BSTableFromScreen.js" type="module"></script>
+    <script src="./Js/ShowAll.js" type="module"></script>
 </body>
 
 </html>
