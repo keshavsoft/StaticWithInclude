@@ -5,9 +5,9 @@ let StartFunc = () => {
     let jVarLocalNewTh = document.createElement("th");
     jVarLocalNewTh.innerHTML = "#";
     jVarLocalNewTh.setAttribute("data-formatter", "jFLocalSerialColumn");
+    jVarLocalNewTh.setAttribute("data-width", "50");
     jVarLocaltableHeadRow.appendChild(jVarLocalNewTh);
 };
-
 function jFLocalSerialColumn(value, row, index){
     return index + 1;
 };
