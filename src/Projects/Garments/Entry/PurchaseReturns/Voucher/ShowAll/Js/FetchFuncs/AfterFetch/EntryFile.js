@@ -1,23 +1,24 @@
 import { StartFunc as StartFuncItemDetails } from "../../FormLoad/ItemDetails/EntryFile.js";
 
 let StartFunc = async({ inDataToShow }) => {
-    let jVarLocalDataToShow = inDataToShow;
+    let jVarLocalDataToShow = jFLocalToArray({ inDataToShow });
     jVarGlobalPresentViewData = await StartFuncItemDetails();
     jFLocalHideSpinner();
     let jVarLocalHtmlId = 'tableHeadRow';
     let jVarLocaltableHeadRow = document.getElementById(jVarLocalHtmlId);
 
-    jVarLocaltableHeadRow.appendChild(jFLocalSerialNumberColumn());
-    jVarLocaltableHeadRow.appendChild(jFLocalpkColumn());
-    jVarLocaltableHeadRow.appendChild(jFLocalVoucherNumberColumn());
-    jVarLocaltableHeadRow.appendChild(jFLocalDateColumn());
-    jVarLocaltableHeadRow.appendChild(jFLocalDescriptionColumn());
-    jVarLocaltableHeadRow.appendChild(jFLocalItemsColumn());
-    jVarLocaltableHeadRow.appendChild(jFLocalScanColumn());
+    // jVarLocaltableHeadRow.appendChild(jFLocalSerialNumberColumn());
+    // jVarLocaltableHeadRow.appendChild(jFLocalpkColumn());
+    // jVarLocaltableHeadRow.appendChild(jFLocalVoucherNumberColumn());
+    // jVarLocaltableHeadRow.appendChild(jFLocalDateColumn());
+    // jVarLocaltableHeadRow.appendChild(jFLocalDescriptionColumn());
+    // jVarLocaltableHeadRow.appendChild(jFLocalDateTimeColumn());
+    // jVarLocaltableHeadRow.appendChild(jFLocalItemsColumn());
+    // jVarLocaltableHeadRow.appendChild(jFLocalScanColumn());
 
     var $table = $('#table');
     $table.bootstrapTable({
-        data: jVarLocalDataToShow.DataFromServer[0].KData.TableData,
+        data: jVarLocalDataToShow,
     });
     // let elements = Object.keys(jVarGlobalPresentViewData.JsonData).forEach(element => {
     //     console.log("element",element);
@@ -30,12 +31,26 @@ let jFLocalHideSpinner=()=>{
 
 };
 
+let jFLocalToArray = ({ inDataToShow }) => {
+    let jVarLocalArray = [];
+    Object.entries(inDataToShow).forEach(
+        ([key, value]) => {
+            jVarLocalArray.push({
+                ...value,
+                pk: key
+            });
+        }
+    );
+
+    return jVarLocalArray;
+};
+
 let jFLocalSerialNumberColumn = () => {
 
     let jVarLocalNewTh = document.createElement("th");
     jVarLocalNewTh.innerHTML = "#";
     jVarLocalNewTh.dataset.field = "#";
-    jVarLocalNewTh.setAttribute("data-formatter", "jFLocalSerialColumn")
+    jVarLocalNewTh.setAttribute("data-formatter", "jFGlobalSerialColumn")
     return jVarLocalNewTh;
 };
 
@@ -61,6 +76,15 @@ let jFLocalDateColumn = () => {
     let jVarLocalNewTh = document.createElement("th");
     jVarLocalNewTh.innerHTML = "Date";
     jVarLocalNewTh.dataset.field = "Date";
+    jVarLocalNewTh.setAttribute("data-filter-control", "select")
+    return jVarLocalNewTh;
+};
+
+let jFLocalDateTimeColumn = () => {
+
+    let jVarLocalNewTh = document.createElement("th");
+    jVarLocalNewTh.innerHTML = "DateTime";
+    jVarLocalNewTh.dataset.field = "DateTime";
     jVarLocalNewTh.setAttribute("data-filter-control", "select")
     return jVarLocalNewTh;
 };
