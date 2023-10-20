@@ -104,10 +104,14 @@
                     <table id="table" data-toolbar="#toolbar" data-search="true" data-searchable="true" data-show-columns="true" data-show-columns-toggle-all="true" data-click-to-select="true" data-filter-control="true" data-show-export="true" data-detail-view="true" data-detail-formatter="detailFormatter" data-id-field="pk" data-show-toggle="true">
                         <thead>
                             <tr id="tableHeadRow">
-                                <!-- <th data-field="pk">ID</th>
-                                <th data-field="VoucherNumber" data-sortable="true">Voucher Number</th>
-                                <th data-field="DateTime">Date Time</th>
-                                <th data-field="Description">Description</th> -->
+                                <th data-formatter="jFGlobalSerialColumn">#</th>
+                                <th data-field="pk">pk</th>
+                                <th data-field="VoucherNumber" data-sortable="true" data-filter-control="input">Voucher Number</th>
+                                <th data-field="Date" data-filter-control="select">Date Time</th>
+                                <th data-field="Description" data-filter-control="input">Description</th>
+                                <th data-field="DateTime" data-filter-control="select">Date Time</th>
+                                <th data-formatter="ItemsFormatter">Items</th>
+                                <th data-formatter="operateFormatter">Scan</th>
                             </tr>
                         </thead>
                     </table>
@@ -163,7 +167,7 @@
     <script>
         let jVarGlobalPresentViewData;
 
-        function jFLocalSerialColumn(value, row, index){
+        function jFGlobalSerialColumn(value, row, index){
             return index + 1;
         };
 
