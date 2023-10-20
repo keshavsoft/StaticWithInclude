@@ -3,16 +3,30 @@ let StartFunc = ({ inFromFetch }) => {
     if (jVarLocalFetchData.KTF === true) {
         jFLocalForSuccess(jVarLocalFetchData);
     } else {
-        let jVarLocalHtmlId = 'InputPkId';
-        let jVarLocalInputPkId = document.getElementById(jVarLocalHtmlId);
-        let jVarLocalLength = jVarLocalInputPkId.value.trim().length;
-        jVarLocalInputPkId.setSelectionRange(0, jVarLocalLength);
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: `${inFromFetch.KReason},${JSON.stringify(inFromFetch.ServerSideCheck[0])}`
-        });
+        if ("ServerSideCheck" in inFromFetch === false) {
 
+            let jVarLocalHtmlId = 'InputPkId';
+            let jVarLocalInputPkId = document.getElementById(jVarLocalHtmlId);
+            let jVarLocalLength = jVarLocalInputPkId.value.trim().length;
+            jVarLocalInputPkId.setSelectionRange(0, jVarLocalLength);
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: `${inFromFetch.KReason}`
+            });
+
+        } else {
+            let jVarLocalHtmlId = 'InputPkId';
+            let jVarLocalInputPkId = document.getElementById(jVarLocalHtmlId);
+            let jVarLocalLength = jVarLocalInputPkId.value.trim().length;
+            jVarLocalInputPkId.setSelectionRange(0, jVarLocalLength);
+
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: `${inFromFetch.KReason},${JSON.stringify(inFromFetch.ServerSideCheck[0])}`
+            });
+        }
     };
 };
 
