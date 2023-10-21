@@ -1,9 +1,8 @@
-import ApiConfigJson from "./../../../../../../../../../ApiConfig.json" assert {type: 'json'};
+import ApiConfigJson from "./../../../../../../../../../../../ApiConfig.json" assert {type: 'json'};
 
 let StartFunc = async ({ inBodyData }) => {
     let jVarLocalBodyData = inBodyData;
 
-    // let jVarLocalFetchUrl = `/${ApiConfigJson.ProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/AggregateFuncs/OnKeys/Max/Count/5`;
     let jVarLocalFetchUrl = `/${ApiConfigJson.ProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/AggregateFuncs/OnKeys/WithFilter/TotalCount`;
     // let jVarLocalFetchUrl = `/${ApiConfigJson.ProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/AggregateFuncs/OnValues/Filter`;
 
