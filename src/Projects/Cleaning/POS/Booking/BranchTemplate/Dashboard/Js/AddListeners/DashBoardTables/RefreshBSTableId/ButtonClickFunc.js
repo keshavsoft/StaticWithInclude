@@ -5,7 +5,9 @@ import { StartFunc as StartFuncToLocalStorage } from "./ToLocalStorage/LastOrder
 
 let StartFunc = () => {
     StartFuncLatestOrders().then(OrdersData => {
-        StartFuncToLocalStorage({ inOrdersData: OrdersData })
+
+        StartFuncToLocalStorage({ inOrdersData: OrdersData });
+
         StartFuncQrCodes().then(QrCodesData => {
             StartFuncLatestOrdersAfterFetch({ inFromFetch: OrdersData, inQrCodeData: QrCodesData });
         });
