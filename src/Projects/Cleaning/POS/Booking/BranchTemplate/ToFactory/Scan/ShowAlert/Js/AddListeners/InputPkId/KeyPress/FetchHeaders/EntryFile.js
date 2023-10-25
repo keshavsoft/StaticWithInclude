@@ -4,7 +4,8 @@ import BodyKeysJson from './BodyKeys.json' assert {type: 'json'};
 let StartFunc = () => {
 
     let jVarLocalInputPkId = jFLocalFromDomInputPkId();
-    let jVarLocalEval = "{{KS}}.split(\"/\")[0].search(\"-\") === -1 ? {{KS}}.split(\"/\")[0] : {{KS}}.split(\"/\")[0].split(\"-\")[1]";
+    let jVarLocalEval = "{{KS}}.split(\"~\")[0].search(\"-\") === -1 ? {{KS}}.split(\"~\")[0] : {{KS}}.split(\"~\")[0].split(\"-\")[1]";
+
     let jVarLocalId = eval(jVarLocalEval.replaceAll("{{KS}}", `"${jVarLocalInputPkId}"`));
     // let jVarLocalId = jVarLocalInputPkId.split("/")[0].search("-") === -1 ? jVarLocalInputPkId.split("~\")[0] : {{KS}}.split(\"~\")[0].split(\"-\")[1]
    
