@@ -32,8 +32,10 @@
         </symbol>
     </svg>
 
-    <include src="./src/components/Projects/JSONApi/Factory/FolderFileItemFromConfig/BSTableSubMenu/BSTable/FromScreen/SomeColumns/ColumnFilter/ColumnAsTh/BSTableSubMenuHeader.html"></include>
-    
+    <include
+        src="./src/components/Projects/JSONApi/Factory/FolderFileItemFromConfig/BSTableSubMenu/BSTable/FromScreen/SomeColumns/ColumnFilter/ColumnAsTh/BSTableSubMenuHeader.html">
+    </include>
+
     <div class="modal fade" id="LoginModalId" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -68,10 +70,15 @@
         <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
             aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="../../../../../../../../../Html/UserData/Menu/Menu.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="../../../../../../../../../Html/UserData/Menu/Menu.html">Home</a>
+                </li>
                 <li class="breadcrumb-item"><a href="../../../../../../../../Dashboard.html">Factory</a></li>
-                <li class="breadcrumb-item"><a href="../../../../../../../../FolderFileItemFromConfig/BSTableSubMenu/BSTableFromScreen/BSTableFromScreen.html">FolderFileItemFromConfig</a></li>
-                <li class="breadcrumb-item"><a href="../../../../../../../BSTableSubMenu/BSTableFromScreen/BSTableFromScreen.html">BSTableSubMenu</a></li>
+                <li class="breadcrumb-item"><a
+                        href="../../../../../../../../FolderFileItemFromConfig/BSTableSubMenu/BSTableFromScreen/BSTableFromScreen.html">FolderFileItemFromConfig</a>
+                </li>
+                <li class="breadcrumb-item"><a
+                        href="../../../../../../../BSTableSubMenu/BSTableFromScreen/BSTableFromScreen.html">BSTableSubMenu</a>
+                </li>
                 <li class="breadcrumb-item"><a href="../../../../../../BsTable/Menu.html">BSTable</a></li>
                 <li class="breadcrumb-item"><a href="../../../../Menu.html">FromScreen</a></li>
                 <li class="breadcrumb-item"><a href="../../../Menu.html">SomeColumns</a></li>
@@ -116,12 +123,23 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                         </button>
                     </div>
-                    
-                    <div class="spinner-border" id="SpinnerId" role="status">
+
+                    <div class="spinner-border" id="SpinnerId" role="status" style="display: none;">
                         <span class="visually-hidden">Loading...</span>
                     </div>
 
-                    <table id="table" data-toolbar="#toolbar" data-search="true" data-searchable="true" data-show-columns="true" data-show-columns-toggle-all="true" data-show-export="true" data-detail-view="true" data-detail-formatter="detailFormatter" data-id-field="pk" data-show-toggle="true" data-filter-control="true">
+                    <div class="row" id="WashingMachineImageId">
+                        <div class="col">
+                            <div class="text-bg-secondary p-3 mx-auto" style="width:fit-content;">
+                                <div class="loader"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <table id="table" data-toolbar="#toolbar" data-search="true" data-searchable="true"
+                        data-show-columns="true" data-show-columns-toggle-all="true" data-show-export="true"
+                        data-detail-view="true" data-detail-formatter="detailFormatter" data-id-field="pk"
+                        data-show-toggle="true" data-filter-control="true">
                         <thead>
                             <tr id="tableHeadRow">
                                 <th data-formatter="jFLocalSerialColumn">#</th>
@@ -155,7 +173,7 @@
             return html.join('')
         };
 
-        function jFLocalSerialColumn(value, row, index){
+        function jFLocalSerialColumn(value, row, index) {
             return index + 1;
         };
     </script>
