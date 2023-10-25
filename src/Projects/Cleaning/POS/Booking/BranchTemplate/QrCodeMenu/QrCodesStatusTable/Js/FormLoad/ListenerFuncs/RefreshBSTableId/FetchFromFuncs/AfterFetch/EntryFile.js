@@ -1,10 +1,10 @@
 // import { StartFunc as StartFuncKSMainTableRowDeleteClass } from "./KSMainTableRowDeleteClass/1-ClickAssign.js";
-import { StartFunc as StartFuncToFactoryStatusCheck } from "./ToFactoryStatus/EntryFile.js";
+// import { StartFunc as StartFuncToFactoryStatusCheck } from "./ToFactoryStatus/EntryFile.js";
 
 let StartFunc = async ({ inDataToShow }) => {
     jFLocalHideSpinner();
     let jVarLocalDataToShow = jFLocalToArray({ inDataToShow });
-    await StartFuncToFactoryStatusCheck();
+    // await StartFuncToFactoryStatusCheck();
 
     var $table = $('#table');
 
