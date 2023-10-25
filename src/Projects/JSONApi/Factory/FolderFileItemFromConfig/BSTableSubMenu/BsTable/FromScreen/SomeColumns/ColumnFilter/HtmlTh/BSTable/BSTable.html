@@ -235,13 +235,13 @@
                     <table id="table" data-toolbar="#toolbar" data-search="true" data-searchable="true"
                         data-show-columns="true" data-show-columns-toggle-all="true" data-show-export="true"
                         data-detail-view="true" data-detail-formatter="detailFormatter" data-id-field="pk"
-                        data-show-toggle="true" data-filter-control="true">
+                        data-show-toggle="true" data-filter-control="true" data-show-footer="true">
                         <thead>
                             <tr id="tableHeadRow">
                                 <th data-formatter="jFLocalSerialColumn">#</th>
                                 <th data-field="pk">pk</th>
                                 <th data-field="ProductName" data-filter-control="select">ProductName</th>
-                                <th data-field="SalePrice" data-filter-control="select">SalePrice</th>
+                                <th data-field="SalePrice" data-filter-control="select" data-footer-formatter="priceFormatter">SalePrice</th>
                             </tr>
                         </thead>
                     </table>
@@ -272,6 +272,16 @@
         function jFLocalSerialColumn(value, row, index) {
             return index + 1;
         };
+
+        function priceFormatter(data) {
+    var field = this.field
+    return '₹ ' + data.map(function (row) {
+        console.log("row",row);
+      return +row.SalePrice
+    }).reduce(function (sum, i) {
+      return sum + i
+    }, 0)
+  }
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>

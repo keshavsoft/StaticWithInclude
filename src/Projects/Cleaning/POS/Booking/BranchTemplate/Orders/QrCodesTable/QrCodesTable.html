@@ -111,7 +111,7 @@
                         <span class="visually-hidden">Loading...</span>
                     </div>
 
-                    <table id="table" data-toolbar="#toolbar" data-search="true" data-searchable="true" data-show-columns="true" data-show-columns-toggle-all="true" data-show-export="true" data-detail-view="true" data-detail-formatter="detailFormatter" data-id-field="pk" data-show-toggle="true">
+                    <table id="table" data-toolbar="#toolbar" data-search="true" data-show-footer="true" data-searchable="true" data-show-columns="true" data-show-columns-toggle-all="true" data-show-export="true" data-detail-view="true" data-detail-formatter="detailFormatter" data-id-field="pk" data-show-toggle="true">
                         <thead>
                             <tr id="tableHeadRow">
                                 <th data-formatter="jFLocalSerialColumn">#</th>
@@ -121,8 +121,8 @@
                                 <th data-field="CustomerData.CustomerMobile">Mobile</th>
                                 <th data-field="OrderData.Currentdateandtime">Date</th>
                                 <th data-formatter="jFLocalOrderDetails">Order Details</th>
-                                <th data-formatter="jFLocalSettlementDetails">Settlement</th>
-                                <th data-formatter="jFLocalQrCodeDetails">QrCodes</th>
+                                <th data-formatter="jFLocalSettlementDetails" data-footer-formatter="priceFormatter">Settlement</th>
+                                <th data-formatter="jFLocalQrCodeDetails" data-footer-formatter="QrFormatter">QrCodes</th>
                             </tr>
                         </thead>
                     </table>
@@ -219,6 +219,24 @@
             ].join('')
             }
         }
+
+        function priceFormatter(data) {
+    var field = this.field
+    return '₹ ' + data.map(function (row) {
+      return +row.AggValues.SettlementAmount
+    }).reduce(function (sum, i) {
+      return sum + i
+    }, 0)
+  }
+
+  function QrFormatter(data) {
+    var field = this.field
+    return data.map(function (row) {
+      return +row.QrCodes
+    }).reduce(function (sum, i) {
+      return sum + i
+    }, 0)
+  }
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
