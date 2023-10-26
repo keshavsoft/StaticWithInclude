@@ -1,6 +1,7 @@
 let CommonProjectName = "Cleaning";
 
-let LocalFolderPath = `src\\Projects\\${CommonProjectName}\\POS\\Booking\\BranchTemplate`;
+// let LocalFolderPath = `public\\Projects\\${CommonProjectName}\\POS\\Booking\\BranchTemplate`;
+let LocalFolderPath = `public\\Projects\\${CommonProjectName}\\POS\\Booking\\BranchTemplate`;
 let LocalDestinationPath = `public\\Projects\\${CommonProjectName}\\POS\\Booking\\`;
 
 let CommonWalk = require("./WalkFuncs");
