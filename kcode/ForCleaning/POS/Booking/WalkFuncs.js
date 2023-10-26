@@ -3,6 +3,7 @@ var path = require('path');
 
 const posthtml = require('posthtml');
 const include = require('posthtml-include');
+let CommonBranchFactory = require("../../BranchFactory.json");
 
 var walk = function (dir, inFolderPath, inDestinationPath, inBranchName, done) {
     var results = [];
@@ -41,7 +42,14 @@ let CallBackFunc = (err, inFolderPath, inDestinationPath, inBranchName, results)
                     if (fs.existsSync(element.replace(inFolderPath, inDestinationPath)) === false) {
                         fs.createFileSync(element.replace(inFolderPath, inDestinationPath));
                     };
+
                     fs.writeFileSync(element.replace(inFolderPath, inDestinationPath), result.html.replace("{{Branch}}", inBranchName));
+
+                    if (inBranchName in CommonBranchFactory) {
+                        let jVarLocalFactory = CommonBranchFactory[inBranchName].Factory;
+
+                        fs.writeFileSync(element.replace(inFolderPath, inDestinationPath), result.html.replace(`<option value="${jVarLocalFactory}">${jVarLocalFactory}</option>`, `<option value="${jVarLocalFactory}" selected>${jVarLocalFactory}</option>`));
+                    };
                 });
         } else {
             if (LoopInsidePath.ext === ".json") {

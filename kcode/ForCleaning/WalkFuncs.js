@@ -3,6 +3,7 @@ var path = require('path');
 
 const posthtml = require('posthtml');
 const include = require('posthtml-include');
+let CommonBranchFactory = require("./BranchFactory.json");
 
 var walk = function (dir, inFolderPath, inDestinationPath, inArrayHtml, inFactoryHtml, done) {
     var results = [];
