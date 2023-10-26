@@ -9,7 +9,7 @@ let CommonOsName = os.platform();
 switch (CommonOsName) {
     case "win32":
         CommonForCleaning.StartFunc();
-        CommonForCleaningBranchTemplate.StartFunc();
+        // CommonForCleaningBranchTemplate.StartFunc();
 
         break;
 
