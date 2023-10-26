@@ -50,6 +50,17 @@ let CallBackFunc = (err, inFolderPath, inDestinationPath, inBranchName, results)
 
                         fs.writeFileSync(element.replace(inFolderPath, inDestinationPath), result.html.replace(`<option value="${jVarLocalFactory}">${jVarLocalFactory}</option>`, `<option value="${jVarLocalFactory}" selected>${jVarLocalFactory}</option>`));
                     };
+
+                    let LoopInideResult = result.html.replace("{{Branch}}", inBranchName);
+
+                    if (inBranchName in CommonBranchFactory) {
+                        let jVarLocalFactory = CommonBranchFactory[inBranchName].Factory;
+                        LoopInideResult = LoopInideResult.replace(`<option value="${jVarLocalFactory}">${jVarLocalFactory}</option>`, `<option value="${jVarLocalFactory}" selected>${jVarLocalFactory}</option>`)
+
+                        // fs.writeFileSync(element.replace(inFolderPath, inDestinationPath), result.html.replace(`<option value="${jVarLocalFactory}">${jVarLocalFactory}</option>`, `<option value="${jVarLocalFactory}" selected>${jVarLocalFactory}</option>`));
+                    };
+
+                    fs.writeFileSync(element.replace(inFolderPath, inDestinationPath), LoopInideResult);
                 });
         } else {
             if (LoopInsidePath.ext === ".json") {
