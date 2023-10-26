@@ -3,7 +3,13 @@ var path = require('path');
 
 const posthtml = require('posthtml');
 const include = require('posthtml-include');
-let CommonBranchFactory = require("./BranchFactory.json");
+
+let CommonBranchesArray = require("./Branches.json");
+let LocalArrayHtml = CommonBranchesArray.map(element => {
+    return `<option value="${element}">${element}</option>`
+});
+
+let CommonArrayHtml = LocalArrayHtml.toString().replaceAll(",", "\n");
 
 var walk = function (dir, inFolderPath, inDestinationPath, inArrayHtml, inFactoryHtml, done) {
     var results = [];
@@ -44,9 +50,14 @@ let CallBackFunc = (err, inFolderPath, inDestinationPath, inArrayHtml, inFactory
                         fs.createFileSync(element.replace(inFolderPath, inDestinationPath));
                     };
 
-                    fs.writeFileSync(element.replace(inFolderPath, inDestinationPath), result.html.replace("{{BranchArray}}", inArrayHtml));
+                    let LoopInideResult = result.html.replace("{{BranchArray}}", CommonArrayHtml);
+                    LoopInideResult = LoopInideResult.replace("{{FactoryArray}}", inFactoryHtml);
 
-                    fs.writeFileSync(element.replace(inFolderPath, inDestinationPath), result.html.replace("{{FactoryArray}}", inFactoryHtml));
+                    fs.writeFileSync(element.replace(inFolderPath, inDestinationPath), LoopInideResult);
+
+                    // fs.writeFileSync();
+
+                    // fs.writeFileSync(element.replace(inFolderPath, inDestinationPath), result.html.replace("{{FactoryArray}}", inFactoryHtml));
                 });
         } else {
             fs.copySync(element, element.replace(inFolderPath, inDestinationPath));
