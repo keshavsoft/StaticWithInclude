@@ -9,15 +9,12 @@ let StartFunc = () => {
         StartFuncToLocalStorage({ inOrdersData: OrdersData });
 
         StartFuncQrCodes().then(QrCodesData => {
-
             if (OrdersData.KTF && QrCodesData.KTF) {
-
                 StartFuncLatestOrdersAfterFetch({
                     inFromFetch: OrdersData.JsonData,
                     inQrCodeData: QrCodesData.JsonData
                 });
             };
-
         });
     });
 };

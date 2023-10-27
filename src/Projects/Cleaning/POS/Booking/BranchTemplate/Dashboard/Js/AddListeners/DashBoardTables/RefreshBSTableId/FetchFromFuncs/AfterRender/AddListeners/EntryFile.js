@@ -1,7 +1,6 @@
 import { StartFunc as StartFuncTableRow } from "./TableRow/EntryFile.js";
 
-let StartFunc = () =>{
-
+let StartFunc = () => {
     StartFuncTableRow();
 };
 
