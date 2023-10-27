@@ -10,7 +10,8 @@ let StartFunc = async () => {
             inArray: jVarLocalArray,
             inFactoryData: b.JsonData
         });
-        console.log("jVarLocalArray : ", a, b, jVarLocalArrayWithFactory);
+
+        jFLocalHideWashingMachineImageId();
 
         var $table = $('#table');
 
@@ -18,6 +19,11 @@ let StartFunc = async () => {
             data: jVarLocalArrayWithFactory,
         });
     };
+};
+
+let jFLocalHideWashingMachineImageId = () => {
+    let jVarLocalSpinnerId = document.getElementById("WashingMachineImageId");
+    jVarLocalSpinnerId.style.display = "none";
 };
 
 let jFLocalToFactory = ({ inArray, inFactoryData }) => {

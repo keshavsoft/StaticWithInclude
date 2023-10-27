@@ -20,9 +20,6 @@
     <title>TabularColumnsData</title>
     <!-- Custom styles for this template -->
     <link href="./css/headers.css" rel="stylesheet">
-
-    <link href="./css/WashingMachine.css" rel="stylesheet">
-   
 </head>
 
 <body class="mb-5">
@@ -35,9 +32,7 @@
         </symbol>
     </svg>
 
-    <include
-        src="./src/components/Projects/JSONApi/Factory/FolderFileItemFromConfig/BSTableSubMenu/BSTable/FromScreen/SomeColumns/ColumnFilter/ColumnAsTh/BSTableSubMenuHeader.html">
-    </include>
+    <include src="./src/components/Cleaning/POS/Booking/BranchTemplate/QrCodeMenu/All/Header.html"></include>
 
     <div class="modal fade" id="LoginModalId" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -69,28 +64,6 @@
         </div>
     </div>
 
-    <div class="container mt-2">
-        <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
-            aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="../../../../../../../../../Html/UserData/Menu/Menu.html">Home</a>
-                </li>
-                <li class="breadcrumb-item"><a href="../../../../../../../../Dashboard.html">Factory</a></li>
-                <li class="breadcrumb-item"><a
-                        href="../../../../../../../../FolderFileItemFromConfig/BSTableSubMenu/BSTableFromScreen/BSTableFromScreen.html">FolderFileItemFromConfig</a>
-                </li>
-                <li class="breadcrumb-item"><a
-                        href="../../../../../../../BSTableSubMenu/BSTableFromScreen/BSTableFromScreen.html">BSTableSubMenu</a>
-                </li>
-                <li class="breadcrumb-item"><a href="../../../../../../BsTable/Menu.html">BSTable</a></li>
-                <li class="breadcrumb-item"><a href="../../../../Menu.html">FromScreen</a></li>
-                <li class="breadcrumb-item"><a href="../../../Menu.html">SomeColumns</a></li>
-                <li class="breadcrumb-item"><a href="../../../Menu.html">ColumnFilter</a></li>
-                <li class="breadcrumb-item"><a href="../../Menu.html">HtmlTh</a></li>
-                <li class="breadcrumb-item active" aria-current="page">BSTable</li>
-            </ol>
-        </nav>
-    </div>
 
     <main>
         <div class="container">
@@ -126,46 +99,19 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                         </button>
                     </div>
-
-                    <div class="spinner-border" id="SpinnerId" role="status" style="display: none;">
-                        <span class="visually-hidden">Loading...</span>
-                    </div>
-
-                    <div class="row" id="WashingMachineImageId">
-                        <div class="col">
-                            <div class="text-bg-secondary p-3 mx-auto" style="width:fit-content;">
-                                <div class="loader"></div>
-                            </div>
-                        </div>
-                    </div>
-
                     <table id="table" data-toolbar="#toolbar" data-search="true" data-searchable="true"
                         data-show-columns="true" data-show-columns-toggle-all="true" data-show-export="true"
                         data-detail-view="true" data-detail-formatter="detailFormatter" data-id-field="pk"
-                        data-show-toggle="true" data-filter-control="true" data-show-footer="true">
-                        <thead>
-                            <tr id="tableHeadRow">
-                                <th data-formatter="jFLocalSerialColumn">#</th>
-                                <th data-field="pk">pk</th>
-                                <th data-field="ProductName" data-filter-control="select">ProductName</th>
-                                <th data-field="SalePrice" data-filter-control="select" data-footer-formatter="priceFormatter">SalePrice</th>
-                            </tr>
-                        </thead>
+                        data-show-toggle="true">
                     </table>
                 </div>
             </div>
         </div>
     </main>
 
-    <footer class="footer mt-auto py-3 bg-light fixed-bottom">
-        <div class="container">
-            <div class="bg-light d-flex justify-content-between">
-                <div>KeshavSoft v4.17</div>
+                <include src="./src/components/Cleaning/Footer.html"></include>
 
-                <div data-BaseString="Last refresh : " id="KLastRefreshDT">Last refresh : </div>
-            </div>
-        </div>
-    </footer>
+
 
     <script>
         function detailFormatter(index, row) {
@@ -175,20 +121,6 @@
             })
             return html.join('')
         };
-
-        function jFLocalSerialColumn(value, row, index) {
-            return index + 1;
-        };
-
-        function priceFormatter(data) {
-    var field = this.field
-    return '₹ ' + data.map(function (row) {
-        console.log("row",row);
-      return +row.SalePrice
-    }).reduce(function (sum, i) {
-      return sum + i
-    }, 0)
-  }
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
@@ -197,13 +129,11 @@
     <script src="https://unpkg.com/tableexport.jquery.plugin/tableExport.min.js"></script>
     <script
         src="https://unpkg.com/bootstrap-table@1.22.1/dist/extensions/export/bootstrap-table-export.min.js"></script>
-    <script
-        src="https://unpkg.com/bootstrap-table@1.22.1/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
 
-    <!-- <script src="../../Js/headerChange.js"></script> -->
+    <script src="./Js/headerChange.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script src="./Js/BSTableFromScreen.js" type="module"></script>
+    <script src="./Js/BSTable.js" type="module"></script>
 </body>
 
 </html>

@@ -20,6 +20,8 @@
     <title>TabularColumnsData</title>
     <!-- Custom styles for this template -->
     <link href="./css/headers.css" rel="stylesheet">
+    <link href="./css/WashingMachine.css" rel="stylesheet">
+
 </head>
 
 <body class="mb-5">
@@ -64,6 +66,17 @@
         </div>
     </div>
 
+    <div class="container mt-2">
+        <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
+            aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../../Dashboard/Dashboard.html">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="../../Menu.html">QrCodeMenu</a></li>
+                <li class="breadcrumb-item active" aria-current="page">StatusTable</li>
+            </ol>
+        </nav>
+    </div>
+
     <main>
         <div class="container">
             <div id="AlertSuccessId" class="alert alert-success alert-dismissible fade show mt-2" role="alert"
@@ -99,8 +112,16 @@
                         </button>
                     </div>
                     
-                    <div class="spinner-border" id="SpinnerId" role="status">
+                    <div class="spinner-border" id="SpinnerId" role="status" style="display: none;">
                         <span class="visually-hidden">Loading...</span>
+                    </div>
+
+                    <div class="row" id="WashingMachineImageId">
+                        <div class="col">
+                            <div class="text-bg-secondary p-3 mx-auto" style="width:fit-content;">
+                                <div class="loader"></div>
+                            </div>
+                        </div>
                     </div>
 
                     <table id="table" data-toolbar="#toolbar" data-search="true" data-searchable="true" data-show-columns="true" data-show-columns-toggle-all="true" data-show-export="true" data-detail-view="true" data-detail-formatter="detailFormatter" data-id-field="pk" data-show-toggle="true" data-filter-control="true">
@@ -115,7 +136,6 @@
                                 <th data-field="ItemNamePk" data-filter-control="select">ItemNamePk</th>
                                 <th data-field="WashType" data-filter-control="select">WashType</th>
                                 <th data-field="Status" data-filter-control="select">Status</th>
-                                <!-- <th data-formatter="ItemsFormatter">Status</th> -->
                             </tr>
                         </thead>
                     </table>
