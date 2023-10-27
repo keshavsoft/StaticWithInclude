@@ -2,7 +2,7 @@ import ApiConfigJson from "./../../../ApiConfig.json" assert {type: 'json'};
 
 let StartFunc = ({ inFromFetch }) => {
     if (inFromFetch.KTF === true) {
-        let jVarLocalOrderNumber = inFromFetch.kPK;
+        let jVarLocalOrderNumber = inFromFetch.NewPk;
         jFLocalToURL({ inOrderNumber: jVarLocalOrderNumber });
     }else{
         Swal.fire({

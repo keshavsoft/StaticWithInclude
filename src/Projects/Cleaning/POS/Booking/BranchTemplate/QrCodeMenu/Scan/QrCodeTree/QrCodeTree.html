@@ -14,97 +14,44 @@
 
 	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link href="./css/bstreeview.css" rel="stylesheet">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/sidebar.menu.css">
+    <link rel="stylesheet" href="./css/all.css">
     <link rel="stylesheet" href="./Index/css/header.css">
 </head>
 
 <body>
-    <header>
-        <div class="container" id="NavBarId">
-            <nav class="navbar navbar-expand-sm navbar-dark bg-dark" aria-label="Third navbar example">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="#">KeshavSoft</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-    
-                    <div class="collapse navbar-collapse" id="navbarsExample03">
-                        <ul class="navbar-nav me-auto mb-2 mb-sm-0">
-                            <li class="nav-item">
-                                <a href="../Menu.html" class="nav-link text-white">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z">
-                                        </path>
-                                        <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z">
-                                        </path>
-                                    </svg>
-                                    Parent
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                              <a href="../../Dashboard/Dashboard.html" class="nav-link text-white">
-                                  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
-                                    <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z"></path>
-                                  </svg>
-                                  Home
-                              </a>
-                          </li>
-                           
-                        </ul>
-                        <ul class="navbar-nav">
-                            <li id="HeaderLoginButtonId">
-                                <a href="#" class="nav-link text-white" id="NavBarloginId">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z">
-                                        </path>
-                                    </svg>
-                                    Login
-                                </a>
-                            </li>
-    
-                            <div id="HeaderUserIdLi" class="visually-hidden dropdown text-end">
-                                <a href="#" id="HeaderUserIdDropDown" data-bs-toggle="dropdown" aria-expanded="false" class="nav-link text-white dropdown-toggle">
-    
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-check-fill d-block mx-auto mb-1 d-none d-md-block" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M15.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z">
-                                        </path>
-                                        <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z">
-                                        </path>
-                                    </svg>
-    
-                                    UserName
-                                </a>
-                                <ul class="dropdown-menu text-small">
-                                    <li><a class="dropdown-item" href="#" onclick="jVarGlobalClientObject.UI.ModalFuncs.Show()">
-                                            <i class="bi bi-power" style="font-size: 1.3rem; color:orangered"></i>
-                                            logout</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </ul>
-    
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </header>
+    <include src="./src/components/Cleaning/POS/Booking/BranchTemplate/QrCodeMenu/Scan/Header.html"></include>
 
     <main>
-        <div class="container" id="KCont1">
+        
+        <div class="container" id="KCont">
             <div id="AlertSuccessId" class="alert alert-success alert-dismissible fade show mt-2" role="alert" style="display: none;">
                 <strong id="AlertSuccessIdUserName">SavedPk</strong> User created sucessfully.
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
 
             <div class="row">
-                <div class="col col-md-6">
+                <div class="col col-md-3">
                     <div class="input-group mt-3 mb-3">
                         <input type="text" class="form-control" placeholder="Scan Qrcode" aria-label="Input" aria-describedby="GoButtonid" id="ScanId" list="CustomerDataListId" autofocus="">
                         <button class="btn btn-outline-secondary" type="button" id="GoButtonid">GO</button>
                     </div>
                 </div>
+                <div class="col col-md-9">
+                    <div class="input-group mt-3 mb-3">
+                        <h4 id="TextId"></h4>
+                    </div>
+                </div>
             </div>
-
+            <div class="container">
+                <ul class="list list-unstyled list-bg-white list-icon-red mb-0" style="width: 30rem;">
+                    <li class="list-item" id="KCont1">
+        
+                    </li>
+        
+                </ul>
+            </div>
             <!-- <datalist id="CustomerDataListId">
                 <option value="Keshav">
                 </option>
@@ -227,9 +174,9 @@
                 </div>
             </div> -->
 
-<div id="tree">
+<!-- <div id="tree">
 
-</div>
+</div> -->
 
             <div class="alert alert-danger d-none" role="alert" id="DangerAlertId">
                 A simple danger alert—check it out!
@@ -365,13 +312,18 @@
             }
         };
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+    </script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="./Js/bstreeview.js"></script>
-    <script src="../Js/headerChange.js"></script>
+    <script src="./Js/headerChange.js"></script>
 
 
-    <script type="module" src="./Js/QrCode.js"></script>
+    <script type="module" src="./Js/QrCodeTree.js"></script>
 </body>
 
 </html>
