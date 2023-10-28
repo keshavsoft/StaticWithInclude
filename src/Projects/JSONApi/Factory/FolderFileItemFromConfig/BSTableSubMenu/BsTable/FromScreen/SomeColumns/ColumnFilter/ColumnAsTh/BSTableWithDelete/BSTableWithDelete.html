@@ -80,7 +80,7 @@
                 <li class="breadcrumb-item"><a href="../../../Menu.html">SomeColumns</a></li>
                 <li class="breadcrumb-item"><a href="../../../Menu.html">ColumnFilter</a></li>
                 <li class="breadcrumb-item"><a href="../../Menu.html">ColumnAsTh</a></li>
-                <li class="breadcrumb-item active" aria-current="page">BSTable</li>
+                <li class="breadcrumb-item active" aria-current="page">BSTableWithDelete</li>
             </ol>
         </nav>
     </div>
@@ -142,7 +142,7 @@
                     <table id="table" data-toolbar="#toolbar" data-search="true" data-searchable="true"
                         data-show-columns="true" data-show-columns-toggle-all="true" data-show-export="true"
                         data-detail-view="true" data-detail-formatter="detailFormatter" data-id-field="pk"
-                        data-show-toggle="true" data-filter-control="true" data-show-footer="true">
+                        data-show-toggle="true" data-show-footer="true">
                         <thead>
                             <tr id="tableHeadRow">
                                 
@@ -173,6 +173,14 @@
             return html.join('')
         };
 
+        function operateFormatter(value, row, index) {
+    return [
+        `<a class="KSMainTableRowDelete" data-pk=${row.pk} href="#">`,
+        'Delete',
+        '</a>',
+    ].join('')
+};
+
         function jFLocalSerialColumn(value, row, index){
             return index + 1;
         };
@@ -200,7 +208,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./Js/headerChange.js"></script>
 
-    <script src="./Js/BSTableFromScreen.js" type="module"></script>
+    <script src="./Js/BSTableWithDelete.js" type="module"></script>
 </body>
 
 </html>
