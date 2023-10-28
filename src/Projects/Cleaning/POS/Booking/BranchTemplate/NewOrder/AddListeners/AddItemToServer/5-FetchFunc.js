@@ -3,7 +3,7 @@ import ApiConfigJson from "./../../../../../../ApiConfig.json" assert {type: 'js
 let StartFunc = async ({ inBodyData }) => {
     let jVarLocalBodyData = inBodyData;
 
-    let jVarLocalFetchUrl = `/${ApiConfigJson.ProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/WithScreens/MainTable/SaveRow/AsIsWithTimeStamp`;
+    let jVarLocalFetchUrl = `/${ApiConfigJson.ProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/WithScreens/MainAndSub/SaveRow/AsIsWithTimeStamp`;
     // let jVarLocalFetchUrl = `/${ApiConfigJson.ProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/Insert`;
 
     let jVarLocalFetchHeaderObject = {
