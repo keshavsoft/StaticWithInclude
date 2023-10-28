@@ -20,6 +20,8 @@ let jFLocalClickFunc = async (event) => {
     let jVarLocalFormat = jVarLocalColsestTr.querySelector('[name="FileName"]');
     let jVarLocalType = jVarLocalColsestTr.querySelector('[name="ItemName"]');
     let jVarLocalTransform = jVarLocalColsestTr.querySelector('[name="CheckColumnName"]');
+    let jVarLocalMinFloat = jVarLocalColsestTr.querySelector('[name="MinFloat"]');
+    let jVarLocalMaxFloat = jVarLocalColsestTr.querySelector('[name="MaxFloat"]');
     let jVarLocalFilterString = jVarLocalColsestTr.querySelector('[name="FilterString"]');
 
     let jVarLocalDataAttributeValue = jVarLocalDataAttribute.value;
@@ -27,6 +29,8 @@ let jFLocalClickFunc = async (event) => {
     let jVarLocalFormatValue = jVarLocalFormat.value;
     let jVarLocalTypeValue = jVarLocalType.value;
     let jVarLocalTransformValue = jVarLocalTransform.value;
+    let jVarLocalMinFloatValue = jVarLocalMinFloat.value;
+    let jVarLocalMaxFloatValue = jVarLocalMaxFloat.value;
     let jVarLocalFilterStringValue = jVarLocalFilterString.value;
 
     let BodyAsJson = {
@@ -34,6 +38,8 @@ let jFLocalClickFunc = async (event) => {
         FileName: jVarLocalFormatValue,
         ItemName: jVarLocalTypeValue,
         CheckColumnName: jVarLocalTransformValue,
+        MinFloat: jVarLocalMinFloatValue,
+        MaxFloat: jVarLocalMaxFloatValue,
         FilterString: jVarLocalFilterStringValue
     }
 
