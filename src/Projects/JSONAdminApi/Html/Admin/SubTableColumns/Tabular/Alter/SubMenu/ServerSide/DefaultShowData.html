@@ -184,124 +184,138 @@
         </script>
 
 
-    <script id="HbsTemplateForTableColumnsForTogglesOnly" type="text/x-handlebars">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th width="5%"></th>
-                            <th width="90%"></th>
-                            <th width="5%"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {{#each TableColumnsObject}}
-                      
-            <tr class="{{RowClass}}">
-            <td class="text-center">
-            {{ForSNo @index}}
-            </td>
-            <td>
-                <div class="row mb-3">
-                    <div class="col-12 col-xl-6">
-                    <div class="row">
-                        <label class="col-md-5 col-form-label">DataAttribute</label>
+        <script id="HbsTemplateForTableColumnsForTogglesOnly" type="text/x-handlebars">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th width="5%"></th>
+                        <th width="90%"></th>
+                        <th width="5%"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each TableColumnsObject}}
+                  
+        <tr class="{{RowClass}}">
+        <td class="text-center">
+        {{ForSNo @index}}
+        </td>
+        <td>
+            <div class="row mb-3">
+                <div class="col-12 col-xl-6">
+                <div class="row">
+                    <label class="col-md-5 col-form-label">DataAttribute</label>
+                <div class="col-7">
+                    <input class="form-control" type="text" name="DataAttribute" disabled value="{{DataAttribute}}">
+                </div>
+            
+            </div>
+            
+                </div>
+                <div class="col-12 col-xl-6">
+                    
+                <div class="row">
+                    <label class="col-md-5 col-form-label">DisplayName</label>
                     <div class="col-7">
-                        <input class="form-control" type="text" name="DataAttribute" disabled value="{{DataAttribute}}">
+                        <input class="form-control" type="text" name="DisplayName" disabled value="{{DisplayName}}" >
                     </div>
-                
                 </div>
-                
-                    </div>
-                    <div class="col-12 col-xl-6">
-                        
-                    <div class="row">
-                        <label class="col-md-5 col-form-label">DisplayName</label>
-                        <div class="col-7">
-                            <input class="form-control" type="text" name="DisplayName" disabled value="{{DisplayName}}" >
-                        </div>
-                    </div>
-                
-                </div>
-                </div>
-        
-                <div class="row mb-3">
-                    <div class="col-12 col-xl-6">
+            
+            </div>
+            </div>
+    
+            <div class="row mb-3">
+                <div class="col-12 col-xl-6">
                     <div class="row">
                         <label class="col-md-5 col-form-label">FolderName</label>
-                    <div class="col-7">
-                        <input class="form-control" type="text" name="FolderName" list="FoldersDataListId" value="{{FolderName}}">
+                            <div class="col-7">
+                                <input class="form-control" type="text" name="FolderName" list="FoldersDataListId" value="{{FolderName}}">
+                            </div>
                     </div>
-                
                 </div>
-                
-                    </div>
-                    <div class="col-12 col-xl-6">
-                        
-                    <div class="row">
-                        <label class="col-md-5 col-form-label">FileName</label>
-                        <div class="col-7">
-                            <input class="form-control" type="text" name="FileName"  value="{{FileName}}" >
+                <div class="col-12 col-xl-6">
+                    
+                        <div class="row">
+                            <label class="col-md-5 col-form-label">FileName</label>
+                                <div class="col-7">
+                                     <input class="form-control" type="text" name="FileName"  value="{{FileName}}" >
+                                </div>
                         </div>
-                    </div>
-                
                 </div>
-                </div>
-        
-                <div class="row mb-3">
-                    <div class="col-12 col-xl-6">
-                    <div class="row">
-                        <label class="col-md-5 col-form-label">ItemName</label>
-                    <div class="col-7">
-                        <input class="form-control" type="text" name="ItemName"  value="{{ItemName}}">
-                    </div>
-                
-                </div>
-                
-                    </div>
-                    <div class="col-12 col-xl-6">
-                        
-                    <div class="row">
-                        <label class="col-md-5 col-form-label">CheckColumnName</label>
-                        <div class="col-7">
-                            <input class="form-control" type="text" name="CheckColumnName"  value="{{CheckColumnName}}" >
+            </div>
+    
+            <div class="row mb-3">
+                <div class="col-12 col-xl-6">
+                        <div class="row">
+                            <label class="col-md-5 col-form-label">ItemName</label>
+                                <div class="col-7">
+                                    <input class="form-control" type="text" name="ItemName"  value="{{ItemName}}">
+                                </div>
+            
                         </div>
+            
+                </div>
+                <div class="col-12 col-xl-6">
+                        <div class="row">
+                            <label class="col-md-5 col-form-label">CheckColumnName</label>
+                                <div class="col-7">
+                                    <input class="form-control" type="text" name="CheckColumnName"  value="{{CheckColumnName}}" >
+                                </div>
+                        </div>
+            
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-12 col-xl-6">
+                <div class="row">
+                    <label class="col-md-5 col-form-label">MinFloat</label>
+                <div class="col-7">
+                    <input class="form-control" type="text" name="MinFloat"  value="{{MinFloat}}">
+                </div>
+            
+            </div>
+            
+                </div>
+                <div class="col-12 col-xl-6">
+                    
+                <div class="row">
+                    <label class="col-md-5 col-form-label">MaxFloat</label>
+                    <div class="col-7">
+                        <input class="form-control" type="text" name="MaxFloat"  value="{{MaxFloat}}" >
                     </div>
-                
                 </div>
-                </div>
-                
-                    <div class="col-12 col-xl-4">
-                      
-                
-                </div>
+            
+            </div>
+            </div>
+            
+            <div class="row mb-3">
                 <div class="col-12 col-xl-12">
-                        
                     <div class="row">
                         <label class="col-md-3 col-form-label">FilterString</label>
-                        <div class="col-9">
-                            <input class="form-control" type="text" name="FilterString" value="{{FilterString}}" >
-                        </div>
+                            <div class="col-md-9">
+                                <input class="form-control" type="text" name="FilterString" value="{{FilterString}}" >
+                            </div>
                     </div>
-                
                 </div>
-                </div>
-                 
-            </td>
-              <td>
-                <button type="button" class="btn btn-outline-info UpdateButtonClass" data-foldername="{{@../../../../../key}}"
-         data-filename="{{@../../../../key}}" data-itemname="{{@../../../key}}"
-          data-screenname="{{@../../key}}" data-subtablecolumnkey={{@../key}}
-          data-tablecolumnkey={{@key}}>
-            Update
-        </button>
-            </td>
-            </tr>
-            
-                        {{/each}}
-                    </tbody>
-                </table>
-            
-                </script>
+            </div>
+             
+        </td>
+          <td>
+            <button type="button" class="btn btn-outline-info UpdateButtonClass" data-foldername="{{@../../../../../key}}"
+     data-filename="{{@../../../../key}}" data-itemname="{{@../../../key}}"
+      data-screenname="{{@../../key}}" data-subtablecolumnkey={{@../key}}
+      data-tablecolumnkey={{@key}}>
+        Update
+    </button>
+        </td>
+        </tr>
+        
+                    {{/each}}
+                </tbody>
+            </table>
+        
+            </script>
 
     <script id="HbsTemplateForTable" type="text/x-handlebars">
                         {{#each this.KData}}
