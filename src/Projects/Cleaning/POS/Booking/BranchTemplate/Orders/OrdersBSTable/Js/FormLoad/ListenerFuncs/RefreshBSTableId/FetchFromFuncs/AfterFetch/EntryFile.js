@@ -7,6 +7,7 @@ let StartFunc = ({ inDataToShow, inQrCodeData }) => {
     let jVarLocalDataToShow = jFLocalToArray({ inDataToShow });
 
     var $table = $('#table');
+    let jVarLocalInsertOnlyDate = jFLocalInsertOnlyDate({ inData: jVarLocalDataToShow});
     let jVarLocalTransformedData = jFLocalInsertAggValues({ inData: jVarLocalDataToShow });
     let jVarWithQrCodeData = jFLocalInsertQrCodeData({ inData: jVarLocalTransformedData, inQrCodeData: inQrCodeData });
     // StartFuncPrepareColumns({ data: jVarLocalDataToShow.DataFromServer[0].KData.TableColumns })
@@ -87,5 +88,15 @@ let jFLocalInsertQrCodeData = ({ inData, inQrCodeData }) => {
     return jVarLocalReturnArray;
 };
 
+let jFLocalInsertOnlyDate = ({ inData }) => {
+
+    let jVarLocalReturnArray = [];
+
+    jVarLocalReturnArray = inData.map(element => {
+        element.OrderData.Currentdateandtime = (new Date(element.OrderData.Currentdateandtime)).toLocaleDateString('en-GB');
+        return element;
+    });
+    return jVarLocalReturnArray;
+};
 
 export { StartFunc }
