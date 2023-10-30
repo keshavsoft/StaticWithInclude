@@ -64,7 +64,7 @@
         <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="../../Dashboard/Dashboard.html">Dashboard</a></li>
-                <li class="breadcrumb-item active" aria-current="page">QrCodesTable</li>
+                <li class="breadcrumb-item active" aria-current="page">OrdersBSTable</li>
             </ol>
         </nav>
     </div>
@@ -103,15 +103,14 @@
                         <span class="visually-hidden">Loading...</span>
                     </div>
 
-                    <table id="table" data-toolbar="#toolbar" data-search="true" data-show-footer="true" data-searchable="true" data-show-columns="true" data-show-columns-toggle-all="true" data-show-export="true" data-detail-view="true" data-detail-formatter="detailFormatter" data-id-field="pk" data-show-toggle="true">
+                    <table id="table" data-toolbar="#toolbar" data-search="true" data-show-footer="true" data-searchable="true" data-show-columns="true" data-show-columns-toggle-all="true" data-show-export="true" data-detail-view="true" data-detail-formatter="detailFormatter" data-id-field="pk" data-filter-control="true" data-show-toggle="true">
                         <thead>
                             <tr id="tableHeadRow">
                                 <th data-formatter="jFLocalSerialColumn">#</th>
                                 <th data-field="pk">Order Number</th>
-                                <th data-field="CustomerData.CustomerName">Customer Name</th>
-                                <th data-field="OrderData.BranchName">Branch</th>
-                                <th data-field="CustomerData.CustomerMobile">Mobile</th>
-                                <th data-formatter="jFLocalDateFormatter">Date</th>
+                                <th data-field="CustomerData.CustomerName" data-filter-control="select">Customer Name</th>
+                                <th data-field="CustomerData.CustomerMobile" data-filter-control="select">Mobile</th>
+                                <th data-formatter="jFLocalDateFormatter" data-filter-control="select">Date</th>
                                 <th data-formatter="jFLocalOrderDetails">Order Details</th>
                                 <th data-formatter="jFLocalSettlementDetails" data-footer-formatter="priceFormatter">Settlement</th>
                                 <th data-formatter="jFLocalQrCodeDetails" data-footer-formatter="QrFormatter">QrCodes</th>
@@ -245,7 +244,7 @@
     <script src="./Js/headerChange.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script src="./Js/QrCodesTable.js" type="module"></script>
+    <script src="./Js/OrdersBSTable.js" type="module"></script>
 </body>
 
 </html>
