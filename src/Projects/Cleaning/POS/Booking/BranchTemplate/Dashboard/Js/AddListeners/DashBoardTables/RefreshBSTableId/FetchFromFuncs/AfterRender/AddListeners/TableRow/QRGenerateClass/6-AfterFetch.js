@@ -25,6 +25,18 @@ let StartFunc = async ({ inFromFetch }) => {
             let jVarLocalRefreshBSTableId = document.getElementById(jVarLocalHtmlId);
             jVarLocalRefreshBSTableId.click();
 
+            let jVarLocalHtmlId1 = 'LatestQrCodesRefreshBSTableId';
+            let jVarLocalLatestQrCodesRefreshBSTableId = document.getElementById(jVarLocalHtmlId1);
+            jVarLocalLatestQrCodesRefreshBSTableId.click();
+
+            let jVarLocalHtmlId2 = 'TotalCountLinkId';
+            let jVarLocalTotalCountLinkId = document.getElementById(jVarLocalHtmlId2);
+            jVarLocalTotalCountLinkId.click();
+
+            let jVarLocalHtmlId3 = 'TodayCountLinkId';
+            let jVarLocalTodayCountLinkId = document.getElementById(jVarLocalHtmlId3);
+            jVarLocalTodayCountLinkId.click();
+
         };
     };
 
