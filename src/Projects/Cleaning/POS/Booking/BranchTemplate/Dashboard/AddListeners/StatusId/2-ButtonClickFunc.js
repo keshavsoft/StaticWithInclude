@@ -28,6 +28,10 @@ let StartFunc = () => {
     let jVarLocalLatestQrCodesRefreshBSTableId = document.getElementById(jVarLocalHtmlId3);
     jVarLocalLatestQrCodesRefreshBSTableId.click();
 
+    let jVarLocalHtmlId4 = 'LatestDCRefreshTableId';
+    let jVarLocalLatestDCRefreshTableId = document.getElementById(jVarLocalHtmlId4);
+    jVarLocalLatestDCRefreshTableId.click();
+
     let jVarLocalHtmlId1 = 'TotalCountLinkId';
     let jVarLocalTotalCountLinkId = document.getElementById(jVarLocalHtmlId1);
     jVarLocalTotalCountLinkId.click();
@@ -35,6 +39,8 @@ let StartFunc = () => {
     let jVarLocalHtmlId2 = 'TodayCountLinkId';
     let jVarLocalTodayCountLinkId = document.getElementById(jVarLocalHtmlId2);
     jVarLocalTodayCountLinkId.click();
+
+
 };
 
 export { StartFunc };
