@@ -18,7 +18,7 @@ let jFLocalShowDateDiffInMinSec = ({ inData }) => {
         element.ShowRunTime = {};
         //  element.ShowRunTime.KInterVal = (new Date() - new Date(element.OrderData.Currentdateandtime)) / 1000;
 
-        element.ShowRunTime.KInterVal = jFLocalKInterval({ inCurrentdateandtime: element.BookingData.OrderData.Currentdateandtime });
+        element.ShowRunTime.KInterVal = jFLocalKInterval({ inCurrentdateandtime: element.DateTime });
 
         return element;
     });
