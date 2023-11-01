@@ -1,3 +1,5 @@
+import { StartFunc as StartFuncDCDetails } from "./DCDetails/Entry.js";
+
 let StartFunc = () => {
 
     let jVarLocalVoucherRefValue = getUrlQueryParams({ inGetKey: "VoucherRef" });
@@ -12,6 +14,7 @@ let StartFunc = () => {
     jFLocalToInputInputVoucherRefId({ inInputVoucherRefId: jVarLocalVoucherRefValue })
     JFlocalShowAlertFunc();
     JFlocalNewPkAlertFunc();
+    StartFuncDCDetails();
 
 };
 
