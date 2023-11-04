@@ -1,9 +1,6 @@
-import { StartFunc as StartFuncItemDetails } from "../../FormLoad/ItemDetails/EntryFile.js";
-
 let StartFunc = async ({ inDataToShow }) => {
-    let jVarLocalDataToShow = jFLocalToArray({ inDataToShow });
+    let jVarLocalDataToShow = inDataToShow;
     console.log("jVarLocalDataToShow : ", jVarLocalDataToShow);
-    jVarGlobalPresentViewData = await StartFuncItemDetails();
 
     let jVarLocalHtmlId = 'tableHeadRow';
     let jVarLocaltableHeadRow = document.getElementById(jVarLocalHtmlId);
@@ -14,16 +11,14 @@ let StartFunc = async ({ inDataToShow }) => {
     jVarLocaltableHeadRow.appendChild(jFLocalDateColumn());
     jVarLocaltableHeadRow.appendChild(jFLocalDescriptionColumn());
     jVarLocaltableHeadRow.appendChild(jFLocalDateTimeColumn());
-    // jVarLocaltableHeadRow.appendChild(jFLocalItemsColumn());
+    jVarLocaltableHeadRow.appendChild(jFLocalItemsColumn());
     jVarLocaltableHeadRow.appendChild(jFLocalScanColumn());
 
     var $table = $('#table');
     $table.bootstrapTable({
         data: jVarLocalDataToShow,
     });
-    // let elements = Object.keys(jVarGlobalPresentViewData.JsonData).forEach(element => {
-    //     console.log("element",element);
-    // });
+    
 };
 
 let jFLocalToArray = ({ inDataToShow }) => {
