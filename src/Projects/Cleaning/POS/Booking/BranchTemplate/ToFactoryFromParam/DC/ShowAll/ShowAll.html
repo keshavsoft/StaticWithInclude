@@ -184,25 +184,7 @@
     </script>
 
     <script>
-        let jVarGlobalPresentViewData;
-
         function ItemsFormatter(value, row, index) {
-            let localObj = {};
-            localObj.RowData = row;
-            let localArrayObj = Object.values(localObj);
-            let localItemsData = Object.keys(jVarGlobalPresentViewData.JsonData).map(i => Number(i));
-
-            let jj = localItemsData.map((ele) => {
-
-                let nn = localArrayObj.filter((element) => element.VoucherNumber === ele);
-                if (nn.length > 0) {
-                    return jVarGlobalPresentViewData.JsonData[ele];
-                }
-            });
-            let data = jj.filter(Number);
-            if(data.length === 0){
-                data[0]=0;
-            }
             return [
                 `<a class="like btn btn-primary" href="../../Scan/BSTableFilterFromVoucher/BSTableFilterFromVoucher.html?VoucherRef=${row.pk}" title="Show">`,
                 '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">',
@@ -210,7 +192,7 @@
                 '<path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>',
                 '</svg>',
                 ' ',
-                data,
+                row.ItemDetails,
                 '</a>',
                 
             ].join('')
