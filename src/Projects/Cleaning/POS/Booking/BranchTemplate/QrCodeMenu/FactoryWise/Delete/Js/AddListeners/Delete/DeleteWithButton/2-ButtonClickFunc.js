@@ -4,7 +4,6 @@ import { StartFunc as StartFuncPatchFunc } from "./5-PatchFunc.js";
 
 let StartFunc = async ({ inEvent }) => {
     let jVarLocalCurrentTarget = inEvent.currentTarget;
-    console.log("jVarLocalCurrentTarget:", jVarLocalCurrentTarget);
 
 
     if (StartFuncCheckBeforeFetch()) {

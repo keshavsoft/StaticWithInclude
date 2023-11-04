@@ -32,7 +32,7 @@ function kFormatter(value, row, index) {
 
 function operateFormatter(value, row, index) {
     return [
-        `<a class="DeleteButtonClass" href="#" data-FolderName=${row.FolderName} data-FileName=${row.FileName} data-ItemName=${row.ItemName} data-pk=${row.pk} title="Remove">`,
+        `<a class="DeleteButtonClass" href="#" data-pk=${row.pk} title="Remove">`,
         '<i class="fa fa-trash"></i>',
         '</a>'
     ].join('')

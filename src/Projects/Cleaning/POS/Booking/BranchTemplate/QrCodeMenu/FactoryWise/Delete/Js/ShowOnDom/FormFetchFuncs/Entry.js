@@ -6,7 +6,6 @@ import { StartFunc as StartFuncAfterFetch } from "../AfterFetchFuncs/EntryFile.j
 
 let StartFunc = async () => {
     let jVarLocalDataNeeded = await StartFuncButtonClickFunc();
-    console.log("jVarLocalDataNeeded::", jVarLocalDataNeeded);
 
     if (jVarLocalDataNeeded !== null) {
         await StartFuncAfterFetch({ inDataToShow: jVarLocalDataNeeded });
