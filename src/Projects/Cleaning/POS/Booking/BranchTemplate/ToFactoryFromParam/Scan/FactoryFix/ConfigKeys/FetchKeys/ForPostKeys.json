@@ -1,7 +1,7 @@
 {
-    "inFolderName": "ToFactory",
-    "inFileNameOnly": "Kakinada",
-    "inFileName": "Kakinada",
+    "inFolderName": "Factory",
+    "inFileNameOnly": "VoucherDetails",
+    "inFileName": "VoucherDetails",
     "inItemName": "QrCodeDetails",
     "inScreenName": "Create",
     "inDataToInsert": {
