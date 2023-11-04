@@ -1,7 +1,7 @@
 {
     "inFolderName": "Factory",
-    "inFileNameOnly": "VoucherDetails",
-    "inFileName": "VoucherDetails",
+    "inFileNameOnly": "QrCodeDetails",
+    "inFileName": "QrCodeDetails",
     "inItemName": "QrCodeDetails",
     "inScreenName": "Create",
     "inDataToInsert": {
