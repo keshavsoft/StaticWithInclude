@@ -4,17 +4,18 @@ import { StartFunc as StartFuncItemDetails } from "./Promises/ShowItemDetails/En
 
 let StartFunc = async () => {
     const [a, b] = await Promise.all([StartFuncVoucherDetails(), StartFuncItemDetails()]);
+
     if (a.KTF && b.KTF) {
         let jVarLocalDcData = a.JsonData;
-        let jVarLocalItemsData = b;
+        let jVarLocalItemsData = b.JsonData;
 
         let jVarLocalData = jFLocalItemsData({
             inDcData: jVarLocalDcData,
             inItemsData: jVarLocalItemsData,
 
         });
-        StartFuncAfterFetch({ inDataToShow: jVarLocalData });
 
+        StartFuncAfterFetch({ inDataToShow: jVarLocalData });
     };
 };
 
@@ -22,19 +23,29 @@ let jFLocalItemsData = ({ inDcData, inItemsData }) => {
     let jVarLocalDcData = inDcData;
     let jVarLocalItemsData = inItemsData;
 
-    let localItemsData = Object.entries(jVarLocalItemsData.JsonData);
     let localArrayObj = Object.values(jVarLocalDcData);
-    localArrayObj.forEach((element) => element.ItemDetails = "0");
-    
-    localItemsData.forEach((element) => {
-        localArrayObj.map((ele) => {
-            if (ele.pk == element[0]) {
-                ele.ItemDetails = element[1]
-            }
-        });
+
+    let jVarLocalReturnArray = localArrayObj.map((element) => {
+        // if (element.pk in inItemsData) {
+        //     element.ItemDetails = inItemsData[element.pk];
+        // } else {
+        //     element.ItemDetails = 0;
+        // };
+
+        element.ItemDetails = element.pk in jVarLocalItemsData ? jVarLocalItemsData[element.pk] : 0;
+
+        return element;
     });
 
-    return localArrayObj;
+    // localItemsData.forEach((element) => {
+    //     localArrayObj.map((ele) => {
+    //         if (ele.pk == element[0]) {
+    //             ele.ItemDetails = element[1]
+    //         }
+    //     });
+    // });
+
+    return jVarLocalReturnArray;
 };
 
 export { StartFunc }
