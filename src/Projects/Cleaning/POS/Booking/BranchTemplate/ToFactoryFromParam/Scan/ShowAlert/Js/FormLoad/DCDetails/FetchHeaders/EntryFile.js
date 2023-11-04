@@ -9,6 +9,8 @@ let StartFunc = () => {
 
     jVarLocalBodyKeysJson.FolderName = BodyKeysJson.inFolderName;
     jVarLocalBodyKeysJson.FileNameOnly = jVarLocalFileValue.search(".") === -1 ? jVarLocalFileValue : jVarLocalFileValue.split(".")[0]
+    jVarLocalBodyKeysJson.FileNameOnly = "VoucherDetails";
+    jVarLocalBodyKeysJson.FileName = "VoucherDetails";
     jVarLocalBodyKeysJson.ItemName = "VoucherDetails";
     jVarLocalBodyKeysJson.FilterString = `value.pk === ${jVarLocalFilterString}`;
     KeysJson.body = JSON.stringify(jVarLocalBodyKeysJson);
