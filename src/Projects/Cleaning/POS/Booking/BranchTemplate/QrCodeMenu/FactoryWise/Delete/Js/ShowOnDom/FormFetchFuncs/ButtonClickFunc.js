@@ -4,12 +4,11 @@ import { StartFunc as StartFuncToFactoryDC } from "./Promises/ToFactoryDC/PostFe
 
 let StartFunc = async () => {
     let [a, b, c] = await Promise.all([StartFuncGeneratedQrCodes(), StartFuncToFactory(), StartFuncToFactoryDC()]);
-    console.log("kk:", a.KTF,a);
+    
     if (a.KTF && b.KTF && c.KTF) {
         let jVarLocalDcData = c.JsonData;
 
         let jVarLocalArray = await jFLocalToArray({ inDataToShow: a.JsonData });
-        console.log("jVarLocalArray::", jVarLocalArray);
 
         let jVarLocalArrayWithFactory = jFLocalToFactory({
             inArray: jVarLocalArray,
@@ -20,7 +19,6 @@ let StartFunc = async () => {
             inArray: jVarLocalArrayWithFactory,
             inDcData: jVarLocalDcData
         });
-        console.log("jVarLocalDcArray:", jVarLocalDcArray);
 
         return jVarLocalDcArray;
         // var $table = $('#table');
