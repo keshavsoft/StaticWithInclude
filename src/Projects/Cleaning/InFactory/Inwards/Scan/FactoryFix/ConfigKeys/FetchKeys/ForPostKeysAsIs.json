@@ -1,0 +1,13 @@
+{
+    "inFolderName": "Factory",
+    "inFileNameOnly": "FactoryScan",
+    "inFileName": "FactoryScan",
+    "inItemName": "FactoryScan",
+    "inScreenName": "Create",
+    "inDataToInsert": {
+        "pk": "",
+        "ItemName": "",
+        "Rate": "",
+        "VoucherRef": ""
+    }
+}
