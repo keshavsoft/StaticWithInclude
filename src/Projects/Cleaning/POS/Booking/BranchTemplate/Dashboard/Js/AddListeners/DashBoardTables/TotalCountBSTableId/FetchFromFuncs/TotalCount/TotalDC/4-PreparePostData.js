@@ -2,9 +2,10 @@ import ApiConfig from "../../../../../../../../ApiConfig.json" assert{type: 'jso
 
 const StartFunc = () => {
     let jVarLocalBodyData = {};
-    jVarLocalBodyData.FolderName = "ToFactory";
-    jVarLocalBodyData.FileNameOnly = ApiConfig.ForFetch.FileNameOnly;
+    jVarLocalBodyData.FolderName = "Factory";
+    jVarLocalBodyData.FileNameOnly = "VoucherDetails";
     jVarLocalBodyData.ItemName = "VoucherDetails";
+    jVarLocalBodyData.FilterString = `value.BranchName === '${ApiConfig.ForFetch.FileNameOnly}'`
 
     return jVarLocalBodyData;
 };
