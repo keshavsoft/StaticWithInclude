@@ -6,6 +6,7 @@ let StartFunc = ({ inDataToShow }) => {
     jFLocalToInnerHtmlDescriptionTextId({ inDescriptionTextId: jVarLocalData.Description });
     jFLocalToInnerHtmlDateTextId({ inDateTextId: jVarLocalData.Date });
     jFLocalToInnerHtmlFactoryTextId({ inFactoryTextId: jVarLocalData.Factory });
+    jFLocalToInnerHtmlBranchNameTextId({ inBranchNameTextId: jVarLocalData.BranchName });
 };
 
 let jFLocalToInnerHtmlpkTextId = ({ inpkTextId }) => {
@@ -38,4 +39,9 @@ let jFLocalToInnerHtmlFactoryTextId = ({ inFactoryTextId }) => {
     jVarLocalFactoryTextId.value = inFactoryTextId;
 };
 
+let jFLocalToInnerHtmlBranchNameTextId = ({ inBranchNameTextId }) => {
+    let jVarLocalHtmlId = 'BranchNameTextId';
+    let jVarLocalBranchNameTextId = document.getElementById(jVarLocalHtmlId);
+    jVarLocalBranchNameTextId.value = inBranchNameTextId;
+};
 export { StartFunc };

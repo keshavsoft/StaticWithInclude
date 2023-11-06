@@ -1,7 +1,9 @@
 {
-    "inFolderName": "Factory",
-    "inFileNameOnly": "VoucherDetails",
-    "inFileName": "VoucherDetails",
-    "inItemName": "VoucherDetails",
-    "inScreenName": "Create"
+    "FolderName": "Factory",
+    "FileNameOnly": "VoucherDetails",
+    "FileName": "VoucherDetails",
+    "ItemName": "VoucherDetails",
+    "ScreenName": "Create",
+    "FilterString": "value.Factory === '{{Factory}}'"
+
 }
