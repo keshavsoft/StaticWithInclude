@@ -7,7 +7,6 @@ let CommonWalk = require("./WalkFuncs");
 let CommonFactoryArray = require("../Factories.json");
 
 let StartFunc = () => {
-    console.log("CommonFactoryArray : ", CommonFactoryArray);
     CommonFactoryArray.forEach(element => {
         CommonWalk.walk(LocalFolderPath, LocalFolderPath, `${LocalDestinationPath}${element}`, element, CommonWalk.CallBackFunc);
     });
