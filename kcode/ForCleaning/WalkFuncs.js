@@ -11,18 +11,25 @@ let LocalArrayHtml = CommonBranchesArray.map(element => {
 
 let CommonArrayHtml = LocalArrayHtml.toString().replaceAll(",", "\n");
 
-var walk = function (dir, inFolderPath, inDestinationPath, inArrayHtml, inFactoryHtml, done) {
+let CommonFactoryArray = require("./Factories.json");
+let LocalFactoryArrayHtml = CommonFactoryArray.map(element => {
+    return `<option value="${element}">${element}</option>`
+});
+
+let CommonFactoryArrayHtml = LocalFactoryArrayHtml.toString().replaceAll(",", "\n");
+
+var walk = function (dir, inFolderPath, inDestinationPath, done) {
     var results = [];
     fs.readdir(dir, function (err, list) {
         if (err) return done(err);
         var i = 0;
         (function next() {
             var file = list[i++];
-            if (!file) return done(null, inFolderPath, inDestinationPath, inArrayHtml, inFactoryHtml, results);
+            if (!file) return done(null, inFolderPath, inDestinationPath, results);
             file = path.resolve(dir, file);
             fs.stat(file, function (err, stat) {
                 if (stat && stat.isDirectory()) {
-                    walk(file, inFolderPath, inDestinationPath, inArrayHtml, inFactoryHtml, function (err, inFolderPath, inDestinationPath, inArrayHtml, inFactoryHtml, res) {
+                    walk(file, inFolderPath, inDestinationPath, function (err, inFolderPath, inDestinationPath, res) {
                         results = results.concat(res);
                         next();
                     });
@@ -35,7 +42,7 @@ var walk = function (dir, inFolderPath, inDestinationPath, inArrayHtml, inFactor
     });
 };
 
-let CallBackFunc = (err, inFolderPath, inDestinationPath, inArrayHtml, inFactoryHtml, results) => {
+let CallBackFunc = (err, inFolderPath, inDestinationPath, results) => {
     if (err) throw err;
 
     results.forEach(element => {
@@ -51,13 +58,9 @@ let CallBackFunc = (err, inFolderPath, inDestinationPath, inArrayHtml, inFactory
                     };
 
                     let LoopInideResult = result.html.replace("{{BranchArray}}", CommonArrayHtml);
-                    LoopInideResult = LoopInideResult.replace("{{FactoryArray}}", inFactoryHtml);
+                    LoopInideResult = LoopInideResult.replace("{{FactoryArray}}", CommonFactoryArrayHtml);
 
                     fs.writeFileSync(element.replace(inFolderPath, inDestinationPath), LoopInideResult);
-
-                    // fs.writeFileSync();
-
-                    // fs.writeFileSync(element.replace(inFolderPath, inDestinationPath), result.html.replace("{{FactoryArray}}", inFactoryHtml));
                 });
         } else {
             fs.copySync(element, element.replace(inFolderPath, inDestinationPath));
