@@ -15,6 +15,7 @@ let StartFunc = () => {
     JFlocalShowAlertFunc();
     JFlocalNewPkAlertFunc();
     StartFuncDCDetails();
+    jFLocalShowBranch();
 
 };
 
@@ -46,6 +47,22 @@ let jFLocalToInputInputVoucherRefId = ({ inInputVoucherRefId }) => {
     let jVarLocalHtmlId = 'InputVoucherRefId';
     let jVarLocalInputVoucherRefId = document.getElementById(jVarLocalHtmlId);
     jVarLocalInputVoucherRefId.value = inInputVoucherRefId;
+};
+
+let jFLocalShowBranch = () => {
+    let jVarLocalUrlSplit = window.location.pathname.split("/");
+    let jVarLocalBranchName = jVarLocalUrlSplit[4];
+
+    jFLocalToInputBranchName({ inBranchName: jVarLocalBranchName });
+};
+
+let jFLocalToInputBranchName = ({ inBranchName }) => {
+    let jVarLocalHtmlId = 'InputBranchNameId';
+    let jVarLocalBranchName = document.getElementById(jVarLocalHtmlId);
+
+    if (jVarLocalBranchName === null === false) {
+        jVarLocalBranchName.value = inBranchName;
+    };
 };
 
 export { StartFunc };
