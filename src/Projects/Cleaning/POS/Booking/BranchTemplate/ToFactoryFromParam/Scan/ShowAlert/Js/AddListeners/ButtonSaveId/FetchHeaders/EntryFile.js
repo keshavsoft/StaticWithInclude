@@ -10,6 +10,7 @@ let StartFunc = () => {
     BodyKeysJson.inDataToInsert.Rate = jFLocalFromDomInputSalePriceId();
     BodyKeysJson.inDataToInsert.FactorySelected = jFLocalFromDomInputFactorySelectedId();
     BodyKeysJson.inDataToInsert.VoucherRef = jFLocalFromDomInputVoucherRefId();
+    BodyKeysJson.inDataToInsert.BranchName = jFLocalFromDomInputBranchNameId();
     BodyKeysJson.inDataToInsert.VoucherNumber = jFLocalFromDomVoucherNumberTextId();
     BodyKeysJson.inDataToInsert.DCFactory = jFLocalFromDomDCFactoryTextId();
     BodyKeysJson.inDataToInsert.DCDate = jFLocalFromDomDateTextId();
@@ -46,6 +47,13 @@ let jFLocalFromDomInputVoucherRefId = () => {
    let jVarHtmlInputVoucherRefId = document.getElementById(jVarLocalHtmlInputVoucherRefId);
    let jVarHtmlInputVoucherRefIdValue = jVarHtmlInputVoucherRefId.value.trim();
    return jVarHtmlInputVoucherRefIdValue;
+};
+
+let jFLocalFromDomInputBranchNameId = () => {
+    let jVarLocalHtmlInputBranchNameId = 'InputBranchNameId';
+   let jVarHtmlInputBranchNameId = document.getElementById(jVarLocalHtmlInputBranchNameId);
+   let jVarHtmlInputBranchNameIdValue = jVarHtmlInputBranchNameId.value.trim();
+   return jVarHtmlInputBranchNameIdValue;
 };
 
 let jFLocalFromDomVoucherNumberTextId = () => {
