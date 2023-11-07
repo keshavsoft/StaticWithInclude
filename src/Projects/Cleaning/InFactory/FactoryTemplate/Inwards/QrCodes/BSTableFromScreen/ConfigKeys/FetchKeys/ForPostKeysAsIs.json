@@ -1,7 +1,8 @@
 {
-    "inFolderName": "Factory",
-    "inFileNameOnly": "FactoryScan",
-    "inFileName": "FactoryScan",
-    "inItemName": "FactoryScan",
-    "inScreenName": "Create"
+    "FolderName": "Factory",
+    "FileNameOnly": "FactoryScan",
+    "FileName": "FactoryScan",
+    "ItemName": "FactoryScan",
+    "ScreenName": "Create",
+    "FilterString": "value.DCFactory === '{{Factory}}'"
 }

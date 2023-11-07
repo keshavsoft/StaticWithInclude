@@ -7,6 +7,14 @@ let StartFunc = ({ inDataToShow }) => {
     jFLocalToInnerHtmlDateTextId({ inDateTextId: jVarLocalData.Date });
     jFLocalToInnerHtmlFactoryTextId({ inFactoryTextId: jVarLocalData.Factory });
     jFLocalToInnerHtmlBranchNameTextId({ inBranchNameTextId: jVarLocalData.BranchName });
+
+
+    jFLocalToInputpkDCDetailsTextId({ inpkDCDetailsTextId: jVarLocalData.pk });
+    jFLocalToInputVoucherNumberDCDetailsTextId({ inVoucherNumberDCDetailsTextId: jVarLocalData.VoucherNumber });
+    jFLocalToInputDateTextDCDetailsId({ inDateTextDCDetailsId: jVarLocalData.Date});
+    jFLocalToInputDescriptionTextDCDetailsId({ inDescriptionTextDCDetailsId: jVarLocalData.Description});
+    jFLocalToInputDCFactoryDCDetailsTextId({ inDCFactoryDCDetailsTextId: jVarLocalData.Factory});
+    jFLocalToInputDCBranchNameDCDetailsTextId({ inDCBranchNameDCDetailsTextId: jVarLocalData.BranchName});
 };
 
 let jFLocalToInnerHtmlpkTextId = ({ inpkTextId }) => {
@@ -44,4 +52,59 @@ let jFLocalToInnerHtmlBranchNameTextId = ({ inBranchNameTextId }) => {
     let jVarLocalBranchNameTextId = document.getElementById(jVarLocalHtmlId);
     jVarLocalBranchNameTextId.value = inBranchNameTextId;
 };
+
+let jFLocalToInputpkDCDetailsTextId = ({ inpkDCDetailsTextId }) => {
+    let jVarLocalHtmlId = 'pkDCDetailsTextId';
+   let jVarLocalpkDCDetailsTextId = document.getElementById(jVarLocalHtmlId);
+   
+   if (jVarLocalpkDCDetailsTextId === null === false) {
+      jVarLocalpkDCDetailsTextId.innerHTML = inpkDCDetailsTextId;
+   };
+};
+
+let jFLocalToInputVoucherNumberDCDetailsTextId = ({ inVoucherNumberDCDetailsTextId }) => {
+    let jVarLocalHtmlId = 'VoucherNumberDCDetailsTextId';
+   let jVarLocalVoucherNumberDCDetailsTextId = document.getElementById(jVarLocalHtmlId);
+   
+   if (jVarLocalVoucherNumberDCDetailsTextId === null === false) {
+      jVarLocalVoucherNumberDCDetailsTextId.innerHTML = inVoucherNumberDCDetailsTextId;
+   };
+};
+
+let jFLocalToInputDateTextDCDetailsId = ({ inDateTextDCDetailsId }) => {
+    let jVarLocalHtmlId = 'DateTextDCDetailsId';
+   let jVarLocalDateTextDCDetailsId = document.getElementById(jVarLocalHtmlId);
+   
+   if (jVarLocalDateTextDCDetailsId === null === false) {
+      jVarLocalDateTextDCDetailsId.innerHTML = inDateTextDCDetailsId;
+   };
+};
+
+let jFLocalToInputDescriptionTextDCDetailsId = ({ inDescriptionTextDCDetailsId }) => {
+    let jVarLocalHtmlId = 'DescriptionTextDCDetailsId';
+   let jVarLocalDescriptionTextDCDetailsId = document.getElementById(jVarLocalHtmlId);
+   
+   if (jVarLocalDescriptionTextDCDetailsId === null === false) {
+      jVarLocalDescriptionTextDCDetailsId.innerHTML = inDescriptionTextDCDetailsId;
+   };
+};
+
+let jFLocalToInputDCFactoryDCDetailsTextId = ({ inDCFactoryDCDetailsTextId }) => {
+    let jVarLocalHtmlId = 'DCFactoryDCDetailsTextId';
+   let jVarLocalDCFactoryDCDetailsTextId = document.getElementById(jVarLocalHtmlId);
+   
+   if (jVarLocalDCFactoryDCDetailsTextId === null === false) {
+      jVarLocalDCFactoryDCDetailsTextId.innerHTML = inDCFactoryDCDetailsTextId;
+   };
+};
+
+let jFLocalToInputDCBranchNameDCDetailsTextId = ({ inDCBranchNameDCDetailsTextId }) => {
+    let jVarLocalHtmlId = 'DCBranchNameDCDetailsTextId';
+   let jVarLocalDCBranchNameDCDetailsTextId = document.getElementById(jVarLocalHtmlId);
+   
+   if (jVarLocalDCBranchNameDCDetailsTextId === null === false) {
+      jVarLocalDCBranchNameDCDetailsTextId.innerHTML = inDCBranchNameDCDetailsTextId;
+   };
+};
+
 export { StartFunc };
