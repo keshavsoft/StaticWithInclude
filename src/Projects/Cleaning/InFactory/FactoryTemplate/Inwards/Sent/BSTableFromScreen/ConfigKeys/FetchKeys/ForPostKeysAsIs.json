@@ -1,0 +1,8 @@
+{
+    "FolderName": "Factory",
+    "FileNameOnly": "QrCodeDetails",
+    "FileName": "QrCodeDetails",
+    "ItemName": "QrCodeDetails",
+    "ScreenName": "Create",
+    "FilterString": "value.DCFactory === '{{Factory}}'"
+}

@@ -1,13 +1,15 @@
 import { StartFunc as StartFuncAfterFetch } from "./FetchFuncs/AfterFetch/EntryFile.js";
 import { StartFunc as StartFuncVoucherDetails } from "./Promises/ShowVoucherDetails/PostFetch.js";
 import { StartFunc as StartFuncItemDetails } from "./Promises/ShowItemDetails/EntryFile.js";
+import { StartFunc as StartFuncSentItemDetails } from "./Promises/ShowSentItemDetails/EntryFile.js";
 
 let StartFunc = async () => {
-    const [a, b] = await Promise.all([StartFuncVoucherDetails(), StartFuncItemDetails()]);
+    const [a, b, c] = await Promise.all([StartFuncVoucherDetails(), StartFuncItemDetails(), StartFuncSentItemDetails()]);
 
-    if (a.KTF && b.KTF) {
+    if (a.KTF && b.KTF && c.KTF) {
         let jVarLocalDcData = a.JsonData;
         let jVarLocalItemsData = b.JsonData;
+        let jVarLocalSentItemsData = c.JsonData;
 
         let jVarLocalData = jFLocalItemsData({
             inDcData: jVarLocalDcData,
@@ -15,7 +17,13 @@ let StartFunc = async () => {
 
         });
 
-        StartFuncAfterFetch({ inDataToShow: jVarLocalData });
+         let jVarLocalSentItemData = jFLocalSentItemsData({
+            inDcData: jVarLocalData,
+            inItemsData: jVarLocalSentItemsData,
+
+        });
+
+        StartFuncAfterFetch({ inDataToShow: jVarLocalSentItemData });
     };
 };
 
@@ -26,24 +34,27 @@ let jFLocalItemsData = ({ inDcData, inItemsData }) => {
     let localArrayObj = Object.values(jVarLocalDcData);
 
     let jVarLocalReturnArray = localArrayObj.map((element) => {
-        // if (element.pk in inItemsData) {
-        //     element.ItemDetails = inItemsData[element.pk];
-        // } else {
-        //     element.ItemDetails = 0;
-        // };
 
         element.ItemDetails = element.pk in jVarLocalItemsData ? jVarLocalItemsData[element.pk] : 0;
 
         return element;
     });
 
-    // localItemsData.forEach((element) => {
-    //     localArrayObj.map((ele) => {
-    //         if (ele.pk == element[0]) {
-    //             ele.ItemDetails = element[1]
-    //         }
-    //     });
-    // });
+    return jVarLocalReturnArray;
+};
+
+let jFLocalSentItemsData = ({ inDcData, inItemsData }) => {
+    let jVarLocalDcData = inDcData;
+    let jVarLocalItemsData = inItemsData;
+
+    let localArrayObj = Object.values(jVarLocalDcData);
+
+    let jVarLocalReturnArray = localArrayObj.map((element) => {
+
+        element.SentItemsDetails = element.pk in jVarLocalItemsData ? jVarLocalItemsData[element.pk] : 0;
+
+        return element;
+    });
 
     return jVarLocalReturnArray;
 };
