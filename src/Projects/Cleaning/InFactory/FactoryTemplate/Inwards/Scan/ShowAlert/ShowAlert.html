@@ -91,8 +91,8 @@
             <div class="container mt-2">
                 <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="../../../Dashboard/Dashboard.html">Dashboard</a></li>
-                        <li class="breadcrumb-item"><a href="../../DashBoard.html">To Factory</a></li>
+                        <li class="breadcrumb-item"><a href="../../../../Menu.html">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="../../DashBoard.html">Factory</a></li>
                         <li class="breadcrumb-item"><a href="../../DC/ShowAll/ShowAll.html">DC</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Create</li>
                     </ol>
@@ -103,72 +103,102 @@
                 <strong id="AlertSuccessIdUserName">SavedPk</strong> sent sucessfully.
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-
-            <div class="card mt-2">
-                <div class="card-header">
-                    Scan Qrcode
-                </div>
-                
-                <div class="card-body">
-
-                    <div class="mb-3">
-                        <label for="InputPkId" class="form-label">Pk</label>
-                        <input type="text" class="form-control" id="InputPkId" placeholder="Scan QrCode" autofocus="">
-                    </div>
-                    <div class="mb-3">
-                        <label for="InputProductNameId" class="form-label">Item Name</label>
-                        <input type="text" class="form-control" id="InputProductNameId" placeholder="Enter Item Name"
-                            autofocus="">
-                    </div>
-                    <div class="mb-3">
-                        <label for="InputSalePriceId" class="form-label">Rate</label>
-                        <input type="text" class="form-control" id="InputSalePriceId" placeholder="Enter Rate"
-                            autofocus="">
-                    </div>
-                    <div class="mb-3">
-                        <label for="InputFactorySelectedId" class="form-label">Factory Selected</label>
-                        <input type="text" class="form-control" id="InputFactorySelectedId" placeholder="Enter Factory Selected"
-                            autofocus="">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="InputVoucherRefId" class="form-label">Voucher Ref</label>
-                        <input type="text" class="form-control" id="InputVoucherRefId" placeholder="Enter VoucherRef"
-                            autofocus="">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="VoucherNumberTextId" class="form-label">Voucher Number</label>
-                        <input type="text" class="form-control" id="VoucherNumberTextId" placeholder="Enter Voucher Number" autofocus="">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="DCFactoryTextId" class="form-label">DC Factory</label>
-                        <input type="text" class="form-control" id="DCFactoryTextId" placeholder="Enter DC Factory"
-                            autofocus="">
-                    </div>
-                    <div class="mb-3">
-                        <label for="BranchNameTextId" class="form-label">Branch Name</label>
-                        <input type="text" class="form-control" id="BranchNameTextId" placeholder="Enter Branch Name"
-                            autofocus="">
-                    </div>
-                    <div class="mb-3">
-                        <label for="DescriptionTextId" class="form-label">Description</label>
-                        <input type="text" class="form-control" id="DescriptionTextId" placeholder="Enter Description"
-                            autofocus="">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="DateTextId" class="form-label"> DC Date</label>
-                        <input type="text" class="form-control" id="DateTextId" placeholder="Enter Date"
-                            autofocus="">
-                    </div>
-
-                </div>
-                <div class="card-footer">
-                    <button type="button" class="btn btn-success" id="ButtonSaveId">Save</button>
-                </div>
+<div class="row">
+    <div class="col">
+        <div class="card mt-2">
+            <div class="card-header">
+                Scan Qrcode
             </div>
+            
+            <div class="card-body">
+
+                <div class="mb-3">
+                    <label for="InputPkId" class="form-label">Pk</label>
+                    <input type="text" class="form-control" id="InputPkId" placeholder="Scan QrCode" autofocus="">
+                </div>
+                <div class="mb-3">
+                    <label for="InputProductNameId" class="form-label">Item Name</label>
+                    <input type="text" class="form-control" id="InputProductNameId" placeholder="Enter Item Name"
+                        autofocus="">
+                </div>
+                <div class="mb-3">
+                    <label for="InputSalePriceId" class="form-label">Rate</label>
+                    <input type="text" class="form-control" id="InputSalePriceId" placeholder="Enter Rate"
+                        autofocus="">
+                </div>
+                <div class="mb-3">
+                    <label for="InputFactorySelectedId" class="form-label">Factory Selected</label>
+                    <input type="text" class="form-control" id="InputFactorySelectedId" placeholder="Enter Factory Selected"
+                        autofocus="">
+                </div>
+
+                <div class="mb-3">
+                    <label for="InputVoucherRefId" class="form-label">Voucher Ref</label>
+                    <input type="text" class="form-control" id="InputVoucherRefId" placeholder="Enter VoucherRef"
+                        autofocus="">
+                </div>
+
+                <div class="mb-3">
+                    <label for="VoucherNumberTextId" class="form-label">Voucher Number</label>
+                    <input type="text" class="form-control" id="VoucherNumberTextId" placeholder="Enter Voucher Number" autofocus="">
+                </div>
+
+                <div class="mb-3">
+                    <label for="DCFactoryTextId" class="form-label">DC Factory</label>
+                    <input type="text" class="form-control" id="DCFactoryTextId" placeholder="Enter DC Factory"
+                        autofocus="">
+                </div>
+                <div class="mb-3">
+                    <label for="BranchNameTextId" class="form-label">Branch Name</label>
+                    <input type="text" class="form-control" id="BranchNameTextId" placeholder="Enter Branch Name"
+                        autofocus="">
+                </div>
+                <div class="mb-3">
+                    <label for="DescriptionTextId" class="form-label">Description</label>
+                    <input type="text" class="form-control" id="DescriptionTextId" placeholder="Enter Description"
+                        autofocus="">
+                </div>
+
+                <div class="mb-3">
+                    <label for="DateTextId" class="form-label"> DC Date</label>
+                    <input type="text" class="form-control" id="DateTextId" placeholder="Enter Date"
+                        autofocus="">
+                </div>
+
+            </div>
+            <div class="card-footer">
+                <button type="button" class="btn btn-success" id="ButtonSaveId">Save</button>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="container">
+            <h6 style="display: inline;">Pk: </h6>
+            <p style="display: inline;" id="pkDCDetailsTextId">Not found</p>
+        </div>
+        <div class="container">
+            <h6 style="display: inline;">Voucher Number: </h6>
+            <p style="display: inline;" id="VoucherNumberDCDetailsTextId">Not found</p>
+        </div>
+        <div class="container">
+            <h6 style="display: inline;">Date: </h6>
+            <p style="display: inline;" id="DateTextDCDetailsId">Not found</p>
+        </div>
+        <div class="container">
+            <h6 style="display: inline;">Description: </h6>
+            <p style="display: inline;" id="DescriptionTextDCDetailsId">Not found</p>
+        </div>
+        <div class="container">
+            <h6 style="display: inline;">DC Factory: </h6>
+            <p style="display: inline;" id="DCFactoryDCDetailsTextId">Not found</p>
+        </div>
+        <div class="container">
+            <h6 style="display: inline;">DC Branch Name: </h6>
+            <p style="display: inline;" id="DCBranchNameDCDetailsTextId">Not found</p>
+        </div>
+    </div>
+</div>
+           
         </div>
     </main>
 
