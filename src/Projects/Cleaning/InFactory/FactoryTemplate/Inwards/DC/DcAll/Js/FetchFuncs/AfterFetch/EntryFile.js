@@ -111,7 +111,7 @@ let jFLocalSentItemsColumn = () => {
     let jVarLocalNewTh = document.createElement("th");
     jVarLocalNewTh.innerHTML = "Sent Items";
     jVarLocalNewTh.setAttribute("data-formatter", "SentItemsFormatter")
-    jVarLocalNewTh.setAttribute("data-footer-formatter", "priceFormatter")
+    jVarLocalNewTh.setAttribute("data-footer-formatter", "SentItemsPriceFormatter")
 
     return jVarLocalNewTh;
 };
@@ -120,7 +120,7 @@ let jFLocalItemsColumn = () => {
     let jVarLocalNewTh = document.createElement("th");
     jVarLocalNewTh.innerHTML = "Items";
     jVarLocalNewTh.setAttribute("data-formatter", "ItemsFormatter")
-    jVarLocalNewTh.setAttribute("data-footer-formatter", "SentItemsPriceFormatter")
+    jVarLocalNewTh.setAttribute("data-footer-formatter", "priceFormatter")
 
     return jVarLocalNewTh;
 };
