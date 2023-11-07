@@ -30,38 +30,15 @@
 
     <include src="./src/components/Cleaning/POS/Booking/BranchTemplate/ToFactory/DCHeader.html"></include>
 
-
-    <div class="modal fade" id="LoginModalId" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Enter client user credentials</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="LoginFormPopUpId" class="" onsubmit="return false" novalidate="">
-                        <div class="mb-3 form-floating is-valid">
-                            <input type="text" class="form-control" id="KUserNameInput" required="">
-                            <label for="KUserNameInput">User Name</label>
-                            <div class="invalid-feedback">
-                                User Name cannot be empty.
-                            </div>
-                        </div>
-                        <div class="mb-3 form-floating">
-                            <input type="password" class="form-control" id="KPasswordInput" required="">
-                            <label for="KPasswordInput">Password</label>
-                            <div class="invalid-feedback">
-                                Password cannot be empty.
-                            </div>
-                        </div>
-                        <input id="LoginButtonOnModalId" type="submit" class=" btn btn-primary">
-                    </form>
-                </div>
-            </div>
-        </div>
+    <div class="container mt-2">
+        <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../../../Menu.html">Menu</a></li>
+                <li class="breadcrumb-item"><a href="../../Dashboard.html">Factory</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Show All</li>
+            </ol>
+        </nav>
     </div>
-
-
     <main>
         <div class="container">
             <div id="AlertSuccessId" class="alert alert-success alert-dismissible fade show mt-2" role="alert" style="display: none;">
@@ -83,7 +60,7 @@
 
             <div class="card mt-3">
                 <div class="card-header text-bg-secondary">
-                    Customers
+                    DC Show
                 </div>
                 <div class="card-body">
                     <table id="table" data-toolbar="#toolbar" data-search="true" data-searchable="true" data-show-columns="true" data-show-columns-toggle-all="true" data-click-to-select="true" data-filter-control="true" data-show-export="true" data-detail-view="true" data-detail-formatter="detailFormatter" data-id-field="pk" data-show-toggle="true">
@@ -193,6 +170,21 @@
                 '</svg>',
                 ' ',
                 row.ItemDetails,
+                '</a>',
+                
+            ].join('')
+
+        };
+
+        function SentItemsFormatter(value, row, index) {
+            return [
+                `<a class="like btn btn-success" href="../../Sent/BSTableFilterFromVoucher/BSTableFilterFromVoucher.html?VoucherRef=${row.pk}" title="Show">`,
+                '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">',
+                '<path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>',
+                '<path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>',
+                '</svg>',
+                ' ',
+                row.SentItemsDetails,
                 '</a>',
                 
             ].join('')

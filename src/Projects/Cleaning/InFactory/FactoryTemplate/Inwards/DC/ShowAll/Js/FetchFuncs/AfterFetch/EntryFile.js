@@ -12,6 +12,7 @@ let StartFunc = async ({ inDataToShow }) => {
     jVarLocaltableHeadRow.appendChild(jFLocalDateColumn());
     jVarLocaltableHeadRow.appendChild(jFLocalDescriptionColumn());
     jVarLocaltableHeadRow.appendChild(jFLocalDateTimeColumn());
+    jVarLocaltableHeadRow.appendChild(jFLocalSentItemsColumn());
     jVarLocaltableHeadRow.appendChild(jFLocalItemsColumn());
     jVarLocaltableHeadRow.appendChild(jFLocalScanColumn());
 
@@ -103,6 +104,13 @@ let jFLocalDateTimeColumn = () => {
     jVarLocalNewTh.innerHTML = "DateTime";
     jVarLocalNewTh.dataset.field = "DateTime";
     jVarLocalNewTh.setAttribute("data-filter-control", "select")
+    return jVarLocalNewTh;
+};
+
+let jFLocalSentItemsColumn = () => {
+    let jVarLocalNewTh = document.createElement("th");
+    jVarLocalNewTh.innerHTML = "Sent Items";
+    jVarLocalNewTh.setAttribute("data-formatter", "SentItemsFormatter")
     return jVarLocalNewTh;
 };
 
