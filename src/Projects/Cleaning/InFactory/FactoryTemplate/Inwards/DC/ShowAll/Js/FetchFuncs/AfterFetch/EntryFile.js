@@ -109,14 +109,14 @@ let jFLocalDateTimeColumn = () => {
 
 let jFLocalSentItemsColumn = () => {
     let jVarLocalNewTh = document.createElement("th");
-    jVarLocalNewTh.innerHTML = "Sent Items";
+    jVarLocalNewTh.innerHTML = "Sent";
     jVarLocalNewTh.setAttribute("data-formatter", "SentItemsFormatter")
     return jVarLocalNewTh;
 };
 
 let jFLocalItemsColumn = () => {
     let jVarLocalNewTh = document.createElement("th");
-    jVarLocalNewTh.innerHTML = "Items";
+    jVarLocalNewTh.innerHTML = "Accepted";
     jVarLocalNewTh.setAttribute("data-formatter", "ItemsFormatter")
     return jVarLocalNewTh;
 };
