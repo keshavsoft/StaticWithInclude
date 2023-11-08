@@ -128,7 +128,9 @@
                             <tr id="tableHeadRow">
                                 <th data-formatter="jFLocalSerialColumn">#</th>
                                 <th data-field="pk">QrCode</th>
-                                <th data-field="GenerateReference.ReferncePk" data-filter-control="select">Order #</th>
+                                <!-- <th data-field="GenerateReference.ReferncePk" data-filter-control="select">Order #</th> -->
+                                <th data-formatter="jFLocalOrder" >Order #</th>
+
                                 <th data-field="location" data-filter-control="select">Factory</th>
                                 <th data-field="ItemSerial" data-filter-control="select">ItemSerial</th>
                                 <th data-field="ItemName" data-filter-control="select">ItemName</th>
@@ -163,6 +165,13 @@
         function jFLocalSerialColumn(value, row, index){
             return index + 1;
         };
+
+        function jFLocalOrder(value, row, index){
+            console.log(row);
+            return [
+                `<a href="../../../QrCodeMenu/FromOrders/FromOrdersTree/FromOrdersTree.html?OrderNumber=${row.GenerateReference.ReferncePk}&Branch=${row.GenerateReference.FileNameOnly}" class="btn btn-success" >${row.GenerateReference.ReferncePk}</a>`,
+            ].join('')
+        }
 
         function operateFormatter(value, row, index) {
     return [
