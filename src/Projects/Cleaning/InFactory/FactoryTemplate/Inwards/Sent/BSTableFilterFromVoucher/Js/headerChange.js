@@ -5,16 +5,27 @@ let jFChangeHeaderActiveClass = () => {
 };
 
 let jFChangeNavAnchorClass = ({ inClassName }) => {
-    let jVarLocalNavBarId = document.getElementById("NavBarId");
-    let jVarLocalAnchorNeeded = jVarLocalNavBarId.querySelector(`.${inClassName}AClass`);
+    let jVarLocalId = "NavBarId";
+    let jVarLocalNavBarId = document.getElementById(jVarLocalId);
 
-    if (jVarLocalAnchorNeeded !== null) {
+    jFLocalRemoveActiveClassForAllATags({ inHtmlId: jVarLocalNavBarId });
+    jFLocalAddActiveClassToPresentHtml({ inHtmlId: jVarLocalNavBarId, inClassName });
+};
 
-        if (jVarLocalAnchorNeeded.classList.contains("text-white")) {
-            jVarLocalAnchorNeeded.classList.remove("text-white");
-        };
+let jFLocalRemoveActiveClassForAllATags = ({ inHtmlId }) => {
+    let jVarLocalA = inHtmlId.querySelectorAll("a");
 
-        jVarLocalAnchorNeeded.classList.add("text-info");
+    for (let i = 0; i < jVarLocalA.length; i++) {
+        jVarLocalA[i].classList.remove("text-info");
+    };
+};
+
+let jFLocalAddActiveClassToPresentHtml = ({ inHtmlId, inClassName }) => {
+    let jVarLocalA = inHtmlId.querySelector(`[href*="${inClassName}"]`);
+
+    if (jVarLocalA === null === false) {
+        jVarLocalA.classList.remove("text-white");
+        jVarLocalA.classList.add("text-info");
     };
 };
 
