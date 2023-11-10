@@ -1,9 +1,7 @@
 import KeysJson from './Keys.json' assert {type: 'json'};
-import BodyKeysJson from '../../../../ConfigKeys/FetchKeys/ForPostKeysAsIs.json' assert {type: 'json'};
+import BodyKeysJson from './ForPostKeysAsIs.json' assert {type: 'json'};
 
 let StartFunc = () => {
-
-    BodyKeysJson.inDataToInsert = {};
 
     BodyKeysJson.inDataToInsert.pk = jFLocalFromDomInputPkId();
     BodyKeysJson.inDataToInsert.ItemName = jFLocalFromDomInputProductNameId();

@@ -1,8 +1,8 @@
 {
-    "inFolderName": "Factory",
-    "inFileNameOnly": "FactoryCompleted",
-    "inFileName": "FactoryCompleted",
-    "inItemName": "FactoryCompleted",
+    "inFolderName": "FactoryOutwards",
+    "inFileNameOnly": "QrCodeDetails",
+    "inFileName": "QrCodeDetails",
+    "inItemName": "QrCodeDetails",
     "inScreenName": "Create",
     "inDataToInsert": {
         "pk": "",

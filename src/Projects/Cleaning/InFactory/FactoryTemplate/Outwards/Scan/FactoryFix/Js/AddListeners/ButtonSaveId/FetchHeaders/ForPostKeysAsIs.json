@@ -1,0 +1,19 @@
+{
+    "inFolderName": "FactoryOutwards",
+    "inFileNameOnly": "QrCodeDetails",
+    "inFileName": "QrCodeDetails",
+    "inItemName": "QrCodeDetails",
+    "inScreenName": "Create",
+    "inDataToInsert": {
+        "pk": "",
+        "ItemName": "",
+        "Rate": "",
+        "FactorySelected": "",
+        "VoucherRef": "",
+        "VoucherNumber": "",
+        "DCFactory": "",
+        "BranchName": "",
+        "DCDate": "",
+        "DCDescription": ""
+    }
+}

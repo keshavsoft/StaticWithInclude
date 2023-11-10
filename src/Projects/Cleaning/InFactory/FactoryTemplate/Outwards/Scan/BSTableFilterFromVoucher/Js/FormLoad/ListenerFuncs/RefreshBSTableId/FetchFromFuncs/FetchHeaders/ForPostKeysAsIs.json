@@ -1,0 +1,8 @@
+{
+    "FolderName": "FactoryOutwards",
+    "FileNameOnly": "QrCodeDetails",
+    "FileName": "QrCodeDetails",
+    "ItemName": "QrCodeDetails",
+    "ScreenName": "Create",
+    "FilterString": "value.VoucherRef === {{VoucherRef}}"
+}
