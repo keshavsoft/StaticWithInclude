@@ -1,10 +1,8 @@
 import KeysJson from './Keys.json' assert {type: 'json'};
-import BodyKeysJson from '../../../../../../ConfigKeys/FetchKeys/ForPostKeysAsIs.json' assert {type: 'json'};
+import BodyKeysJson from './ForPostKeysAsIs.json' assert {type: 'json'};
 
 let StartFunc = () => {
-    let jVarLocalBodyKeysJson = {};
-
-    let jVarLocalFileValue = BodyKeysJson.inFileNameOnly;
+    
     let jVarLocalFilterString = getUrlQueryParams({ inGetKey: "VoucherRef"});
     if (jVarLocalFilterString === null) {
         Swal.fire({
@@ -13,13 +11,10 @@ let StartFunc = () => {
             text: "VoucherRef not found in URL"
         });
         
-    }
-    jVarLocalBodyKeysJson.FolderName = BodyKeysJson.inFolderName;
-    jVarLocalBodyKeysJson.FileNameOnly = jVarLocalFileValue.search(".") === -1 ? jVarLocalFileValue : jVarLocalFileValue.split(".")[0]
-    jVarLocalBodyKeysJson.ItemName = BodyKeysJson.inItemName;
-    jVarLocalBodyKeysJson.FilterString = `value.VoucherRef === '${jVarLocalFilterString}'`;
+    };
+    BodyKeysJson.FilterString = `value.VoucherRef === '${jVarLocalFilterString}'`;
     
-    KeysJson.body = JSON.stringify(jVarLocalBodyKeysJson);
+    KeysJson.body = JSON.stringify(BodyKeysJson);
 
     return KeysJson;
 };

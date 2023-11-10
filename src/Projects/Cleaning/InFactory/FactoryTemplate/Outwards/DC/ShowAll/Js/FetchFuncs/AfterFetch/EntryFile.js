@@ -56,7 +56,7 @@ let jFLocalpkColumn = () => {
 let jFLocalVoucherNumberColumn = () => {
 
     let jVarLocalNewTh = document.createElement("th");
-    jVarLocalNewTh.innerHTML = "VoucherNumber";
+    jVarLocalNewTh.innerHTML = "Dc #";
     jVarLocalNewTh.dataset.field = "VoucherNumber";
     jVarLocalNewTh.setAttribute("data-filter-control", "input")
     return jVarLocalNewTh;
@@ -65,7 +65,7 @@ let jFLocalVoucherNumberColumn = () => {
 let jFLocalFactory = () => {
 
     let jVarLocalNewTh = document.createElement("th");
-    jVarLocalNewTh.innerHTML = "Factory";
+    jVarLocalNewTh.innerHTML = "To Factory";
     jVarLocalNewTh.dataset.field = "Factory";
     jVarLocalNewTh.setAttribute("data-filter-control", "select")
     return jVarLocalNewTh;
@@ -109,15 +109,19 @@ let jFLocalDateTimeColumn = () => {
 
 let jFLocalSentItemsColumn = () => {
     let jVarLocalNewTh = document.createElement("th");
-    jVarLocalNewTh.innerHTML = "Sent";
+    jVarLocalNewTh.innerHTML = "Sent Items";
     jVarLocalNewTh.setAttribute("data-formatter", "SentItemsFormatter")
+    jVarLocalNewTh.setAttribute("data-footer-formatter", "SentItemsPriceFormatter")
+
     return jVarLocalNewTh;
 };
 
 let jFLocalItemsColumn = () => {
     let jVarLocalNewTh = document.createElement("th");
-    jVarLocalNewTh.innerHTML = "Accepted";
+    jVarLocalNewTh.innerHTML = "Items";
     jVarLocalNewTh.setAttribute("data-formatter", "ItemsFormatter")
+    jVarLocalNewTh.setAttribute("data-footer-formatter", "priceFormatter")
+
     return jVarLocalNewTh;
 };
 
@@ -130,6 +134,16 @@ let jFLocalScanColumn = () => {
 
     return jVarLocalNewTh;
 };
+// let jFLocalpriceFormatter = () => {
+
+//     let jVarLocalNewTh = document.createElement("th");
+//     jVarLocalNewTh.innerHTML = "Scan";
+//     jVarLocalNewTh.dataset.field = "operate"
+//     jVarLocalNewTh.setAttribute("data-footer-formatter", "priceFormatter")
+
+//     return jVarLocalNewTh;
+// };
+{/* <th data-formatter="jFLocalSettlementDetails" data-footer-formatter="priceFormatter">Settlement</th> */}
 
 function operateFormatter(value, row, index) {
     return [

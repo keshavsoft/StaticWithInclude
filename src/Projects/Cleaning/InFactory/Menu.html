@@ -20,40 +20,7 @@
     <include src="./src/components/Cleaning/InFactory/Header.html"></include>
 
     <main>
-        <div class="container" id="KCont1">
-            <div class="input-group mt-3 mb-3">
-                <input type="text" class="form-control" placeholder="Scan Qrcode or Search Customer" aria-label="Input"
-                    aria-describedby="GoButtonid" id="ScanId" list="CustomerDataListId" autofocus="">
-                <button class="btn btn-outline-secondary" type="button" id="GoButtonid">GO</button>
-            </div>
-
-            <datalist id="CustomerDataListId">
-                <option value="Keshav">
-                </option>
-                <option value="9848163021">
-                </option>
-            </datalist>
-
-            <div class="alert alert-danger d-none" role="alert" id="DangerAlertId">
-                A simple danger alert—check it out!
-            </div>
-
-
-            <div class="alert alert-success d-none" role="alert" id="SuccessAlertId">
-                Success!
-            </div>
-
-            <div class="row">
-                <div class="col-6">.</div>
-
-                <div class="col-6 d-grid gap-2 col-6 mx-auto">
-                    <a name="" id="" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#ModalCreateCustomerId" role="button">Create Customer</a>
-                </div>
-            </div>
-
-
-        </div>
+       
     </main>
 
     <div class="modal fade" id="LoginModalId" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -84,29 +51,6 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="modal" tabindex="-1" id="ModalCreateCustomerId">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>Under development.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="AlertWarningId" class="alert alert-warning alert-dismissible fade show" role="alert" style="display:none;">
-        <div id="AlertWarningMessageId"><strong>Sorry!</strong> Data not saved</div>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 
     <include src="./src/components/Cleaning/Footer.html"></include>

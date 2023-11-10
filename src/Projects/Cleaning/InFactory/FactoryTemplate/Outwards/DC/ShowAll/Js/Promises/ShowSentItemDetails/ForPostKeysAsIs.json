@@ -1,6 +1,6 @@
 {
-    "FolderName": "Factory",
-    "FileNameOnly": "FactoryScan",
-    "ItemName": "FactoryScan",
+    "FolderName": "FactoryOutwards",
+    "FileNameOnly": "QrCodeDetails",
+    "ItemName": "QrCodeDetails",
     "MapString": "VoucherRef"
 }

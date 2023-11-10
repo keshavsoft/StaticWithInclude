@@ -1,0 +1,8 @@
+{
+    "FolderName": "FactoryOutwards",
+    "FileNameOnly": "VoucherDetails",
+    "FileName": "VoucherDetails",
+    "ItemName": "VoucherDetails",
+    "ScreenName": "Create",
+    "FilterString": "value.pk === {{VoucherRef}}"
+}
