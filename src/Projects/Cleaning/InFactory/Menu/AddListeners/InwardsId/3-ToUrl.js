@@ -1,5 +1,5 @@
 let StartFunc = ({ inFactoryName }) => {
-    let jVarLocalToUrl = `./${inFactoryName}/Inwards/Dashboard.html`;
+    let jVarLocalToUrl = `./${inFactoryName}/Menu.html`;
 
     window.location.href = jVarLocalToUrl;
 };

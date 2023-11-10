@@ -1,0 +1,13 @@
+{
+    "inFolderName": "Factory",
+    "inFileNameOnly": "FactoryCompleted",
+    "inFileName": "FactoryCompleted",
+    "inItemName": "FactoryCompleted",
+    "inScreenName": "Create",
+    "inDataToInsert": {
+        "pk": "",
+        "ItemName": "",
+        "Rate": "",
+        "VoucherRef": ""
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "FolderName": "Factory",
+    "FileNameOnly": "FactoryCompleted",
+    "FileName": "FactoryCompleted",
+    "ItemName": "FactoryCompleted",
+    "ScreenName": "Create",
+    "FilterString": "value.DCFactory === '{{Factory}}'"
+}
