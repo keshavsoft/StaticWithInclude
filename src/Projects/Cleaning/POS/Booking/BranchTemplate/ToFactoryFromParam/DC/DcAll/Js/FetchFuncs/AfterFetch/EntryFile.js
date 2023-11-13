@@ -7,6 +7,7 @@ let StartFunc = async ({ inDataToShow }) => {
     jVarLocaltableHeadRow.appendChild(jFLocalSerialNumberColumn());
     jVarLocaltableHeadRow.appendChild(jFLocalpkColumn());
     jVarLocaltableHeadRow.appendChild(jFLocalVoucherNumberColumn());
+    jVarLocaltableHeadRow.appendChild(jFLocalBranchName());
     jVarLocaltableHeadRow.appendChild(jFLocalFactory());
     jVarLocaltableHeadRow.appendChild(jFLocalDateColumn());
     jVarLocaltableHeadRow.appendChild(jFLocalDescriptionColumn());
@@ -57,6 +58,14 @@ let jFLocalVoucherNumberColumn = () => {
     jVarLocalNewTh.innerHTML = "Dc #";
     jVarLocalNewTh.dataset.field = "VoucherNumber";
     jVarLocalNewTh.setAttribute("data-filter-control", "input")
+    return jVarLocalNewTh;
+};
+let jFLocalBranchName = () => {
+
+    let jVarLocalNewTh = document.createElement("th");
+    jVarLocalNewTh.innerHTML = "BranchName";
+    jVarLocalNewTh.dataset.field = "BranchName";
+    jVarLocalNewTh.setAttribute("data-filter-control", "select")
     return jVarLocalNewTh;
 };
 
