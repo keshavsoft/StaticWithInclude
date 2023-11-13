@@ -1,11 +1,15 @@
 // import { StartFunc as StartFuncNavBar } from "./NavBar/StartFunc.js";
 // import { StartFunc as StartFuncGoButton } from "./GoButton/StartFunc.js";
-import { StartFunc as StartFuncDashboardId } from "./DashBoardId/1-StartFunc.js";
+import { StartFunc as StartFuncStatusId } from "./StatusId/1-ClickAssign.js";
+// import { StartFunc as StartFuncNavSearchId } from "./NavSearchId/StartFunc.js";
 
-const StartFunc = async () => {
+const StartFunc = () => {
+    
     // StartFuncNavBar();
     // StartFuncGoButton();
-    StartFuncDashboardId();
+    // StartFuncNavSearchId();
+    StartFuncStatusId();
+
 };
 
 export { StartFunc }
