@@ -1,4 +1,4 @@
-import { StartFunc as StartFuncFromLocalStorage } from "../../../../../FromLocalStorage/Customers.js";
+import { StartFunc as StartFuncFromLocalStorage } from "../../../../FromLocalStorage/Customers.js";
 
 const StartFunc = () => {
     let jVarLocalDataNeeded = StartFuncFromLocalStorage();

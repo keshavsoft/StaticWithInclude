@@ -1,9 +1,10 @@
 // import ApiConfigJson from "../../../../../../../../../../ApiConfig.json" assert {type: "json"};
 import ApiConfigJson from "../../../../../../../../../../../../ApiConfig.json" assert {type: "json"};
+import ApiConfigJson from "../../../../../../../../../../../../ApiConfig.json" assert {type: "json"};
 
-import { StartFunc as StartFuncItemsInOrder } from "../../../../../../../../../../../FromLocalStorage/ItemsInOrder/Bulk.js";
+import { StartFunc as StartFuncItemsInOrder } from "../../../../../../../../../../FromLocalStorage/ItemsInOrder/Bulk.js";
 
-import { StartFunc as StartFuncFromLocalStorage } from "../../../../../../../../../../../FromLocalStorage/OrdersData/FromPkToLocalStorage.js";
+import { StartFunc as StartFuncFromLocalStorage } from "../../../../../../../../../../FromLocalStorage/OrdersData/FromPkToLocalStorage.js";
 import { StartFunc as StartFuncToUrlWithDiscount } from "./ToUrlWithDiscount.js";
 import { StartFunc as StartFuncToUrlWithoutDiscount } from "./ToUrlWithoutDiscount.js";
 
