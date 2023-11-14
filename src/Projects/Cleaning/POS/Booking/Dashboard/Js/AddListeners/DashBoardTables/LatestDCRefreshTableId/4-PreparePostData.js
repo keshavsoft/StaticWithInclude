@@ -3,9 +3,9 @@
 const StartFunc = () => {
 
     let jVarLocalBodyData = {};
-    jVarLocalBodyData.FolderName = "ToFactory";
+    jVarLocalBodyData.FolderName = "Factory";
     // jVarLocalBodyData.FileNameOnly = `${ApiConfigJson.ForFetch.FileNameOnly}`;
-    jVarLocalBodyData.FileNameOnly = `Kakinada`;
+    jVarLocalBodyData.FileNameOnly = `VoucherDetails`;
     jVarLocalBodyData.ItemName = "VoucherDetails";
     jVarLocalBodyData.ScreenName = "Create";
 

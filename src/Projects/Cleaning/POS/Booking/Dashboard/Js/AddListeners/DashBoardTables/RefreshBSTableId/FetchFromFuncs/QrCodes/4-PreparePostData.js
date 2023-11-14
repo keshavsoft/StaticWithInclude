@@ -1,8 +1,8 @@
-import ApiConfigJson from "../../../../../../../ApiConfig.json" assert {type: 'json'};
+// import ApiConfigJson from "../../../../../../../ApiConfig.json" assert {type: 'json'};
 
 const StartFunc = () => {
 
-    let jVarLocalFileName = ApiConfigJson.ForFetch.FileNameOnly
+    // let jVarLocalFileName = ApiConfigJson.ForFetch.FileNameOnly
 
     let jVarLocalBodyData = {};
 
@@ -10,7 +10,8 @@ const StartFunc = () => {
     jVarLocalBodyData.FileNameOnly = "Generate";
     jVarLocalBodyData.ItemName = "Barcodes";
     jVarLocalBodyData.MapString = "GenerateReference.ReferncePk";
-    jVarLocalBodyData.FilterString = `value.GenerateReference.FileNameOnly === '${jVarLocalFileName}'`;
+    // jVarLocalBodyData.FilterString = `value.GenerateReference.FileNameOnly === '${jVarLocalFileName}'`;
+    jVarLocalBodyData.FilterString = `value.GenerateReference.FileNameOnly === 'Kakinada'`;
     
     return jVarLocalBodyData;
 };
