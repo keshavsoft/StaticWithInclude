@@ -1,4 +1,4 @@
-import { StartFunc as StartFuncFoamLoad } from "./Js/FoamLoad/EntryFile.js";
+import { StartFunc as StartFuncFoamLoad } from "./FoamLoad/EntryFile.js";
 
 const StartFunc = () => {
     let jVarLocalFromAdmin = true;
