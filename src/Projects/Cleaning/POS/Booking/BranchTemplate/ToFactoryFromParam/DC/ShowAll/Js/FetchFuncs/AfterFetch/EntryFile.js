@@ -109,7 +109,9 @@ let jFLocalDateTimeColumn = () => {
 let jFLocalItemsColumn = () => {
     let jVarLocalNewTh = document.createElement("th");
     jVarLocalNewTh.innerHTML = "Items";
-    jVarLocalNewTh.setAttribute("data-formatter", "ItemsFormatter")
+    jVarLocalNewTh.setAttribute("data-formatter", "ItemsFormatter");
+    jVarLocalNewTh.setAttribute("data-footer-formatter", "priceFormatter")
+
     return jVarLocalNewTh;
 };
 
