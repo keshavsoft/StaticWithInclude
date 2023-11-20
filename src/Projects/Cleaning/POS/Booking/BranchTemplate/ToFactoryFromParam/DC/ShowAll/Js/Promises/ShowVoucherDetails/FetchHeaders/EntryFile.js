@@ -5,7 +5,7 @@ let StartFunc = () => {
     let jVarLocalUrlSplit = window.location.pathname.split("/");
     let jVarLocalFactoryName = jVarLocalUrlSplit[4];
 
-    BodyKeysJson.FilterString = BodyKeysJson.FilterString.replace("{{BranchName}}", jVarLocalFactoryName);
+    BodyKeysJson.FilterString = `${BodyKeysJson.FilterString.replace("{{BranchName}}", jVarLocalFactoryName)}&&((new Date(value.DateTime)).toLocaleDateString() ===`+ "`${(new Date()).toLocaleDateString()}`)"
     KeysJson.body = JSON.stringify(BodyKeysJson);
 
 
