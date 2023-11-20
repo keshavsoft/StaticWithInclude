@@ -11,7 +11,10 @@ let jVarLocalWsUrlhttps = "wss://tallyws12.keshavsoft.net/";
 let jVarCommonBmm = "wss://bmmwdo.org/";
 let StartFunc = () => {
 
-    webSocket = new WebSocket(jVarLocalWsUrlLocal1);
+    let jVarLocalHostName = window.location.host;
+    let jVarLocalUrlForWS = "ws://"+jVarLocalHostName;
+
+    webSocket = new WebSocket(jVarLocalUrlForWS);
 
     webSocket.onopen = (event) => {
         webSocket.send("k1");
