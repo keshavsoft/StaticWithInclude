@@ -430,11 +430,9 @@
                             <table id="FrequentCustomersTable">
                                 <thead>
                                     <tr>
-                                        <th data-field="pk">pk</th>
+                                        <th data-formatter="jFGlobalSerialColumn">#</th>
                                         <th data-field="element.0">CustomerName</th>
                                         <th data-field="element.1">Orders</th>
-                                        <th data-field="Mobile">Mobile</th>
-                                        <th data-field="City">City</th>
                                     </tr>
                                 </thead>
                             </table>
@@ -1033,6 +1031,10 @@
         ].join('')
 
     };
+
+    function jFGlobalSerialColumn(value, row, index) {
+            return index + 1;
+        };
 </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../../../../Admin/Header/headerChange.js"></script>
