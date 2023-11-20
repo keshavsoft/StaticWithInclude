@@ -19,8 +19,9 @@
 </head>
 
 <body>
-    <include src="./src/components/ForWebSocket/AllHtml/AllHtmlHeader.html"></include>
 
+  <include src="./src/components/ForWebSocket/AllHtml/AllHtmlHeader.html"></include>
+    
     <main>
         <div class="container">
             <h3 class="text-center"><a href="#" id="InputUserNameId">Messaging</a></h3>
@@ -33,7 +34,20 @@
                         <div class="inbox_people">
                             <div class="headind_srch">
                                 <div class="recent_heading">
-                                    <h4>Recent</h4>
+                                    <h4 style="display: inline;">Online</h4>
+                                    <span>
+                                        <a id="OnlineClientsRefreshButtonId" href="#">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                                                fill="currentColor" class="bi bi-arrow-clockwise"
+                                                viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd"
+                                                    d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z" />
+                                                <path
+                                                    d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z" />
+                                            </svg>
+                                        </a>
+                                    </span>
+
                                 </div>
                                 <div class="srch_bar">
                                     <div class="stylish-input-group">
@@ -45,7 +59,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="inbox_chat" id="inbox_chat">
+                            <div class="inbox_chat" id="OnlineInboxChatId">
                                 <div class="chat_list active_chat">
                                     <div class="chat_people">
                                         <div class="chat_img"> <img
@@ -96,7 +110,6 @@
     </main>
     <include src="./src/components/ForWebSocket/Footer.html"></include>
 
-
     <template id="IncomingMessageId">
         <div class="incoming_msg">
             <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil">
@@ -117,7 +130,7 @@
             <div class="chat_people">
                 <div class="chat_img"><img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"></div>
                 <div class="chat_ib">
-                    <h5 id="ClientNameId" class="ClientLinkClass">Name</h5>
+                    <a href="#"><h5 id="ClientNameId" class="ClientLinkClass">Name</h5></a>
                     <p>Test, which is a new approach to have all solutions
                         astrology under one roof.</p>
                 </div>
@@ -249,7 +262,7 @@
 
     <script src="./Js/headerChange.js" type="module"></script>
  
-    <script src="./Js/WithChats.js" type="module"></script>
+    <script src="./Js/OnlineChats.js" type="module"></script>
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-let CommonProjectName = "JSONAdminApi";
+let CommonProjectName = "JSONUser";
 
 let LocalFolderPath = `src\\Projects\\${CommonProjectName}`;
 let LocalDestinationPath = `public\\Projects\\${CommonProjectName}`;
