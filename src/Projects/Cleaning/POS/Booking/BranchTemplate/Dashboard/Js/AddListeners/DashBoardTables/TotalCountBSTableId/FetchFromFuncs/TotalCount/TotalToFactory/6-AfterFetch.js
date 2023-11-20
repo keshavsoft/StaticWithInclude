@@ -1,7 +1,8 @@
 let StartFunc = ({ inFromFetch }) => {
     let jVarLocalData = inFromFetch.JsonData;
+    let inTotalQrCodesId = Object.keys(jVarLocalData).length;
 
-    jFLocalToInnerHtmlTotalToFactoryId({ inTotalToFactoryId: jVarLocalData })
+    jFLocalToInnerHtmlTotalToFactoryId({ inTotalToFactoryId: inTotalQrCodesId })
 };
 
 let jFLocalToInnerHtmlTotalToFactoryId = ({ inTotalToFactoryId }) => {
