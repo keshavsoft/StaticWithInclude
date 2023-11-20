@@ -1,7 +1,5 @@
 {
-    "inFolderName": "Factory",
-    "inFileNameOnly": "QrCodeDetails",
-    "inFileName": "QrCodeDetails",
-    "inItemName": "QrCodeDetails",
-    "inScreenName": "Create"
+    "FolderName": "Factory",
+    "FileNameOnly": "QrCodeDetails",
+    "ItemName": "QrCodeDetails"
 }

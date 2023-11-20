@@ -5,6 +5,7 @@ const StartFunc = () => {
     jVarLocalBodyData.FolderName = "Factory";
     jVarLocalBodyData.FileNameOnly = "QrCodeDetails";
     jVarLocalBodyData.ItemName = "QrCodeDetails";
+    jVarLocalBodyData.FilterString = `value.BranchName === '${ApiConfig.ForFetch.FileNameOnly}'`
 
     return jVarLocalBodyData;
 };
