@@ -7,14 +7,20 @@ let StartFunc = ({ inJsonData }) => {
         let jVarLocalInputUserNameId = document.getElementById("InputUserNameId");
         jVarLocalInputUserNameId.innerHTML = inJsonData.JsonData.UserName;
     }
-    
+
     if (inJsonData.MessageType === "OnlineClients") {
+        let jVarLocalHtmlId = "OnlineClientsRefreshButtonId";
+        let jVarLocalGetHtmlId = document.getElementById(jVarLocalHtmlId);
+        jVarLocalGetHtmlId.click();
+        
         let jVarLocalJsonData = inJsonData.JsonData;
         let jVarLocalInboxId = document.getElementById("inbox_chat");
         jVarLocalInboxId.innerHTML = "";
         jVarLocalJsonData.forEach(element => {
             showContent({ inMessage: element });
         });
+
+        
         // StartFuncClientLinkClass();
     }
 
@@ -31,17 +37,17 @@ let StartFunc = ({ inJsonData }) => {
 
     if (inJsonData.MessageType === "BroadcastOnly") {
         let jVarLocalJsonData = inJsonData.JsonData;
-        showMessageContent({ inMessage: JSON.stringify(jVarLocalJsonData)});
+        showMessageContent({ inMessage: JSON.stringify(jVarLocalJsonData) });
     }
 
     if (inJsonData.MessageType === "BroadcastAll") {
         let jVarLocalJsonData = inJsonData.JsonData;
-        showMessageContent({ inMessage: JSON.stringify(jVarLocalJsonData)});
+        showMessageContent({ inMessage: JSON.stringify(jVarLocalJsonData) });
     }
 
     if (inJsonData.MessageType === "PrivateMessage") {
         let jVarLocalJsonData = inJsonData.JsonData;
-        showMessageContent({ inMessage: JSON.stringify(jVarLocalJsonData)});
+        showMessageContent({ inMessage: JSON.stringify(jVarLocalJsonData) });
     }
 
     if (inJsonData.MessageType === "PrivateTab") {
@@ -52,7 +58,7 @@ let StartFunc = ({ inJsonData }) => {
 
     if (inJsonData.MessageType === "PrivateTabMessage") {
         let jVarLocalJsonData = inJsonData.JsonData;
-        showMessageContent({ inMessage: JSON.stringify(jVarLocalJsonData)});
+        showMessageContent({ inMessage: JSON.stringify(jVarLocalJsonData) });
     }
 
 };
