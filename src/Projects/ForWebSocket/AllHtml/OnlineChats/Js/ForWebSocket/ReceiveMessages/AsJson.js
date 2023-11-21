@@ -3,7 +3,7 @@ import { StartFunc as StartFuncSendPrivateTabMessageButtonClass } from "../../Ad
 import { StartFunc as StartFuncRefreshOnlineClients } from "./AsJson/RefreshOnlineClients.js";
 
 let StartFunc = ({ inJsonData }) => {
-
+    console.log("aaaaaaaaaaa : ", inJsonData);
     if (inJsonData.MessageType === "WSServer") {
         let jVarLocalInputUserNameId = document.getElementById("InputUserNameId");
         jVarLocalInputUserNameId.innerHTML = inJsonData.JsonData.UserName;
@@ -13,7 +13,7 @@ let StartFunc = ({ inJsonData }) => {
         let jVarLocalHtmlId = "OnlineClientsRefreshButtonId";
         let jVarLocalGetHtmlId = document.getElementById(jVarLocalHtmlId);
         jVarLocalGetHtmlId.click();
-        
+
         let jVarLocalJsonData = inJsonData.JsonData;
         let jVarLocalInboxId = document.getElementById("inbox_chat");
         jVarLocalInboxId.innerHTML = "";
@@ -21,13 +21,12 @@ let StartFunc = ({ inJsonData }) => {
             showContent({ inMessage: element });
         });
 
-        
+
     }
 
     if (inJsonData.MessageType === "RefreshOnlineClients") {
-        StartFuncRefreshOnlineClients({ inJsonData })
-
-    }
+        StartFuncRefreshOnlineClients({ inJsonDataOnly: inJsonData.JsonData })
+    };
 
     if (inJsonData.MessageType === "BroadcastOnly") {
         let jVarLocalJsonData = inJsonData.JsonData;

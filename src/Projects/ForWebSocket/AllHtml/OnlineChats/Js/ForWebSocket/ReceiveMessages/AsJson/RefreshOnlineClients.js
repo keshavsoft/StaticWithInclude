@@ -1,19 +1,20 @@
 import { StartFunc as StartFuncClientLinkClass } from "../ClientLinkClass/1-ClickAssign.js";
 
-let StartFunc = ({ inJsonData }) => {
-    let jVarLocalJsonData = inJsonData.JsonData;
+let StartFunc = ({ inJsonDataOnly }) => {
+    let jVarLocalJsonData = inJsonDataOnly;
 
     jFLocalShowOnToast({ inJsonData: jVarLocalJsonData });
     jFLocalWindowsNotification({ inJsonData: jVarLocalJsonData });
 
     let jVarLocalInboxId = document.getElementById("OnlineInboxChatId");
     jVarLocalInboxId.innerHTML = "";
+
     jVarLocalJsonData.forEach(element => {
+        console.log("ddddddddddd : ", element);
         showOnlineClientsContent({ inMessage: element });
     });
+
     StartFuncClientLinkClass();
-
-
 };
 
 let jFLocalShowOnToast = ({ inJsonData }) => {
@@ -33,11 +34,11 @@ function showOnlineClientsContent({ inMessage }) {
     let clon = temp.content.cloneNode(true);
     let jVarLocalP = clon.querySelector("p");
     jVarLocalP.innerHTML = inMessage.id;
-    let jVarLocalClientNameId = clon.getElementById("ClientNameId");
+    let jVarLocalClientNameId = clon.querySelector(".ClientLinkClass");
     jVarLocalClientNameId.innerHTML = inMessage.Name;
     let jVarLocalInboxId = document.getElementById("OnlineInboxChatId");
-    jVarLocalInboxId.appendChild(clon);
 
+    jVarLocalInboxId.appendChild(clon);
 };
 
 function jFLocalWindowsNotification({ inJsonData }) {
