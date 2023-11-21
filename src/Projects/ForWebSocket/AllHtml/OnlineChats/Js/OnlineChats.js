@@ -19,6 +19,11 @@ let StartFunc = () => {
     webSocket.onopen = (event) => {
         webSocket.send("k1");
 
+        let jVarLocalOnlineStatusColId = document.getElementById("OnlineStatusColId");
+        jVarLocalOnlineStatusColId.style.display="";
+        let jVarLocalOfflineStatusColId = document.getElementById("OfflineStatusColId");
+        jVarLocalOfflineStatusColId.style.display="none";
+
         let SendJsonData = {
             From: "Service",
             SysMac: "MAC",
@@ -30,6 +35,13 @@ let StartFunc = () => {
     webSocket.onmessage = StartFuncReceiveMessages;
 
     StartFuncAddListeners();
+
+    webSocket.onclose = function (e){
+        let jVarLocalOnlineStatusColId = document.getElementById("OnlineStatusColId");
+        jVarLocalOnlineStatusColId.style.display="none";
+        let jVarLocalOfflineStatusColId = document.getElementById("OfflineStatusColId");
+        jVarLocalOfflineStatusColId.style.display="";
+    };
     
 };
 
