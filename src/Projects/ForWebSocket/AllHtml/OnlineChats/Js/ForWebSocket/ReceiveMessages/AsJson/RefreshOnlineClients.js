@@ -3,7 +3,8 @@ import { StartFunc as StartFuncClientLinkClass } from "../ClientLinkClass/1-Clic
 let StartFunc = ({ inJsonData }) => {
     let jVarLocalJsonData = inJsonData.JsonData;
 
-    jFLocalShowOnToast({ inJsonData: jVarLocalJsonData })
+    jFLocalShowOnToast({ inJsonData: jVarLocalJsonData });
+    jFLocalWindowsNotification({ inJsonData: jVarLocalJsonData });
 
     let jVarLocalInboxId = document.getElementById("OnlineInboxChatId");
     jVarLocalInboxId.innerHTML = "";
@@ -38,5 +39,25 @@ function showOnlineClientsContent({ inMessage }) {
     jVarLocalInboxId.appendChild(clon);
 
 };
+
+function jFLocalWindowsNotification({ inJsonData }) {
+
+    let jVarLocalJsonData = inJsonData;
+    let jVarLocalJsonDataLength = Object.keys(jVarLocalJsonData).length
+
+    if (!("Notification" in window)) {
+        alert("This browser does not support desktop notification");
+    } else if (Notification.permission === "granted") {
+        const notification = new Notification(`${jVarLocalJsonDataLength} Users Online`);
+    } else if (Notification.permission !== "denied") {
+        Notification.requestPermission().then((permission) => {
+            if (permission === "granted") {
+                const notification = new Notification(`${jVarLocalJsonDataLength} Users Online`);
+            }
+        });
+    }
+
+}
+
 
 export { StartFunc };

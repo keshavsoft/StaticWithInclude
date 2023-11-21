@@ -5,7 +5,6 @@ let StartFunc = (event) => {
 
     try {
         let jVarLocalJsonData = JSON.parse(event.data);
-        console.log("clientsJson----------",jVarLocalJsonData);
         StartFuncAsJson({ inJsonData: jVarLocalJsonData });
        
     } catch (error) {
