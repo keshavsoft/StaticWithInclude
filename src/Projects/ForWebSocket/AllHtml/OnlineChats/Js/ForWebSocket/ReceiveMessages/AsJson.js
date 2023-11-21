@@ -1,5 +1,6 @@
 import { StartFunc as StartFuncClientLinkClass } from "./ClientLinkClass/1-ClickAssign.js";
 import { StartFunc as StartFuncSendPrivateTabMessageButtonClass } from "../../AddListeners/SendMessagePrivateTabButtonClass/1-ClickAssign.js";
+import { StartFunc as StartFuncRefreshOnlineClients } from "./AsJson/RefreshOnlineClients.js";
 
 let StartFunc = ({ inJsonData }) => {
 
@@ -21,17 +22,10 @@ let StartFunc = ({ inJsonData }) => {
         });
 
         
-        // StartFuncClientLinkClass();
     }
 
     if (inJsonData.MessageType === "RefreshOnlineClients") {
-        let jVarLocalJsonData = inJsonData.JsonData;
-        let jVarLocalInboxId = document.getElementById("OnlineInboxChatId");
-        jVarLocalInboxId.innerHTML = "";
-        jVarLocalJsonData.forEach(element => {
-            showOnlineClientsContent({ inMessage: element });
-        });
-        StartFuncClientLinkClass();
+        StartFuncRefreshOnlineClients({ inJsonData })
 
     }
 
@@ -71,18 +65,6 @@ function showContent({ inMessage }) {
     let jVarLocalClientNameId = clon.getElementById("ClientNameId");
     jVarLocalClientNameId.innerHTML = inMessage.Name;
     let jVarLocalInboxId = document.getElementById("inbox_chat");
-    jVarLocalInboxId.appendChild(clon);
-
-};
-
-function showOnlineClientsContent({ inMessage }) {
-    let temp = document.getElementById("OnlineClientsId");
-    let clon = temp.content.cloneNode(true);
-    let jVarLocalP = clon.querySelector("p");
-    jVarLocalP.innerHTML = inMessage.id;
-    let jVarLocalClientNameId = clon.getElementById("ClientNameId");
-    jVarLocalClientNameId.innerHTML = inMessage.Name;
-    let jVarLocalInboxId = document.getElementById("OnlineInboxChatId");
     jVarLocalInboxId.appendChild(clon);
 
 };
