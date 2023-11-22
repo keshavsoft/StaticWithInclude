@@ -67,7 +67,8 @@
             </div>
 
             <div class="container mt-2">
-                <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
+                    aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="../../../../Dashboard/Dashboard.html">Home</a></li>
                         <li class="breadcrumb-item"><a href="../../../DashBoard.html">StockChecking</a></li>
@@ -137,16 +138,20 @@
                     </div>
 
                     <table class="table" id="table" data-toolbar="#toolbar" data-search="true" data-searchable="true"
-                        data-show-columns="true" data-show-columns-toggle-all="true" data-click-to-select="true"
-                        data-show-export="true" data-detail-view="true" data-detail-formatter="detailFormatter"
-                        data-id-field="pk" data-show-toggle="true" data-filter-control="true">
+                        data-show-footer="true" data-show-columns="true" data-show-columns-toggle-all="true"
+                        data-click-to-select="true" data-show-export="true" data-detail-view="true"
+                        data-detail-formatter="detailFormatter" data-id-field="pk" data-show-toggle="true"
+                        data-filter-control="true">
                         <thead>
                             <tr id="tableHeadRow">
                                 <th data-formatter="jFLocalSerialColumn" data-width="20">#</th>
                                 <th data-field="pk" data-width="40">Qr Code</th>
-                                <th data-field="VoucherRef" data-filter-control="select" data-width="20">VoucherRef</th>
-                                <th data-field="ProductName" data-filter-control="select" data-width="400">ProductName</th>
-                                <th data-field="SalePrice" data-filter-control="select" data-width="200">SalePrice</th>
+                                <!-- <th data-field="VoucherRef" data-filter-control="select" data-width="20">VoucherRef</th> -->
+                                <th data-field="ProductName" data-filter-control="select" data-width="400">ProductName
+                                </th>
+                                <th data-field="SalePrice" data-filter-control="select"
+                                    data-footer-formatter="TotalItems" data-width="200">SalePrice</th>
+                                <th data-field="SentInterVal" data-width="220">Time Span</th>
                                 <th data-field="DateTime" data-filter-control="select" data-width="210">DateTime</th>
                             </tr>
                         </thead>
@@ -209,7 +214,7 @@
     </script>
     <script>
 
-        function jFLocalSerialColumn(value, row, index){
+        function jFLocalSerialColumn(value, row, index) {
             return index + 1;
         };
         function detailFormatter(index, row) {
@@ -226,12 +231,21 @@
                 '<i class="fa fa-trash"></i>',
                 '</a>',
             ].join('')
-            
+
         };
 
         function KsnoFormatter(value, row, index) {
-            return index+1;
+            return index + 1;
         };
+
+        function TotalItems(data) {
+            var field = this.field
+            return '' + data.map(function (row) {
+                return +row.SalePrice
+            }).reduce(function (sum, i) {
+                return sum + i
+            }, 0)
+        }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
     <script src="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.js"></script>
