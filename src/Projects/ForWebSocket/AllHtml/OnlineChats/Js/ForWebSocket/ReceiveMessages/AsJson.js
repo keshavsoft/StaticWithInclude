@@ -1,8 +1,10 @@
 import { StartFunc as StartFuncClientLinkClass } from "./ClientLinkClass/1-ClickAssign.js";
-import { StartFunc as StartFuncSendPrivateTabMessageButtonClass } from "../../AddListeners/SendMessagePrivateTabButtonClass/1-ClickAssign.js";
+// import { StartFunc as StartFuncSendPrivateTabMessageButtonClass } from "../../AddListeners/SendMessagePrivateTabButtonClass/1-ClickAssign.js";
+import { StartFunc as StartFuncSendMessageButtonId } from "../../AddListeners/SendMessageButtonId/1-ClickAssign.js";
+
 import { StartFunc as StartFuncRefreshOnlineClients } from "./AsJson/RefreshOnlineClients.js";
 
-let StartFunc = ({ inJsonData }) => {
+let StartFunc = ({ inJsonData, inShowNotification }) => {
     console.log("aaaaaaaaaaa : ", inJsonData);
     if (inJsonData.MessageType === "WSServer") {
         let jVarLocalInputUserNameId = document.getElementById("InputUserNameId");
@@ -25,7 +27,7 @@ let StartFunc = ({ inJsonData }) => {
     }
 
     if (inJsonData.MessageType === "RefreshOnlineClients") {
-        StartFuncRefreshOnlineClients({ inJsonDataOnly: inJsonData.JsonData })
+        StartFuncRefreshOnlineClients({ inJsonDataOnly: inJsonData.JsonData, inShowNotification })
     };
 
     if (inJsonData.MessageType === "BroadcastOnly") {
@@ -38,6 +40,11 @@ let StartFunc = ({ inJsonData }) => {
         showMessageContent({ inMessage: JSON.stringify(jVarLocalJsonData) });
     }
 
+    if (inJsonData.MessageType === "OneToOneMessage") {
+        let jVarLocalJsonData = inJsonData.JsonData;
+        showOneToOneMessageContent({ inMessage: JSON.stringify(jVarLocalJsonData) });
+    }
+
     if (inJsonData.MessageType === "PrivateMessage") {
         let jVarLocalJsonData = inJsonData.JsonData;
         showMessageContent({ inMessage: JSON.stringify(jVarLocalJsonData) });
@@ -46,7 +53,8 @@ let StartFunc = ({ inJsonData }) => {
     if (inJsonData.MessageType === "PrivateTab") {
         let jVarLocalJsonData = inJsonData.JsonData;
         showNewTabContent({ inMessage: jVarLocalJsonData.TabName });
-        StartFuncSendPrivateTabMessageButtonClass({ inTabName: jVarLocalJsonData.TabName });
+        StartFuncSendMessageButtonId();
+        // StartFuncSendPrivateTabMessageButtonClass({ inTabName: jVarLocalJsonData.TabName });
     }
 
     if (inJsonData.MessageType === "PrivateTabMessage") {
@@ -76,6 +84,17 @@ function showMessageContent({ inMessage }) {
     let jVarLocalMessageHistoryId = document.getElementById("MessageHistoryId");
 
     jVarLocalMessageHistoryId.appendChild(clon);
+};
+
+function showOneToOneMessageContent({ inMessage }) {
+    let temp = document.getElementById("OutGoingMessageId");
+    let clon = temp.content.cloneNode(true);
+    let jVarLocalP = clon.querySelector("p");
+    jVarLocalP.innerHTML = inMessage;
+    let jVarLocalMessageHistoryId = document.getElementById("MessageHistoryId");
+
+    jVarLocalMessageHistoryId.appendChild(clon);
+    console.log("hello----------------",jVarLocalMessageHistoryId);
 };
 
 function showNewTabContent({ inMessage }) {
