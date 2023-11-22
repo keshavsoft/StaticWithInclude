@@ -2,11 +2,14 @@ import { StartFunc as StartFuncClientLinkClass } from "../ClientLinkClass/1-Clic
 
 let StartFunc = ({ inJsonDataOnly, inShowNotification }) => {
     let jVarLocalJsonData = inJsonDataOnly;
-    let jVarLocaShowNotification = inShowNotification;
+    let jVarLocalShowNotification = inShowNotification;
 
     jFLocalShowOnToast({ inJsonData: jVarLocalJsonData });
-    if (jVarLocaShowNotification) {
-        jFLocalWindowsNotification({ inJsonData: jVarLocalJsonData });
+    
+    if (jVarLocalShowNotification) {
+        if (document.hidden) {
+            jFLocalWindowsNotification({ inJsonData: jVarLocalJsonData });
+        }
     }
 
     let jVarLocalInboxId = document.getElementById("OnlineInboxChatId");

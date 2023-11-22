@@ -3,8 +3,25 @@ import { StartFunc as StartFuncClientLinkClass } from "./ClientLinkClass/1-Click
 // import { StartFunc as StartFuncSendMessageButtonId } from "../../AddListeners/SendMessageButtonId/1-ClickAssign.js";
 
 import { StartFunc as StartFuncRefreshOnlineClients } from "./AsJson/RefreshOnlineClients.js";
+import { StartFunc as StartFuncChatSelected } from "./AsJson/ChatSelected.js";
 
 let StartFunc = ({ inJsonData, inShowNotification }) => {
+    console.log("js",inJsonData);
+    if (jFLocalCheckIsChatOpen()) {
+        StartFuncChatSelected({ inJsonData })
+    }
+    else{
+        jFLocalCommonChat({ inJsonData, inShowNotification }); 
+    }
+
+};
+
+let jFLocalCheckIsChatOpen = () =>{
+    let jVarLocalSendMessageButtonId = document.getElementById("SendMessageButtonId");
+    return ("metadataid" in jVarLocalSendMessageButtonId.dataset);
+};
+
+let jFLocalCommonChat = ({ inJsonData, inShowNotification }) => {
     console.log("aaaaaaaaaaa : ", inJsonData);
     if (inJsonData.MessageType === "WSServer") {
         let jVarLocalInputUserNameId = document.getElementById("InputUserNameId");
@@ -50,13 +67,6 @@ let StartFunc = ({ inJsonData, inShowNotification }) => {
         showMessageContent({ inMessage: JSON.stringify(jVarLocalJsonData) });
     }
 
-    if (inJsonData.MessageType === "PrivateTab") {
-        let jVarLocalJsonData = inJsonData.JsonData;
-        showNewTabContent({ inMessage: jVarLocalJsonData.TabName });
-        // StartFuncSendMessageButtonId();
-        // StartFuncSendPrivateTabMessageButtonClass({ inTabName: jVarLocalJsonData.TabName });
-    }
-
     if (inJsonData.MessageType === "PrivateTabMessage") {
         let jVarLocalJsonData = inJsonData.JsonData;
         showMessageContent({ inMessage: JSON.stringify(jVarLocalJsonData) });
@@ -94,16 +104,7 @@ function showOneToOneMessageContent({ inMessage }) {
     let jVarLocalMessageHistoryId = document.getElementById("MessageHistoryId");
 
     jVarLocalMessageHistoryId.appendChild(clon);
-    console.log("hello----------------",jVarLocalMessageHistoryId);
 };
 
-function showNewTabContent({ inMessage }) {
-    
-    let jVarLocalMessageBoxUserId = document.getElementById("MessageBoxUserId");
-    jVarLocalMessageBoxUserId.innerHTML = inMessage;
-    let jVarLocalTabPaneId = document.getElementById("MessageHistoryId");
-    jVarLocalTabPaneId.innerHTML = "";
-
-};
 
 export { StartFunc };
