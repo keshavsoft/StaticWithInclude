@@ -5,10 +5,11 @@ let StartFunc = ({ inTabName, inMetaDataId }) => {
 
 let jVarLocalShowUserName = ({ inmessage }) => {
 
-    let LocalObjectToSend = {};
-    LocalObjectToSend.Type = "PrivateTab";
-    LocalObjectToSend.TabName = inmessage;
-    webSocket.send(JSON.stringify(LocalObjectToSend));
+    let jVarLocalHtmlId = 'MessageBoxUserId';
+    let jVarLocalMessageBoxUserId = document.getElementById(jVarLocalHtmlId);
+    jVarLocalMessageBoxUserId.innerHTML = inmessage;
+    let jVarLocalTabPaneId = document.getElementById("MessageHistoryId");
+    jVarLocalTabPaneId.innerHTML = "";
 }
 
 let jFLocalToInnerHtmlSendMessageButtonId = ({ inDataValue, inDataKey }) => {
