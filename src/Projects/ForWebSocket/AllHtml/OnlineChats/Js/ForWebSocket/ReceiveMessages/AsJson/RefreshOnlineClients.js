@@ -1,10 +1,13 @@
 import { StartFunc as StartFuncClientLinkClass } from "../ClientLinkClass/1-ClickAssign.js";
 
-let StartFunc = ({ inJsonDataOnly }) => {
+let StartFunc = ({ inJsonDataOnly, inShowNotification }) => {
     let jVarLocalJsonData = inJsonDataOnly;
+    let jVarLocaShowNotification = inShowNotification;
 
     jFLocalShowOnToast({ inJsonData: jVarLocalJsonData });
-    jFLocalWindowsNotification({ inJsonData: jVarLocalJsonData });
+    if (jVarLocaShowNotification) {
+        jFLocalWindowsNotification({ inJsonData: jVarLocalJsonData });
+    }
 
     let jVarLocalInboxId = document.getElementById("OnlineInboxChatId");
     jVarLocalInboxId.innerHTML = "";
