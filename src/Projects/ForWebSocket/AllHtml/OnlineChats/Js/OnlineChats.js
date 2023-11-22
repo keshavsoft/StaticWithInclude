@@ -26,6 +26,8 @@ let StartFunc = () => {
 
     let jVarLocalFromAdmin = StartFuncAdminData({ inFormLoadFuncToRun: jFLocalEstablishWebSocket });
     if (jVarLocalFromAdmin) {
+        StartFuncAddListeners();
+
         jFLocalEstablishWebSocket();
     };
 
@@ -53,7 +55,7 @@ let jFLocalEstablishWebSocket = () => {
 
     webSocket.onmessage = StartFuncReceiveMessages;
 
-    StartFuncAddListeners();
+    // StartFuncAddListeners();
 
     webSocket.onclose = function (e) {
         let jVarLocalOnlineStatusColId = document.getElementById("OnlineStatusColId");
