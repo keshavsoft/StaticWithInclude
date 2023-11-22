@@ -6,17 +6,17 @@ import { StartFunc as StartFuncRefreshOnlineClients } from "./AsJson/RefreshOnli
 import { StartFunc as StartFuncChatSelected } from "./AsJson/ChatSelected.js";
 
 let StartFunc = ({ inJsonData, inShowNotification }) => {
-    console.log("js",inJsonData);
-    if (jFLocalCheckIsChatOpen()) {
-        StartFuncChatSelected({ inJsonData })
-    }
-    else{
-        jFLocalCommonChat({ inJsonData, inShowNotification }); 
-    }
 
+    let jVarLocalFromCheck = jFLocalCheckIsChatOpen();
+  
+    if (jVarLocalFromCheck) {
+        StartFuncChatSelected({ inJsonData })
+    } else {
+        jFLocalCommonChat({ inJsonData, inShowNotification });
+    };
 };
 
-let jFLocalCheckIsChatOpen = () =>{
+let jFLocalCheckIsChatOpen = () => {
     let jVarLocalSendMessageButtonId = document.getElementById("SendMessageButtonId");
     return ("metadataid" in jVarLocalSendMessageButtonId.dataset);
 };

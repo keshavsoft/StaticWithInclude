@@ -23,14 +23,13 @@ if (location.protocol === "http:") {
 
 
 let StartFunc = () => {
-
     let jVarLocalFromAdmin = StartFuncAdminData({ inFormLoadFuncToRun: jFLocalEstablishWebSocket });
+
     if (jVarLocalFromAdmin) {
         StartFuncAddListeners();
 
         jFLocalEstablishWebSocket();
     };
-
 };
 
 let jFLocalEstablishWebSocket = () => {

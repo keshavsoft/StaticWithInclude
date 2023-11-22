@@ -7,7 +7,7 @@ let StartFunc = (event) => {
     let jVarLocalMessage = jVarLocalGetHtmlId.value.trim();
     jVarLocalOneToOneMessage({ inmessage: jVarLocalMessage, inMetaDataId: jVarLocalReceiverMetaDataId });
     jVarLocalGetHtmlId.value = "";
-    
+
 };
 
 let jVarLocalOneToOneMessage = ({ inmessage, inMetaDataId }) => {

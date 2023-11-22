@@ -1,11 +1,12 @@
 let StartFunc = ({ inJsonData }) => {
-    
-    if (jFLocalCheckWithSenderOnly({ inMessage: inJsonData.JsonData })) {
+    let jVarLocalJsonData = inJsonData.JsonData;
+    let jVarLocalFromCheck = jFLocalCheckWithSenderOnly({ inMessage: jVarLocalJsonData });
+
+    if (jVarLocalFromCheck) {
         if (inJsonData.MessageType === "OneToOneMessage") {
-            let jVarLocalJsonData = inJsonData.JsonData;
-            showOneToOneMessageContent({ inMessage: JSON.stringify(jVarLocalJsonData) });
-        }
-    }
+            showOneToOneMessageContent({ inMessage: jVarLocalJsonData });
+        };
+    };
 };
 
 let jFLocalCheckWithSenderOnly = ({ inMessage }) => {
@@ -20,7 +21,8 @@ function showOneToOneMessageContent({ inMessage }) {
     let temp = document.getElementById("OutGoingMessageId");
     let clon = temp.content.cloneNode(true);
     let jVarLocalP = clon.querySelector("p");
-    jVarLocalP.innerHTML = inMessage;
+    jVarLocalP.innerHTML = inMessage.FromMessage;
+
     let jVarLocalMessageHistoryId = document.getElementById("MessageHistoryId");
 
     jVarLocalMessageHistoryId.appendChild(clon);
