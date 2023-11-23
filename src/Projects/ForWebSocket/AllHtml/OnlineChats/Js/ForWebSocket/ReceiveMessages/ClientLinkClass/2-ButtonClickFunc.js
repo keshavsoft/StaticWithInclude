@@ -2,6 +2,7 @@ let StartFunc = ({ inTabName, inMetaDataId }) => {
     jVarLocalShowUserName({ inmessage: inTabName });
     jFLocalToInnerHtmlSendMessageButtonId({ inDataValue: inMetaDataId, inDataKey: "MetaDataId" });
     jFLocalRemoveNotificationBadge({ inMetaDataId });
+    jVarLocalOldMessages({ inMetaDataId });
 };
 
 let jVarLocalShowUserName = ({ inmessage }) => {
@@ -12,6 +13,13 @@ let jVarLocalShowUserName = ({ inmessage }) => {
     let jVarLocalTabPaneId = document.getElementById("MessageHistoryId");
     jVarLocalTabPaneId.innerHTML = "";
 }
+
+let jVarLocalOldMessages = ({ inMetaDataId }) =>{
+    let LocalObjectToSend = {};
+    LocalObjectToSend.Type = "OldMessages";
+    LocalObjectToSend.ReceiverId = inMetaDataId;
+    webSocket.send(JSON.stringify(LocalObjectToSend));
+};
 
 let jFLocalToInnerHtmlSendMessageButtonId = ({ inDataValue, inDataKey }) => {
     let jVarLocalHtmlId = 'SendMessageButtonId';
