@@ -7,13 +7,9 @@ let StartFunc = async () => {
     if (StartFuncCheckBeforeFetch()) {
         let jVarLocalBodyData = StartFuncPreparePostData();
 
-        let response = await StartFuncFetchFunc({
-            inBodyData: jVarLocalBodyData
-        });
+        let response = await StartFuncFetchFunc({ inBodyData: jVarLocalBodyData });
 
-        StartFuncAfterFetch({
-            inFromFetch: response, inCustomerName: jVarLocalBodyData.CustomerName
-        });
+        StartFuncAfterFetch({ inFromFetch: response });
     };
 };
 

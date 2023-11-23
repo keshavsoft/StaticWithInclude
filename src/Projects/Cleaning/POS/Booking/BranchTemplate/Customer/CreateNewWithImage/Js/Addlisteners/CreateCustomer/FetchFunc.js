@@ -2,29 +2,16 @@ import ApiConfigJson from "./../../../../../../../../ApiConfig.json" assert {typ
 
 let StartFunc = async ({ inBodyData }) => {
 
-    var formData = new FormData();
-    let jVarLocalfileUpload = document.getElementById("inputimageId");
-
     let jVarLocalFetchUrl = `/${ApiConfigJson.ProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/MainTable/SaveRow/WithPkTSImage`;
-
-
-    formData.append("inFolderName", "Masters");
-    formData.append("inFileNameOnly", "CRM");
-    formData.append("inItemName", "CustomerNames");
-    formData.append("CustomerName", inBodyData.CustomerName);
-    formData.append("Mobile", inBodyData.Mobile);
-    formData.append("City", inBodyData.City);
-    formData.append('uploaded_file', jVarLocalfileUpload.files[0]);
 
     let jVarFromFetch = await fetch(jVarLocalFetchUrl, {
         method: 'POST',
-        body: formData
+        body: inBodyData
     });
 
     let data = await jVarFromFetch.json();
 
-    if (data.KTF) {
-    };
+    return await data;
 };
 
 

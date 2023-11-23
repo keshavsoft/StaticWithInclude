@@ -1,13 +1,12 @@
-let StartFunc = ({ inFromFetch, inCustomerName }) => {
+let StartFunc = ({ inFromFetch }) => {
     if (inFromFetch.KTF) {
-        jFLocalPostFetchNotArray({ inCustomerName });
+        jFLocalPostFetchNotArray();
     };
 };
 
-let jFLocalPostFetchNotArray = ({ inCustomerName }) => {
+let jFLocalPostFetchNotArray = () => {
     const myUrlWithParams = new URL(`${window.location.origin}${window.location.pathname}`);
     myUrlWithParams.searchParams.append("FromSave", true);
-    myUrlWithParams.searchParams.append("CustomerName", inCustomerName);
 
     window.location.href = myUrlWithParams.href;
 };
