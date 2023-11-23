@@ -32,7 +32,6 @@
 
     <include src="./src/components/Cleaning/POS/Booking/BranchTemplate/Customers/CustomerInnerHeaders.html"></include>
 
-
     <div class="modal fade" id="LoginModalId" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -79,58 +78,7 @@
                     Create New
                 </div>
                 <div class="card-body">
-                    <!-- <table class="table">
-                        <thead>
-                            <tr>
-                                <th width="5%">#</th>
-                                <th width="50%">Customer Name</th>
-                                <th width="15%" style="text-align:center">City</th>
-                                <th width="15%" style="text-align:center">Mobile</th>
-                                <th width="15%"></th>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>
-                                    <div class="form-group">
-                                        <input class="form-control" type="text" name="CustomerName" id="CustomerNameId" placeholder="" autofocus="" value="">
-                                        <div class="invalid-feedback">
-                                            Should not be empty!
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-group">
-                                        <input class="form-control" type="text" name="City" id="CityId" placeholder="" value="">
-
-                                        <div class="invalid-feedback">
-                                            Should not be empty!
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-group">
-                                        <input class="form-control " type="Number" name="Mobile" id="MobileId" placeholder="" value="">
-
-                                        <div class="invalid-feedback">
-                                            Should not be empty!
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <button type="button" id="CreateCustomerButtonId" class="btn btn-outline-info">
-                                        Create Customer
-                                    </button>
-                                </td>
-                            </tr>
-                        </thead>
-                        <tbody id="KCont1">
-
-                        </tbody>
-                        <tfoot>
-
-                        </tfoot>
-                    </table> -->
-
+                   
                     <div class="row">
                         <div class="col">
                             <form class="row g-3 needs-validation" novalidate>
@@ -202,52 +150,7 @@
         </div>
     </footer>
 
-
-
-
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
-
-    <script id="HbsTemplateForFoldersOnly" type="text/x-handlebars">
-                {{#each CustomerNames}}
-                {{log "inside" this}}
-                <tr class="{{RowClass}}" data-pk="{{pk}}">
-                    <td class="text-center">
-                        {{ForSNo @index}}
-                    </td>
-                    <td>
-                        {{CustomerName}}
-                    </td>
-                    <td>
-                        {{City}}
-                    </td>
-                    <td>
-                        {{Mobile}}
-                    </td>
-                   
-                    <td style="text-align:right">
-                        {{DryWashRate}}
-                    </td>
-                <td  style="text-align:right">
-                    {{Pcs}}
-                </td>
-                </tr>
-
-               
-                </tr>
-                {{/each}}
-</script>
-
-    <script>
-
-
-        let jVarLocalHbsTemplateForTable = document.getElementById("HbsTemplateForTable");
-
-        Handlebars.registerHelper('ForSNo', function (item) {
-            return item + 1;
-        });
-
-    </script>
-
 
     <script src="./Js/headerChange.js"></script>
 
