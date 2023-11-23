@@ -1,7 +1,6 @@
 import PrepareBodyJson from "./PrepareBody.json" assert {type: 'json'};
 
 let StartFunc = () => {
-    let inDataToInsert = {}
 
     let jVarLocalCustomerName = document.getElementById("CustomerNameId");
     let jVarLocalCustomerCityId = document.getElementById("CityId");
@@ -10,11 +9,11 @@ let StartFunc = () => {
     let jVarLocalCustomerCityIdvalue = jVarLocalCustomerCityId.value;
     let jVarLocalCustomerMobileIdvalue = jVarLocalCustomerMobileId.value;
 
-    inDataToInsert.CustomerName = jVarLocalCustomerNamevalue;
-    inDataToInsert.Mobile = jVarLocalCustomerMobileIdvalue;
-    inDataToInsert.City = jVarLocalCustomerCityIdvalue;
-
-    return inDataToInsert;
+    PrepareBodyJson.inDataToSave.CustomerName = jVarLocalCustomerNamevalue;
+    PrepareBodyJson.inDataToSave.Mobile = jVarLocalCustomerMobileIdvalue;
+    PrepareBodyJson.inDataToSave.City = jVarLocalCustomerCityIdvalue;
+    
+    return PrepareBodyJson;
 };
 
 export { StartFunc };
