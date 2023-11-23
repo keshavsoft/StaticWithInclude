@@ -16,7 +16,19 @@ let jVarLocalOneToOneMessage = ({ inmessage, inMetaDataId }) => {
     LocalObjectToSend.Type = "OneToOneMessage";
     LocalObjectToSend.Message = inmessage;
     LocalObjectToSend.ReceiverId = inMetaDataId;
+    showOneToOneMessageContent({ inMessage : inmessage })
     webSocket.send(JSON.stringify(LocalObjectToSend));
 }
+
+function showOneToOneMessageContent({ inMessage }) {
+    let temp = document.getElementById("OutGoingMessageId");
+    let clon = temp.content.cloneNode(true);
+    let jVarLocalP = clon.querySelector("p");
+    jVarLocalP.innerHTML = inMessage;
+
+    let jVarLocalMessageHistoryId = document.getElementById("MessageHistoryId");
+
+    jVarLocalMessageHistoryId.appendChild(clon);
+};
 
 export { StartFunc };

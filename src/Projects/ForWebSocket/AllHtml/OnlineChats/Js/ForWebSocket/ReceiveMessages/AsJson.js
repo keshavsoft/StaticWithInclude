@@ -7,7 +7,7 @@ import { StartFunc as StartFuncChatSelected } from "./AsJson/ChatSelected.js";
 
 let StartFunc = ({ inJsonData, inShowNotification }) => {
 
-    let jVarLocalFromCheck = jFLocalCheckIsChatOpen();
+    let jVarLocalFromCheck = jFLocalCheckIsChatOpen({ inJsonData });
   
     if (jVarLocalFromCheck) {
         StartFuncChatSelected({ inJsonData })
@@ -16,13 +16,17 @@ let StartFunc = ({ inJsonData, inShowNotification }) => {
     };
 };
 
-let jFLocalCheckIsChatOpen = () => {
+let jFLocalCheckIsChatOpen = ({ inJsonData }) => {
     let jVarLocalSendMessageButtonId = document.getElementById("SendMessageButtonId");
-    return ("metadataid" in jVarLocalSendMessageButtonId.dataset);
+    if ("metadataid" in jVarLocalSendMessageButtonId.dataset) {
+        if (jVarLocalSendMessageButtonId.dataset.metadataid === inJsonData.JsonData.FromId) {
+            return true;
+        }
+    }
+    return false;
 };
 
 let jFLocalCommonChat = ({ inJsonData, inShowNotification }) => {
-    console.log("aaaaaaaaaaa : ", inJsonData);
     if (inJsonData.MessageType === "WSServer") {
         let jVarLocalInputUserNameId = document.getElementById("InputUserNameId");
         jVarLocalInputUserNameId.innerHTML = inJsonData.JsonData.UserName;
@@ -59,7 +63,7 @@ let jFLocalCommonChat = ({ inJsonData, inShowNotification }) => {
 
     if (inJsonData.MessageType === "OneToOneMessage") {
         let jVarLocalJsonData = inJsonData.JsonData;
-        showOneToOneMessageContent({ inMessage: JSON.stringify(jVarLocalJsonData) });
+        showOneToOneMessageContent({ inMessage: JSON.stringify(jVarLocalJsonData), inFromId: jVarLocalJsonData.FromId });
     }
 
     if (inJsonData.MessageType === "PrivateMessage") {
@@ -96,14 +100,24 @@ function showMessageContent({ inMessage }) {
     jVarLocalMessageHistoryId.appendChild(clon);
 };
 
-function showOneToOneMessageContent({ inMessage }) {
-    let temp = document.getElementById("OutGoingMessageId");
-    let clon = temp.content.cloneNode(true);
-    let jVarLocalP = clon.querySelector("p");
-    jVarLocalP.innerHTML = inMessage;
-    let jVarLocalMessageHistoryId = document.getElementById("MessageHistoryId");
+function showOneToOneMessageContent({ inMessage, inFromId }) {
+    let jVarLocalFromId = inFromId;
+    let jVarLocalHtmlClass = "NotificationBadgeClass";
+    let jVarLocalGetHtmlClass = document.getElementsByClassName(jVarLocalHtmlClass);
 
-    jVarLocalMessageHistoryId.appendChild(clon);
+    for (let i = 0; i < jVarLocalGetHtmlClass.length; i++) {
+        let jVarLocalId = jVarLocalGetHtmlClass[i].closest(".IdClass");
+        let jVarLocalPTag = jVarLocalId.querySelector('p');
+        let jVarLocalClientId = jVarLocalPTag.innerHTML;
+
+        if (jVarLocalClientId === jVarLocalFromId) {
+            let jVarLocalSpan = jVarLocalId.querySelector('span');
+            let jVarLocalBadgeNumber = Number(jVarLocalSpan.innerHTML)+1;
+            jVarLocalSpan.innerHTML = jVarLocalBadgeNumber;
+            jVarLocalSpan.style.display = "";
+            
+        }
+    }
 };
 
 

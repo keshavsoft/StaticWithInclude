@@ -16,7 +16,6 @@ let StartFunc = ({ inJsonDataOnly, inShowNotification }) => {
     jVarLocalInboxId.innerHTML = "";
 
     jVarLocalJsonData.forEach(element => {
-        console.log("ddddddddddd : ", element);
         showOnlineClientsContent({ inMessage: element });
     });
 

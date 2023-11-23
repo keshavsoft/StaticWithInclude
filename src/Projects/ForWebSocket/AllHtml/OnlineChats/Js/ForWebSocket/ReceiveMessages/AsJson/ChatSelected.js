@@ -18,7 +18,7 @@ let jFLocalCheckWithSenderOnly = ({ inMessage }) => {
 };
 
 function showOneToOneMessageContent({ inMessage }) {
-    let temp = document.getElementById("OutGoingMessageId");
+    let temp = document.getElementById("IncomingMessageId");
     let clon = temp.content.cloneNode(true);
     let jVarLocalP = clon.querySelector("p");
     jVarLocalP.innerHTML = inMessage.FromMessage;
