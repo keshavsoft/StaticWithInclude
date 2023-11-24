@@ -1,14 +1,16 @@
-import { StartFunc as StartFuncShowOnDom } from "./ShowOnDom.js";
-import { StartFunc as StartFuncFormLoad } from "./FormLoad/StartFunc.js";
+import { StartFunc as StartFuncAddlisteners } from "./Addlisteners/StartFunc.js";
 import { StartFunc as StartFuncAdminData } from "./AdminData/StartFunc.js";
+import { StartFunc as StartFunShowOnDom } from "./FormLoad/ShowOnDom/Entry.js";
 
 const StartFunc = () => {
-    StartFuncFormLoad();
 
-    let jVarLocalFromAdmin = StartFuncAdminData({ inFormLoadFuncToRun: StartFuncShowOnDom });
+    let jVarLocalFromAdmin = StartFuncAdminData({ inFormLoadFuncToRun: StartFunShowOnDom });
 
     if (jVarLocalFromAdmin) {
-        StartFuncShowOnDom();
+        StartFunShowOnDom().then(() => {
+            StartFuncAddlisteners();
+        })
+
     };
 };
 
