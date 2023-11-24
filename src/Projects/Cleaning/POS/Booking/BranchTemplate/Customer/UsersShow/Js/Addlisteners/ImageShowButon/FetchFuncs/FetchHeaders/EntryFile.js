@@ -5,8 +5,8 @@ let StartFunc = ({ inEvent }) => {
     let jVarLocalCurrentTarget = inEvent.currentTarget;
     let jVarLocalRowPk = jVarLocalCurrentTarget.dataset.rowpk;
     let jVarLocalBodyKeys = {};
-    
-    BodyKeysJson.rowpk = jVarLocalRowPk
+
+    BodyKeysJson.inRowPk = jVarLocalRowPk
     jVarLocalBodyKeys = BodyKeysJson;
 
     jVarLocalBodyKeys = BodyKeysJson;
