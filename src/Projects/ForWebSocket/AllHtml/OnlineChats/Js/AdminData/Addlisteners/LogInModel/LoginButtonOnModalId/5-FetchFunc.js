@@ -3,8 +3,7 @@ import  ConfigObject  from '../../../Config.json' assert {type: 'json'};
 let StartFunc = async ({ inBodyData }) => {
     let jVarLocalBodyData = inBodyData;
 
-    let jVarLocalFetchUrl = `/${ConfigObject.ProjectName}/Validate/Users/InUserDataJson/ForUserNameAndPassword/TokenToCookie`;
-
+    let jVarLocalFetchUrl = `/${ConfigObject.ProjectName}/Validate/Users/InUserDataJson/CheckCredentials`;
 
     let jVarLocalFetchHeaderObject = {
         method: "post",
