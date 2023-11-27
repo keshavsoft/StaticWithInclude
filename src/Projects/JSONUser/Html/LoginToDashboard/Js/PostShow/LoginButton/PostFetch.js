@@ -1,7 +1,7 @@
-let StartFunc = async ({ inFromFetch }) => {
+let StartFunc = ({ inFromFetch }) => {
     if ("RedirectPage" in inFromFetch) {
         window.open(inFromFetch.RedirectPage, '_newtab');
-        //window.location.href = LocalFromFetch.RedirectPage;
+        return ;
     };
 
     window.open("/JSONApi/Html/UserData/Menu/AsCards/Files.html", '_newtab');
