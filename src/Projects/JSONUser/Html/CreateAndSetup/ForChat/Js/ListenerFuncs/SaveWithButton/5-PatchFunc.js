@@ -3,7 +3,7 @@ import { StartFunc as StartFuncAfterFetchFunc } from "./6-AfterFetchFunc.js";
 
 const StartFunc = async ({ inFetchBody,inSubRoute }) => {
 
-    let jFetchUrl = `/${inSubRoute}/Users/Api/CreateAndSetup/Cleaning/FromUserCredentials`;
+    let jFetchUrl = `/${inSubRoute}/Users/Api/CreateAndSetup/ForChat/ForChatCredentials`;
 
     let jLocalFetchConfig = {
         method: "post",
