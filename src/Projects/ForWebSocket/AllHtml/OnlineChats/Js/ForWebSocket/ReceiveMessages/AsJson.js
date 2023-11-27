@@ -66,6 +66,13 @@ let jFLocalCommonChat = ({ inJsonData, inShowNotification }) => {
         showOneToOneMessageContent({ inMessage: JSON.stringify(jVarLocalJsonData), inFromId: jVarLocalJsonData.FromId });
     }
 
+    if (inJsonData.MessageType === "OldMessages") {
+        let jVarLocalJsonData = inJsonData.JsonData;
+        jVarLocalJsonData.FromMessage.forEach(element => {
+            showMessageContent({ inMessage: element });
+        });    
+    }
+
     if (inJsonData.MessageType === "PrivateMessage") {
         let jVarLocalJsonData = inJsonData.JsonData;
         showMessageContent({ inMessage: JSON.stringify(jVarLocalJsonData) });
