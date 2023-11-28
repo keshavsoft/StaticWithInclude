@@ -10,7 +10,7 @@ let jFLocalAfterLoginSuccess = () => {
 
     let jVarLocalHtmlId = 'AlertSuccessId';
     let jVarLocalAlertSuccessId = document.getElementById(jVarLocalHtmlId);
-    jVarLocalAlertSuccessId.style.display = "";
+    jVarLocalAlertSuccessId.style.display = "none";
 };
 
 const StartFunc = () => {

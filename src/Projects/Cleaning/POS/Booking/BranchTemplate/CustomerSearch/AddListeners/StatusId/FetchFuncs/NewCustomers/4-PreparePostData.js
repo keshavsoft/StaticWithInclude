@@ -1,8 +1,8 @@
 const StartFunc = () => {
     let jVarLocalBodyData = {};
-    jVarLocalBodyData.FolderName = "Masters";
-    jVarLocalBodyData.FileNameOnly = "CRM";
-    jVarLocalBodyData.ItemName = "CustomerNames";
+    jVarLocalBodyData.inFolderName = "Masters";
+    jVarLocalBodyData.inFileNameOnly = "CRM";
+    jVarLocalBodyData.inItemName = "CustomerNames";
 
     return jVarLocalBodyData;
 };
