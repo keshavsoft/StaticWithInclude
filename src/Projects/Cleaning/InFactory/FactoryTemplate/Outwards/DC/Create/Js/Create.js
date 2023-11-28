@@ -5,7 +5,7 @@ import { StartFunc as StartFuncAddListenersFuncs } from "./AddListenersFuncs/Sta
 import { StartFunc as StartFuncAdminData } from "./AdminData/StartFunc.js";
 
 const StartFunc = () => {
-    let jVarLocalFromAdmin = StartFuncAdminData({ inFormLoadFuncToRun: StartFuncShowOnDom });
+    let jVarLocalFromAdmin = StartFuncAdminData({ inFormLoadFuncToRun: StartFuncShowOnDom, inSuccessSuccess: true });
 
     if (jVarLocalFromAdmin) {
         StartFuncFormLoad();

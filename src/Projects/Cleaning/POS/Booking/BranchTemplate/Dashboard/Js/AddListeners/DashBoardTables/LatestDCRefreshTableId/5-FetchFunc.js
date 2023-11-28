@@ -1,23 +1,49 @@
-import ApiConfigJson from "./../../../../../../../../ApiConfig.json" assert {type: 'json'};
+import { StartFunc as StartFuncVoucherDetails } from "./Promises/ShowVoucherDetails/PostFetch.js";
+import { StartFunc as StartFuncItemDetails } from "./Promises/ShowItemDetails/EntryFile.js";
 
-let StartFunc = async ({ inBodyData }) => {
-    let jVarLocalBodyData = inBodyData;
+let StartFunc = async () => {
+    const [a, b] = await Promise.all([StartFuncVoucherDetails(), StartFuncItemDetails()]);
 
-    // let jVarLocalFetchUrl = `/${ApiConfigJson.ProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/AggregateFuncs/OnKeys/Max/Count/5`;
-    let jVarLocalFetchUrl = `/${ApiConfigJson.ProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/AggregateFuncs/OnKeys/MaxWithFilter/Count/5`;
-    let jVarLocalFetchHeaderObject = {
-        method: "post",
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(jVarLocalBodyData)
+    if (a.KTF && b.KTF) {
+        let jVarLocalDcData = a.JsonData;
+        let jVarLocalItemsData = b.JsonData;
+
+        let jVarLocalData = jFLocalItemsData({
+            inDcData: jVarLocalDcData,
+            inItemsData: jVarLocalItemsData,
+
+        });
+        return jVarLocalData;
     };
-
-    let response = await fetch(jVarLocalFetchUrl, jVarLocalFetchHeaderObject);
-    let jVarLocalResponse = await response.json();
-
-    return jVarLocalResponse;
 };
 
-export { StartFunc };
+let jFLocalItemsData = ({ inDcData, inItemsData }) => {
+    let jVarLocalDcData = inDcData;
+    let jVarLocalItemsData = inItemsData;
+
+    let localArrayObj = Object.values(jVarLocalDcData);
+
+    let jVarLocalReturnArray = localArrayObj.map((element) => {
+        // if (element.pk in inItemsData) {
+        //     element.ItemDetails = inItemsData[element.pk];
+        // } else {
+        //     element.ItemDetails = 0;
+        // };
+
+        element.ItemDetails = element.pk in jVarLocalItemsData ? jVarLocalItemsData[element.pk] : 0;
+
+        return element;
+    });
+
+    // localItemsData.forEach((element) => {
+    //     localArrayObj.map((ele) => {
+    //         if (ele.pk == element[0]) {
+    //             ele.ItemDetails = element[1]
+    //         }
+    //     });
+    // });
+
+    return jVarLocalReturnArray;
+};
+
+export { StartFunc }

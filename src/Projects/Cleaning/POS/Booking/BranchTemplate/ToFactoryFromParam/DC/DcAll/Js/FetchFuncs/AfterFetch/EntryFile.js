@@ -1,7 +1,6 @@
 let StartFunc = async ({ inDataToShow }) => {
     let jVarLocalDataToShow = inDataToShow;
-    console.log("jVarLocalDataToShow : ", jVarLocalDataToShow);
-
+    
     let jVarLocalHtmlId = 'tableHeadRow';
     let jVarLocaltableHeadRow = document.getElementById(jVarLocalHtmlId);
     jVarLocaltableHeadRow.appendChild(jFLocalSerialNumberColumn());
