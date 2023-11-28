@@ -115,19 +115,17 @@
                         <span class="visually-hidden">Loading...</span>
                     </div>
 
-                    <table id="table" data-toolbar="#toolbar" data-search="true" data-searchable="true"
-                        data-show-columns="true" data-show-columns-toggle-all="true" data-show-export="true"
-                        data-detail-view="true" data-detail-formatter="detailFormatter" data-id-field="pk"
-                        data-show-toggle="true" data-filter-control="true">
+                    <table id="table" data-toolbar="#toolbar" data-search="true" dat-pagination="true" data-searchable="true" data-pagination="true" data-show-columns="true" data-show-columns-toggle-all="true" data-show-export="true" data-detail-view="true" data-detail-formatter="detailFormatter" data-id-field="pk" data-show-toggle="true" data-filter-control="true">
                         <thead>
                             <tr id="tableHeadRow">
                                 <th data-formatter="jFLocalSerialColumn" data-width="50">#</th>
                                 <th data-field="pk" data-width="80">Qr Code</th>
-                                <th data-field="SalePrice" data-filter-control="select" data-width="40">SalePrice</th>
-                                <th data-field="ProductName" data-filter-control="select">ProductName</th>
-                                <th data-field="SalePrice" data-filter-control="select">SalePrice</th>
-                                <th data-field="PercentageValueAddition" data-filter-control="select">PercentageValueAddition</th>
-                                <th data-field="SupplierName" data-filter-control="select" data-width="210">SupplierName</th>
+                                <th data-field="PurchasePk" data-filter-control="select" data-width="40">PurchasePk</th>
+                                <th data-field="SupplierName" data-filter-control="select" data-width="210">Supplier Names</th>
+                                <th data-field="ProductName" data-filter-control="select">Product Names</th>
+                                <th data-field="CostPrice" data-filter-control="select">₹ Cost Prices</th>
+                                <th data-field="PercentageValueAddition" data-filter-control="select">% Addition</th>
+                                <th data-field="SalePrice" data-filter-control="select"> ₹ SalePrices</th>
                             </tr>
                         </thead>
                     </table>
