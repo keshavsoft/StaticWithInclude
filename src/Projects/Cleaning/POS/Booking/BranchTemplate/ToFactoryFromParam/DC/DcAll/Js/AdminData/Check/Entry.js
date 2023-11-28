@@ -2,7 +2,7 @@ import { StartFunc as StartFuncCookie } from "./Cookie/Cookie.js";
 import { StartFunc as StartFuncHeader } from "./Cookie/Header.js";
 import { StartFunc as StartFuncDeleteCookie } from "./Cookie/DeleteCookie.js";
 
-const StartFunc = () => {
+const StartFunc = ({ inSuccessPrimary }) => {
 
     let jVarLocalCookieValue = StartFuncCookie();
 
@@ -11,7 +11,7 @@ const StartFunc = () => {
 
         return false;
     } else {
-        StartFuncHeader();
+        StartFuncHeader({ inSuccessPrimary });
 
         return true;
     };

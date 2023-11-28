@@ -1,9 +1,5 @@
-import { StartFunc as StartFuncItemDetails } from "./ItemDetails/EntryFile.js";
-
 let StartFunc = async({ inFromFetch }) => {
-    let jVarLocalData = inFromFetch.JsonData;
-    jVarGlobalPresentViewData = await StartFuncItemDetails();
-
+    let jVarLocalData = inFromFetch;
     let jVarLocalWithDiff = jFLocalShowDateDiffInMinSec({ inData: jVarLocalData });
 
     // let jVarLocalData = jFLocalToArray({ inDataToShow: inFromFetch.JsonData});

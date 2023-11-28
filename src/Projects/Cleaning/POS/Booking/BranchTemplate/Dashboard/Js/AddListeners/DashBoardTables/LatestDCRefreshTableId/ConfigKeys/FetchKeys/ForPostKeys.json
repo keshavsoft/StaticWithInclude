@@ -1,7 +1,10 @@
 {
-    "inFolderName": "ToFactory",
+    "FolderName": "Factory",
+    "FileNameOnly": "VoucherDetails",
+    "FileName": "VoucherDetails",
+    "ItemName": "VoucherDetails",
+    "FilterString": "value.BranchName === '{{BranchName}}'",
+    "ScreenName": "Create",
     "inFileNameOnly": "Kakinada",
-    "inFileName": "Kakinada",
-    "inItemName": "VoucherDetails",
-    "inScreenName": "Create"
+    "inFileName": "Kakinada"
 }
