@@ -34,6 +34,10 @@ let jFShowNettAmount = () => {
     let jVarLocalNettAmount = parseFloat(jFLocalFromDomNettAmountId());
 
     jFLocalToInputRoundOffId({ inRoundOffId: (Math.round(jVarLocalNettAmount) - jVarLocalNettAmount).toFixed(2) });
+    let jVarLocalRoundOffAmount = parseFloat(jFLocalFromDomRoundOffId());
+    let jVarLocalTotalNetAmount = jVarLocalNettAmount +jVarLocalRoundOffAmount;
+    jFLocalTotalNetAmountId({ inTotalNetAmountId: jVarLocalTotalNetAmount })
+    
 };
 
 let jFLocalFromDomNettAmountId = () => {
@@ -41,6 +45,19 @@ let jFLocalFromDomNettAmountId = () => {
     let jVarHtmlNettAmountId = document.getElementById(jVarLocalHtmlNettAmountId);
     let jVarHtmlNettAmountIdValue = jVarHtmlNettAmountId.value.trim();
     return jVarHtmlNettAmountIdValue;
+};
+
+let jFLocalFromDomRoundOffId = () => {
+    let jVarLocalHtmlRoundOffId = 'RoundOffId';
+   let jVarHtmlRoundOffId = document.getElementById(jVarLocalHtmlRoundOffId);
+   let jVarHtmlRoundOffIdValue = jVarHtmlRoundOffId.value.trim();
+   return jVarHtmlRoundOffIdValue;
+};
+
+let jFLocalTotalNetAmountId = ({ inTotalNetAmountId }) => {
+    let jVarLocalHtmlId = 'TotalNetAmountId';
+    let jVarLocalTotalNetAmountId = document.getElementById(jVarLocalHtmlId);
+    jVarLocalTotalNetAmountId.innerHTML = inTotalNetAmountId;
 };
 
 let jFLocalToInputRoundOffId = ({ inRoundOffId }) => {
