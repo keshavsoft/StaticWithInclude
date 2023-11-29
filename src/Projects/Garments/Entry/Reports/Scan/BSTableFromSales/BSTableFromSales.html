@@ -115,17 +115,20 @@
                         <span class="visually-hidden">Loading...</span>
                     </div>
 
-                    <table id="table" data-toolbar="#toolbar" data-search="true" dat-pagination="true" data-searchable="true" data-pagination="true" data-show-columns="true" data-show-columns-toggle-all="true" data-show-export="true" data-detail-view="true" data-detail-formatter="detailFormatter" data-id-field="pk" data-show-toggle="true" data-filter-control="true">
+                    <table id="table" data-toolbar="#toolbar" data-search="true" dat-pagination="true"
+                        data-searchable="true" data-pagination="true" data-show-columns="true"
+                        data-show-columns-toggle-all="true" data-show-export="true" data-detail-view="true"
+                        data-detail-formatter="detailFormatter" data-id-field="pk" data-show-toggle="true"
+                        data-filter-control="true">
                         <thead>
                             <tr id="tableHeadRow">
                                 <th data-formatter="jFLocalSerialColumn" data-width="50">#</th>
                                 <th data-field="pk" data-width="80">Qr Code</th>
-                                <th data-field="PurchasePk" data-filter-control="select" data-width="40">PurchasePk</th>
-                                <th data-field="SupplierName" data-filter-control="select" data-width="210">Supplier Names</th>
-                                <th data-field="ProductName" data-filter-control="select">Product Names</th>
-                                <th data-field="SalePrice" data-filter-control="select"> ₹ SalePrices</th>
-                                <th data-field="saleDateTime" data-filter-control="select"> Sale Return</th>
-                                <th data-field="purchaseDateTime" data-filter-control="select"> Purchase Return</th>
+                                <th data-field="ProductName" data-filter-control="select" data-width="210">ProductName
+                                </th>
+                                <th data-field="PosOnlyYear" data-filter-control="select" data-width="210">Year</th>
+                                <th data-field="salePOSDateTime" data-filter-control="select">Month</th>
+                                <th data-field="GrossAmout" data-filter-control="select"> ₹ GrossAmout</th>
                             </tr>
                         </thead>
                     </table>
@@ -163,7 +166,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./Js/Login/Entry.js" type="module"></script>
 
-    <script src="./Js/BSTableFromScreen.js" type="module"></script>
+    <script src="./Js/BSTableFromSales.js" type="module"></script>
 </body>
 
 </html>
