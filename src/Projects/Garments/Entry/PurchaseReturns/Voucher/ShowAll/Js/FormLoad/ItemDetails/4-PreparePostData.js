@@ -4,7 +4,7 @@ const StartFunc = () => {
     let jVarLocalBodyData = {}
 
     jVarLocalBodyData.FolderName = BodyKeysJson.inFolderName;
-    jVarLocalBodyData.FileNameOnly = BodyKeysJson.inFileNameOnly;
+    jVarLocalBodyData.FileNameOnly ="QrCodeDetails";
     jVarLocalBodyData.ItemName = "QrCodeDetails";
     jVarLocalBodyData.MapString = "VoucherRef";
 
