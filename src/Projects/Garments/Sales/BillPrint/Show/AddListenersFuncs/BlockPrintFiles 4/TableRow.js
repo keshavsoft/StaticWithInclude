@@ -38,8 +38,9 @@ const StartFunc = () => {
     let jvarLocaltoatalDisRate = jVarLoopInsideDisCount.reduce((a, b) => a + b, 0)
     let localNetAmount = jvarLocaltoatalUnitRate - jvarLocaltoatalDisRate;
 
-    k1.innerHTML += `                     <span style="font-size: 13px;">Gross Amount    :   ${jvarLocaltoatalUnitRate}</span>\n`;
-    k1.innerHTML += `                   <span style="font-size: 13px;">Total Discount    :   ${jvarLocaltoatalDisRate}</span>\n`;
+    k1.innerHTML += `${" ".repeat(21)}<span style="font-size: 13px;">Gross Amount    :${jvarLocaltoatalUnitRate.toString().padStart(7, " ")}</span>\n`;
+    k1.innerHTML += `${" ".repeat(21)}<span style="font-size: 13px;">Total Discount  :${jvarLocaltoatalDisRate.toString().padStart(7, " ")}</span>\n`;
+    // k1.innerHTML += `${" ".repeat(21)}<span style="font-size: 13px;">Total Discount    :   ${jvarLocaltoatalDisRate}</span>\n`;
     k1.innerHTML += `                       <span style="font-size: 16px; font-weight: bold;">Net Amt    :  ${localNetAmount}</span>\n`;
 
 };
