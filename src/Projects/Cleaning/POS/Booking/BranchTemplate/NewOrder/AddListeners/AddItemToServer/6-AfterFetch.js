@@ -4,11 +4,11 @@ let StartFunc = ({ inFromFetch }) => {
     if (inFromFetch.KTF === true) {
         let jVarLocalOrderNumber = inFromFetch.NewPk;
         jFLocalToURL({ inOrderNumber: jVarLocalOrderNumber });
-    }else{
+    } else {
         Swal.fire({
             icon: 'error',
-            title: `${ApiConfigJson.ForFetch.JsonFileName} not found`,
-            text: `Json File name : ${ApiConfigJson.ForFetch.JsonFileName} not found in Data Folder : ${ApiConfigJson.ForFetch.FolderName}`
+            title: `Reason`,
+            text: `${JSON.stringify(inFromFetch.ServerSideCheck)}`
         })
     };
 };
