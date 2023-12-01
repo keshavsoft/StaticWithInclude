@@ -4,11 +4,10 @@ import BodyKeysJson from '../../../../../../../ConfigKeys/FetchKeys/ForPostKeys.
 let StartFunc = () => {
     let jVarLocalBodyKeysJson = {};
 
-    let jVarLocalFileValue = BodyKeysJson.inFileNameOnly;
     let jVarLocalFilterString = getUrlQueryParams({ inGetKey: "VoucherRef"});
 
     jVarLocalBodyKeysJson.FolderName = BodyKeysJson.inFolderName;
-    jVarLocalBodyKeysJson.FileNameOnly = jVarLocalFileValue.search(".") === -1 ? jVarLocalFileValue : jVarLocalFileValue.split(".")[0]
+    jVarLocalBodyKeysJson.FileNameOnly = "VoucherDetails";
     jVarLocalBodyKeysJson.ItemName = "VoucherDetails";
     jVarLocalBodyKeysJson.FilterString = `value.pk === ${jVarLocalFilterString}`;
     KeysJson.body = JSON.stringify(jVarLocalBodyKeysJson);

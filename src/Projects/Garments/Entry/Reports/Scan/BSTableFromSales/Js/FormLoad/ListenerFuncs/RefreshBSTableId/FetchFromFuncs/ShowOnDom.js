@@ -28,7 +28,9 @@ const jFLocalCheck = ({ QrCodeData, SaleDataPOS }) => {
             element.Status = "Sold";
             element.salePOSDateTime = SaleDataPOS[element.BillPk].Date
             let OnlyYear = new Date(element.salePOSDateTime);
-            element.PosOnlyYear = OnlyYear.getFullYear()
+            let OnlyMonth = new Date(element.salePOSDateTime);
+            element.PosOnlyYear = OnlyYear.getFullYear();
+            element.PosOnlyMonth = OnlyMonth.getMonth() + 1;
         };
 
         return element;

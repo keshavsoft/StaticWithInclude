@@ -119,13 +119,19 @@
                         <thead>
                             <tr id="tableHeadRow">
                                 <th data-formatter="jFLocalSerialColumn" data-width="50">#</th>
-                                <th data-field="pk" data-width="80">Qr Code</th>
-                                <th data-field="PurchasePk" data-filter-control="select" data-width="40">PurchasePk</th>
-                                <th data-field="SupplierName" data-filter-control="select" data-width="210">Supplier Names</th>
+                                <th data-field="pk" data-width="80" data-visible="false">Qr Code</th>
+                                <th data-field="PurchasePk" data-filter-control="select" data-width="40" data-visible="false">PurchasePk</th>
+                                <th data-field="BillNumber" data-filter-control="select" data-width="40" data-visible="false">BillNumber</th>
+                                <th data-field="SupplierName" data-filter-control="select" data-width="210">Supplier
+                                    Names</th>
                                 <th data-field="ProductName" data-filter-control="select">Product Names</th>
-                                <th data-field="SalePrice" data-filter-control="select"> ₹ SalePrices</th>
-                                <th data-field="saleDateTime" data-filter-control="select"> Sale Return</th>
-                                <th data-field="purchaseDateTime" data-filter-control="select"> Purchase Return</th>
+                                <th data-field="SalePrice" data-filter-control="select"> ₹
+                                    SalePrices</th>
+                                <th data-field="SaleStatus" data-filter-control="select" data-visible="false"> ₹ Sale</th>
+                                <th data-field="PosDate" data-filter-control="select"> Sale Date</th>
+                                <th data-field="saleDateTime" data-filter-control="select"> Sale Time Stamp</th>
+                                <th data-field="purchaseStatus" data-filter-control="select" data-visible="false"> PR</th>
+                                <th data-field="purchaseDateTime" data-filter-control="select"> PR Date</th>
                             </tr>
                         </thead>
                     </table>

@@ -1,5 +1,7 @@
 {
-    "inFolderName": "Masters",
-    "inFileNameOnly": "CRM",
-    "inItemName": "CustomerNames"
+    "inFolderName": "PurchaseReturns",
+    "inFileNameOnly": "VoucherDetails",
+    "inFileName": "VoucherDetails",
+    "inItemName": "VoucherDetails",
+    "inScreenName": "Create"
 }
