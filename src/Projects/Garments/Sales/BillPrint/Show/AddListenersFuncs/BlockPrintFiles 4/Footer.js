@@ -20,8 +20,8 @@ const StartFunc = () => {
         let jVarLoopInsideSGSTValue = `${element.SGSTValue}`;
 
         k1.innerHTML += `<span style="font-size: 13px;">${jVarLoopInsideGST.toString().padEnd(4, " ")}</span>`;
-        k1.innerHTML += `<span style="font-size: 13px;">${jVarLoopInsideGstAmount.toString().padStart(11, " ")}</span>`;
-        k1.innerHTML += `<span style="font-size: 13px;">${jVarLoopInsideCGSTKey.toString().padStart(7, " ")}</span>`;
+        k1.innerHTML += `<span style="font-size: 13px;">${jVarLoopInsideGstAmount.toString().padStart(8, " ")}</span>`;
+        k1.innerHTML += `<span style="font-size: 13px;">${jVarLoopInsideCGSTKey.toString().padStart(9, " ")}</span>`;
         // k1.innerHTML += `<span style="font-size: 13px;">${jVarLoopInsideCGSTKey.padStart(9)}</span>`;
         k1.innerHTML += `<span style="font-size: 13px;">${jVarLoopInsideCGSTValue.padStart(7)}</span>`;
         k1.innerHTML += `<span style="font-size: 13px;">${jVarLoopInsideSGSTKey.padStart(9)}</span>`;
@@ -44,7 +44,7 @@ const StartFunc = () => {
     k1.innerHTML += `----------------------------------------------\n`
     k1.innerHTML += `<span style="font-size: 13px;">Total:  ${jvarLocalGstTaxaBleAmount.padStart(5)}</span>`;
     k1.innerHTML += `<span style="font-size: 13px;">${jvarLocalTotalCGSTValue.padStart(13)}</span>`;
-    k1.innerHTML += `<span style="font-size: 13px;">${jvarLocalTotalSGSTValue.padStart(18)}</span>\n`;
+    k1.innerHTML += `<span style="font-size: 13px;">${jvarLocalTotalSGSTValue.padStart(17)}</span>\n`;
     k1.innerHTML += `----------------------------------------------\n`
 
     k1.innerHTML +=
