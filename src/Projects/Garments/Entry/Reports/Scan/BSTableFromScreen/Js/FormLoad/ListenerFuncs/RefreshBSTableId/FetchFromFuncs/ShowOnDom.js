@@ -1,31 +1,40 @@
 import { StartFunc as StartFuncAfterFetch } from "./AfterFetch/EntryFile.js";
-import { StartFunc as StartFuncVoucherDetails } from "./Promises/ShowVoucherDetails/PostFetch.js";
-import { StartFunc as StartFuncItemDetails } from "./Promises/ShowItemDetails/EntryFile.js";
+import { StartFunc as StartFuncShowQrDetails } from "./Promises/ShowQrDetails/PostFetch.js";
+import { StartFunc as StartFuncSaleBillsQrCodeDetails } from "./Promises/ShowItemDetails/EntryFile.js";
 import { StartFunc as StartFuncShowPurchaseReturnsDetails } from "./Promises/ShowPurchaseReturnsDetails/PostFetch.js";
 import { StartFunc as StartFuncSalePosDetails } from "./Promises/SalePosDetails/PostFetch.js";
+import { StartFunc as StartFuncVoucherDetails } from "./Promises/ShowVoucherDetails/PostFetch.js";
 
 let StartFunc = async () => {
-    const [a, b, c, d] = await Promise.all([StartFuncVoucherDetails(), StartFuncItemDetails(), StartFuncShowPurchaseReturnsDetails(), StartFuncSalePosDetails()]);
+    const [a, b, c, d, e] = await Promise.all([
+        StartFuncShowQrDetails(),
+        StartFuncSaleBillsQrCodeDetails(),
+        StartFuncShowPurchaseReturnsDetails(),
+        StartFuncSalePosDetails(),
+        StartFuncVoucherDetails()]);
 
-    if (a.KTF && b.KTF && c.KTF) {
-        let jVarLocalDcData = a.JsonData;
+    if (a.KTF && b.KTF && c.KTF, e.KTF) {
+        console.log("e", e);
+        let jVarLocalQrData = a.JsonData;
         let jVarLocalSalesData = b.JsonData;
         let jVarLocalPurchaseReturnsData = c.JsonData;
         let jVarLocalPOSData = d.JsonData;
+        let jVarLocalVoucherData = e.JsonData;
 
-        let jVarLocalQrCodeData = jFLocalToArray({ inDataToShow: jVarLocalDcData });
+        let jVarLocalQrCodeData = jFLocalToArray({ inDataToShow: jVarLocalQrData });
         let jVarLocalShowOnDomData = jFLocalCheck({
             QrCodeData: jVarLocalQrCodeData,
             SaleData: jVarLocalSalesData,
             PurchaseReturns: jVarLocalPurchaseReturnsData,
-            POSData: jVarLocalPOSData
+            POSData: jVarLocalPOSData,
+            VoucherData:jVarLocalVoucherData
         });
 
         StartFuncAfterFetch({ inDataToShow: jVarLocalShowOnDomData });
     };
 };
 
-const jFLocalCheck = ({ QrCodeData, SaleData, PurchaseReturns, POSData }) => {
+const jFLocalCheck = ({ QrCodeData, SaleData, PurchaseReturns, POSData,VoucherData }) => {
 
     let localReturnArray = [];
 
@@ -44,6 +53,11 @@ const jFLocalCheck = ({ QrCodeData, SaleData, PurchaseReturns, POSData }) => {
         if (element.pk in POSData) {
             element.PosDate = POSData[element.pk].Date
         };
+
+        if (element.PurchasePk in VoucherData) {
+            element.VoucherDate = VoucherData[element.PurchasePk].Date
+        };
+
         return element;
     });
 
