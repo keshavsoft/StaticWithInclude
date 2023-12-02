@@ -1,7 +1,7 @@
 {
-    "inFolderName": "QrCodes",
-    "inFileNameOnly": "Generate",
-    "inFileName": "Generate",
-    "inItemName": "Barcodes",
+    "inFolderName": "Purchases",
+    "inFileNameOnly": "Vouchers",
+    "inFileName": "Vouchers",
+    "inItemName": "VouchersName",
     "inScreenName": "Create"
 }
