@@ -115,23 +115,18 @@
                         <span class="visually-hidden">Loading...</span>
                     </div>
 
-                    <table id="table" data-toolbar="#toolbar" data-search="true" dat-pagination="true" data-searchable="true" data-pagination="true" data-show-columns="true" data-show-columns-toggle-all="true" data-show-export="true" data-detail-view="true" data-detail-formatter="detailFormatter" data-id-field="pk" data-show-toggle="true" data-filter-control="true">
+                    <table id="table" data-toolbar="#toolbar" data-search="true" data-show-fullscreen="true"  data-show-footer="true" dat-pagination="true" data-searchable="true" data-pagination="true" data-show-columns="true" data-show-columns-toggle-all="true" data-show-export="true" data-detail-view="true" data-detail-formatter="detailFormatter" data-id-field="pk" data-show-toggle="true" data-filter-control="true">
                         <thead>
                             <tr id="tableHeadRow">
-                                <th data-formatter="jFLocalSerialColumn" data-width="50">#</th>
+                                <th data-formatter="jFLocalSerialColumn" data-width="50" data-footer-formatter="totalTextFormatter">#</th>
                                 <th data-field="pk" data-width="80" data-filter-control="input" data-visible="false">Qr Code</th>
-                                <th data-field="PurchasePk" data-filter-control="select" data-width="40"
-                                    data-visible="false">PurchasePk</th>
-                                    <th data-field="VoucherDate" data-filter-control="select" data-width="40"
-                                    data-visible="false">Purchase Date</th>
-                                <th data-field="BillNumber" data-filter-control="select" data-width="40"
-                                    data-visible="false">BillNumber</th>
+                                <th data-field="PurchasePk" data-filter-control="select" data-width="40" data-visible="false">PurchasePk</th>
+                                    <th data-field="VoucherDate" data-filter-control="select" data-width="40" data-visible="false">Purchase Date</th>
+                                <th data-field="BillNumber" data-filter-control="select" data-width="40" data-visible="false">BillNumber</th>
                                 <th data-field="SupplierName" data-filter-control="select" data-width="210">Supplier
                                     Names</th>
-                                <th data-field="ProductName" data-filter-control="select"
-                                    data-footer-formatter="TotalProducts">Product Names</th>
-                                <th data-field="SalePrice" data-filter-control="select"
-                                    data-footer-formatter="TotalSalesprice"> ₹
+                                <th data-field="ProductName" data-filter-control="select" data-footer-formatter="TotalProducts">Product Names</th>
+                                <th data-field="SalePrice" data-filter-control="select" data-footer-formatter="TotalSalesprice"> ₹
                                     SalePrices</th>
                                 <th data-field="SaleStatus" data-filter-control="select" data-visible="false"> ₹ Sale Status
                                 </th>
@@ -165,20 +160,20 @@
 
         function TotalSalesprice(data) {
             var field = this.field
-            return '' + data.map(function (row) {
+            return '₹ ' + data.map(function (row) {
                 return +row.SalePrice
             }).reduce(function (sum, i) {
                 return sum + i
             }, 0)
         }
 
-        function TotalProducts(index) {
-            var field = this.field
-            let localindexArray = index.map(function (row, index) {
-                return index
-            });
-            return localindexArray.length
-        }
+        function TotalProducts(data) {
+    return data.length
+  };
+
+  function totalTextFormatter(data) {
+    return 'Total'
+  }
 
     </script>
 
