@@ -13,7 +13,7 @@ let StartFunc = async () => {
             inBodyData: jVarLocalBodyData
         });
 
-        StartFuncAfterFetch({ inFromFetch: response });
+        StartFuncAfterFetch({ inFromFetch: response, inBodyData: jVarLocalBodyData });
     };
 };
 

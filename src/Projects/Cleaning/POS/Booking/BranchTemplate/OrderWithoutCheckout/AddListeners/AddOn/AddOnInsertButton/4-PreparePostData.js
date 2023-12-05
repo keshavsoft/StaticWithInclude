@@ -3,11 +3,13 @@ import ApiConfigJson from "./../../../../ApiConfig.json" assert {type: 'json'};
 
 const StartFunc = () => {
     let jVarLocalOrderNumber = jFLocalFromDomOrderNumberId();
+    let jVarLocalBranchName = getUrlQueryParams({ inGetKey: "BranchName" })
     
     let jVarLocalToLocalStorage = {};
 
     jVarLocalToLocalStorage.FolderName = ApiConfigJson.ForFetch.FolderName;
-    jVarLocalToLocalStorage.FileNameOnly = ApiConfigJson.ForFetch.FileNameOnly;
+    // jVarLocalToLocalStorage.FileNameOnly = ApiConfigJson.ForFetch.FileNameOnly;
+    jVarLocalToLocalStorage.FileNameOnly = jVarLocalBranchName;
 
     jVarLocalToLocalStorage.ItemName = ApiConfigJson.ForFetch.ItemName;
     jVarLocalToLocalStorage.ScreenName = "Create";
@@ -18,6 +20,13 @@ const StartFunc = () => {
     jVarLocalToLocalStorage.DataToInsert = jFLocalPrepareObject();
 
     return jVarLocalToLocalStorage;
+};
+
+let getUrlQueryParams = ({ inGetKey }) => {
+    const queryString = window.location.search;
+    const parameters = new URLSearchParams(queryString);
+    const value = parameters.get(inGetKey);
+    return value;
 };
 
 let jFLocalFromDomOrderNumberId = () => {

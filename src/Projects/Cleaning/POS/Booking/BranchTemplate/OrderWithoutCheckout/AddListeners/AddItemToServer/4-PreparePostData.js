@@ -2,10 +2,12 @@ import ConfigJson from "../../../ApiConfig.json" assert {type: 'json'};
 
 const StartFunc = () => {
     let jVarLocalOrderNumber=jFLocalFromDomOrderNumberId();
+    let jVarLocalBranchName = getUrlQueryParams({ inGetKey: "BranchName" })
+
     let jVarLocalToLocalStorage = {};
 
     jVarLocalToLocalStorage.FolderName = "Transactions";
-    jVarLocalToLocalStorage.FileNameOnly = ConfigJson.JsonFileNameOnly;
+    jVarLocalToLocalStorage.FileNameOnly = jVarLocalBranchName;
     jVarLocalToLocalStorage.ItemName = "Orders";
     jVarLocalToLocalStorage.ScreenName = "Create";
     jVarLocalToLocalStorage.JsonPk = jVarLocalOrderNumber;
@@ -15,6 +17,13 @@ const StartFunc = () => {
     // jVarLocalToLocalStorage.inPostData.ItemsInOrder["1"] = jFLocalPrepareObject();
 
     return jVarLocalToLocalStorage;
+};
+
+let getUrlQueryParams = ({ inGetKey }) => {
+    const queryString = window.location.search;
+    const parameters = new URLSearchParams(queryString);
+    const value = parameters.get(inGetKey);
+    return value;
 };
 
 let jFLocalFromDomOrderNumberId = () => {
