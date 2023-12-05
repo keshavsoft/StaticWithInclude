@@ -13,11 +13,21 @@ let StartFunc = ({ inFromFetch }) => {
 };
 
 let jFLocalToURL = ({ inOrderNumber }) => {
+    let jVarLocalBranchName = getUrlQueryParams({ inGetKey: "BranchName" });
+
     const myUrlWithParams = new URL(`${window.location.origin}${window.location.pathname}`);
-    myUrlWithParams.searchParams.append("OrderNumber", inOrderNumber);
-    const k1=new URL("../Orders/QrCodesTable/QrCodesTable.html",myUrlWithParams.href);
+    const k1 = new URL("../Orders/QrCodesTable/QrCodesTable.html", myUrlWithParams.href);
+    k1.searchParams.append("BranchName", jVarLocalBranchName);
+    k1.searchParams.append("OrderNumber", inOrderNumber);
 
     window.location.href = k1.href;
+};
+
+let getUrlQueryParams = ({ inGetKey }) => {
+    const queryString = window.location.search;
+    const parameters = new URLSearchParams(queryString);
+    const value = parameters.get(inGetKey);
+    return value;
 };
 
 export { StartFunc };
