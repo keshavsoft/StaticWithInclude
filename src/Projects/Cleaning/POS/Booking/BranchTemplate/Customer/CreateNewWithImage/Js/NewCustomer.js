@@ -7,7 +7,6 @@ const StartFunc = () => {
 
     if (jVarLocalFromAdmin) {
         StartFuncAddlisteners();
-
     };
 };
 

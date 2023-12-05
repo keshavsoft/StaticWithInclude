@@ -7,9 +7,9 @@ let StartFunc = () => {
         return false;
     };
 
-    if (jFinputimageId() === false) {
-        return false;
-    };
+    // if (jFinputimageId() === false) {
+    //     return false;
+    // };
 
     return true;
 };
@@ -73,8 +73,8 @@ let jFinputimageId = () => {
 
         jVarCreateFolderInputId.classList.add("is-valid");
     };
-    return true;
 
+    return true;
 }
 
 export { StartFunc };
