@@ -2,6 +2,7 @@
 import ApiConfigJson from "./../../../../../../ApiConfig.json" assert {type: 'json'};
 
 let StartFunc = () => {
+    let jVarLocalBranchName = getUrlQueryParams({ inGetKey: "BranchName" });
     let jVarLocalGstData = {};
 
     jVarLocalGstData.DiscountAmount = parseFloat(jFLocalFromDomDiscountAmount()) || 0;
@@ -12,7 +13,8 @@ let StartFunc = () => {
     jVarLocalReturnObject.ItemConfig={};
     
     jVarLocalReturnObject.JsonConfig.inFolderName = ApiConfigJson.ForFetch.FolderName;
-    jVarLocalReturnObject.JsonConfig.inJsonFileName = ApiConfigJson.ForFetch.JsonFileName;
+    // jVarLocalReturnObject.JsonConfig.inJsonFileName = ApiConfigJson.ForFetch.JsonFileName;
+    jVarLocalReturnObject.JsonConfig.inJsonFileName = `${jVarLocalBranchName}.json`;
 
     jVarLocalReturnObject.ItemConfig.inItemName = ApiConfigJson.ForFetch.ItemName;
     jVarLocalReturnObject.MainRowPK = jFLocalFromDomOrderNumberId();
@@ -29,6 +31,13 @@ let StartFunc = () => {
     jVarLocalReturnObject.inDataToUpdate.GstData = jVarLocalGstData;
 
     return jVarLocalReturnObject;
+};
+
+let getUrlQueryParams = ({ inGetKey }) => {
+    const queryString = window.location.search;
+    const parameters = new URLSearchParams(queryString);
+    const value = parameters.get(inGetKey);
+    return value;
 };
 
 let jFLocalFromDomCgstAmountId = () => {
