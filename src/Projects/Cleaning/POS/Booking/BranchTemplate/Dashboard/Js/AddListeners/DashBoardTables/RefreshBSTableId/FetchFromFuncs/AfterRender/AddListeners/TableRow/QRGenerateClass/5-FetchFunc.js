@@ -1,10 +1,9 @@
 import { StartFunc as StartFuncAfterFetch } from "./6-AfterFetch.js";
-import ApiConfigJson from "../../../../../../../../../../ApiConfig.json" assert {type: 'json'};
 
 const StartFunc = async ({ inBodyData }) => {
     let jVarLocalBodyData = inBodyData;
     let inProjectName = jVarLocalBodyData.inProjectName;
-    let inFileNameOnly = ApiConfigJson.JsonFileNameOnly
+    let inFileNameOnly = getUrlQueryParams({ inGetKey: "BranchName" });
     let inRowPk = jVarLocalBodyData.inRowPk;
     let jVarLocalFetchUrl = `/${inProjectName}/Api/Data/PostQrCodes/Cleaning/${inFileNameOnly}/${inRowPk}`;
 
@@ -13,6 +12,13 @@ const StartFunc = async ({ inBodyData }) => {
     StartFuncAfterFetch({ inFromFetch: jVarLocalResponse });
 
     return jVarLocalResponse;
-
 };
+
+let getUrlQueryParams = ({ inGetKey }) => {
+    const queryString = window.location.search;
+    const parameters = new URLSearchParams(queryString);
+    const value = parameters.get(inGetKey);
+    return value;
+};
+
 export { StartFunc };

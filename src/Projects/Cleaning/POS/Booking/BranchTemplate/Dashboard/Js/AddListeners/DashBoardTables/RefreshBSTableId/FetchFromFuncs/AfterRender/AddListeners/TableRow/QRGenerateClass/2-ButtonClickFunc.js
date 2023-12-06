@@ -4,13 +4,11 @@ import { StartFunc as StartFuncCheckBeforeFetch } from "./3-CheckBeforeFetch.js"
 
 let StartFunc = () => {
     let jVarLocalCurrentTarget = event.currentTarget;
-    // console.log("jVarLocalCurrentTarget : ", jVarLocalCurrentTarget);
+    
     if (jVarLocalCurrentTarget.dataset.issettled === "false") {
         Swal.fire("Need to Settle first");
         return;
     };
-    // console.log("jVarLocalCurrentTa---------");
-
 
     Swal.fire({
         title: 'Are you sure?',

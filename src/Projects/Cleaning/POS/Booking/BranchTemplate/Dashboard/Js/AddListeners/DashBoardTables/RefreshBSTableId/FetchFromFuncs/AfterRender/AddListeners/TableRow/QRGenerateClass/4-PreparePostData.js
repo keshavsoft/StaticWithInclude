@@ -1,6 +1,6 @@
 import ApiConfigJson from "../../../../../../../../../../ApiConfig.json" assert {type: 'json'};
 
-const StartFunc = ({jVarLocalCurrentTarget}) => {
+const StartFunc = ({ jVarLocalCurrentTarget }) => {
     let jVarLocalBodyData = {};
     let jVarLocalRowPk = jVarLocalCurrentTarget.dataset.ordernumber;
     jVarLocalBodyData.inProjectName = ApiConfigJson.ProjectName;

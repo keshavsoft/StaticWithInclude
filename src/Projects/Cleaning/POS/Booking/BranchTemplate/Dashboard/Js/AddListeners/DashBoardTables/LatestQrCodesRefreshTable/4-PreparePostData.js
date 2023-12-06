@@ -1,7 +1,5 @@
-import ApiConfigJson from "../../../../../ApiConfig.json" assert {type: 'json'};
-
 const StartFunc = () => {
-    let jVarLocalBranch = ApiConfigJson.ForFetch.FileNameOnly;
+    let jVarLocalBranch = getUrlQueryParams({ inGetKey: "BranchName" });
 
     let jVarLocalBodyData = {};
     jVarLocalBodyData.FolderName = "QrCodes";
@@ -10,6 +8,13 @@ const StartFunc = () => {
     jVarLocalBodyData.FilterString = `value.GenerateReference.FileNameOnly === '${jVarLocalBranch}'`;
 
     return jVarLocalBodyData;
+};
+
+let getUrlQueryParams = ({ inGetKey }) => {
+    const queryString = window.location.search;
+    const parameters = new URLSearchParams(queryString);
+    const value = parameters.get(inGetKey);
+    return value;
 };
 
 export { StartFunc };
