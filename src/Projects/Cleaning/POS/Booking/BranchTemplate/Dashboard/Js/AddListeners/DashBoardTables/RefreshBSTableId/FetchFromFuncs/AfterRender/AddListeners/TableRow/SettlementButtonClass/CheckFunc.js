@@ -22,8 +22,7 @@ let StartFunc = ({ inOrderNumber }) => {
         StartFuncToUrlWithoutDiscount({
             inOrderNumber: jVarLocalOrderNumber
         });
-    }
-    else {
+    } else {
         StartFuncToUrlWithDiscount({
             inBranchName: ApiConfigJson.BranchName,
             inOrderNumber: jVarLocalOrderNumber

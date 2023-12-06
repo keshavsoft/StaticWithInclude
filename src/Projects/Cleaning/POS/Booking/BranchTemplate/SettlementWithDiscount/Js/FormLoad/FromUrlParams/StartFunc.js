@@ -1,6 +1,17 @@
 import { StartFunc as StartFuncShowOnDom } from "../../ShowOnDom/StartFunc.js";
 
 let StartFunc = () => {
+    let jVarLocalBranchName = getUrlQueryParams({ inGetKey: "BranchName" });
+
+    if (jVarLocalBranchName === null) {
+        Swal.fire({
+            title: "BranchName!",
+            text: "Not found in URL!",
+            icon: "error"
+        });
+        return;
+    };
+
     let jFLocalOrderNumber = getUrlQueryParams({ inGetKey: "OrderNumber" });
 
     StartFuncShowOnDom({ inPk: jFLocalOrderNumber });

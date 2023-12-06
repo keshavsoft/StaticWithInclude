@@ -1,8 +1,7 @@
 let StartFunc = () => {
-    
-    let jVarLocalBranchName = getUrlQueryParams({ inGetKey: "BranchName" })
-    if (jVarLocalBranchName == "") {
+    let jVarLocalBranchName = getUrlQueryParams({ inGetKey: "BranchName" });
 
+    if (jVarLocalBranchName === null) {
         Swal.fire({
             title: "BranchName!",
             text: "Not found in URL!",
