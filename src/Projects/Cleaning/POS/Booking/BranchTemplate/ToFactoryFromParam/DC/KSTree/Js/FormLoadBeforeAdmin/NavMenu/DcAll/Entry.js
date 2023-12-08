@@ -4,7 +4,9 @@ const StartFunc = () => {
     let jVarLocalHtmlId = 'DCAllId';
     let jVarlocalBSTreeId = document.getElementById(jVarLocalHtmlId);
 
-    jVarlocalBSTreeId.addEventListener("click", () => StartFuncBSTableNewUrl);
+    if (jVarlocalBSTreeId === null === false) {
+        jVarlocalBSTreeId.addEventListener("click", StartFuncBSTableNewUrl);
+    };
 };
 
 export { StartFunc };
