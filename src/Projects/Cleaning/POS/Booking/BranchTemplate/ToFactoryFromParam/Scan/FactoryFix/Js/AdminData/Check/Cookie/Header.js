@@ -21,7 +21,7 @@ let StartFunc = () => {
                 document.getElementById(inHeaderUserIdDropDown).innerHTML.replace("UserName", LocalUserName);
 
             document.getElementById(inNavBarId).classList.remove("bg-danger");
-            document.getElementById(inNavBarId).classList.add("bg-dark");
+            document.getElementById(inNavBarId).classList.add("bg-primary");
         };
     };
 };
