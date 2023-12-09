@@ -14,7 +14,21 @@ let jFChangeNavAnchorClass = ({ inClassName }) => {
             jVarLocalAnchorNeeded.classList.remove("text-white");
         };
 
-        jVarLocalAnchorNeeded.classList.add("text-info");
+        jVarLocalAnchorNeeded.classList.add("text-dark");
+    } else {
+        let jVarLocalAnchorNeeded = jVarLocalNavBarId.querySelectorAll("a");
+
+        for (let i = 0; i < jVarLocalAnchorNeeded.length; i++) {
+
+            if (jVarLocalAnchorNeeded[i].innerText === inClassName) {
+
+                if (jVarLocalAnchorNeeded[i].classList.contains("text-white")) {
+                    jVarLocalAnchorNeeded[i].classList.remove("text-white");
+                };
+
+                jVarLocalAnchorNeeded[i].classList.add("text-dark");
+            };
+        };
     };
 };
 
