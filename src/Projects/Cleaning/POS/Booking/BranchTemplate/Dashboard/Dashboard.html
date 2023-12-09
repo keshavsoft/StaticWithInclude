@@ -91,8 +91,8 @@
                         </li> -->
 
                         <li class="nav-item Bookings">
-                            <a class="nav-link active" aria-current="page" href="../Orders/OrdersShow/OrdersShow.html"
-                                id="BookingHomeId">
+                            <a class="nav-link active" aria-current="page" href="#"
+                                id="OrdersId">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                                     class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
                                     <path
@@ -172,8 +172,10 @@
                         <li class="nav-item Bookings">
 
                             <a class="nav-link active" aria-current="page" href="#" id="FactoryParamId">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
-                                    <path d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6.5a.5.5 0 0 1-1 0V1H3v14h3v-2.5a.5.5 0 0 1 .5-.5H8v4H3a1 1 0 0 1-1-1V1Z">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                    class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
+                                    <path
+                                        d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6.5a.5.5 0 0 1-1 0V1H3v14h3v-2.5a.5.5 0 0 1 .5-.5H8v4H3a1 1 0 0 1-1-1V1Z">
                                     </path>
                                     <path
                                         d="M4.5 2a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm-6 3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm-6 3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm4.386 1.46c.18-.613 1.048-.613 1.229 0l.043.148a.64.64 0 0 0 .921.382l.136-.074c.561-.306 1.175.308.87.869l-.075.136a.64.64 0 0 0 .382.92l.149.045c.612.18.612 1.048 0 1.229l-.15.043a.64.64 0 0 0-.38.921l.074.136c.305.561-.309 1.175-.87.87l-.136-.075a.64.64 0 0 0-.92.382l-.045.149c-.18.612-1.048.612-1.229 0l-.043-.15a.64.64 0 0 0-.921-.38l-.136.074c-.561.305-1.175-.309-.87-.87l.075-.136a.64.64 0 0 0-.382-.92l-.148-.045c-.613-.18-.613-1.048 0-1.229l.148-.043a.64.64 0 0 0 .382-.921l-.074-.136c-.306-.561.308-1.175.869-.87l.136.075a.64.64 0 0 0 .92-.382l.045-.148ZM14 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z">
@@ -912,44 +914,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
 
-    <!-- <template id="LatestQrCodesTemplateRow">
-        {{#each this}}
-        <tr class="{{RowClass}}" data-foldername="{{FolderName}}">
-            <td class="text-center">
-                {{ForSNo @index}}
-            </td>
-            <td style="text-align:center">
-                {{pk}}
-            </td>
-            <td style="text-align:center">
-                {{ItemName}}
-            </td>
-            <td style="text-align:center">
-                {{Pcs}}
-            </td>
-            <td style="text-align:center">
-                {{GenerateReference.ReferncePk}}
-            </td>
-            <td style="text-align:center">
-                <a href="../OrderWithoutCheckout/OrderWithoutCheckout.html?OrderNumber={{GenerateReference.ReferncePk}}" class="btn btn-success">{{GenerateReference.ReferncePk}}</a>
-            </td>
-            <td style="text-align:center">
-                <a href="../QrCodeMenu/FromOrders/FromOrdersTree/FromOrdersTree.html?OrderNumber={{GenerateReference.ReferncePk}}&Branch={{GenerateReference.FileNameOnly}}" class="btn btn-primary">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-qr-code" viewBox="0 0 16 16">
-                        <path d="M2 2h2v2H2V2Z"></path>
-                        <path d="M6 0v6H0V0h6ZM5 1H1v4h4V1ZM4 12H2v2h2v-2Z"></path>
-                        <path d="M6 10v6H0v-6h6Zm-5 1v4h4v-4H1Zm11-9h2v2h-2V2Z"></path>
-                        <path d="M10 0v6h6V0h-6Zm5 1v4h-4V1h4ZM8 1V0h1v2H8v2H7V1h1Zm0 5V4h1v2H8ZM6 8V7h1V6h1v2h1V7h5v1h-4v1H7V8H6Zm0 0v1H2V8H1v1H0V7h3v1h3Zm10 1h-1V7h1v2Zm-1 0h-1v2h2v-1h-1V9Zm-4 0h2v1h-1v1h-1V9Zm2 3v-1h-1v1h-1v1H9v1h3v-2h1Zm0 0h3v1h-2v1h-1v-2Zm-4-1v1h1v-2H7v1h2Z">
-                        </path>
-                        <path d="M7 12h1v3h4v1H7v-4Zm9 2v2h-3v-1h2v-1h1Z"></path>
-                    </svg>
-                </a>
-            </td>
-           </tr>
-        {{/each}}
-    </template> -->
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"
@@ -1035,16 +999,36 @@
         };
 
         function jFLocalOrderDetails(value, row, index) {
+
+            let getUrlQueryParams = ({ inGetKey }) => {
+                const queryString = window.location.search;
+                const parameters = new URLSearchParams(queryString);
+                const value = parameters.get(inGetKey);
+                return value;
+            };
+
+            let jVarLocalBranchName = getUrlQueryParams({ inGetKey: "BranchName" });
+
             return [
-                `<a href="../OrderWithoutCheckout/OrderWithoutCheckout.html?OrderNumber=${row.pk}" class="btn btn-success" >${row.AggValues.ItemDetails}</a>`,
+                `<a href="../OrderWithoutCheckout/OrderWithoutCheckout.html?OrderNumber=${row.pk}&BranchName=${jVarLocalBranchName}" class="btn btn-success" >${row.AggValues.ItemDetails}</a>`,
             ].join('')
         }
 
+
         function jFLocalLatestQrCodeOrderDetails(value, row, index) {
+            let getUrlQueryParams = ({ inGetKey }) => {
+                const queryString = window.location.search;
+                const parameters = new URLSearchParams(queryString);
+                const value = parameters.get(inGetKey);
+                return value;
+            };
+
+            let jVarLocalBranchName = getUrlQueryParams({ inGetKey: "BranchName" });
             return [
-                `<a href="../OrderWithoutCheckout/OrderWithoutCheckout.html?OrderNumber=${row.GenerateReference.ReferncePk}" class="btn btn-success">${row.GenerateReference.ReferncePk}</a>`
+                `<a href="../OrderWithoutCheckout/OrderWithoutCheckout.html?OrderNumber=${row.GenerateReference.ReferncePk}&BranchName=${jVarLocalBranchName} " class="btn btn-success">${row.GenerateReference.ReferncePk}</a>`
             ].join('')
         }
+
 
         function jFLocalLatestQrCodeDetails(value, row, index) {
             return [
@@ -1125,8 +1109,18 @@
         }
 
         function DCFormatter(value, row, index) {
+
+            let getUrlQueryParams = ({ inGetKey }) => {
+                const queryString = window.location.search;
+                const parameters = new URLSearchParams(queryString);
+                const value = parameters.get(inGetKey);
+                return value;
+            };
+
+            let jVarLocalBranchName = getUrlQueryParams({ inGetKey: "BranchName" });
+
             return [
-                `<a class="like" href="../ToFactoryFromParam/Scan/ShowAlert/ShowAlert.html?VoucherRef=${row.pk}" title="Scan">`,
+                `<a class="like" href="../ToFactoryFromParam/Scan/ShowAlert/ShowAlert.html?VoucherRef=${row.pk}&BranchName=${jVarLocalBranchName}" title="Scan">`,
                 '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-qr-code" viewBox="0 0 16 16">',
                 '<path d="M2 2h2v2H2V2Z"/>',
                 '<path d="M6 0v6H0V0h6ZM5 1H1v4h4V1ZM4 12H2v2h2v-2Z"/>',
@@ -1142,9 +1136,17 @@
     <script>
 
         function DCItemsFormatter(value, row, index) {
+            let getUrlQueryParams = ({ inGetKey }) => {
+                const queryString = window.location.search;
+                const parameters = new URLSearchParams(queryString);
+                const value = parameters.get(inGetKey);
+                return value;
+            };
+
+            let jVarLocalBranchName = getUrlQueryParams({ inGetKey: "BranchName" });
 
             return [
-                `<a class="like btn btn-primary" href="../ToFactoryFromParam/Scan/BSTableFilterFromVoucher/BSTableFilterFromVoucher.html?VoucherRef=${row.pk}" title="Show">`,
+                `<a class="like btn btn-primary" href="../ToFactoryFromParam/Scan/BSTableFilterFromVoucher/BSTableFilterFromVoucher.html?VoucherRef=${row.pk}&BranchName=${jVarLocalBranchName}" title="Show">`,
                 '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">',
                 '<path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>',
                 '<path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>',
