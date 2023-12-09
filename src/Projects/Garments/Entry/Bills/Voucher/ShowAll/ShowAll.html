@@ -101,27 +101,29 @@
                         <span class="visually-hidden">Loading...</span>
                     </div>
 
-                    <table id="table" data-toolbar="#toolbar" data-search="true" data-searchable="true" data-show-columns="true" data-show-footer="true" data-show-columns-toggle-all="true" data-click-to-select="true" data-filter-control="true" data-show-export="true" data-detail-view="true" data-detail-formatter="detailFormatter" data-id-field="pk" data-show-toggle="true">
+                    <table id="table" data-toolbar="#toolbar" data-search="true" data-searchable="true"
+                        data-show-columns="true" data-show-footer="true" data-show-columns-toggle-all="true"
+                        data-click-to-select="true" data-filter-control="true" data-show-export="true"
+                        data-detail-view="true" data-detail-formatter="detailFormatter" data-id-field="pk"
+                        data-show-toggle="true">
                         <thead>
-                            <!-- <tr id="tableHeadRow">
-                                <th data-formatter="jFGlobalSerialColumn">#</th>
-                                <th data-field="pk">pk</th>
-                                <th data-field="VoucherNumber" data-sortable="true" data-width="10">Voucher No</th>
-                                <th data-field="Date" data-filter-control="select" data-width="120">Date Time</th>
-                                <th data-field="Description" data-filter-control="input" data-width="180">Description</th>
-                                <th data-field="SentInterVal" data-width="220">Time Span</th>
-                                <th data-field="DateTime" data-width="210">Date Time</th>
-                                <th data-formatter="ItemsFormatter" data-footer-formatter="TotalItems">Items</th>
-                                <th data-formatter="operateFormatter">Scan</th>
-                            </tr> -->
                             <tr id="tableHeadRow">
-                                <th data-formatter="jFGlobalSerialColumn">#</th>
+                                <th data-formatter="jFGlobalSerialColumn" data-footer-formatter="totalTextFormatter">#
+                                </th>
                                 <th data-field="pk">pk</th>
-                                <th data-field="ProductName" data-sortable="true" data-filter-control="select">ProductName</th>
-                                <th data-field="UnitRate" data-filter-control="select" data-footer-formatter="TotalItems">UnitRate</th>
-                                <th data-field="BillNumber" data-filter-control="select" >BillNumber</th>
-                                <th data-field="ExBillNumber" data-filter-control="select" >ExBillNumber</th>
-                                <th data-field="ExDate" data-filter-control="select" >ExDate</th>
+                                <th data-field="ProductName" data-sortable="true" data-filter-control="select"
+                                    data-footer-formatter="totalNameFormatter">ProductName</th>
+                                <th data-field="SalePrice" data-filter-control="select"
+                                    data-footer-formatter="TotalSalesprice">SalePrice</th>
+                                <th data-field="DisPercentage" data-filter-control="select" data-visible="false">Dis %
+                                </th>
+                                <th data-field="DisRate" data-filter-control="select" data-footer-formatter="DisRate"
+                                    data-visible="false">DisRate</th>
+                                <th data-field="GrossAmout" data-filter-control="select"
+                                    data-footer-formatter="TotalGrosPrice">GrossAmout</th>
+                                <th data-field="BillNumber" data-filter-control="select"> Sup BillNumber</th>
+                                <th data-field="ExBillNumber" data-filter-control="select">ExBillNumber</th>
+                                <th data-field="ExDate" data-filter-control="select">ExDate</th>
                                 <th data-field="DateTime" data-filter-control="input">DateTime</th>
                                 <th data-field="Type" data-filter-control="input">Type</th>
                             </tr>
@@ -144,79 +146,45 @@
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
 
     <script>
-        function operateFormatter(value, row, index) {
-            return [
-                `<a class="like" href="../../Scan/NoAlert/NoAlert.html?VoucherRef=${row.pk}" title="Like">`,
-                '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-qr-code" viewBox="0 0 16 16">',
-                '<path d="M2 2h2v2H2V2Z"/>',
-                '<path d="M6 0v6H0V0h6ZM5 1H1v4h4V1ZM4 12H2v2h2v-2Z"/>',
-                '<path d="M6 10v6H0v-6h6Zm-5 1v4h4v-4H1Zm11-9h2v2h-2V2Z"/>',
-                '<path d="M10 0v6h6V0h-6Zm5 1v4h-4V1h4ZM8 1V0h1v2H8v2H7V1h1Zm0 5V4h1v2H8ZM6 8V7h1V6h1v2h1V7h5v1h-4v1H7V8H6Zm0 0v1H2V8H1v1H0V7h3v1h3Zm10 1h-1V7h1v2Zm-1 0h-1v2h2v-1h-1V9Zm-4 0h2v1h-1v1h-1V9Zm2 3v-1h-1v1h-1v1H9v1h3v-2h1Zm0 0h3v1h-2v1h-1v-2Zm-4-1v1h1v-2H7v1h2Z"/>',
-                '<path d="M7 12h1v3h4v1H7v-4Zm9 2v2h-3v-1h2v-1h1Z"/>',
-                '</svg>',
-                '</a>  '
-            ].join('')
-        }
-       
-        function detailFormatter(index, row) {
-            var html = []
-            $.each(row, function (key, value) {
-                html.push('<p><b>' + key + ':</b> ' + value + '</p>')
-            })
-            return html.join('')
-        };
-    </script>
-
-    <script>
         let jVarGlobalPresentViewData;
 
-        function jFGlobalSerialColumn(value, row, index){
+        function jFGlobalSerialColumn(value, row, index) {
             return index + 1;
         };
 
-        function ItemsFormatter(value, row, index) {
-            let localObj = {};
-            localObj.RowData = row;
-            let localArrayObj = Object.values(localObj);
-            let localItemsData = Object.keys(jVarGlobalPresentViewData.JsonData).map(i => Number(i));
+        function TotalSalesprice(data) {
+            var field = this.field
+            return '₹ ' + data.map(function (row) {
+                return +row.SalePrice
+            }).reduce(function (sum, i) {
+                return sum + i
+            }, 0)
+        }
 
-            let jj = localItemsData.map((ele) => {
+        function TotalGrosPrice(data) {
+            var field = this.field
+            return '₹ ' + data.map(function (row) {
+                return +row.GrossAmout
+            }).reduce(function (sum, i) {
+                return sum + i
+            }, 0)
+        }
 
-                let nn = localArrayObj.filter((element) => element.VoucherNumber === ele);
-                if (nn.length > 0) {
-                    return jVarGlobalPresentViewData.JsonData[ele];
-                }
-            });
-            let data = jj.filter(Number);
-            if(data.length === 0){
-                data[0]=0;
-            }
-            return [
-                `<a class="like btn btn-primary" href="../../Scan/BSTableFilterFromVoucher/BSTableFilterFromVoucher.html?VoucherRef=${row.pk}" title="Like">`,
-                '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">',
-                '<path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>',
-                '<path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>',
-                '</svg>',
-                ' ',
-                data,
-                '</a>',
-                
-            ].join('')
+        function DisRate(data) {
+            var field = this.field
+            return '₹ ' + data.map(function (row) {
+                return +row.DisRate
+            }).reduce(function (sum, i) {
+                return sum + i
+            }, 0)
+        }
 
-        };
+        function totalTextFormatter(data) {
+            return 'Total'
+        }
 
-        function TotalItems() {
-            let localItemsData = Object.values(jVarGlobalPresentViewData.JsonData).map(i => Number(i));
-            let sum = 0;
-
-            // iterate over each item in the array
-            for (let i = 0; i < localItemsData.length; i++) {
-                sum += localItemsData[i];
-            };
-            console.log("sum:",sum);
-            return sum;
-
-           
+        function totalNameFormatter(data) {
+            return data.length
         }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
