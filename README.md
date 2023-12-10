@@ -8,5 +8,6 @@ For WebSocket
 2.  go to terminal
 3.  select terminal ( not powershell )
 4.  run command
+5.  npm i
 5.  node ForWebSocket
 6.  check the public folder in root
