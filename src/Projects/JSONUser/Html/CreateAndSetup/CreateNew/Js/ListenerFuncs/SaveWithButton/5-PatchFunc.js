@@ -1,7 +1,7 @@
 import { StartFunc as StartFuncAfterFetchFunc } from "./6-AfterFetchFunc.js";
 
 
-const StartFunc = async ({ inFetchBody,inSubRoute }) => {
+const StartFunc = async ({ inFetchBody, inSubRoute }) => {
 
     let jFetchUrl = `/${inSubRoute}/Users/Api/CreateAndSetup/Cleaning/FromUserCredentials`;
 
@@ -16,14 +16,13 @@ const StartFunc = async ({ inFetchBody,inSubRoute }) => {
 
     let response = await fetch(jFetchUrl, jLocalFetchConfig);
 
-    let jVarLocalResponseData = await response.json();
+    if (response.ok === false) {
+        swal.fire(response.statusText)
+    } else {
+        let jVarLocalResponseData = await response.json();
+        StartFuncAfterFetchFunc({ inFetchData: jVarLocalResponseData });
 
-
-
-    StartFuncAfterFetchFunc({ inFetchData: jVarLocalResponseData });
-
-    // return await response.status;
-
-}
+    };
+};
 
 export { StartFunc };
