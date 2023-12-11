@@ -101,16 +101,16 @@
                         <span class="visually-hidden">Loading...</span>
                     </div>
 
-                    <table id="table" data-toolbar="#toolbar" data-search="true" data-pagination="true" data-searchable="true"
-                        data-show-columns="true" data-show-footer="true" data-show-columns-toggle-all="true"
-                        data-click-to-select="true" data-filter-control="true" data-show-export="true"
-                        data-detail-view="true" data-detail-formatter="detailFormatter" data-id-field="pk"
-                        data-show-toggle="true">
+                    <table id="table" data-toolbar="#toolbar" data-search="true" data-pagination="true"
+                        data-searchable="true" data-show-columns="true" data-show-footer="true"
+                        data-show-columns-toggle-all="true" data-click-to-select="true" data-filter-control="true"
+                        data-show-export="true" data-detail-view="true" data-detail-formatter="detailFormatter"
+                        data-id-field="pk" data-show-toggle="true">
                         <thead>
                             <tr id="tableHeadRow">
                                 <th data-formatter="jFGlobalSerialColumn" data-footer-formatter="totalTextFormatter">#
                                 </th>
-                                <th data-field="pk">pk</th>
+                                <th data-field="pk">Qr Code</th>
                                 <th data-field="ProductName" data-sortable="true" data-filter-control="select"
                                     data-footer-formatter="totalNameFormatter">ProductName</th>
                                 <th data-field="SalePrice" data-filter-control="select"
@@ -122,9 +122,10 @@
                                 <th data-field="GrossAmout" data-filter-control="select"
                                     data-footer-formatter="TotalGrosPrice">GrossAmout</th>
                                 <th data-field="BillNumber" data-filter-control="select"> Sup BillNumber</th>
-                                <th data-field="ExBillNumber" data-filter-control="select">ExBillNumber</th>
-                                <th data-field="ExDate" data-filter-control="select">ExDate</th>
+                                <th data-field="ExBillNumber" data-filter-control="select" data-visible="false">ExBillNumber</th>
+                                <th data-field="ExDate" data-filter-control="select" data-visible="false">ExDate</th>
                                 <th data-field="DateTime" data-filter-control="input">DateTime</th>
+                                <th data-field="SentInterVal" data-filter-control="input">Time Span</th>
                                 <th data-field="Type" data-filter-control="input">Type</th>
                             </tr>
                         </thead>
