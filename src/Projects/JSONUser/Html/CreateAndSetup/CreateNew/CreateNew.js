@@ -6,6 +6,11 @@ import FromConfigKeys from '../../ConfigKeys.json' assert { type: 'json' };
 let jVarGlobalAdminSubRoute = FromConfigKeys.AdminSubRoute;
 
 let StartFunc = async () => {
+
+    StartFuncButtonClicks({
+        inSubRoute: jVarGlobalAdminSubRoute
+    });
+    
     let jVarLocalFromAdmin = await StartFuncAdminData();
 
     if (jVarLocalFromAdmin) {
