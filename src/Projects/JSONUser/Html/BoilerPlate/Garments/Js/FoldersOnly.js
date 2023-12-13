@@ -3,7 +3,7 @@ import { StartFunc as StartFuncInsertSerial } from "./InsertSerial.js";
 import { StartFunc as StartFuncAddListeners } from "./AddListeners/StartFunc.js";
 
 let jFShowData = async () => {
-    let jVarLocalUrl = "/JSONUser/Users/Api/ShowData";
+    let jVarLocalUrl = "/JSONUser/Users/Api/Show/SteUpUsers";
     let response = await fetch(jVarLocalUrl);
     let data = await response.json();
 

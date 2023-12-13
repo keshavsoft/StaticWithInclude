@@ -1,7 +1,7 @@
 import { StartFunc as StartFuncInsertSerial } from "./InsertSerial.js";
 
 let StartFunc = async () => {
-    let jVarLocalUrl = "/JSONUser/Users/Api/ShowData";
+    let jVarLocalUrl = "/JSONUser/Users/Api/Show/SteUpUsers";
     let response = await fetch(jVarLocalUrl);
     let data = await response.json();
 
