@@ -3,15 +3,15 @@ import { StartFunc as StartFuncInsertSerial } from "./InsertSerial.js";
 import { StartFunc as StartFuncAddListeners } from "./AddListeners/StartFunc.js";
 
 let jFShowData = async () => {
-    let jVarLocalUrl = "/JSONUser/Users/Api/ShowData";
+    let jVarLocalUrl = "/JSONUser/Users/Api/SetupByCopy/FoldersOnly/FromPk";
     let response = await fetch(jVarLocalUrl);
     let data = await response.json();
 
-    StartFuncInsertSerial({ inData: data });
+    StartFuncInsertSerial({ inData: data.JsonData });
 
     let jVarLocalRawTemplate = document.getElementById("HbsTemplateForBody").innerHTML;
 
-    document.getElementById("KTableBodyId").innerHTML = Handlebars.compile(jVarLocalRawTemplate)(data);
+    document.getElementById("KTableBodyId").innerHTML = Handlebars.compile(jVarLocalRawTemplate)(data.JsonData);
 };
 
 let StartFunc = async () => {
