@@ -15,6 +15,7 @@ const StartFunc = () => {
      // k1.innerHTML += k2.innerHTML;
     k1.innerHTML += `---------------------------------------------\n`
     k1.innerHTML += `               <span class="inner-pre" style="font-size: 16px; font-weight: bold;">TAX INVOICE</span> \n`
+    k1.innerHTML += `               <span class="inner-pre" style="font-size: 13px; font-weight: bold;"> ${jVarLocalBillDataAsJson.PaymentMode}</span> \n`
     k1.innerHTML += `---------------------------------------------\n`
     k1.innerHTML += `<span class="inner-pre" style="font-size: 16px; font-weight: bold;">Customer :  ${jVarLocalBillDataAsJson.CustomerName}</span>\n`;
     k1.innerHTML += `<span class="inner-pre" style="font-size: 16px; font-weight: bold;">Phone    :  ${jVarLocalBillDataAsJson.CustomerNumber}</span>\n`;
