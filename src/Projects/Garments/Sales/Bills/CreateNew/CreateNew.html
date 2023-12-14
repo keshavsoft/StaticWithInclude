@@ -20,7 +20,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../../../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../../../assets/img/favicon.png">
   <title>
-    Argon Dashboard 2 PRO by Creative Tim
+    Maguva
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
@@ -264,7 +264,8 @@
     </div>
     <div class="sidenav-footer mx-3 my-3">
       <div class="card card-plain shadow-none" id="sidenavCard">
-        <img class="w-60 mx-auto" src="/assets/img/illustrations/icon-documentation.svg" alt="sidebar_illustration">
+        <!-- <img class="w-60 mx-auto" src="/assets/img/illustrations/icon-documentation.svg" alt="sidebar_illustration"> -->
+        <!-- <img class="w-60 mx-auto" src="../../../assets/img/home-decor-1.jpg" alt="sidebar_illustration"> -->
         <div class="card-body text-center p-3 w-100 pt-0">
           <div class="docs-info">
             <h6 class="mb-0">KeshavSoft v20.4</h6>
@@ -296,10 +297,9 @@
               </a>
             </li>
             <li class="breadcrumb-item text-sm text-white"><a class="opacity-5 text-white"
-                href="javascript:;">MODULES</a></li>
-            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Purchases</li>
+                href="/Garments/Sales/Bills/ShowAll/ShowAll.html">Bills</a></li>
+            <li href="#" class="breadcrumb-item text-sm text-white active" aria-current="page">Create</li>
           </ol>
-          <h6 class="font-weight-bolder mb-0 text-white">Vouchers</h6>
         </nav>
         <div class="sidenav-toggler sidenav-toggler-inner d-xl-block d-none ">
           <a href="javascript:;" class="nav-link p-0">
@@ -319,14 +319,14 @@
           </div>
           <ul class="navbar-nav  justify-content-end">
             <li id="SignInNavId" class="nav-item d-flex align-items-center">
-              <a href="../../pages/authentication/signin/illustration.html"
+              <a href="/Garments/authentication/signin/illustration/illustration.html"
                 class="nav-link text-white font-weight-bold px-0" target="_blank">
                 <i class="fa fa-user me-sm-1"></i>
                 <span class="d-sm-inline d-none">Sign In</span>
               </a>
             </li>
             <li class="nav-item d-flex align-items-center">
-              <a href="../../pages/authentication/signin/illustration.html"
+              <a href="/Garments/authentication/signin/illustration/illustration.html"
                 class="nav-link text-white font-weight-bold px-0" target="_blank">
                 <i class="fa fa-user me-sm-1"></i>
                 <span id="UserNameId" class="d-sm-inline d-none">UserName</span>
@@ -434,17 +434,21 @@
 
     <datalist id="PayMantModeIdDatalistId">
       <option value="Cash Bill">
+      </option>
       <option value="Card Bill">
+      </option>
       <option value="UPI Bill">
+      </option>
       <option value="Credit Bill">
+      </option>
     </datalist>
 
     <div class="container-fluid py-4">
       <div class="row">
         <div class="col-lg-9 col-12 mx-auto">
           <div class="card card-body mt-4">
-            <h6 class="mb-0">Vouchers</h6>
-            <p class="text-sm mb-0">Create new Voucher</p>
+            <h6 class="mb-0">Sales</h6>
+            <p class="text-sm mb-0">Create new Buyer</p>
             <hr class="horizontal dark my-3">
 
             <!-- <label for="VoucherNameId" class="form-label">Supplier Name</label>
@@ -469,7 +473,7 @@
             <input list="PayMantModeIdDatalistId" class="form-control" name="PaymentMode" id="PayMantModeId">
 
             <div class="d-flex justify-content-end mt-4">
-              <button type="button" name="button" class="btn btn-light m-0">Cancel</button>
+              <button type="button" name="button" class="btn btn-light m-0" id="CancelId">Cancel</button>
               <button type="button" name="button" id="CreateNewButtonId" class="btn bg-gradient-primary m-0 ms-2">Create
                 Voucher</button>
             </div>
@@ -486,7 +490,8 @@
                   document.write(new Date().getFullYear())
                 </script>,
                 made with <i class="fa fa-heart"></i> by
-                <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Creative Tim</a>
+                <a href="http://keshavsoft.com/" class="font-weight-bold" target="_blank">KeshavSoft</a>
+
                 for a better web.
               </div>
             </div>
@@ -623,7 +628,22 @@
         damping: '0.5'
       }
       Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-    }
+    };
+
+    let JFCancel = () => {
+      let jVarLocalToUrl = `/Garments/Sales/Bills/ShowAll/ShowAll.html`;
+
+      const myUrlWithParams = new URL(`${window.location.origin}${jVarLocalToUrl}`);
+
+      window.location.href = myUrlWithParams.href;
+
+    };
+
+    let javLocalCancelId = document.getElementById("CancelId");
+    javLocalCancelId.addEventListener("click", JFCancel);
+
+
+
   </script>
   <!-- Github buttons -->
   <script async="" defer="" src="https://buttons.github.io/buttons.js"></script>
