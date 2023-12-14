@@ -28,6 +28,11 @@ let StartFunc = () => {
         inIdName: "ContactNumberId"
     });
 
+    jVarLocalPaymentMode({
+        inData: jVarLocalReturnData,
+        inIdName: "PayMantModeId"
+    });
+
     return jVarLocalReturnData;
 };
 
@@ -52,6 +57,16 @@ let jVarLocalCustomerName = ({ inData, inIdName }) => {
 };
 
 let jVarLocalCustomerNumber = ({ inData, inIdName }) => {
+    let jVarLocalSupplierNameSelectId = inIdName;
+    let jVarLocalHtmlSupplierNameSelectId = document.getElementById(jVarLocalSupplierNameSelectId);
+
+    if ((jVarLocalHtmlSupplierNameSelectId === null) === false) {
+        let jVarLocalSupplierName = jVarLocalHtmlSupplierNameSelectId.name;
+        inData[jVarLocalSupplierName] = jVarLocalHtmlSupplierNameSelectId.value;
+    };
+};
+
+let jVarLocalPaymentMode = ({ inData, inIdName }) => {
     let jVarLocalSupplierNameSelectId = inIdName;
     let jVarLocalHtmlSupplierNameSelectId = document.getElementById(jVarLocalSupplierNameSelectId);
 
