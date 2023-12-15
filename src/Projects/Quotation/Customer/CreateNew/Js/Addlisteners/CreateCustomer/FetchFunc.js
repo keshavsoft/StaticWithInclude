@@ -1,6 +1,7 @@
 import ApiConfigJson from "./../../ApiConfig.json" assert {type: 'json'};
 
 let StartFunc = async ({ inBodyData }) => {
+    //POST http://localhost:4119/JSONApi/Api/Data/FromFolder/FromFile/Items/FromDataFolder/MainTable/SaveRow/AsIsWithTimeStamp
 
      let jVarLocalFetchUrl = `/${ApiConfigJson.ProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/MainTable/SaveRow/AsIsWithTimeStamp`;
     let jVarFromFetch = await fetch(jVarLocalFetchUrl, {
