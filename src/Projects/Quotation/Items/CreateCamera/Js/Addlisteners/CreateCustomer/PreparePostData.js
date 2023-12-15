@@ -10,7 +10,7 @@ let StartFunc = async () => {
     formData.append("inFolderName", "Masters");
     formData.append("inFileNameOnly", "CRM");
     formData.append("inItemName", "Items");
-    formData.append("CustomerName", jVarLocalCustomerNamevalue);
+    formData.append("ItemName", jVarLocalCustomerNamevalue);
     // formData.append("Mobile", jVarLocalCustomerMobileIdvalue);
     formData.append("Rate", jVarLocalCustomerCityIdvalue);
     formData.append('uploaded_file', jVarLocalfileUploadvalue);
