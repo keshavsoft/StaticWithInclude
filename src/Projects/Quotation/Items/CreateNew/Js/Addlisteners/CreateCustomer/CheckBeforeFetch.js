@@ -35,7 +35,7 @@ let jFLocalHtmlId = () => {
 };
 
 let jFloccalMobileId = () => {
-    let jVarLocalHtmlId = "MobileId";
+    let jVarLocalHtmlId = "CityId";
     let jVarCreateFolderInputId = document.getElementById(jVarLocalHtmlId);
 
     let jVarLocalFolderName = jVarCreateFolderInputId.value;
