@@ -2,17 +2,17 @@ let StartFunc = async () => {
 
     let jVarLocalCustomerNamevalue = jFLocalFromDomCustomerNameId();
     let jVarLocalCustomerCityIdvalue = jFLocalFromDomCityId();
-    let jVarLocalCustomerMobileIdvalue = jFLocalFromDomMobileId();
+    // let jVarLocalCustomerMobileIdvalue = jFLocalFromDomMobileId();
     let jVarLocalfileUploadvalue = jFLocalFromDominputimageId();
 
     let formData = new FormData();
 
     formData.append("inFolderName", "Masters");
     formData.append("inFileNameOnly", "CRM");
-    formData.append("inItemName", "CustomerNames");
+    formData.append("inItemName", "Items");
     formData.append("CustomerName", jVarLocalCustomerNamevalue);
-    formData.append("Mobile", jVarLocalCustomerMobileIdvalue);
-    formData.append("City", jVarLocalCustomerCityIdvalue);
+    // formData.append("Mobile", jVarLocalCustomerMobileIdvalue);
+    formData.append("Rate", jVarLocalCustomerCityIdvalue);
     formData.append('uploaded_file', jVarLocalfileUploadvalue);
     //  formData.append('image', jFLocalPrepareBlob());
 
