@@ -34,7 +34,13 @@ let LocalInsertGstPercentage = ({ inInvData }) => {
     let jVarLocalNewArray = inInvData.map(element => {
         //ItemName
         let jVarLoopInsideMastersFind = JSON.parse(jVarLocalMastersData).find(e => e.ItemName === element.ProductName);
-        element.GST = jVarLoopInsideMastersFind.GST;
+        // element.GST = jVarLoopInsideMastersFind.GST;
+
+        if (jVarLoopInsideMastersFind !== undefined) {
+            element.GST = jVarLoopInsideMastersFind.GST;
+            // return element;
+        };
+
         return element;
     });
 
