@@ -3,6 +3,7 @@ import { FromNode as FetchFuncForBillsQrCode } from "../PullData/FetchFuncForBil
 import { ReturnRowPK } from "../urlSearchParams.js";
 import { StartFunc as InvGridStartFunc } from "./InvGrid.js";
 import { StartFunc as TableFootSuccessStartFunc } from "../FetchFuncs/HtmlPull/TableFootSuccess.js";
+import { StartFunc as StartFuncTableFooterTotals } from "./TableFooterTotals/ShowToDom.js";
 
 let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName, inShowSuccess }) => {
     let jVarLocalRowPk = ReturnRowPK();
@@ -35,9 +36,10 @@ let localInventeryShow = async ({ inFolderName, inFileName, inItemName, inProjec
 
     if (jVarLocalDataToShow.KTF) {
         let localdata = jVarLocalDataToShow.JsonData;
-        
+
         await InvGridStartFunc({ inDataAsArray: localdata });
         jVarLocalShowInventorySerial({ inData: localdata });
+        StartFuncTableFooterTotals({ inData: localdata });
 
     };
 };
