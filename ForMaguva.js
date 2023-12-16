@@ -1,6 +1,6 @@
 const os = require('os');
 
-let CommonForGarments = require("./kcode/ForGarments/ForWin32");
+let CommonForGarments = require("./kcode/ForMaguva/ForWin32");
 
 let CommonOsName = os.platform();
 
