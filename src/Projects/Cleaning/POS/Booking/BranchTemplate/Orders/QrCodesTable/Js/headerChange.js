@@ -5,27 +5,30 @@ let jFChangeHeaderActiveClass = () => {
 };
 
 let jFChangeNavAnchorClass = ({ inClassName }) => {
-    let jVarLocalId = "NavBarId";
-    let jVarLocalNavBarId = document.getElementById(jVarLocalId);
+    let jVarLocalNavBarId = document.getElementById("NavBarId");
+    let jVarLocalAnchorNeeded = jVarLocalNavBarId.querySelector(`.${inClassName}AClass`);
 
-    jFLocalRemoveActiveClassForAllATags({ inHtmlId: jVarLocalNavBarId });
-    jFLocalAddActiveClassToPresentHtml({ inHtmlId: jVarLocalNavBarId, inClassName });
-};
+    if (jVarLocalAnchorNeeded !== null) {
 
-let jFLocalRemoveActiveClassForAllATags = ({ inHtmlId }) => {
-    let jVarLocalA = inHtmlId.querySelectorAll("a");
+        if (jVarLocalAnchorNeeded.classList.contains("text-white")) {
+            jVarLocalAnchorNeeded.classList.remove("text-white");
+        };
 
-    for (let i = 0; i < jVarLocalA.length; i++) {
-        jVarLocalA[i].classList.remove("text-info");
-    };
-};
+        jVarLocalAnchorNeeded.classList.add("text-info");
+    } else {
+        let jVarLocalAnchorNeeded = jVarLocalNavBarId.querySelectorAll("a");
 
-let jFLocalAddActiveClassToPresentHtml = ({ inHtmlId, inClassName }) => {
-    let jVarLocalA = inHtmlId.querySelector(`[href*="${inClassName}"]`);
+        for (let i = 0; i < jVarLocalAnchorNeeded.length; i++) {
 
-    if (jVarLocalA === null === false) {
-        jVarLocalA.classList.remove("text-white");
-        jVarLocalA.classList.add("text-info");
+            if (jVarLocalAnchorNeeded[i].innerText === inClassName) {
+
+                if (jVarLocalAnchorNeeded[i].classList.contains("text-white")) {
+                    jVarLocalAnchorNeeded[i].classList.remove("text-white");
+                };
+
+                jVarLocalAnchorNeeded[i].classList.add("text-info");
+            };
+        };
     };
 };
 
