@@ -7,11 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <include src="src/components/Projects/JSONAdminApi/HtmlInclude/ToHead.html"></include>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     <title>Create Item</title>
     <!-- Custom styles for this template -->
     <link href="/JSONProject/css/headers.css" rel="stylesheet">
 
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
 
 </head>
 
@@ -28,12 +30,18 @@
 
     <include src="./src/components/Projects/JSONAdminApi/Admin/CreateNew/DataFolder/HeaderWithModals.html"></include>
 
-
+    <div class="fab-container">
+        <div class="sub-buttons">
+        </div>
+        <a href="#" class="fab" id="mainFab"><i class="fas fa-plus"></i></a>
+    </div>
     <main>
         <div class="container">
 
-            <div id="DataFolderInsertSuccessId" class="alert alert-primary alert-dismissible fade show mt-2" role="alert">
-                Data Uploaded Sucessfully in Item Key:<strong id="DataFolderInsertSuccessStrongId">Holy guacamole!</strong> 
+            <div id="DataFolderInsertSuccessId" class="alert alert-primary alert-dismissible fade show mt-2"
+                role="alert">
+                Data Uploaded Sucessfully in Item Key:<strong id="DataFolderInsertSuccessStrongId">Holy
+                    guacamole!</strong>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
             <div id="KCont1">
@@ -291,6 +299,17 @@
 
     <script>
         let jVarGlobalPresentViewData;
+    </script>
+
+    <script>
+        document.getElementById("mainFab").addEventListener("click", function (event) {
+            event.preventDefault();
+            toggleSubButtons();
+        });
+
+        function toggleSubButtons() {
+            Swal.fire("Only Array Json Data Upload");
+        }
     </script>
 
 
