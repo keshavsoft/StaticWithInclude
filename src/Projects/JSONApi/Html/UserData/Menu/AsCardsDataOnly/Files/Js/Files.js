@@ -1,17 +1,11 @@
-import { jFShowFoldersInMenu } from "./Header/FromFolder.js";
-import { ReturnFolderName as urlSearchParamsReturnFolderName  } from "./ForFiles/urlSearchParams.js";
-import { FetchFiles } from "./ForFiles/FetchFuncs.js";
-import { StartFunc as StartFuncToLocalStorage } from "../../../../Js/KeshavSoft/CommonFuncs/ToLocalStorage/ForHeader.js";
+import { ReturnFolderName as urlSearchParamsReturnFolderName  } from "./urlSearchParams.js";
+import { FetchFiles } from "./FetchFuncs.js";
+import { StartFunc as StartFuncToLocalStorage } from "./ToLocalStorage/ForHeader.js";
 import { StartFunc as StartFuncFromLocalStorage } from "./Header/FromLocalStorage.js";
 
 StartFuncToLocalStorage().then(PromiseData => {
     StartFuncFromLocalStorage();
 });
-
-// jFShowFoldersInMenu({
-//     inProjectName: jVarGlobalProject,
-//     inSubRoute: jVarGlobalSubRoute
-// });
 
 let jVarLocalFromReturnFolderName = urlSearchParamsReturnFolderName();
 
