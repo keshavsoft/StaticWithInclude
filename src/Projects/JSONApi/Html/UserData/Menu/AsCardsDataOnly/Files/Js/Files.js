@@ -1,7 +1,7 @@
-import { ReturnFolderName as urlSearchParamsReturnFolderName  } from "./urlSearchParams.js";
-import { FetchFiles } from "./FetchFuncs.js";
+import { ReturnFolderName as urlSearchParamsReturnFolderName } from "./urlSearchParams.js";
 import { StartFunc as StartFuncToLocalStorage } from "./ToLocalStorage/ForHeader.js";
 import { StartFunc as StartFuncFromLocalStorage } from "./Header/FromLocalStorage.js";
+import { StartFunc as StartFuncFormLoad } from "./FormLoad/ShowOnDom/Entry.js";
 
 StartFuncToLocalStorage().then(PromiseData => {
     StartFuncFromLocalStorage();
@@ -9,18 +9,8 @@ StartFuncToLocalStorage().then(PromiseData => {
 
 let jVarLocalFromReturnFolderName = urlSearchParamsReturnFolderName();
 
-let jFShowFolderInBreadcrumb = ({ inFolderName }) => {
-    let jVarLocalBreadcrumbFolderNameId = document.getElementById("BreadcrumbFolderNameId");
-    //jVarLocalBreadcrumbFolderNameId.href = `?FolderName=${inFolderName}`;
-    jVarLocalBreadcrumbFolderNameId.innerHTML = inFolderName;
-};
 
 if ("FolderName" in jVarLocalFromReturnFolderName) {
-    jFShowFolderInBreadcrumb({ inFolderName: jVarLocalFromReturnFolderName.FolderName });
-
-    FetchFiles({
-        inProjectName: jVarGlobalProject,
-        inSubRoute: jVarGlobalSubRoute,
-        inFolderName: jVarLocalFromReturnFolderName.FolderName
-    });
+    StartFuncFormLoad();
+    
 };
