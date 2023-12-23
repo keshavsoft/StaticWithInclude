@@ -18,6 +18,7 @@ let ForItemsFetchAsPost = ({ inProjectName, inSubRoute, inFolderName, inFileName
         },
         body: JSON.stringify(BodyKeys)
     }).then(response => {
+        console.log("response::::",response.json());
         if (response.status === 403) {
             let jVarLocalModalId = this.Config.Ht.HtmlIds.Modals.LoginModalId;
             let jVarLocalLoginFormPopUpId = document.getElementById(jVarLocalModalId);
