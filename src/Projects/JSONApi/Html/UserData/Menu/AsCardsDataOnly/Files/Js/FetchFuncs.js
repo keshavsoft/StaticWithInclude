@@ -27,6 +27,7 @@ let FetchFiles = ({ inProjectName, inSubRoute, inFolderName }) => {
 
         return response.json();
     }).then(dataFromApi => {
+        console.log("dataFromApidataFromApi:----------",dataFromApi);
         if (dataFromApi !== null) {
             LocalStartFunc({
                 inFilesObjects: dataFromApi,
