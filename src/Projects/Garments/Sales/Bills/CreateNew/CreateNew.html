@@ -456,21 +456,46 @@
             id="SupplierNameSelectId">
 
         </select> -->
+            <div class="col-md-4">
+              <label for="BillNumberId" class="form-label">BillNumber</label>
 
-            <label for="BillNumberId" class="form-label">BillNumber</label>
-            <input type="number" class="form-control" id="BillNumberId">
+              <div class="h4" id="BillNumberId">Bill No</div>
+              <!-- <label for="BillNumberId" id="BillNumberId" class="form-label">BillNumber</label>
+          <input type="number" class="form-control"  disabled> -->
+            </div>
 
-            <label for="DateId" class="form-label">Date</label>
-            <input type="date" class="form-control" id="DateId">
+            <div class="col-md-4">
+              <label for="DateId" class="form-label">Date</label>
+              <input type="date" class="form-control" id="DateId">
+            </div>
 
-            <label for="DateId" class="form-label">Customer Name</label>
-            <input type="text" class="form-control" name="CustomerName" id="CustomerNameId">
+            <div class="col-md-5">
+              <label for="DateId" class="form-label">Customer Name</label>
+              <input type="text" class="form-control" name="CustomerName" id="CustomerNameId" autofocus>
+            </div>
 
-            <label for="DateId" class="form-label">Contact Number</label>
-            <input type="number" class="form-control" name="CustomerNumber" id="ContactNumberId">
+            <div class="col-md-5">
+              <label for="DateId" class="form-label">Contact Number</label>
+            <input type="number" class="form-control" name="CustomerNumber" id="ContactNumberId" >
+            </div>
+            <!-- <div class="col-md-4">
+              <label for="DateId" class="form-label">Slect Payment Mode</label>
+              <input list="PayMantModeIdDatalistId" class="form-control" name="PaymentMode" id="PayMantModeId">
+            </div> -->
 
-            <label for="DateId" class="form-label">Slect Payment Mode</label>
-            <input list="PayMantModeIdDatalistId" class="form-control" name="PaymentMode" id="PayMantModeId">
+            <div class="col-md-4">
+              <label for="DateId" class="form-label">Slect Payment Mode</label>
+
+              <select name="PaymentMode" id="PayMantModeId" class="form-control">
+                <option value="Cash Bill">Cash Bill</option>
+                <option value="Card Bill">Card Bill</option>
+                <option value="UPI Bill">UPI Bill</option>
+                <option value="Credit Bill">Credit Bill</option>
+              </select>
+            <!-- <select class="form-control"  name="choices-questions" id="ItemsDataListId"></select> -->
+            
+            </div>
+
 
             <div class="d-flex justify-content-end mt-4">
               <button type="button" name="button" class="btn btn-light m-0" id="CancelId">Cancel</button>

@@ -22,7 +22,7 @@ let ShowOnDomDefaultValuesFromFetch = async ({ inFolderName, inFileName, inItemN
         };
 
         if ("BillNumber" in LocalDataFromFetch.JsonData) {
-            jVarLocalBillNumberId.value = LocalDataFromFetch.JsonData.BillNumber;
+            jVarLocalBillNumberId.innerHTML = LocalDataFromFetch.JsonData.BillNumber;
         };
     };
 };

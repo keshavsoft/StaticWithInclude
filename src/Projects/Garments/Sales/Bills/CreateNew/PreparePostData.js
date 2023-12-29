@@ -10,7 +10,7 @@ let StartFunc = () => {
         jVarLocalReturnData[jVarLocalSupplierName] = jVarLocalHtmlSupplierNameSelectId.value;
     };
 
-    jVarLocalReturnData.BillNumber = jVarLocalBillNumberId.value;
+    jVarLocalReturnData.BillNumber = jVarLocalBillNumberId.innerHTML;
     jVarLocalReturnData.Date = jVarLocalDateId.value;
 
     jVarLocalCommonPrepareObjectAsNumber({
