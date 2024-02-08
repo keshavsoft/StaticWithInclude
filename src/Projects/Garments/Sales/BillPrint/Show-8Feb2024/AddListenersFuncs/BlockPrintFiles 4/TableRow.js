@@ -1,7 +1,6 @@
 const StartFunc = () => {
     let jVarLocalInventoryData = localStorage.getItem("InventoryData");
-    // let jVarLocalInventoryDataAsJson = JSON.parse(jVarLocalInventoryData);
-    let jVarLocalInventoryDataAsJson = jFLocalSortFunc();
+    let jVarLocalInventoryDataAsJson = JSON.parse(jVarLocalInventoryData);
 
     let k1 = document.getElementById("PrintDiv");
     let k2 = document.getElementById("TemplateForGridHeader");
@@ -44,13 +43,6 @@ const StartFunc = () => {
     // k1.innerHTML += `${" ".repeat(21)}<span style="font-size: 13px;">Total Discount    :   ${jvarLocaltoatalDisRate}</span>\n`;
     k1.innerHTML += `                       <span style="font-size: 16px; font-weight: bold;">Net Amt    :  ${localNetAmount}</span>\n`;
 
-};
-
-const jFLocalSortFunc = () => {
-    let jVarLocalInventoryData = localStorage.getItem("InventoryData");
-    let jVarLocalInventoryDataAsJson = JSON.parse(jVarLocalInventoryData);
-
-    return jVarLocalInventoryDataAsJson.sort((a, b) => a.sno - b.sno);
 };
 
 export { StartFunc };

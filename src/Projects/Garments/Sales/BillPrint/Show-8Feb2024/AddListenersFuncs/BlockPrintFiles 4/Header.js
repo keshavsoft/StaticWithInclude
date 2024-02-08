@@ -1,10 +1,8 @@
 const StartFunc = () => {
     let jVarLocalBillData = localStorage.getItem("BillData");
-    console.log("jVarLocalBillData::", jVarLocalBillData);
     let jVarLocalBillDataAsJson = JSON.parse(jVarLocalBillData);
     let LocalDateAndTime = new Date(jVarLocalBillDataAsJson.DateTime);
     let LocalTmeStamp = LocalDateAndTime.toLocaleString();
-    let jVarLocalCustomerGSTNumber = JFLocalGSTNumber({ inGSTNumber: jVarLocalBillDataAsJson.GSTNumber });
 
     let k1 = document.getElementById("PrintDiv");
     let k2 = document.getElementById("TemplateForFirmHeading");
@@ -21,22 +19,12 @@ const StartFunc = () => {
     k1.innerHTML += `               <span class="inner-pre" style="font-size: 16px; font-weight: bold;">TAX INVOICE</span> \n`
     k1.innerHTML += `               <span class="inner-pre" style="font-size: 13px; font-weight: bold;"> ${jVarLocalBillDataAsJson.PaymentMode}</span> \n`
     k1.innerHTML += `---------------------------------------------\n`
-    k1.innerHTML += `<span class="inner-pre" style="font-size: 16px; font-weight: bold;">Customer    :  ${jVarLocalBillDataAsJson.CustomerName}</span>\n`;
-    k1.innerHTML += `<span class="inner-pre" style="font-size: 16px; font-weight: bold;">Phone       :  ${jVarLocalBillDataAsJson.CustomerNumber}</span>\n`;
-    k1.innerHTML += `<span class="inner-pre" style="font-size: 16px; font-weight: bold;">Customer GST:  ${jVarLocalCustomerGSTNumber}</span>\n`;
+    k1.innerHTML += `<span class="inner-pre" style="font-size: 16px; font-weight: bold;">Customer :  ${jVarLocalBillDataAsJson.CustomerName}</span>\n`;
+    k1.innerHTML += `<span class="inner-pre" style="font-size: 16px; font-weight: bold;">Phone    :  ${jVarLocalBillDataAsJson.CustomerNumber}</span>\n`;
     k1.innerHTML += `----------------------------------------------\n`
     k1.innerHTML += `<span class="inner-pre" style="font-size: 16px;">Bill     : ${jVarLocalBillDataAsJson.BillNumber} </span>\n`;
     k1.innerHTML += `<span class="inner-pre" style="font-size: 16px;">TimeStamp: ${LocalTmeStamp}</span>\n`;
 
 };
-
-const JFLocalGSTNumber = ({ inGSTNumber }) => {
-
-    if (inGSTNumber === undefined) {
-        return "-"
-    };
-    return inGSTNumber;
-
-}
 
 export { StartFunc };
