@@ -33,11 +33,6 @@ let StartFunc = () => {
         inIdName: "PayMantModeId"
     });
 
-    jVarLocalGSTNumber({
-        inData: jVarLocalReturnData,
-        inIdName: "GSTNumberId"
-    });
-
     return jVarLocalReturnData;
 };
 
@@ -72,16 +67,6 @@ let jVarLocalCustomerNumber = ({ inData, inIdName }) => {
 };
 
 let jVarLocalPaymentMode = ({ inData, inIdName }) => {
-    let jVarLocalSupplierNameSelectId = inIdName;
-    let jVarLocalHtmlSupplierNameSelectId = document.getElementById(jVarLocalSupplierNameSelectId);
-
-    if ((jVarLocalHtmlSupplierNameSelectId === null) === false) {
-        let jVarLocalSupplierName = jVarLocalHtmlSupplierNameSelectId.name;
-        inData[jVarLocalSupplierName] = jVarLocalHtmlSupplierNameSelectId.value;
-    };
-};
-
-let jVarLocalGSTNumber = ({ inData, inIdName }) => {
     let jVarLocalSupplierNameSelectId = inIdName;
     let jVarLocalHtmlSupplierNameSelectId = document.getElementById(jVarLocalSupplierNameSelectId);
 
