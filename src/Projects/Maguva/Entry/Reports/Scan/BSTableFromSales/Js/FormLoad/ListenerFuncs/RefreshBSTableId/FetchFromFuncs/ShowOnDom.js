@@ -26,6 +26,7 @@ const jFLocalCheck = ({ QrCodeData, SaleDataPOS }) => {
 
         if (element.BillPk in SaleDataPOS) {
             element.Status = "Sold";
+            element.PaymentMode = SaleDataPOS[element.BillPk].PaymentMode
             element.salePOSDateTime = SaleDataPOS[element.BillPk].Date
             let OnlyYear = new Date(element.salePOSDateTime);
             let OnlyMonth = new Date(element.salePOSDateTime);
