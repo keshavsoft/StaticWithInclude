@@ -8,33 +8,14 @@ import { StartFunc as ButtonForImageDownload } from "./ToDom/ButtonForImageDownl
 import { StartFunc as StartFuncSaveWithButton } from "./FetchFuncs/SaveWithButton/1-ClickFunc.js";
 
 let StartFunc = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
-    // LocalFooterSaveAssign({ inFolderName, inFileName, inItemName, inProjectName });
     StartFuncSaveWithButton();
     QrCodeKeyPressAssign({ inFolderName, inFileName, inItemName, inProjectName });
     localButtonDeleteFunc({ inFolderName, inFileName, inItemName, inProjectName });
     StartFuncinvKeyPressCal();
     localprintBurronClickFuncc();
     LocalModalButtonForImageDownloadFuncs();
+    localPaymentModeIdBurronClickFuncc();
 };
-
-// let LocalFooterSaveAssign = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
-//     let localRowPK = ReturnRowPK().RowPK;
-//     let jVarLocalInvTableFooterSaveButtonId = document.getElementById("InvTableFooterSaveButtonId");
-
-//     if (jVarLocalInvTableFooterSaveButtonId !== null) {
-//         jVarLocalInvTableFooterSaveButtonId.addEventListener("click", async (event) => {
-//             event.preventDefault();
-//             let LocalFromSave = await SaveFuncsStartFunc({
-//                 inFolderName, inFileName, inItemName, inProjectName,
-//                 inEvent: event
-//             });
-
-
-//         });
-//     };
-
-// };
-
 
 let QrCodeKeyPressAssign = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
     let jVarLocalQrCode = document.getElementById("QrCode");
@@ -80,6 +61,16 @@ let LocalModalButtonForImageDownloadFuncs = () => {
     for (let i = 0; i < jVarLocalUpdateClassName.length; i++) {
         jVarLocalUpdateClassName[i].addEventListener("click", ButtonForImageDownload)
     };
+};
+
+let localPaymentModeIdBurronClickFuncc = () => {
+    let jvarLocalPrinButtonId = document.getElementById("PaymentModeId");
+
+    jvarLocalPrinButtonId.addEventListener("click", () => {
+        let localRowPK = ReturnRowPK().RowPK;
+        // window.location.href = `/Garments/Sales/BillPrint/Show/Show.html?RowPK=${localRowPK}`;
+        window.location.href = `/Garments/Sales/Bills/PaymentMode/PaymentMode.html?RowPK=${localRowPK}`;
+    })
 };
 
 
