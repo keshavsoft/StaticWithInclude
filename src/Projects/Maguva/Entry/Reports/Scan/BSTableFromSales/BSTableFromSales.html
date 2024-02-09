@@ -116,7 +116,7 @@
                     </div>
 
                     <table id="table" data-toolbar="#toolbar" data-search="true" dat-pagination="true"
-                        data-searchable="true" data-pagination="true" data-show-columns="true"
+                        data-show-footer="true" data-searchable="true" data-pagination="true" data-show-columns="true"
                         data-show-columns-toggle-all="true" data-show-export="true" data-detail-view="true"
                         data-detail-formatter="detailFormatter" data-id-field="pk" data-show-toggle="true"
                         data-filter-control="true">
@@ -129,7 +129,10 @@
                                 <th data-field="PosOnlyYear" data-filter-control="select">Year</th>
                                 <th data-field="PosOnlyMonth" data-filter-control="select">Month</th>
                                 <th data-field="salePOSDateTime" data-filter-control="select">Day</th>
-                                <th data-field="GrossAmout" data-filter-control="select"> ₹ GrossAmout</th>
+                                <th data-field="GrossAmout" data-filter-control="select"
+                                    data-footer-formatter="TotalItems"> ₹ GrossAmout</th>
+                                <th data-field="PaymentMode" data-filter-control="select">PaymentMode</th>
+
                             </tr>
                         </thead>
                     </table>
@@ -151,6 +154,11 @@
 
         function jFLocalSerialColumn(value, row, index) {
             return index + 1;
+        };
+
+        function TotalItems(value, row, index) {
+            let localGrossAmoutData = value.map(i => i.GrossAmout).reduce((a, b) => a + b, 0);
+            return localGrossAmoutData;
         };
     </script>
 
